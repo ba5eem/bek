@@ -22,8 +22,8 @@ route.get('/google', passport.authenticate('google', {
 }));
 
 // callback route for google to redirect to
-route.get('/google/redirect', (req, res) => {
-    res.json('you reached the redirect URI');
+route.get('/google/redirect', passport.authenticate('google'), (req, res) => {
+    res.send('you reached the redirect URI');
 });
 
 
