@@ -1,27 +1,34 @@
-const router = require('express').Router();
-const passport = require('passport');
+const express          = require('express');
+const app              = express();
+const route            = express.Router();
+const passport         = require('passport');
+const passportSetup    = require('../config/passport-setup');
+
 
 // auth login
-router.get('/login', (req, res) => {
-    res.render('login', { user: req.user });
+route.get('/login', (req, res) => {
+    res.json('login');
 });
 
 // auth logout
-router.get('/logout', (req, res) => {
-    req.logout();
-    res.redirect('/');
+route.get('/logout', (req, res) => {
+  //handle with passport
+  res.json('logging out');
 });
 
 // auth with google+
-router.get('/google', passport.authenticate('google', {
+route.get('/google', passport.authenticate('google', {
     scope: ['profile']
 }));
 
 // callback route for google to redirect to
-// hand control to passport to use code to grab profile info
-router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-    // res.send(req.user);
-    res.redirect('/profile');
+route.get('/google/redirect', (req, res) => {
+    res.json('you reached the redirect URI');
 });
 
-module.exports = router;
+
+
+
+
+
+module.exports = route;
