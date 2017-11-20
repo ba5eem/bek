@@ -8,20 +8,10 @@ module.exports = function(sequelize,DataTypes){
       type: DataTypes.STRING,
       allowNull: false
     },
-    password: {
-      type:DataTypes.STRING,
-      allowNull: false
+    phonenumber: {
+      type: DataTypes.STRING
     },
-    email: {
-      type: DataTypes.STRING,
-      unique: true,
-      allowNull: false
-    },
-    phoneNumber: {
-      type: DataTypes.STRING,
-      unique: true,
-    },
-    roleId: {
+    roleid: {
       type: DataTypes.INTEGER
     }
 
