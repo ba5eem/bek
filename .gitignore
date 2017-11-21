@@ -64,5 +64,5 @@ buck-out/
 /server/client_secret.json
 
 #temp files
-/app/index.js
+/app/App.js
 /app/store.js
