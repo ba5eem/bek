@@ -53,4 +53,6 @@ buck-out/
 */fastlane/screenshots
 
 # config file
-/server/config/config.j*
+/server/config/config.json
+#keys file
+/server/config/keys.js
