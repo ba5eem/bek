@@ -13,16 +13,14 @@ import {
 
 const ProfileDetails = () => {
   return(
-    <View>
-      <View style={styles.photo}>
-        <Image
-          style = {{width: 100, height: 100}}
-          source = {{uri: 'https://pbs.twimg.com/profile_images/690367426794516480/8hM2aY52_400x400.png'}}/>
-      </View>
-      <View>
-        <Text>Name: What? </Text>
-        <Text>Email: </Text>
-        <Text>Phone Number: </Text>
+    <View style={styles.container}>
+      <Image
+        style={styles.photo}
+        source = {{uri: 'https://pbs.twimg.com/profile_images/690367426794516480/8hM2aY52_400x400.png'}}/>
+      <View style={styles.details}>
+        <Text style={styles.text}>Name:  </Text>
+        <Text style={styles.text}>Email: </Text>
+        <Text style={styles.text}>Phone Number: </Text>
       </View>
 
     </View>
@@ -30,13 +28,35 @@ const ProfileDetails = () => {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    width:415,
+    height: undefined,
+    flex: 1/2,
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+//    flexWrap: 'nowrap',
+    backgroundColor: 'skyblue',
+    flexWrap: 'nowrap',
+  },
   photo: {
-    width: 110,
-    height: 100
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    resizeMode: 'contain',
+    aspectRatio: 1.5,
+    marginTop:10,
+    borderRadius: 40
   },
   details: {
-    width: 150,
-    height: 100
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    marginTop:15
+  },
+  text: {
+    fontSize:20
   }
 })
 

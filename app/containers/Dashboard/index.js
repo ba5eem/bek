@@ -37,20 +37,14 @@ class Dashboard extends Component {
   render(){
 
     return(
-       <View style={styles.background}>
+       <View>
         <ProfileDetails/>
        </View>
     )
   }
 }
 
-const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: 'white'
-  }
-})
+
 
 
 //The methods built in are boiler plater setup - they may not be neccessary or applicable to this containers - please remove/add as needed. - they are only here to help with startup of project
