@@ -95,16 +95,7 @@ const styles = StyleSheet.create({
 //The methods built in are boiler plater setup - they may not be neccessary or applicable to this containers - please remove/add as needed. - they are only here to help with startup of project
 
 
-const mapStateToProps = (state) => {
-  return{
-    shifts: state.shifts
-  }
-}
 
-const ConnectedLogin = connect(
-  mapStateToProps,
-  {loginUser}
-)(Login)
 
 
 /*
