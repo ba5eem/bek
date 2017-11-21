@@ -62,3 +62,7 @@ buck-out/
 
 #calendar keys
 /server/client_secret.json
+
+#temp files
+/app/index.js
+/app/store.js
