@@ -7,6 +7,7 @@
   "test": "jest"
  },
  "dependencies": {
+  "@expo/vector-icons": "^6.2.0",
   "adawat": "0.0.4",
   "axios": "^0.17.1",
   "bcrypt": "^1.0.3",
@@ -20,6 +21,7 @@
   "googleapis": "^22.2.0",
   "lodash": "^4.17.4",
   "method-override": "^2.3.10",
+  "native-base": "^2.3.3",
   "passport": "^0.4.0",
   "passport-google-oauth2": "^0.1.6",
   "passport-local": "^1.0.0",
