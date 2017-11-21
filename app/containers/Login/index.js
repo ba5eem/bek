@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -14,7 +15,13 @@ import {
   View
 } from 'react-native';
 
-//react-native import has been commented out - please un-comment once react-native has been installed. Link and Connect may not be neccessary moving forward with react-native
+
+
+const mapStateToProps = (state) => ({
+  ...getNav(state),
+  ...getLogin(state),
+})
+
 
 //Using react-native - these boiler plates may be un-neccessary - please remove/change/add as you see fit:
 
@@ -187,6 +194,4 @@ const styles = StyleSheet.create({
   },
 });
 */
-
-
 
