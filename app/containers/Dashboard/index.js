@@ -13,7 +13,7 @@ import {
   TouchableHighlight,
   View
 } from 'react-native';
-
+import ProfileDetails from '../Component/ProfileDetails';
 //react-native import has been commented out - please un-comment once react-native has been installed. Link and Connect may not be neccessary moving forward with react-native
 
 //Using react-native - these boiler plates may be un-neccessary - please remove/change/add as you see fit:
@@ -37,15 +37,20 @@ class Dashboard extends Component {
   render(){
 
     return(
-       <View style={{ backgroundColor: 'skyblue'}}>
-        <Text>Name:  </Text>
-        <Text>Email: </Text>
-        <Text>Phone Number: </Text>
+       <View style={styles.background}>
+        <ProfileDetails/>
        </View>
     )
   }
 }
 
+const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: 'white'
+  }
+})
 
 
 //The methods built in are boiler plater setup - they may not be neccessary or applicable to this containers - please remove/add as needed. - they are only here to help with startup of project
