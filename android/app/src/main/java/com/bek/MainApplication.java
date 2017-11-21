@@ -11,6 +11,9 @@ import com.facebook.soloader.SoLoader;
 import java.util.Arrays;
 import java.util.List;
 
+import com.onesignal.OneSignal;
+import com.geektime.rnonesignalandroid.ReactNativeOneSignalPackage;
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
@@ -22,7 +25,8 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage()
+          new MainReactPackage(),
+          new ReactNativeOneSignalPackage()
       );
     }
 
@@ -40,6 +44,14 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+    OneSignal.startInit(this)
+        .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+        .unsubscribeWhenNotificationsAreDisabled(true)
+        .init();
+      // Call syncHashedEmail anywhere in your app if you have the user's email.
+      // This improves the effectiveness of OneSignal's "best-time" notification scheduling feature.
+      // OneSignal.syncHashedEmail(userEmail);
+
     SoLoader.init(this, /* native exopackage */ false);
   }
 }

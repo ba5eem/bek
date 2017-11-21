@@ -3,7 +3,6 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -12,12 +11,12 @@ import {
   Text,
   View
 } from 'react-native';
-import Dashboard from '../Dashboard';
 import { Provider } from 'react-redux';
-import reducers from '../../reducers';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import Login from '../Login';
+
+import App from '../../App';
+import reducers from '../../reducers';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -42,7 +41,7 @@ const store = configureStore({});
   applyMiddleware(thunk)
 );*/
 
-export default class app extends Component<{}> {
+export default class App extends Component<{}> {
   render() {
     return (
       <Provider store={store}>
@@ -83,4 +82,4 @@ const styles = StyleSheet.create({
 });
 
 
-AppRegistry.registerComponent('app', () =>  app);
+AppRegistry.registerComponent('bek', () =>  App);
