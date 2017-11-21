@@ -6,13 +6,13 @@ module.exports = function(sequelize,DataTypes){
     },
     googleid: {
       type: DataTypes.STRING,
-      allowNull: false
+      unique: true
     },
     phonenumber: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING //cannot be an integer
     },
-    roleid: {
-      type: DataTypes.INTEGER
+    image: {
+      type: DataTypes.STRING
     }
 
   })

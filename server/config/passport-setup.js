@@ -4,6 +4,17 @@ const keys             = require('./keys');
 const db               = require('../models');
 const {user}           = db;
 
+passport.serializeUser((user, done) => {
+    done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+    user.findById(id).then((user) => {
+        done(null, user);
+    });
+});
+
+
 passport.use(
     new GoogleStrategy({
         // options for google strategy
@@ -12,16 +23,21 @@ passport.use(
         callbackURL: '/auth/google/redirect'
     }, (accessToken, refreshToken , profile, done) => {
         // passport callback function
-        console.log('profile id: ',profile.id);
+        user.findOne({where: {googleid:profile.id}}).then((currentUser) =>{
+          if(currentUser){
+            //already have this user
+            console.log('user already exists****************');
+            done(null, currentUser);
+          }
+        })
         db.user.create({
           username: profile.displayName,
           googleid: profile.id,
           phonenumber: "8081234567",
-          roleid: 1
+          image: profile._json.image.url
         }).then((newUser)=>{
-          console.log('newuser: ', newUser);
+            console.log('new user ****************');
+            done(null, newUser);
         })
-
-
     })
 );

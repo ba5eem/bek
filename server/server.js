@@ -22,7 +22,15 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 //Authentication:
+// set up session cookies
+app.use(cookieSession({
+  maxAge: 24*60*60*1000,
+  keys: [keys.session.cookieKey]
+}))
 
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
 //Routes
 app.use('/', routes);
 
