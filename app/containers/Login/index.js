@@ -46,10 +46,10 @@ export default class App extends Component {
   };
 
   // Handle Login with Facebook button tap
-  loginWithFacebook = () => this.openURL('http://localhost:3000/auth/facebook');
+  loginWithFacebook = () => this.openURL('http://169.254.255.255:8080/auth/google');
 
   // Handle Login with Google button tap
-  loginWithGoogle = () => this.openURL('http://localhost:3000/auth/google');
+  loginWithGoogle = () => this.openURL('http://127.0.0.1:8080/auth/google');
 
   // Open URL in a browser
   openURL = (url) => {
