@@ -96,21 +96,14 @@ export default class App extends Component {
         }
         {/* Login buttons */}
         <View style={styles.buttons}>
-          <Icon.Button
-            name="facebook"
-            backgroundColor="#3b5998"
-            onPress={this.loginWithFacebook}
-            {...iconStyles}
-          >
-            Login with Facebook
-          </Icon.Button>
+ 
           <Icon.Button
             name="google"
             backgroundColor="#DD4B39"
             onPress={this.loginWithGoogle}
             {...iconStyles}
           >
-            Or with Google
+            Login with Google
           </Icon.Button>
         </View>
       </View>
@@ -155,6 +148,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     margin: 20,
-    marginBottom: 30,
+    marginBottom: 30
   },
 });
