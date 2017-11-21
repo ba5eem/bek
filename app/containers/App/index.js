@@ -47,16 +47,16 @@ export default class app extends Component<{}> {
     return (
       <Provider store={store}>
       <View style={styles.container}>
-        <Text style={styles.welcome}>
+        {/*<Text style={styles.welcome}>
           Welcome to BEK!
         </Text>
-        {/*<Text style={styles.instructions}>
+        <Text style={styles.instructions}>
           To get started, edit App.js
         </Text>
         <Text style={styles.instructions}>
           {instructions}
         </Text>*/}
-        <Login/>
+        <Dashboard/>
       </View>
       </Provider>
     );

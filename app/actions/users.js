@@ -5,7 +5,7 @@ export const EDIT_USER = 'EDIT_USER';
 
 export const loadUsers = () => {
   return function(dispatch){
-    return axios.get('/api/users')
+    return axios.get('/users')
     .then( users => {
       dispatch({
         type: LOAD_USERS,
@@ -17,7 +17,7 @@ export const loadUsers = () => {
 
 export const editUser = (newInfo) => {
   return function(dispatch){
-    return axios.put(`/api/users/${newInfo.id}`, newInfo)
+    return axios.put(`/users/${newInfo.id}`, newInfo)
     .then (user => {
       dispatch({
         type: EDIT_USER,

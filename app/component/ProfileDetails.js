@@ -11,16 +11,16 @@ import {
   View
 } from 'react-native';
 
-const ProfileDetails = () => {
+const ProfileDetails = ({users}) => {
   return(
     <View style={styles.container}>
       <Image
         style={styles.photo}
         source = {{uri: 'https://pbs.twimg.com/profile_images/690367426794516480/8hM2aY52_400x400.png'}}/>
       <View style={styles.details}>
-        <Text style={styles.text}>Name:  </Text>
-        <Text style={styles.text}>Email: </Text>
-        <Text style={styles.text}>Phone Number: </Text>
+        <Text style={styles.text}>Name: {users.username} </Text>
+        <Text style={styles.text}>Google Id: {users.googleid}</Text>
+        <Text style={styles.text}>Phone Number: {users.phonenumber} </Text>
       </View>
 
     </View>

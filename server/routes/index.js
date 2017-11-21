@@ -13,7 +13,7 @@ const passportSetup = require('../config/passport-setup');
 
 
 route.use('/auth', auth);
-route.use('/calendar', calendar);
+//route.use('/calendar', calendar);
 route.use('/profile', profile);
 route.use('/roles', roles);
 route.use('/shifts', shifts);

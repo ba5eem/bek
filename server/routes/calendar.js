@@ -1,4 +1,4 @@
-const express          = require('express');
+/*const express          = require('express');
 const app              = express();
 const route            = express.Router();
 const passport         = require('passport');
@@ -7,8 +7,8 @@ const fs               = require('fs');
 const readline         = require('readline');
 const google           = require('googleapis');
 const googleAuth       = require('google-auth-library');
-
-
+*/
+/*
 
 route.get('/',(req,res) => {
 
@@ -49,6 +49,8 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
  * @param {Object} credentials The authorization client credentials.
  * @param {function} callback The callback to call with the authorized client.
  */
+
+ /*
 function authorize(credentials, callback) {
   var clientSecret = credentials.installed.client_secret;
   console.log('clientsecret: ', clientSecret);
@@ -71,14 +73,14 @@ function authorize(credentials, callback) {
   });
 }
 
-/**
+*
  * Get and store new token after prompting for user authorization, and then
  * execute the given callback with the authorized OAuth2 client.
  *
  * @param {google.auth.OAuth2} oauth2Client The OAuth2 client to get token for.
  * @param {getEventsCallback} callback The callback to call with the authorized
  *     client.
- */
+
 function getNewToken(oauth2Client, callback) {
     console.log('oauth2Client: ', oauth2Client);
   var authUrl = oauth2Client.generateAuthUrl({
@@ -108,7 +110,7 @@ function getNewToken(oauth2Client, callback) {
  * Store token to disk be used in later program executions.
  *
  * @param {Object} token The token to store to disk.
- */
+
 function storeToken(token) {
   try {
     fs.mkdirSync(TOKEN_DIR);
@@ -125,7 +127,7 @@ function storeToken(token) {
  * Lists the next 10 events on the user's primary calendar.
  *
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
- */
+
 function listEvents(auth) {
   let local = {}
   var calendar = google.calendar('v3');
@@ -162,11 +164,12 @@ function listEvents(auth) {
 
 });
 
-
-
-
-
-
-
-
 module.exports = route;
+ */
+
+
+
+
+
+
+

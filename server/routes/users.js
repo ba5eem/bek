@@ -8,7 +8,7 @@ const route            = express.Router();
 const db               = require('../models');
 const {user}           = db;
 
-route.get('/', ( req, res ) => {
+/*route.get('/', ( req, res ) => {
   let value = req.isAuthenticated();
   user.findAll()
   .then((users) => {
@@ -18,6 +18,13 @@ route.get('/', ( req, res ) => {
     //VIP: only return user id and username
     //res.json(local);
     res.json("users page");
+  });
+});*/
+route.get('/', ( req, res ) => {
+  let value = req.isAuthenticated();
+  user.findAll({})
+  .then((DataCollection) => {
+    res.json(DataCollection);
   });
 });
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { loadShifts } from '../../actions/shifts';
+import { loadUsers } from '../../actions/users';
 import { filterAll } from '../../lib/Filters';
 import {
   AppRegistry,
@@ -18,18 +18,20 @@ import ProfileDetails from '../../component/ProfileDetails';
 
 //Using react-native - these boiler plates may be un-neccessary - please remove/change/add as you see fit:
 
+
+
 class Dashboard extends Component {
   constructor(){
     super();
 
     this.state = {
-      shifts: ''
+      user: ''
     }
   }
 
 
   componentDidMount(){
-    //this.props.loadShifts();
+    this.props.loadUsers();
   }
 
 
@@ -38,7 +40,8 @@ class Dashboard extends Component {
 
     return(
        <View>
-        <ProfileDetails/>
+        <ProfileDetails
+          users={this.props.users}/>
        </View>
     )
   }
@@ -52,13 +55,13 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
   return{
-    shifts: state.shifts
+    users: state.users
   }
 }
 
 const ConnectedDashboard = connect(
   mapStateToProps,
-  {loadShifts}
+  {loadUsers}
 )(Dashboard)
 
 export default ConnectedDashboard;
