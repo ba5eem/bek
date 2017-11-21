@@ -47,7 +47,7 @@ export default class app extends Component<{}> {
     return (
       <Provider store={store}>
       <View style={styles.container}>
-        {/*<Text style={styles.welcome}>
+        <Text style={styles.welcome}>
           Welcome to BEK!
         </Text>
         <Text style={styles.instructions}>
@@ -55,7 +55,7 @@ export default class app extends Component<{}> {
         </Text>
         <Text style={styles.instructions}>
           {instructions}
-        </Text>*/}
+        </Text>
 
       </View>
       </Provider>
