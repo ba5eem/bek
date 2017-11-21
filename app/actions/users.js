@@ -1,4 +1,4 @@
-const axios = require('axios');
+const axios = require('react-native-axios');
 
 export const LOAD_USERS = 'LOAD_USERS';
 export const EDIT_USER = 'EDIT_USER';
