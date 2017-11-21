@@ -1,28 +1,18 @@
 module.exports = function(sequelize,DataTypes){
   var User = sequelize.define('user', {
-    firstName: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    lastName: {
+    googleid: {
       type: DataTypes.STRING,
-      allowNull: false
+      unique: true
     },
-    password: {
-      type:DataTypes.STRING,
-      allowNull: false
+    phonenumber: {
+      type: DataTypes.STRING //cannot be an integer
     },
-    email: {
-      type: DataTypes.STRING,
-      unique: true,
-      allowNull: false
-    },
-    phoneNumber: {
-      type: DataTypes.STRING,
-      unique: true,
-    },
-    roleId: {
-      type: DataTypes.INTEGER
+    image: {
+      type: DataTypes.STRING
     }
 
   })
