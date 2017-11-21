@@ -13,7 +13,7 @@ import {
   TouchableHighlight,
   View
 } from 'react-native';
-
+import ProfileDetails from '../Component/ProfileDetails';
 //react-native import has been commented out - please un-comment once react-native has been installed. Link and Connect may not be neccessary moving forward with react-native
 
 //Using react-native - these boiler plates may be un-neccessary - please remove/change/add as you see fit:
@@ -37,14 +37,13 @@ class Dashboard extends Component {
   render(){
 
     return(
-       <View style={{ backgroundColor: 'skyblue'}}>
-        <Text>Name:  </Text>
-        <Text>Email: </Text>
-        <Text>Phone Number: </Text>
+       <View>
+        <ProfileDetails/>
        </View>
     )
   }
 }
+
 
 
 
