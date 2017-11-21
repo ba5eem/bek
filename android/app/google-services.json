@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "366752664535",
+    "project_id": "c19bek"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366752664535:android:ab072992ce8e2a87",
+        "android_client_info": {
+          "package_name": "com.bek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366752664535-gt0emjrarjeq0s524nk88j3asr8g8dit.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bek",
+            "certificate_hash": "6a337bd800fcf09e5af63893b5245ca89adf43dd"
+          }
+        },
+        {
+          "client_id": "366752664535-921iec03nsrtpbb4s8fdlpq8om608e12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrOeFPCtSArToxGxhbCSMMB5lVGyaXG5A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
