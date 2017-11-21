@@ -3,19 +3,20 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { loadShifts } from '../../actions/shifts';
 import { filterAll } from '../../lib/Filters';
-// import {
-//   Button,
-//   ScrollView,
-//   StyleSheet,
-//   Text,
-//   TextInput,
-//   TouchableHighlight,
-//   View
-// } from 'react-native';
+import {
+  AppRegistry,
+  Button,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableHighlight,
+  View
+} from 'react-native';
 
 //react-native import has been commented out - please un-comment once react-native has been installed. Link and Connect may not be neccessary moving forward with react-native
 
-//Using react-native - these boiler plates may be un-neccessary - please remove/change/add as you see fit: 
+//Using react-native - these boiler plates may be un-neccessary - please remove/change/add as you see fit:
 
 class Dashboard extends Component {
   constructor(){
@@ -32,10 +33,15 @@ class Dashboard extends Component {
   }
 
 
+
   render(){
 
     return(
-       <div>Dashboard Container</div>
+       <View style={{ backgroundColor: 'skyblue'}}>
+        <Text>Name:  </Text>
+        <Text>Email: </Text>
+        <Text>Phone Number: </Text>
+       </View>
     )
   }
 }
@@ -57,3 +63,5 @@ const ConnectedDashboard = connect(
 )(Dashboard)
 
 export default ConnectedDashboard;
+
+AppRegistry.registerComponent('Dashboard', () =>  Dashboard);

@@ -6,11 +6,18 @@
 
 import React, { Component } from 'react';
 import {
+  AppRegistry,
   Platform,
   StyleSheet,
   Text,
   View
 } from 'react-native';
+import Dashboard from '../Dashboard';
+import { Provider } from 'react-redux';
+import reducers from '../../reducers';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -19,11 +26,28 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class App extends Component<{}> {
+function configureStore(initialState){
+  const enhancer = compose(
+    applyMiddleware(
+      thunkMiddleware
+    ),
+  );
+  return createStore(reducers, initialState, enhancer);
+}
+
+const store = configureStore({});
+/*const store = createStore(
+  reducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  applyMiddleware(thunk)
+);*/
+
+export default class app extends Component<{}> {
   render() {
     return (
+      <Provider store={store}>
       <View style={styles.container}>
-        <Text style={styles.welcome}>
+        {/*<Text style={styles.welcome}>
           Welcome to BEK!
         </Text>
         <Text style={styles.instructions}>
@@ -31,8 +55,10 @@ export default class App extends Component<{}> {
         </Text>
         <Text style={styles.instructions}>
           {instructions}
-        </Text>
+        </Text>*/}
+
       </View>
+      </Provider>
     );
   }
 }
@@ -55,3 +81,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+
+AppRegistry.registerComponent('app', () =>  app);
