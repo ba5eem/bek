@@ -10,7 +10,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SafariView from 'react-native-safari-view';
 
-export default class Login extends Component {
+export default class App extends Component {
 
   state = {
     user: undefined, // user has not logged in yet
@@ -46,10 +46,10 @@ export default class Login extends Component {
   };
 
   // Handle Login with Facebook button tap
-  loginWithFacebook = () => this.openURL('http://192.168.2.2:54722');
+  loginWithFacebook = () => this.openURL('http://localhost:3000/auth/facebook');
 
   // Handle Login with Google button tap
-  loginWithGoogle = () => this.openURL('http://127.0.0.1:54722');
+  loginWithGoogle = () => this.openURL('http://localhost:3000/auth/google');
 
   // Open URL in a browser
   openURL = (url) => {
@@ -86,7 +86,7 @@ export default class Login extends Component {
                 Welcome Stranger!
               </Text>
               <View style={styles.avatar}>
-                <Image source = {{uri: 'http://bit.ly/2hkiY4s'}} style={styles.avatarImage} />
+                <Icon name="user-circle" size={100} color="rgba(0,0,0,.09)" />
               </View>
               <Text style={styles.text}>
                 Please log in to continue {'\n'}
@@ -102,7 +102,7 @@ export default class Login extends Component {
             onPress={this.loginWithFacebook}
             {...iconStyles}
           >
-            Login google 8080
+            Login with Facebook
           </Icon.Button>
           <Icon.Button
             name="google"
@@ -110,7 +110,7 @@ export default class Login extends Component {
             onPress={this.loginWithGoogle}
             {...iconStyles}
           >
-            Or with Google 3000
+            Or with Google
           </Icon.Button>
         </View>
       </View>
