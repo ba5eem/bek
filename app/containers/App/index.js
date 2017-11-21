@@ -17,7 +17,7 @@ import { Provider } from 'react-redux';
 import reducers from '../../reducers';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-
+import Login from '../Login';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -50,13 +50,13 @@ export default class app extends Component<{}> {
         <Text style={styles.welcome}>
           Welcome to BEK!
         </Text>
-        <Text style={styles.instructions}>
+        {/*<Text style={styles.instructions}>
           To get started, edit App.js
         </Text>
         <Text style={styles.instructions}>
           {instructions}
-        </Text>
-
+        </Text>*/}
+        <Login/>
       </View>
       </Provider>
     );
