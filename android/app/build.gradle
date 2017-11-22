@@ -93,26 +93,11 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
-plugins {
-    id 'com.onesignal.androidsdk.onesignal-gradle-plugin' version '0.7.0'
-}
-apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
-
-repositories {
-    maven { url 'https://maven.google.com' }
-}
-
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2" //UPGRADE
 
     defaultConfig {
-        manifestPlaceholders = [
-            manifestApplicationId: "${2d99438b-1168-4e8b-bf14-613659c58ae8}",
-            onesignal_app_id: "bek",
-            // Project number pulled from dashboard, local value is ignored.
-            onesignal_google_project_number: "366752664535"
-        ]
         applicationId "com.bek"
         minSdkVersion 16
         targetSdkVersion 22
@@ -121,6 +106,11 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        manifestPlaceholders = [
+            manifestApplicationId: "${2d99438b-1168-4e8b-bf14-613659c58ae8}",
+            onesignal_app_id: "bek",
+            // Project number pulled from dashboard, local value is ignored.
+            onesignal_google_project_number: "366752664535"]
     }
     splits {
         abi {
