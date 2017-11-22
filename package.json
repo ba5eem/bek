@@ -29,13 +29,15 @@
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-native": "0.50.3",
+    "react-native-elements": "^0.18.2",
     "react-native-safari-view": "^2.1.0",
     "react-native-vector-icons": "^4.4.2",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "sequelize": "^4.22.8"
+    "sequelize": "^4.22.8",
+    "tcomb-form-native": "^0.6.11"
   },
   "devDependencies": {
     "babel-jest": "21.2.0",
