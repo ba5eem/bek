@@ -1,29 +1,20 @@
 const axios = require('axios');
 
+
 export const LOAD_USERS = 'LOAD_USERS';
 export const EDIT_USER = 'EDIT_USER';
 
 export const loadUsers = () => {
+  console.log('loaduser fired')
   return function(dispatch){
-    return axios.get('/api/users')
+    return axios.get('http://localhost:8080/users')
     .then( users => {
+      console.log(users);
       dispatch({
         type: LOAD_USERS,
         users: users.data
       });
     });
+    console.log('completed action');
   }
 }
-
-export const editUser = (newInfo) => {
-  return function(dispatch){
-    return axios.put(`/api/users/${newInfo.id}`, newInfo)
-    .then (user => {
-      dispatch({
-        type: EDIT_USER,
-        user: user.data
-      });
-    });
-  }
-}
-

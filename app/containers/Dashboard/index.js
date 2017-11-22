@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { loadShifts } from '../../actions/shifts';
+//import { loadShifts } from '../../actions/shifts';
 import { filterAll } from '../../lib/Filters';
 import {
   AppRegistry,
@@ -57,8 +57,7 @@ const mapStateToProps = (state) => {
 }
 
 const ConnectedDashboard = connect(
-  mapStateToProps,
-  {loadShifts}
+  mapStateToProps
 )(Dashboard)
 
 export default ConnectedDashboard;
