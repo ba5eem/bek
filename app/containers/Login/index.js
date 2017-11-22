@@ -10,15 +10,23 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SafariView from 'react-native-safari-view';
 import Dashboard from '../Dashboard';
+import { login,loadUsers } from '../../../redux/actions/auth';
+import { connect } from 'react-redux';
 
-export default class App extends Component {
-
-  state = {
-    user: undefined // user has not logged in yet
-  };
+class Login extends Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            route: 'Login',
+            username: '',
+            password: '',
+            user: undefined
+        };
+    }
 
   // Set up Linking
   componentDidMount() {
+        this.props.loadUsers();
     // Add event listener to handle OAuthLogin:// URLs
     Linking.addEventListener('url', this.handleOpenURL);
     // Launched from an external URL
@@ -31,7 +39,13 @@ console.log(url,' 26')
     });
   };
 
+  componentWillMount(){
+
+
+  }
+
   componentWillUnmount() {
+    
     // Remove event listener
     Linking.removeEventListener('url', this.handleOpenURL);
     console.log(this.handleOpenURL, ' 37');
@@ -73,6 +87,7 @@ console.log(url,' 26')
   };
 
   render() {
+        console.log(this.props.users)
     const { user } = this.state;
     return (
       <View style={styles.container}>
@@ -157,3 +172,12 @@ const styles = StyleSheet.create({
     marginBottom: 30
   },
 });
+
+const mapStateToProps = (state) => {
+    return {
+        users: state.users
+    };
+}
+ 
+ 
+export default connect(mapStateToProps, {loadUsers})(Login);

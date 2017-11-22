@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -13,49 +7,24 @@ import {
   View
 } from 'react-native';
 import Dashboard from '../Dashboard';
-import { Provider } from 'react-redux';
-import reducers from '../../reducers';
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
-import thunkMiddleware from 'redux-thunk';
 import Chat from '../Chat';
 import Login from '../Login';
 import Home from '../HomeTest';
-import { Router, Scene } from 'react-native-router-flux';
+//import { Router, Scene } from 'react-native-router-flux';
 import ChatPageApp from '../ChatViewApp';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 
-function configureStore(initialState){
-  const enhancer = compose(
-    applyMiddleware(
-      thunkMiddleware
-    ),
-  );
-  return createStore(reducers, initialState, enhancer);
-}
 
-const store = configureStore({});
-/*const store = createStore(
-  reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  applyMiddleware(thunk)
-);*/
 
-export default class app extends Component<{}> {
+
+
+export default class App extends Component<{}> {
   render() {
     return (
-      <Provider store={store}>
 
           <View style={styles.container}>
             <Login />
           </View>
-
-      </Provider>
     );
   }
 }
@@ -80,4 +49,4 @@ const styles = StyleSheet.create({
 });
 
 
-AppRegistry.registerComponent('app', () =>  app);
+AppRegistry.registerComponent('App', () =>  App);
