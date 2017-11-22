@@ -17,7 +17,10 @@ import { Provider } from 'react-redux';
 import reducers from '../../reducers';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import Login from '../Login';
+import Chat from '../Chat';
+import Home from '../HomeTest';
+import { Router, Scene } from 'react-native-router-flux';
+import ChatPageApp from '../ChatViewApp';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -46,18 +49,13 @@ export default class app extends Component<{}> {
   render() {
     return (
       <Provider store={store}>
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to BEK!
-        </Text>
-        {/*<Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>*/}
-        <Login/>
-      </View>
+
+          <View style={styles.container}>
+            <Text style={styles.welcome}>
+              Welcome to BEK!
+            </Text>
+          </View>
+
       </Provider>
     );
   }
