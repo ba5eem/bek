@@ -9,15 +9,16 @@ const db               = require('../models');
 const {user}           = db;
 
 route.get('/', ( req, res ) => {
+  let local = {};
   let value = req.isAuthenticated();
   user.findAll()
-  .then((users) => {
-    let local = {};
+  .then((data) => {
+    let users = data.pop();
     local.id = users.id;
     local.username = users.username;
     //VIP: only return user id and username
     //res.json(local);
-    res.json("users page");
+    res.json(local);
   });
 });
 

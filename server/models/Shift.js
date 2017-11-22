@@ -1,26 +1,62 @@
 module.exports = function(sequelize,DataTypes){
   var Shift = sequelize.define('shift',{
-    startTime:{
-      type: DataTypes.TIME,
+    kind:{
+      type: DataTypes.STRING,
       allowNull: false
     },
-    endTime: {
-      type: DataTypes.TIME,
+    etag: {
+      type: DataTypes.STRING,
       allowNull: false
     },
-    date:{
-      type: DataTypes.DATEONLY,
+    id:{
+      type: DataTypes.STRING,
+      primaryKey: true
+    },
+    status:{
+      type: DataTypes.STRING
+    },
+    htmlLink:{//this is a link you can edit
+      type: DataTypes.STRING
+    },
+    created: {
+      type: DataTypes.STRING,
       allowNull: false
     },
-    details:{
-      type: DataTypes.TEXT
+    updated: {
+      type: DataTypes.STRING,
+      defaultValue: null
     },
-    postedBy: {
-      type: DataTypes.INTEGER,
+    summary:{
+      type: DataTypes.STRING
+    },
+    description: {
+      type: DataTypes.STRING,
+      defaultValue: null
+    },
+    location:{
+      type: DataTypes.STRING
+    },
+    creator: {
+      type: DataTypes.STRING,
       allowNull: false
     },
-    acceptedBy: {
-      type: DataTypes.INTEGER,
+    creatorEmail: {
+      type: DataTypes.STRING,
+      defaultValue: null
+    },
+    startdatetime: {
+      type: DataTypes.STRING,
+      defaultValue: null
+    },
+    enddatetime:{
+      type: DataTypes.STRING
+    },
+    icalUID: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    creatorEmail: {
+      type: DataTypes.STRING,
       defaultValue: null
     }
   })
