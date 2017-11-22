@@ -1,7 +1,7 @@
 import { LOAD_USERS,EDIT_USER } from '../actions/users.js';
 
 
-/*const users = (state = {}, action) => {
+const users = (state = {}, action) => {
 
   switch(action.type){
     case LOAD_USERS:
@@ -15,11 +15,11 @@ import { LOAD_USERS,EDIT_USER } from '../actions/users.js';
   }
 }
 
-export default users;*/
+export default users;
 
 
 
-const initialState = [];
+/*const initialState = [];
 
 export default function users(state = initialState, action){
     let result = [];
@@ -33,6 +33,6 @@ export default function users(state = initialState, action){
     }
     console.log("Result posts: ", result);
     return result === undefined ? [] : result;
-}
+}*/
 
 //export default users;

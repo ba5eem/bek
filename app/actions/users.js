@@ -4,7 +4,7 @@ import request from "react-native-axios";
 export const LOAD_USERS = 'LOAD_USERS';
 export const EDIT_USER = 'EDIT_USER';
 
-/*export const loadUsers = () => {
+export const loadUsers = () => {
   return function(dispatch){
     return axios.get('/users')
     .then( users => {
@@ -17,7 +17,7 @@ export const EDIT_USER = 'EDIT_USER';
       console.log(err)
     })
   }
-}*/
+}
 
 /*export const loadUsers = () => dispatch => {
   request.get('/users')
@@ -29,12 +29,12 @@ export const EDIT_USER = 'EDIT_USER';
     });
 }*/
 
-export const loadUsers = () => {
+/*export const loadUsers = () => {
  fetch('http://localhost:8080/users')
   .then(function(response) {
     return response.json()
   })
-}
+}*/
 
 export const editUser = (newInfo) => {
   return function(dispatch){

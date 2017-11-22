@@ -26,14 +26,15 @@ class Dashboard extends Component {
     super();
 
     this.state = {
-      user: []
+      user: ''
     }
   }
 
 
  componentDidMount(){
-    this.refreshDataFromServer()
+
   }
+
 
 
 
@@ -48,6 +49,7 @@ class Dashboard extends Component {
   }
 }
 
+INSERT into "shifts" VALUES (DEFAULT, '08:00:00', '12:00:00', '2017-11-22', 'details text here', '1', DEFAULT, '2017-11-22 00:00:57', '2017-11-22 00:00:57');
 
 
 
