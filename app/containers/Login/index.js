@@ -9,11 +9,12 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SafariView from 'react-native-safari-view';
+import Dashboard from '../Dashboard';
 
 export default class App extends Component {
 
   state = {
-    user: undefined, // user has not logged in yet
+    user: undefined // user has not logged in yet
   };
 
   // Set up Linking
@@ -22,8 +23,10 @@ export default class App extends Component {
     Linking.addEventListener('url', this.handleOpenURL);
     // Launched from an external URL
     Linking.getInitialURL().then((url) => {
+console.log(url,' 26')
       if (url) {
         this.handleOpenURL({ url });
+       console.log(url,' 29')
       }
     });
   };
@@ -31,9 +34,11 @@ export default class App extends Component {
   componentWillUnmount() {
     // Remove event listener
     Linking.removeEventListener('url', this.handleOpenURL);
+    console.log(this.handleOpenURL, ' 37');
   };
 
   handleOpenURL = ({ url }) => {
+    console.log(url,' 41')
     // Extract stringified user string out of the URL
     const [, user_string] = url.match(/user=([^#]+)/);
     this.setState({
@@ -53,6 +58,7 @@ export default class App extends Component {
 
   // Open URL in a browser
   openURL = (url) => {
+    console.log(url,' 61')
     // Use SafariView on iOS
     if (Platform.OS === 'ios') {
       SafariView.show({

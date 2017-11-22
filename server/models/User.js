@@ -6,7 +6,7 @@ module.exports = function(sequelize,DataTypes){
     },
     googleid: {
       type: DataTypes.STRING,
-      unique: true
+      unique: false
     },
     phonenumber: {
       type: DataTypes.STRING //cannot be an integer
