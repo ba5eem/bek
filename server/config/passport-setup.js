@@ -4,16 +4,18 @@ const keys             = require('./keys');
 const db               = require('../models');
 const {user}           = db;
 
-passport.serializeUser((user, done) => {
-    done(null, user.id);
+
+const transformGoogleProfile = (profile) => ({
+  username: profile.displayName,
+  googleid: profile.id,
+  phonenumber: "8081234567",
+  image: profile._json.image.url
 });
 
-passport.deserializeUser((id, done) => {
-    user.findById(id).then((user) => {
-        done(null, user);
-    });
-});
-
+/*passport.use(new GoogleStrategy(google,
+  async (accessToken, refreshToken, profile, done)
+    => done(null, transformGoogleProfile(profile._json))
+));*/
 
 passport.use(
     new GoogleStrategy({
@@ -41,3 +43,13 @@ passport.use(
         })
     })
 );
+
+passport.serializeUser((user, done) => {
+    done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+    user.findById(id).then((user) => {
+        done(null, user);
+    });
+});

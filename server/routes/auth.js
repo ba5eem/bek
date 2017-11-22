@@ -28,11 +28,4 @@ route.get('/google/redirect',
 
 
 
-
-
-
-
-
-
-
 module.exports = route;

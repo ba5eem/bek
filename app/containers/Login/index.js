@@ -54,8 +54,8 @@ console.log(url,' 26')
   loginWithFacebook = () => this.openURL('http://169.254.255.255:8080/auth/google');
 
   // Handle Login with Google button tap
-  loginWithGoogle = () => this.openURL('http://127.0.0.1:8080/auth/google');
-
+/*  loginWithGoogle = () => this.openURL('nslookup 10.0.1.123.xip.io/auth/google');*/
+  loginWithGoogle = () => this.openURL('https://localhost:8080/auth/google');
   // Open URL in a browser
   openURL = (url) => {
     console.log(url,' 61')
@@ -102,7 +102,7 @@ console.log(url,' 26')
         }
         {/* Login buttons */}
         <View style={styles.buttons}>
- 
+
           <Icon.Button
             name="google"
             backgroundColor="#DD4B39"
