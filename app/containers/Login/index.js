@@ -9,11 +9,12 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SafariView from 'react-native-safari-view';
+import Dashboard from '../Dashboard';
 
 export default class App extends Component {
 
   state = {
-    user: undefined, // user has not logged in yet
+    user: undefined // user has not logged in yet
   };
 
   // Set up Linking
