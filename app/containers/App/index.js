@@ -12,11 +12,11 @@ import {
   Text,
   View
 } from 'react-native';
-import Dashboard from '../Dashboard';
+
 import { Provider } from 'react-redux';
-import reducers from '../../reducers';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import reducers from '../../reducers';
 import Login from '../Login';
 
 const instructions = Platform.select({

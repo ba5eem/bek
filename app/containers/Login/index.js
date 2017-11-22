@@ -96,7 +96,7 @@ export default class App extends Component {
         }
         {/* Login buttons */}
         <View style={styles.buttons}>
- 
+
           <Icon.Button
             name="google"
             backgroundColor="#DD4B39"
