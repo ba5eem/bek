@@ -94,7 +94,9 @@ route.all('/:calendarId/add', function(req, res){
   
   var accessToken     = req.session.access_token;
   var calendarId      = req.params.calendarId;
-  var text            = req.query.text ||  {
+  var text            = req.query.text;
+
+  var event = {
   'summary': 'Google I/O 2015',
   'location': '800 Howard St., San Francisco, CA 94103',
   'description': 'A chance to hear more about Google\'s developer products.',
@@ -123,7 +125,7 @@ route.all('/:calendarId/add', function(req, res){
 };
 
 
-  gcal(accessToken).events.quickAdd(calendarId, text, function(err, data) {
+  gcal(accessToken).events.insert(calendarId, event, function(err, data) {
     if(err) return res.send(500,err);
     return res.redirect('/cal/'+calendarId);
   });
