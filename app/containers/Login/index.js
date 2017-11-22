@@ -55,7 +55,7 @@ console.log(url,' 26')
 
   // Handle Login with Google button tap
 /*  loginWithGoogle = () => this.openURL('nslookup 10.0.1.123.xip.io/auth/google');*/
-  loginWithGoogle = () => this.openURL('https://localhost:8080/auth/google');
+  loginWithGoogle = () => this.openURL('http://10.0.2.2:8080/auth/google');
   // Open URL in a browser
   openURL = (url) => {
     console.log(url,' 61')
