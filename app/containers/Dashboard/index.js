@@ -49,9 +49,6 @@ class Dashboard extends Component {
   }
 }
 
-INSERT into "shifts" VALUES (DEFAULT, '08:00:00', '12:00:00', '2017-11-22', 'details text here', '1', DEFAULT, '2017-11-22 00:00:57', '2017-11-22 00:00:57');
-
-
 
 //The methods built in are boiler plater setup - they may not be neccessary or applicable to this containers - please remove/add as needed. - they are only here to help with startup of project
 
