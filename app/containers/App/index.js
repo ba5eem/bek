@@ -18,6 +18,7 @@ import reducers from '../../reducers';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import Chat from '../Chat';
+import Login from '../Login';
 import Home from '../HomeTest';
 import { Router, Scene } from 'react-native-router-flux';
 import ChatPageApp from '../ChatViewApp';
@@ -51,9 +52,7 @@ export default class app extends Component<{}> {
       <Provider store={store}>
 
           <View style={styles.container}>
-            <Text style={styles.welcome}>
-              Welcome to BEK!
-            </Text>
+            <Login />
           </View>
 
       </Provider>
