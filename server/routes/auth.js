@@ -24,7 +24,9 @@ route.get('/google', passport.authenticate('google', {
 // callback route for google to redirect to
 route.get('/google/redirect',
   passport.authenticate('google', { failureRedirect: '/auth/google' }),
-  (req, res) => res.redirect('/profile?'));
+(req, res) => res.redirect('OAuthLogin://login?user=' + JSON.stringify(req.user)));
+
+
 
 
 

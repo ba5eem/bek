@@ -20,7 +20,7 @@ passport.use(
         // options for google strategy
         clientID: keys.google.clientID,
         clientSecret: keys.google.clientSecret,
-        callbackURL: '/auth/google/redirect'
+        callbackURL: 'http://localhost:8080/auth/google/redirect'
     }, (accessToken, refreshToken , profile, done) => {
         // passport callback function
         user.findOne({where: {googleid:profile.id}}).then((currentUser) =>{
