@@ -2,7 +2,7 @@ const express          = require('express');
 const app              = express();
 const route            = express.Router();
 const passport         = require('passport');
-const passportSetup    = require('../config/passport-setup');
+const passportSetup    = require('../../config/passport-setup');
 const fs               = require('fs');
 const readline         = require('readline');
 const google           = require('googleapis');
@@ -20,7 +20,7 @@ var googleAuth = require('google-auth-library');
 
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/calendar-nodejs-quickstart.json
-var SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
+var SCOPES = ['https://www.googleapis.com/auth/calendar'];
 console.log('scopes ',SCOPES);
 var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + '/.credentials/';
@@ -149,12 +149,12 @@ function listEvents(auth) {
       let local = []
       for (var i = 0; i < events.length; i++) {
         var event = events[i];
-        local.push(event)
+        local.push(events[i])
         var start = event.start.dateTime || event.start.date;
         console.log('%s - %s', start, event.summary);
 
       }
-      res.json(event);
+      res.json(local);
     }
   });
 
