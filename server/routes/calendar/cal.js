@@ -62,20 +62,21 @@ route.all('/', function(req, res){
 });
 
 route.all('/:calendarId', function(req, res){
-  
+    console.log(req.params.calendarId);
   if(!req.session.access_token) return res.redirect('/auth');
   
   //Create an instance from accessToken
   var accessToken     = req.session.access_token;
+  console.log(accessToken);
   var calendarId      = req.params.calendarId;
   
-  gcal(accessToken).events.list(calendarId, {maxResults:1}, function(err, data) {
+  gcal(accessToken).events.list(calendarId, {maxResults:10}, function(err, data) {
     if(err) return res.send(500,err);
     
-    console.log(data)
+    //console.log(data)
     if(data.nextPageToken){
-      gcal(accessToken).events.list(calendarId, {maxResults:1, pageToken:data.nextPageToken}, function(err, data) {
-        console.log(data.items)
+      gcal(accessToken).events.list(calendarId, {maxResults:10, pageToken:data.nextPageToken}, function(err, data) {
+        //console.log(data.items)
       })
     }
     
@@ -83,6 +84,51 @@ route.all('/:calendarId', function(req, res){
     return res.send(data);
   });
 });
+
+
+route.all('/:calendarId/add', function(req, res){
+  console.log('something')
+  console.log(req.params.calendarId);
+  
+  if(!req.session.access_token) return res.redirect('/auth');
+  
+  var accessToken     = req.session.access_token;
+  var calendarId      = req.params.calendarId;
+  var text            = req.query.text ||  {
+  'summary': 'Google I/O 2015',
+  'location': '800 Howard St., San Francisco, CA 94103',
+  'description': 'A chance to hear more about Google\'s developer products.',
+  'start': {
+    'dateTime': '2017-11-28T09:00:00-07:00',
+    'timeZone': 'America/Los_Angeles',
+  },
+  'end': {
+    'dateTime': '2017-11-28T17:00:00-07:00',
+    'timeZone': 'America/Los_Angeles',
+  },
+  'recurrence': [
+    'RRULE:FREQ=DAILY;COUNT=2'
+  ],
+  'attendees': [
+    {'email': 'lpage@example.com'},
+    {'email': 'sbrin@example.com'},
+  ],
+  'reminders': {
+    'useDefault': false,
+    'overrides': [
+      {'method': 'email', 'minutes': 24 * 60},
+      {'method': 'popup', 'minutes': 10},
+    ],
+  },
+};
+
+
+  gcal(accessToken).events.quickAdd(calendarId, text, function(err, data) {
+    if(err) return res.send(500,err);
+    return res.redirect('/cal/'+calendarId);
+  });
+});
+
 
 
 route.all('/:calendarId/:eventId', function(req, res){
@@ -93,10 +139,32 @@ route.all('/:calendarId/:eventId', function(req, res){
   var accessToken     = req.session.access_token;
   var calendarId      = req.params.calendarId;
   var eventId         = req.params.eventId;
+
+
+
+
+
+
   
   gcal(accessToken).events.get(calendarId, eventId, function(err, data) {
     if(err) return res.send(500,err);
     return res.send(data);
+  });
+});
+
+
+
+route.all('/:calendarId/:eventId/remove', function(req, res){
+  
+  if(!req.session.access_token) return res.redirect('/auth');
+  
+  var accessToken     = req.session.access_token;
+  var calendarId      = req.params.calendarId;
+  var eventId         = req.params.eventId;
+  
+  gcal(accessToken).events.delete(calendarId, eventId, function(err, data) {
+    if(err) return res.send(500,err);
+    return res.redirect('/cal/'+calendarId);
   });
 });
 
