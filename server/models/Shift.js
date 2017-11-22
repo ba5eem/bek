@@ -29,6 +29,13 @@ module.exports = function(sequelize,DataTypes){
     summary:{
       type: DataTypes.STRING
     },
+    description: {
+      type: DataTypes.STRING,
+      defaultValue: null
+    },
+    location:{
+      type: DataTypes.STRING
+    },
     creator: {
       type: DataTypes.STRING,
       allowNull: false

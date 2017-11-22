@@ -21,20 +21,20 @@ var googleAuth = require('google-auth-library');
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/calendar-nodejs-quickstart.json
 var SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
-console.log('scopes ',SCOPES);
+//console.log('scopes ',SCOPES);
 var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + '/.credentials/';
-console.log('token dir ',TOKEN_DIR);
+//console.log('token dir ',TOKEN_DIR);
 
 
 
 var TOKEN_PATH = TOKEN_DIR + 'calendar-nodejs-quickstart.json';
-console.log(TOKEN_PATH);
+//console.log(TOKEN_PATH);
 
 // Load client secrets from a local file.
 fs.readFile('client_secret.json', function processClientSecrets(err, content) {
   if (err) {
-    console.log('Error loading client secret file: ' + err);
+    //console.log('Error loading client secret file: ' + err);
     return;
   }
   // Authorize a client with the loaded credentials, then call the
@@ -51,14 +51,14 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
  */
 function authorize(credentials, callback) {
   var clientSecret = credentials.installed.client_secret;
-  console.log('clientsecret: ', clientSecret);
+  //console.log('clientsecret: ', clientSecret);
   var clientId = credentials.installed.client_id;
-  console.log('clientId: ', clientId);
+  //console.log('clientId: ', clientId);
   var redirectUrl = credentials.installed.redirect_uris[0];
-  console.log('redirectUrl: ', redirectUrl);
+  //console.log('redirectUrl: ', redirectUrl);
   var auth = new googleAuth();
   var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
-  console.log('oauth2Client: ', oauth2Client);
+  //console.log('oauth2Client: ', oauth2Client);
 
   // Check if we have previously stored a token.
   fs.readFile(TOKEN_PATH, function(err, token) {
@@ -127,7 +127,7 @@ function storeToken(token) {
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
 function listEvents(auth) {
-  let local = {}
+  let local = []
   var calendar = google.calendar('v3');
   calendar.events.list({
     auth: auth,
@@ -146,14 +146,16 @@ function listEvents(auth) {
       console.log('No upcoming events found.');
     } else {
       console.log('Upcoming 10 events:');
-      let local = []
+      
       for (var i = 0; i < events.length; i++) {
         var event = events[i];
         local.push(events[i])
         var start = event.start.dateTime || event.start.date;
-        console.log('%s - %s', start, event.summary);
+        console.log('%s - %s', start, event.summary, 'baseem');
+
 
       }
+
       res.json(local);
     }
   });
