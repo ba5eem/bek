@@ -54,7 +54,9 @@ console.log(url,' 26')
   loginWithFacebook = () => this.openURL('http://169.254.255.255:8080/auth/google');
 
   // Handle Login with Google button tap
-/*  loginWithGoogle = () => this.openURL('nslookup 10.0.1.123.xip.io/auth/google');*/
+
+  //Baseem, change localhost to 10.0.2.2:8080 or 10.0.1.1:8080 ... GoodNight!!!
+
   loginWithGoogle = () => this.openURL('http://10.0.2.2:8080/auth/google');
   // Open URL in a browser
   openURL = (url) => {
