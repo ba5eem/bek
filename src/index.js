@@ -11,7 +11,10 @@ import { GoogleLogin } from 'react-google-login';
 /*CSS*/
 import './index.css';
 /*CONTAINERS*/
+import AppHeader from './components/AppHeader.js';
 import App from './containers/App';
+import Login from './containers/Login';
+import Background from './containers/Background';
 import {
   BrowserRouter as Router,
   Route
@@ -25,27 +28,15 @@ const store = createStore(
   applyMiddleware(thunk)
   );
 
-const responseGoogle = (response) => {
-  let name = response.profileObj.name;
-    localStorage.setItem('user',name);
-    console.log(response.profileObj);
-}
-
 
 
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <div> 
-      <GoogleLogin
-            clientId="366752664535-921iec03nsrtpbb4s8fdlpq8om608e12.apps.googleusercontent.com"
-            buttonText="Login"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}/>
-      <Route exact path="/" component={App}/>
-
-      </div>
+    <div>
+      <Background />
+    </div>
     </Router>
   </Provider>, document.getElementById('root'));
 registerServiceWorker();

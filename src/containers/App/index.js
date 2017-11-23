@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { GoogleLogin } from 'react-google-login';
-import { loadUsers } from '../../actions/users';
-import { addUser } from '../../actions/register';
-import AppHeader from '../../components/AppHeader.js';
+import {mainBody} from '../Background/styles';
+import Mobile from '../../components/Mobile.js';
+
 
 
 class App extends Component {
@@ -13,18 +12,6 @@ class App extends Component {
     this.state={ 
       data: []
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() { 
-    this.props.loadUsers();
-
-  }
-
-  handleSubmit(response){
-    console.log(response);
-    //this.props.addUser(response)
-
   }
 
 
@@ -35,24 +22,39 @@ class App extends Component {
 
 
   render(){
-    // const responseGoogleFail = (response) => {
-    //     console.log('fail: ',response);
-    //   }
-    // const responseGoogle = (response) => {
-    //     console.log(response);
-    //   }
-    console.log("runit");
-    console.log(this.props.users);
+
     return (
-      /*EVERYTHING SHOULD GO BETWEEN THESE DIVS*/
-        <div className="App">
-          <AppHeader/>
-          
-        </div>
-      /*EVERYTHING SHOULD GO BETWEEN THESE DIVS*/
-    );/*END OF RETURN*/
+
+      <div style={mainBody} className="mainBody">
+
+      </div>
+    );
   }
-} /*END OF RENDER AND CLASS APP*/
+}
+
+const container = {
+    display: "flex",
+    justifyContent:"center",
+    position: "relative"
+    }
+
+
+const mobile = {
+    maxHeight: "900px",
+    zIndex: "0"
+    }
+
+const appBody = {
+    backgroundColor: "white",
+    height: "552px",
+    width: "310px",
+    left: "286px",
+    zIndex: "1",
+    position: "absolute",
+    marginTop: "164px",
+    display:"flex-wrap",
+    justifyContent:"center"
+    }
 
 const mapStateToProps = (state) => {
   return {
@@ -61,8 +63,7 @@ const mapStateToProps = (state) => {
 }
 
 const ConnectedApp = connect(
-  mapStateToProps,
-  {loadUsers,addUser}
+  mapStateToProps
 )(App)
 
 export default ConnectedApp;
