@@ -17,7 +17,7 @@ route.get('/logout', (req, res) => {
 });
 
 // auth with google+
-route.get('/google', passport.authenticate('google', {
+route.post('/google', passport.authenticate('google', {
     scope: ['profile']
 }));
 
@@ -25,10 +25,6 @@ route.get('/google', passport.authenticate('google', {
 route.get('/google/redirect',
   passport.authenticate('google', { failureRedirect: '/auth/google' }),
 (req, res) => res.redirect('OAuthLogin://login?user=' + JSON.stringify(req.user)));
-
-
-
-
 
 
 

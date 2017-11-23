@@ -14,10 +14,8 @@ const authCheck = (req, res, next) => {
     }
 };
 
-route.get('/',authCheck, (req, res) => {
-  console.log('i got fired')
-  console.log(req.user);
-    res.json('profile');
+route.get('/', authCheck, (req, res) => {
+    res.render('profile', { user: req.user });
 });
 
 module.exports = route;
