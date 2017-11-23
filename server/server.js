@@ -45,6 +45,21 @@ app.get('*', ( req, res ) => {
   res.json('This page does not exist, 404 not found');
 });
 
+var Pusher = require('pusher');
+
+var pusher = new Pusher({
+  appId: '434997',
+  key: '3b5ce37c85672acc6ea5',
+  secret: 'dbaef820bfd25753647e',
+  cluster: 'us2',
+  encrypted: true
+});
+
+pusher.trigger('bek', 'my-event', {
+  "message": "win for team bek"
+});
+
+
 const server = app.listen(PORT,() => {
   db.sequelize.sync( { force: false } ); //this is to link with your DB defined in the config file - set to true to overwrite, set to false to not overwrite:
   console.log(`Server connected on PORT: ${PORT}`);
