@@ -1,6 +1,8 @@
 # BEK
 BASEEM.ELLA.KRISTIN C19 Final Project
 
+THIS IS THE REACT NATIVE VERSION
+
 Please see the following for setup steps:
 1. README_Server.md for server setup steps
 
