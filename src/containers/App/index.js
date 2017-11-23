@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { GoogleLogin } from 'react-google-login';
 import { loadUsers } from '../../actions/users';
 import { addUser } from '../../actions/register';
-import AppHeader from '../../components/AppHeader.js';
+
 
 
 class App extends Component {
@@ -46,7 +46,7 @@ class App extends Component {
     return (
       /*EVERYTHING SHOULD GO BETWEEN THESE DIVS*/
         <div className="App">
-          <AppHeader/>
+
           
         </div>
       /*EVERYTHING SHOULD GO BETWEEN THESE DIVS*/
