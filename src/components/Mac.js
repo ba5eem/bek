@@ -31,8 +31,8 @@ const avatar = {
     height: "260px",
     }
 const login = {
-    marginTop:"40px",
-    maxWidth: "300px"
+    maxWidth: "300px",
+    marginBottom: "40px"
 
     }
 

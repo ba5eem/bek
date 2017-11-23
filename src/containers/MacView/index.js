@@ -34,8 +34,8 @@ class MacView extends Component {
 
         {/*MOBILE VIEW*/}
           <div style={container} className="mobile">
-            <img style={mobile} src="http://bit.ly/2jQCkSn" alt="phone"/>
-            <div style={appBody}>
+            <img style={mac} src="http://bit.ly/2A7UiUC" alt="phone"/>
+            <div style={macAppBody}>
               <Mac />
             </div>
           </div>
@@ -53,21 +53,24 @@ const container = {
     }
 
 
-const mobile = {
-    maxHeight: "900px",
+const mac = {
+    marginTop: "100px",
+    width: "900px",
+    height:"600px",
     zIndex: "0"
     }
 
-const appBody = {
+const macAppBody = {
     backgroundColor: "white",
-    height: "552px",
-    width: "310px",
-    left: "286px",
+    height: "467px",
+    width: "681px",
+    left: "110px",
     zIndex: "1",
     position: "absolute",
-    marginTop: "164px",
+    marginTop: "138px",
     display:"flex-wrap",
-    justifyContent:"center"
+    justifyContent:"center",
+    textAlign:"center"
     }
 
 const mapStateToProps = (state) => {

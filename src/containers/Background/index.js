@@ -12,8 +12,8 @@ class Background extends Component {
     
     this.state={ 
       mobileView: false,
-      tabletView: true,
-      macView: false,
+      tabletView: false,
+      macView: true,
     }
     this.mobileView = this.mobileView.bind(this);
     this.tabletView = this.tabletView.bind(this);
