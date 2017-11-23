@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {mainBody} from '../Background/styles';
+import { createStore } from 'redux'
 import Mac from '../../components/Mac.js';
+import MacDashboard from '../../components/MacDashboard.js';
+import {loginUser} from '../../actions/login.js';
+import login from '../../reducers/login.js';
+import Login from '../Login';
 
+const store = createStore(loginUser);
 
 
 class MacView extends Component {
@@ -10,16 +16,10 @@ class MacView extends Component {
     super();
     
     this.state={ 
-      data: []
+      user: localStorage.user,
+      auth: localStorage.auth
     }
   }
-
-  componentDidMount() { 
-
-
-  }
-
-
 
 
 
@@ -27,7 +27,8 @@ class MacView extends Component {
 
 
   render(){
-
+    const user = this.state.user;
+    const auth = this.state.auth;
     return (
 
       <div style={mainBody} className="mainBody">
@@ -36,7 +37,10 @@ class MacView extends Component {
           <div style={container} className="mobile">
             <img style={mac} src="http://bit.ly/2A7UiUC" alt="phone"/>
             <div style={macAppBody}>
-              <Mac />
+
+              {!auth ? <Mac /> : null }
+              {auth ? <MacDashboard user={user}/> : null }
+
             </div>
           </div>
         {/*MOBILE VIEW*/}
@@ -75,12 +79,18 @@ const macAppBody = {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.users
+    users: state.users,
+    user: state.user
   }
 }
 
+
+
+
+
 const ConnectedMacView = connect(
-  mapStateToProps
+  mapStateToProps,
+  {loginUser}
 )(MacView)
 
 export default ConnectedMacView;

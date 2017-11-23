@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {mainBody} from '../Background/styles';
 import Mobile from '../../components/Mobile.js';
+import MobileDashboard from '../../components/MobileDashboard.js';
 
 
 
@@ -10,7 +11,8 @@ class MobileView extends Component {
     super();
     
     this.state={ 
-      data: []
+      user: localStorage.user,
+      auth: localStorage.auth
     }
   }
 
@@ -27,6 +29,8 @@ class MobileView extends Component {
 
 
   render(){
+    const user = this.state.user;
+    const auth = this.state.auth;
 
     return (
 
@@ -36,7 +40,8 @@ class MobileView extends Component {
           <div style={container} className="mobile">
             <img style={mobile} src="http://bit.ly/2jQCkSn" alt="phone"/>
             <div style={appBody}>
-              <Mobile />
+              {!auth ? <Mobile /> : null }
+              {auth ? <MobileDashboard user={user}/> : null }
             </div>
           </div>
         {/*MOBILE VIEW*/}
@@ -61,18 +66,21 @@ const mobile = {
 const appBody = {
     backgroundColor: "white",
     height: "552px",
-    width: "310px",
-    left: "286px",
+    width: "311px",
+    left: "285px",
     zIndex: "1",
     position: "absolute",
     marginTop: "164px",
     display:"flex-wrap",
-    justifyContent:"center"
+    justifyContent:"center",
+    textAlign: "center"
     }
 
 const mapStateToProps = (state) => {
   return {
-    users: state.users
+    users: state.users,
+    user: localStorage.user,
+    auth: localStorage.auth
   }
 }
 

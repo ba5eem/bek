@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {mainBody} from '../Background/styles';
 import Tablet from '../../components/Tablet.js';
+import TabletDashboard from '../../components/TabletDashboard.js';
 
 
 
@@ -10,7 +11,8 @@ class TabletView extends Component {
     super();
     
     this.state={ 
-      data: []
+      user: localStorage.user,
+      auth: localStorage.auth
     }
   }
 
@@ -27,6 +29,8 @@ class TabletView extends Component {
 
 
   render(){
+    const user = this.state.user;
+    const auth = this.state.auth;
 
     return (
 
@@ -36,7 +40,8 @@ class TabletView extends Component {
           <div style={container} className="mobile">
             <img style={tablet} src="http://bit.ly/2ziG0PK" alt="phone"/>
             <div style={tabletAppBody} >
-              <Tablet/>
+              {!auth ? <Tablet /> : null }
+              {auth ? <TabletDashboard user={user}/> : null }
             </div>
           </div>
         {/*MOBILE VIEW*/}
@@ -74,7 +79,9 @@ const tabletAppBody = {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.users
+    users: state.users,
+    user: localStorage.user,
+    auth: localStorage.auth
   }
 }
 

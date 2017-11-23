@@ -1,31 +1,28 @@
 import React from 'react';
 import Login from '../containers/Login';
 
-const Tablet = ({}) => {
+const MobileDashboard = ({}) => {
   return (
     <div>
         <div style={mobileContainer}>
-            Welcome to BEK TABLET
+            Welcome to BEK MOBILE Dashboard
         </div>
         <div>
             <img style={avatar} src="http://bit.ly/2hkiY4s" alt="login"/>
         </div>
         <div>
-            <Login />
         </div>
     </div>
 
     )//end of return
 };
 
-export default Tablet;
+export default MobileDashboard;
 
 const mobileContainer = {
     backgroundColor: "lightblue",
     textAlign:"center",
-    fontSize:"40px",
-    display: "flex-wrap",
-    justifyContent: "center"
+    fontSize:"40px"
 
     }
 
@@ -34,8 +31,8 @@ const avatar = {
     height: "260px",
     }
 const login = {
-    margin:"auto",
-    maxWidth: "500px"
+    marginTop:"40px",
+    maxWidth: "300px"
 
     }
 
