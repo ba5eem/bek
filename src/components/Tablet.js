@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Mobile = ({}) => {
+const Tablet = ({}) => {
   return (
     <div>
         <div style={mobileContainer}>
@@ -17,7 +17,7 @@ const Mobile = ({}) => {
     )//end of return
 };
 
-export default Mobile;
+export default Tablet;
 
 const mobileContainer = {
     backgroundColor: "lightblue",

@@ -5,7 +5,7 @@ import Mobile from '../../components/Mobile.js';
 
 
 
-class App extends Component {
+class MobileView extends Component {
   constructor() {
     super();
     
@@ -32,7 +32,16 @@ class App extends Component {
 
       <div style={mainBody} className="mainBody">
 
+        {/*MOBILE VIEW*/}
+          <div style={container} className="mobile">
+            <img style={mobile} src="http://bit.ly/2jQCkSn" alt="phone"/>
+            <div style={appBody}>
+              <Mobile />
+            </div>
+          </div>
+        {/*MOBILE VIEW*/}
       </div>
+
     );
   }
 }
@@ -67,8 +76,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-const ConnectedApp = connect(
+const ConnectedMobileView = connect(
   mapStateToProps
-)(App)
+)(MobileView)
 
-export default ConnectedApp;
+export default ConnectedMobileView;

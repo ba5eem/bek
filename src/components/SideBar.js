@@ -1,13 +1,13 @@
 import React from 'react';
 
-const SideBar = ({sideBar}) => {
+const SideBar = ({sideBar,mobileView,tabletView,macView}) => {
   return (
 
       <div style={sideBar} className="sidebar">
 
-          <img style={phone} src="http://bit.ly/2jQCkSn" alt="phone"/>
-          <img style={phone} src="http://bit.ly/2mV5L6W" alt="tablet"/>
-          <img style={phone} src="http://bit.ly/2A7UiUC" alt="mac"/>
+          <img onClick={mobileView} style={phone} src="http://bit.ly/2jQCkSn" alt="phone"/>
+          <img onClick={tabletView} style={phone} src="http://bit.ly/2mV5L6W" alt="tablet"/>
+          <img onClick={macView} style={phone} src="http://bit.ly/2A7UiUC" alt="mac"/>
 
 
 

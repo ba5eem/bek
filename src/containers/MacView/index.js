@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {mainBody} from '../Background/styles';
-import Mobile from '../../components/Mobile.js';
+import Mac from '../../components/Mac.js';
 
 
 
-class App extends Component {
+class MacView extends Component {
   constructor() {
     super();
     
@@ -32,7 +32,16 @@ class App extends Component {
 
       <div style={mainBody} className="mainBody">
 
+        {/*MOBILE VIEW*/}
+          <div style={container} className="mobile">
+            <img style={mobile} src="http://bit.ly/2jQCkSn" alt="phone"/>
+            <div style={appBody}>
+              <Mac />
+            </div>
+          </div>
+        {/*MOBILE VIEW*/}
       </div>
+
     );
   }
 }
@@ -67,8 +76,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-const ConnectedApp = connect(
+const ConnectedMacView = connect(
   mapStateToProps
-)(App)
+)(MacView)
 
-export default ConnectedApp;
+export default ConnectedMacView;

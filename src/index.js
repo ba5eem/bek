@@ -35,7 +35,6 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
     <div>
-      <AppHeader/>
       <Background />
     </div>
     </Router>

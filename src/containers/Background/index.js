@@ -2,21 +2,34 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {container,sideBar,mainBody} from './styles';
 import SideBar from '../../components/SideBar.js';
-import App from '../App';
+import MobileView from '../MobileView';
 
 class Background extends Component {
   constructor() {
     super();
     
     this.state={ 
-      data: []
+      mobileView: true,
+      tabletView: false,
+      macView: false,
     }
+    this.mobileView = this.mobileView.bind(this);
+    this.tabletView = this.tabletView.bind(this);
+    this.macView = this.macView.bind(this);
+
   }
 
-  componentDidMount() { 
-
+  mobileView(){
 
   }
+  tabletView(){
+    
+  }
+  macView(){
+    
+  }
+
+
 
 
 
@@ -32,8 +45,10 @@ class Background extends Component {
     return (
 
         <div style={container} className="container">
-          <SideBar sideBar={sideBar} />
-          <App />
+          <SideBar 
+
+            sideBar={sideBar} />
+          <MobileView />
 
         </div>
 
