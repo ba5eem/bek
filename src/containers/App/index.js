@@ -14,11 +14,6 @@ class App extends Component {
     }
   }
 
-  componentDidMount() { 
-
-
-  }
-
 
 
 

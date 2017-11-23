@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { GoogleLogin } from 'react-google-login';
-
+import MobileView from '../MobileView';
+import TabletView from '../TabletView';
+import MacView from '../MacView';
+import {loginUser} from '../../actions/login.js';
 
 
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    const {dispatch} = props;
     
     this.state={ 
-      data: []
+      data: [],
+      test: 'baseem'
     }
     this.googleLogin = this.googleLogin.bind(this);
     this.loginFailure = this.loginFailure.bind(this);
@@ -19,7 +25,9 @@ class Login extends Component {
   googleLogin(res){
     let name = res.profileObj.name;
     localStorage.setItem('user',name);
+    localStorage.setItem('auth','true');
     console.log(res.profileObj);
+    this.props.loginUser(name);
   }
   loginFailure(res){
     let name = res.profileObj.name;
@@ -35,12 +43,15 @@ class Login extends Component {
 
 
 
+
+
+
+
   render(){
     return (
 
         <div className="Login">
           <GoogleLogin
-            img src="http://bit.ly/2yQYURG"
             clientId="366752664535-921iec03nsrtpbb4s8fdlpq8om608e12.apps.googleusercontent.com"
             buttonText="Google Login"
             onSuccess={this.googleLogin}
@@ -51,14 +62,18 @@ class Login extends Component {
   }
 }
 
+
+
 const mapStateToProps = (state) => {
   return {
     users: state.users
   }
 }
 
+
 const ConnectedLogin = connect(
-  mapStateToProps
+  mapStateToProps,
+  {loginUser}
 )(Login)
 
 export default ConnectedLogin;
