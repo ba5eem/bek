@@ -12,11 +12,18 @@ class Login extends Component {
     this.state={ 
       data: []
     }
+    this.googleLogin = this.googleLogin.bind(this);
+    this.loginFailure = this.loginFailure.bind(this);
   }
 
-  componentDidMount() { 
-
-
+  googleLogin(res){
+    let name = res.profileObj.name;
+    localStorage.setItem('user',name);
+    console.log(res.profileObj);
+  }
+  loginFailure(res){
+    let name = res.profileObj.name;
+    console.log(res.profileObj);
   }
 
 
@@ -29,21 +36,15 @@ class Login extends Component {
 
 
   render(){
-
-      const responseGoogle = (response) => {
-          let name = response.profileObj.name;
-          localStorage.setItem('user',name);
-          console.log(response.profileObj);
-          }
-
     return (
 
         <div className="Login">
           <GoogleLogin
+            img src="http://bit.ly/2yQYURG"
             clientId="366752664535-921iec03nsrtpbb4s8fdlpq8om608e12.apps.googleusercontent.com"
-            buttonText="Login"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}/>
+            buttonText="Google Login"
+            onSuccess={this.googleLogin}
+            onFailure={this.loginFailure}/>
         </div>
 
     );

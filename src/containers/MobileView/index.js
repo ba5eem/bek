@@ -61,13 +61,14 @@ const mobile = {
 const appBody = {
     backgroundColor: "white",
     height: "552px",
-    width: "310px",
-    left: "286px",
+    width: "311px",
+    left: "285px",
     zIndex: "1",
     position: "absolute",
     marginTop: "164px",
     display:"flex-wrap",
-    justifyContent:"center"
+    justifyContent:"center",
+    textAlign: "center"
     }
 
 const mapStateToProps = (state) => {

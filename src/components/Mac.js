@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from '../containers/Login';
 
 const Mac = ({}) => {
   return (
@@ -10,7 +11,7 @@ const Mac = ({}) => {
             <img style={avatar} src="http://bit.ly/2hkiY4s" alt="login"/>
         </div>
         <div>
-            <img style={login} src="http://bit.ly/2hNrd8v" alt="login"/>
+            <Login />
         </div>
     </div>
 
@@ -30,9 +31,5 @@ const avatar = {
     margin: "30px",
     height: "260px",
     }
-const login = {
-    maxWidth: "300px",
-    marginBottom: "40px"
 
-    }
 

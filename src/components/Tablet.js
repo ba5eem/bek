@@ -1,4 +1,5 @@
 import React from 'react';
+import Login from '../containers/Login';
 
 const Tablet = ({}) => {
   return (
@@ -10,7 +11,7 @@ const Tablet = ({}) => {
             <img style={avatar} src="http://bit.ly/2hkiY4s" alt="login"/>
         </div>
         <div>
-            <img style={login} src="http://bit.ly/2hNrd8v" alt="login"/>
+            <Login />
         </div>
     </div>
 
