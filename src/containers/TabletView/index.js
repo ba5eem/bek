@@ -34,9 +34,9 @@ class TabletView extends Component {
 
         {/*MOBILE VIEW*/}
           <div style={container} className="mobile">
-            <img style={mobile} src="http://bit.ly/2jQCkSn" alt="phone"/>
-            <div style={appBody}>
-              <Tablet />
+            <img style={tablet} src="http://bit.ly/2ziG0PK" alt="phone"/>
+            <div style={tabletAppBody} >
+              <Tablet/>
             </div>
           </div>
         {/*MOBILE VIEW*/}
@@ -53,21 +53,23 @@ const container = {
     }
 
 
-const mobile = {
-    maxHeight: "900px",
+const tablet = {
+    width: "800px",
     zIndex: "0"
     }
 
-const appBody = {
-    backgroundColor: "white",
-    height: "552px",
-    width: "310px",
-    left: "286px",
+
+const tabletAppBody = {
+    backgroundColor: "lightgrey",
+    height: "602px",
+    width: "515px",
+    left: "142px",
     zIndex: "1",
     position: "absolute",
-    marginTop: "164px",
+    marginTop: "149px",
     display:"flex-wrap",
-    justifyContent:"center"
+    justifyContent:"center",
+    textAlign: "center"
     }
 
 const mapStateToProps = (state) => {

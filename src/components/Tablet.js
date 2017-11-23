@@ -22,7 +22,9 @@ export default Tablet;
 const mobileContainer = {
     backgroundColor: "lightblue",
     textAlign:"center",
-    fontSize:"40px"
+    fontSize:"40px",
+    display: "flex-wrap",
+    justifyContent: "center"
 
     }
 
@@ -31,8 +33,8 @@ const avatar = {
     height: "260px",
     }
 const login = {
-    marginTop:"40px",
-    maxWidth: "300px"
+    margin:"auto",
+    maxWidth: "500px"
 
     }
 
