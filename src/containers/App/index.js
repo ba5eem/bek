@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Pusher from 'pusher-js';
 import {mainBody} from '../Background/styles';
-import Mobile from '../../components/Mobile.js';
+
 
 
 
@@ -17,7 +18,15 @@ class App extends Component {
 
 
 
+pusher = new Pusher('945713eb9dbed89bd426', {
+  cluster: 'us2',
+  encrypted: true
+});
 
+channel = pusher.subscribe('my-channel');
+channel.bind('my-event', function(data) {
+  alert(data.message);
+});
 
 
 
@@ -31,6 +40,9 @@ class App extends Component {
     );
   }
 }
+
+
+
 
 const container = {
     display: "flex",
