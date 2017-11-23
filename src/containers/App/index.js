@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Pusher from 'pusher-js';
 import {mainBody} from '../Background/styles';
-import Mobile from '../../components/Mobile.js';
+
 
 
 
@@ -31,6 +32,9 @@ class App extends Component {
     );
   }
 }
+
+
+
 
 const container = {
     display: "flex",
