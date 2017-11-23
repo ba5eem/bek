@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {container,sideBar,mainBody} from './styles';
 import SideBar from '../../components/SideBar.js';
-import MainBody from '../../components/MainBody.js';
+import App from '../App';
 
 class Background extends Component {
   constructor() {
@@ -33,7 +33,7 @@ class Background extends Component {
 
         <div style={container} className="container">
           <SideBar sideBar={sideBar} />
-          <MainBody mainBody={mainBody}/>
+          <App />
 
         </div>
 

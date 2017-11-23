@@ -6,8 +6,8 @@ const SideBar = ({sideBar}) => {
       <div style={sideBar} className="sidebar">
 
           <img style={phone} src="http://bit.ly/2jQCkSn" alt="phone"/>
-          <img style={phone} src="http://bit.ly/2mV5L6W" alt="phone"/>
-          <img style={phone} src="http://bit.ly/2A7UiUC" alt="phone"/>
+          <img style={phone} src="http://bit.ly/2mV5L6W" alt="tablet"/>
+          <img style={phone} src="http://bit.ly/2A7UiUC" alt="mac"/>
 
 
 

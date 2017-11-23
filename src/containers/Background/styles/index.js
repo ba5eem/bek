@@ -20,7 +20,7 @@
      export const mainBody = {
       flex: "1 0 70%",
       height: "100%",
-      backgroundColor: 'green',
+      backgroundColor: 'black',
       display:"flex",
       justifyContent: "space-around",
       border: "3px solid black"
