@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {mainBody} from '../Background/styles';
-import Mobile from '../../components/Mobile.js';
+import Mac from '../../components/Mac.js';
 
 
 
-class App extends Component {
+class MacView extends Component {
   constructor() {
     super();
     
@@ -32,7 +32,16 @@ class App extends Component {
 
       <div style={mainBody} className="mainBody">
 
+        {/*MOBILE VIEW*/}
+          <div style={container} className="mobile">
+            <img style={mac} src="http://bit.ly/2A7UiUC" alt="phone"/>
+            <div style={macAppBody}>
+              <Mac />
+            </div>
+          </div>
+        {/*MOBILE VIEW*/}
       </div>
+
     );
   }
 }
@@ -44,21 +53,24 @@ const container = {
     }
 
 
-const mobile = {
-    maxHeight: "900px",
+const mac = {
+    marginTop: "100px",
+    width: "900px",
+    height:"600px",
     zIndex: "0"
     }
 
-const appBody = {
+const macAppBody = {
     backgroundColor: "white",
-    height: "552px",
-    width: "310px",
-    left: "286px",
+    height: "467px",
+    width: "681px",
+    left: "110px",
     zIndex: "1",
     position: "absolute",
-    marginTop: "164px",
+    marginTop: "138px",
     display:"flex-wrap",
-    justifyContent:"center"
+    justifyContent:"center",
+    textAlign:"center"
     }
 
 const mapStateToProps = (state) => {
@@ -67,8 +79,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-const ConnectedApp = connect(
+const ConnectedMacView = connect(
   mapStateToProps
-)(App)
+)(MacView)
 
-export default ConnectedApp;
+export default ConnectedMacView;
