@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "bekuser",
+    "password": "bekc19",
+    "database": "bekdb",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "bekuser",
+    "password": "bekc19",
+    "database": "bekdb",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "bekuser",
+    "password": "bekc19",
+    "database": "bekdb",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
