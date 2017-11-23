@@ -4,7 +4,7 @@ const Mac = ({}) => {
   return (
     <div>
         <div style={mobileContainer}>
-            Welcome to BEK
+            Welcome to BEK MAC
         </div>
         <div>
             <img style={avatar} src="http://bit.ly/2hkiY4s" alt="login"/>

@@ -4,7 +4,7 @@ const Mobile = ({}) => {
   return (
     <div>
         <div style={mobileContainer}>
-            Welcome to BEK
+            Welcome to BEK MOBILE
         </div>
         <div>
             <img style={avatar} src="http://bit.ly/2hkiY4s" alt="login"/>

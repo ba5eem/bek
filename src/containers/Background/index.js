@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import {container,sideBar,mainBody} from './styles';
 import SideBar from '../../components/SideBar.js';
 import MobileView from '../MobileView';
+import TabletView from '../TabletView';
+import MacView from '../MacView';
 
 class Background extends Component {
   constructor() {
@@ -19,13 +21,34 @@ class Background extends Component {
 
   }
 
-  mobileView(){
+  mobileView(e){
+    e.preventDefault();
+    console.log('Mobile View: ',e.target.name);
+    this.setState({
+      mobileView: true,
+      tabletView: false,
+      macView: false
+    })
 
   }
-  tabletView(){
+  tabletView(e){
+    e.preventDefault();
+    console.log('Tablet View: ',e.target.name);
+    this.setState({
+      mobileView: false,
+      tabletView: true,
+      macView: false
+    })
     
   }
-  macView(){
+  macView(e){
+    e.preventDefault();
+    console.log('Mac View: ',e.target.name);
+    this.setState({
+      mobileView: false,
+      tabletView: false,
+      macView: true
+    })
     
   }
 
@@ -41,14 +64,22 @@ class Background extends Component {
 
 
   render(){
+    const mobile = this.state.mobileView;
+    const tablet = this.state.tabletView;
+    const mac = this.state.macView;
 
     return (
 
         <div style={container} className="container">
           <SideBar 
-
+            mobileView={this.mobileView}
+            tabletView={this.tabletView}
+            macView={this.macView}
             sideBar={sideBar} />
-          <MobileView />
+          
+          {mobile ? <MobileView /> : null }
+          {tablet ? <TabletView /> : null }
+          {mac ? <MacView /> : null }
 
         </div>
 
