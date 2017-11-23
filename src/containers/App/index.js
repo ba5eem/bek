@@ -18,15 +18,7 @@ class App extends Component {
 
 
 
-pusher = new Pusher('945713eb9dbed89bd426', {
-  cluster: 'us2',
-  encrypted: true
-});
 
-channel = pusher.subscribe('my-channel');
-channel.bind('my-event', function(data) {
-  alert(data.message);
-});
 
 
 
