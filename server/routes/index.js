@@ -3,7 +3,7 @@ const express     = require('express');
 const app         = express();
 const route       = express.Router();
 const users       = require('./users.js');
-const cal         = require('./calendar.js');
+const cal         = require('./calendar/calendar.js');
 const auth        = require('./auth.js');
 
 
