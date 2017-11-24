@@ -1,9 +1,9 @@
 //jshint esversion: 6
-require('dotenv').config();
 const express     = require('express');
 const Pusher      = require('pusher');
 const app         = express();
 const route       = express.Router();
+require('dotenv').config();
 
 const pusher = new Pusher({
   appId : process.env.PUSHER_ID,
