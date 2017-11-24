@@ -15,6 +15,7 @@ import AppHeader from './components/AppHeader.js';
 import App from './containers/App';
 import Login from './containers/Login';
 import Background from './containers/Background';
+import Shifts from './containers/Shifts';
 import {
   BrowserRouter as Router,
   Route,
@@ -36,7 +37,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
     <div>
-      <Background />
+      <Shifts />
     </div>
     </Router>
   </Provider>, document.getElementById('root'));
