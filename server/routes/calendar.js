@@ -21,7 +21,7 @@ jwtClient.authorize(function (err, tokens) {
    console.log(err);
    return;
  } else {
-   console.log("Successfully connected!", tokens);
+   console.log("Successfully connected!");
  }
 });
 
@@ -38,11 +38,11 @@ calendar.events.list({
    var events = response.items;
    console.log(events);
    if (events.length == 0) {
-       console.log('No events found.', events);
+       console.log('No events found.');
    } else {
-       console.log('Event from Google Calendar:');
+       //console.log('Event from Google Calendar:');
        for (let event of response.items) {
-           console.log('Event name: %s, Creator name: %s, Create date: %s', event.summary, event.creator.displayName, event.start.date);
+           //console.log('Event name: %s, Creator name: %s, Create date: %s', event.summary, event.creator.displayName, event.start.date);
        }
    }
      res.json(events);
