@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {mainBody} from '../Background/styles';
+import { Redirect, Link } from 'react-router-dom';
 import Mobile from '../../components/Mobile.js';
+import { GoogleLogin } from 'react-google-login';
+import {loginUser} from '../../actions/login.js';
 import MobileDashboard from '../../components/MobileDashboard.js';
 
 
@@ -11,17 +14,24 @@ class MobileView extends Component {
     super();
     
     this.state={ 
-      user: localStorage.user,
-      auth: localStorage.auth
+      user: '',
+      auth: false
     }
+    this.googleLogin = this.googleLogin.bind(this);
+    this.loginFailure = this.loginFailure.bind(this);
   }
 
-  componentDidMount() { 
-
-
+  googleLogin(res){
+    let name = res.profileObj.name;
+    this.props.loginUser(name);
+    this.setState({auth: true})
+    this.setState({user: name})
   }
-
-
+  loginFailure(res){
+    let name = res.profileObj.name;
+    localStorage.clear();
+    this.setState({auth: false})
+  }
 
 
 
@@ -31,7 +41,6 @@ class MobileView extends Component {
   render(){
     const user = this.state.user;
     const auth = this.state.auth;
-
     return (
 
       <div style={mainBody} className="mainBody">
@@ -41,6 +50,11 @@ class MobileView extends Component {
             <img style={mobile} src="http://bit.ly/2jQCkSn" alt="phone"/>
             <div style={appBody}>
               {!auth ? <Mobile /> : null }
+              {!auth ? <GoogleLogin
+                clientId="366752664535-921iec03nsrtpbb4s8fdlpq8om608e12.apps.googleusercontent.com"
+                buttonText="Google Login"
+                onSuccess={this.googleLogin}
+                onFailure={this.loginFailure}/> : null}
               {auth ? <MobileDashboard user={user}/> : null }
             </div>
           </div>
@@ -85,7 +99,8 @@ const mapStateToProps = (state) => {
 }
 
 const ConnectedMobileView = connect(
-  mapStateToProps
+  mapStateToProps,
+  {loginUser}
 )(MobileView)
 
 export default ConnectedMobileView;

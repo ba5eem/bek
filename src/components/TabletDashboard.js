@@ -1,11 +1,11 @@
 import React from 'react';
 import Login from '../containers/Login';
 
-const TabletDashboard = ({}) => {
+const TabletDashboard = ({user}) => {
   return (
     <div>
         <div style={mobileContainer}>
-            Welcome to BEK Tablet Dashboard
+            Welcome to {user} BEK Tablet Dashboard
         </div>
         <div>
             <img style={avatar} src="http://bit.ly/2hkiY4s" alt="login"/>

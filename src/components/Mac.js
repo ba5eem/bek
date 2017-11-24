@@ -11,7 +11,7 @@ const Mac = ({}) => {
             <img style={avatar} src="http://bit.ly/2hkiY4s" alt="login"/>
         </div>
         <div>
-            <Login />
+            
         </div>
     </div>
 

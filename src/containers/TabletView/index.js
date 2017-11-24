@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {mainBody} from '../Background/styles';
 import Tablet from '../../components/Tablet.js';
+import { GoogleLogin } from 'react-google-login';
+import {loginUser} from '../../actions/login.js';
 import TabletDashboard from '../../components/TabletDashboard.js';
 
 
@@ -11,17 +13,24 @@ class TabletView extends Component {
     super();
     
     this.state={ 
-      user: localStorage.user,
-      auth: localStorage.auth
+      user: '',
+      auth: false
     }
+    this.googleLogin = this.googleLogin.bind(this);
+    this.loginFailure = this.loginFailure.bind(this);
   }
 
-  componentDidMount() { 
-
-
+  googleLogin(res){
+    let name = res.profileObj.name;
+    this.props.loginUser(name);
+    this.setState({auth: true})
+    this.setState({user: name})
   }
-
-
+  loginFailure(res){
+    let name = res.profileObj.name;
+    localStorage.clear();
+    this.setState({auth: false})
+  }
 
 
 
@@ -36,15 +45,20 @@ class TabletView extends Component {
 
       <div style={mainBody} className="mainBody">
 
-        {/*MOBILE VIEW*/}
+        {/*TABLET VIEW*/}
           <div style={container} className="mobile">
             <img style={tablet} src="http://bit.ly/2ziG0PK" alt="phone"/>
             <div style={tabletAppBody} >
               {!auth ? <Tablet /> : null }
+              {!auth ? <GoogleLogin
+                clientId="366752664535-921iec03nsrtpbb4s8fdlpq8om608e12.apps.googleusercontent.com"
+                buttonText="Google Login"
+                onSuccess={this.googleLogin}
+                onFailure={this.loginFailure}/> : null}
               {auth ? <TabletDashboard user={user}/> : null }
             </div>
           </div>
-        {/*MOBILE VIEW*/}
+        {/*TABLET VIEW*/}
       </div>
 
     );
@@ -86,7 +100,8 @@ const mapStateToProps = (state) => {
 }
 
 const ConnectedTabletView = connect(
-  mapStateToProps
+  mapStateToProps,
+  {loginUser}
 )(TabletView)
 
 export default ConnectedTabletView;

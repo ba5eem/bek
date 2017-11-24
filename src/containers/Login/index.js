@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import MobileView from '../MobileView';
 import TabletView from '../TabletView';
@@ -24,6 +24,7 @@ class Login extends Component {
   }
 
   googleLogin(res){
+    console.log(res);
     let name = res.profileObj.name;
     console.log(res.profileObj);
     this.props.loginUser(name);
@@ -38,9 +39,7 @@ class Login extends Component {
 
 
 
-
-
-
+// THIS CONTAINER IS NO LONGER NEEDED _ CAN DELETE IF YOU LIKE
 
 
 
@@ -50,10 +49,7 @@ class Login extends Component {
 
 
   render(){
-    const isLoggedIn = this.state.isLoggedIn;
-    if(isLoggedIn){ return ( <Redirect to='/MacView'/>) }
     return (
-
         <div className="Login">
           <GoogleLogin
             clientId="366752664535-921iec03nsrtpbb4s8fdlpq8om608e12.apps.googleusercontent.com"
