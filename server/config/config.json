@@ -19,11 +19,5 @@
     "database": "bekdb",
     "host": "127.0.0.1",
     "dialect": "postgres"
-  },
-  "pusher": {
-    "appId": "435423",
-    "key": "945713eb9dbed89bd426",
-    "secret": "241a44fed96145f4cb52",
-    "cluster": "us2"
   }
 }
