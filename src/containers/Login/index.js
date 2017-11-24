@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect, Link } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import MobileView from '../MobileView';
 import TabletView from '../TabletView';
@@ -16,29 +17,29 @@ class Login extends Component {
     
     this.state={ 
       data: [],
-      test: 'baseem'
+      isLoggedIn: false
     }
     this.googleLogin = this.googleLogin.bind(this);
     this.loginFailure = this.loginFailure.bind(this);
   }
 
   googleLogin(res){
+    console.log(res);
     let name = res.profileObj.name;
-    localStorage.setItem('user',name);
-    localStorage.setItem('auth','true');
     console.log(res.profileObj);
     this.props.loginUser(name);
+    this.setState({isLoggedIn: true})
   }
   loginFailure(res){
     let name = res.profileObj.name;
+    localStorage.clear();
     console.log(res.profileObj);
+    this.setState({isLoggedIn: false})
   }
 
 
 
-
-
-
+// THIS CONTAINER IS NO LONGER NEEDED _ CAN DELETE IF YOU LIKE
 
 
 
@@ -49,7 +50,6 @@ class Login extends Component {
 
   render(){
     return (
-
         <div className="Login">
           <GoogleLogin
             clientId="366752664535-921iec03nsrtpbb4s8fdlpq8om608e12.apps.googleusercontent.com"

@@ -7,6 +7,7 @@ import MacDashboard from '../../components/MacDashboard.js';
 import {loginUser} from '../../actions/login.js';
 import login from '../../reducers/login.js';
 import Login from '../Login';
+import { GoogleLogin } from 'react-google-login';
 
 const store = createStore(loginUser);
 
@@ -16,9 +17,25 @@ class MacView extends Component {
     super();
     
     this.state={ 
-      user: localStorage.user,
-      auth: localStorage.auth
+      user: '',
+      auth: false
     }
+    this.googleLogin = this.googleLogin.bind(this);
+    this.loginFailure = this.loginFailure.bind(this);
+  }
+
+  googleLogin(res){
+    let name = res.profileObj.name;
+    let pic = res.profileObj.imageUrl
+    localStorage.setItem('pic',pic);
+    this.props.loginUser(name);
+    this.setState({auth: true})
+    this.setState({user: name})
+  }
+  loginFailure(res){
+    let name = res.profileObj.name;
+    localStorage.clear();
+    this.setState({auth: false})
   }
 
 
@@ -27,23 +44,28 @@ class MacView extends Component {
 
 
   render(){
-    const user = this.state.user;
-    const auth = this.state.auth;
+    const user = this.state.user || localStorage.user;
+    const auth = this.state.auth || localStorage.auth;
+    const pic = this.state.pic || localStorage.pic;
     return (
 
       <div style={mainBody} className="mainBody">
 
-        {/*MOBILE VIEW*/}
+        {/*MAC VIEW*/}
           <div style={container} className="mobile">
             <img style={mac} src="http://bit.ly/2A7UiUC" alt="phone"/>
             <div style={macAppBody}>
 
-              {!auth ? <Mac /> : null }
-              {auth ? <MacDashboard user={user}/> : null }
-
+              {!auth ? <Mac /> : <MacDashboard user={user}/> }
+              {!auth ? <GoogleLogin
+                clientId="366752664535-921iec03nsrtpbb4s8fdlpq8om608e12.apps.googleusercontent.com"
+                buttonText="Google Login"
+                onSuccess={this.googleLogin}
+                onFailure={this.loginFailure}/> : null}
             </div>
+
           </div>
-        {/*MOBILE VIEW*/}
+        {/*MAC VIEW*/}
       </div>
 
     );

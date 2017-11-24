@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {container,sideBar,mainBody} from './styles';
+import { Route, Link } from 'react-router-dom';
 import SideBar from '../../components/SideBar.js';
 import MobileView from '../MobileView';
 import TabletView from '../TabletView';

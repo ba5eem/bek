@@ -17,7 +17,8 @@ import Login from './containers/Login';
 import Background from './containers/Background';
 import {
   BrowserRouter as Router,
-  Route
+  Route,
+  Link
 } from 'react-router-dom';
 
 

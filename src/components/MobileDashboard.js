@@ -1,14 +1,15 @@
 import React from 'react';
 import Login from '../containers/Login';
 
-const MobileDashboard = ({}) => {
+const MobileDashboard = ({user}) => {
+const pic = localStorage.pic;
   return (
     <div>
         <div style={mobileContainer}>
-            Welcome to BEK MOBILE Dashboard
+            Welcome to {user} BEK MOBILE Dashboard
         </div>
         <div>
-            <img style={avatar} src="http://bit.ly/2hkiY4s" alt="login"/>
+            <img style={avatar} src={pic ? pic : "http://bit.ly/2hkiY4s"} alt="login"/>
         </div>
         <div>
         </div>
