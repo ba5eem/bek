@@ -10,8 +10,8 @@ import MacView from '../MacView';
 class Background extends Component {
   constructor() {
     super();
-    
-    this.state={ 
+
+    this.state={
       mobileView: false,
       tabletView: false,
       macView: true,
@@ -40,7 +40,7 @@ class Background extends Component {
       tabletView: true,
       macView: false
     })
-    
+
   }
   macView(e){
     e.preventDefault();
@@ -50,19 +50,8 @@ class Background extends Component {
       tabletView: false,
       macView: true
     })
-    
+
   }
-
-
-
-
-
-
-
-
-
-
-
 
   render(){
     const mobile = this.state.mobileView;
@@ -72,12 +61,12 @@ class Background extends Component {
     return (
 
         <div style={container} className="container">
-          <SideBar 
+          <SideBar
             mobileView={this.mobileView}
             tabletView={this.tabletView}
             macView={this.macView}
             sideBar={sideBar} />
-          
+
           {mobile ? <MobileView /> : null }
           {tablet ? <TabletView /> : null }
           {mac ? <MacView /> : null }
