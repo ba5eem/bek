@@ -11,12 +11,12 @@ class Shift extends Component {
     super();
     
     this.state={ 
-      data: []
+      shifts: undefined
     }
   }
 
   componentDidMount(){
-    this.props.loadShifts()
+    this.props.loadShifts();
   }
 
 
@@ -25,11 +25,27 @@ class Shift extends Component {
 
 
   render(){
+    let shifts = this.props.shifts;
 
     return (
+      <div style={container}>
+        <div style={shiftCard}>
+          {shifts.map((shift,idx) => {
+            console.log(shift)
+            return (
+              <div style={shiftCard} key={idx}>
+                <div style={organizer} >{shift.organizer.email}</div>
+                <a href={shift.htmlLink}></a>
+                <p>{shift.status}</p>
+                <p>{shift.summary}</p>
+                <p>{shift.location}</p>
+                <p>{shift.start.dateTime}</p>
+                <p>{shift.end.dateTime}</p>
+              </div>)
 
-      <div style={mainBody} className="mainBody">
-      Hello WORLD
+            })
+          }
+        </div>
       </div>
     );
   }
@@ -39,28 +55,25 @@ class Shift extends Component {
 
 
 const container = {
-    display: "flex",
-    justifyContent:"center",
-    position: "relative"
-    }
-
-
-const mobile = {
-    maxHeight: "900px",
-    zIndex: "0"
-    }
-
-const appBody = {
-    backgroundColor: "white",
-    height: "552px",
-    width: "310px",
-    left: "286px",
-    zIndex: "1",
-    position: "absolute",
-    marginTop: "164px",
-    display:"flex-wrap",
+    display: "flex-wrap",
     justifyContent:"center"
     }
+const shiftCard = {
+    marginTop: "10px",
+    width: "400px",
+    height:"200px",
+    backgroundColor: "lightgreen",
+    display: "flex",
+    flexFlow: "row-reverse wrap",
+    justifyContent:"center"
+    }
+const organizer = {
+  backgroundColor: "lightgrey",
+  fontSize: "30px",
+  flexShrink: "1"
+}
+
+
 
 const mapStateToProps = (state) => {
   return {
