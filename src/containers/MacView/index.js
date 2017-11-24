@@ -33,7 +33,7 @@ class MacView extends Component {
 
       <div style={mainBody} className="mainBody">
 
-        {/*MOBILE VIEW*/}
+        {/*MAC VIEW*/}
           <div style={container} className="mobile">
             <img style={mac} src="http://bit.ly/2A7UiUC" alt="phone"/>
             <div style={macAppBody}>
@@ -43,7 +43,7 @@ class MacView extends Component {
 
             </div>
           </div>
-        {/*MOBILE VIEW*/}
+        {/*MAC VIEW*/}
       </div>
 
     );

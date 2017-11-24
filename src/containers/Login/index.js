@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import MobileView from '../MobileView';
 import TabletView from '../TabletView';
@@ -16,7 +17,7 @@ class Login extends Component {
     
     this.state={ 
       data: [],
-      test: 'baseem'
+      isLoggedIn: false
     }
     this.googleLogin = this.googleLogin.bind(this);
     this.loginFailure = this.loginFailure.bind(this);
@@ -24,14 +25,15 @@ class Login extends Component {
 
   googleLogin(res){
     let name = res.profileObj.name;
-    localStorage.setItem('user',name);
-    localStorage.setItem('auth','true');
     console.log(res.profileObj);
     this.props.loginUser(name);
+    this.setState({isLoggedIn: true})
   }
   loginFailure(res){
     let name = res.profileObj.name;
+    localStorage.clear();
     console.log(res.profileObj);
+    this.setState({isLoggedIn: false})
   }
 
 
@@ -48,6 +50,8 @@ class Login extends Component {
 
 
   render(){
+    const isLoggedIn = this.state.isLoggedIn;
+    if(isLoggedIn){ return ( <Redirect to='/MacView'/>) }
     return (
 
         <div className="Login">
