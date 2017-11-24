@@ -22,6 +22,8 @@ class TabletView extends Component {
 
   googleLogin(res){
     let name = res.profileObj.name;
+    let pic = res.profileObj.imageUrl
+    localStorage.setItem('pic',pic);
     this.props.loginUser(name);
     this.setState({auth: true})
     this.setState({user: name})
@@ -38,8 +40,8 @@ class TabletView extends Component {
 
 
   render(){
-    const user = this.state.user;
-    const auth = this.state.auth;
+    const user = this.state.user || localStorage.user;
+    const auth = this.state.auth || localStorage.auth;
 
     return (
 
