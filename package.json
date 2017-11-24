@@ -11,6 +11,7 @@
     "connect-redis": "^3.3.2",
     "cookie-session": "^2.0.0-beta.3",
     "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "google-auth-library": "^0.12.0",
@@ -32,7 +33,8 @@
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "sequelize": "^4.22.5"
+    "sequelize": "^4.22.5",
+    "twilio": "^3.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
