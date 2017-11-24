@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import Pusher from 'pusher-js';
 import {mainBody} from '../Background/styles';
 import {loadShifts} from '../../actions/shifts.js';
-
+import Shifts from '../../components/Shifts.js';
+import {filterAll} from '../../lib/Filters';
 
 
 class Shift extends Component {
@@ -11,41 +12,48 @@ class Shift extends Component {
     super();
     
     this.state={ 
-      shifts: undefined
+      query: false
     }
+    this.singleShift = this.singleShift.bind(this);
+    this.exitSingle = this.exitSingle.bind(this);
   }
+
+
+  
 
   componentDidMount(){
     this.props.loadShifts();
+
+  }
+  singleShift(e,id){
+    e.preventDefault();
+    this.setState({query:id})
   }
 
+  exitSingle(e){
+    e.preventDefault();
+    this.setState({query:false})
+  }
 
 
 
 
 
   render(){
-    let shifts = this.props.shifts;
-
+    const query = this.state.query;
+    const shifts = filterAll(this.props.shifts,'id',query);
+    console.log(shifts);
     return (
       <div style={container}>
-        <div style={shiftCard}>
-          {shifts.map((shift,idx) => {
-            console.log(shift)
-            return (
-              <div style={shiftCard} key={idx}>
-                <div style={organizer} >{shift.organizer.email}</div>
-                <a href={shift.htmlLink}></a>
-                <p>{shift.status}</p>
-                <p>{shift.summary}</p>
-                <p>{shift.location}</p>
-                <p>{shift.start.dateTime}</p>
-                <p>{shift.end.dateTime}</p>
-              </div>)
 
-            })
-          }
-        </div>
+          {shifts.map((shift,idx) => {
+            return (
+              <Shifts 
+                key={idx} 
+                shift={shift}
+                singleShift={this.singleShift}
+                exitSingle={this.exitSingle} />)
+            })}
       </div>
     );
   }
@@ -57,23 +65,7 @@ class Shift extends Component {
 const container = {
     display: "flex-wrap",
     justifyContent:"center"
-    }
-const shiftCard = {
-    marginTop: "10px",
-    width: "400px",
-    height:"200px",
-    backgroundColor: "lightgreen",
-    display: "flex",
-    flexFlow: "row-reverse wrap",
-    justifyContent:"center"
-    }
-const organizer = {
-  backgroundColor: "lightgrey",
-  fontSize: "30px",
-  flexShrink: "1"
 }
-
-
 
 const mapStateToProps = (state) => {
   return {
