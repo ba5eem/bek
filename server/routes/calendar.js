@@ -3,6 +3,8 @@ const express     = require('express');
 const Pusher      = require('pusher');
 const app         = express();
 const route       = express.Router();
+require('dotenv').config();
+
 const google          = require('googleapis');
 const privatekey      = require('../config/privatekey.json');
 

@@ -2,10 +2,10 @@ import React from 'react';
 
 const AppHeader = ({data}) => {
   return (
+      <div>
 
-      <div>BEK</div>
-
-    )//end of return
+      </div>
+    )
 };
 
 export default AppHeader;
