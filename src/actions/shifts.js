@@ -15,9 +15,10 @@ export const loadShifts = () => {
   }
 }
 
-export const loadShifts = () => {
+export const addShift = (newShift) => {
+  console.log('from action: ',newShift)
   return function(dispatch){
-    return axios.post('/api/shifts/new')
+    return axios.post('/api/shifts/new',newShift)
     .then( shift => {
       dispatch({
         type: ADD_SHIFT,

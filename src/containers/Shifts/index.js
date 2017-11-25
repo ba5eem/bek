@@ -28,12 +28,15 @@ class Shift extends Component {
   singleShift(e,id){
     e.preventDefault();
     this.setState({query:id})
+    localStorage.setItem('single',id);
   }
 
   exitSingle(e){
     e.preventDefault();
     this.setState({query:false})
+    localStorage.clear('single');
   }
+
 
 
 

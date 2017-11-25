@@ -7,7 +7,7 @@ const shifts = (state = [], action) => {
     case LOAD_SHIFTS:
       return action.shifts;
     case ADD_SHIFT:
-      return action.shift;
+      return action.shifts;
     default:
       return state
   }
