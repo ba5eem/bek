@@ -3,7 +3,7 @@ require('dotenv').load()
 const Twilio = require('twilio')
 const Chance = require('chance')
 const express = require('express')
-
+const route       = express.Router();
 const AccessToken = Twilio.jwt.AccessToken
 const ChatGrant = AccessToken.ChatGrant
 const chance = new Chance()
@@ -12,7 +12,7 @@ route.get('/token', function (req, res) {
   const token = new AccessToken(
     process.env.TWILIO_ACCOUNT_SID,
     process.env.TWILIO_API_KEY,
-    process.env.TWILIO_API_SECRET,
+    process.env.TWILIO_API_SECRET
   )
 
   token.identity = chance.name()
