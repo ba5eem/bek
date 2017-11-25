@@ -62,7 +62,12 @@ class MacView extends Component {
                 buttonText="Google Login"
                 onSuccess={this.googleLogin}
                 onFailure={this.loginFailure}/> : null*/}
-              <ChatApp/>
+
+                <GoogleLogin
+                clientId="366752664535-921iec03nsrtpbb4s8fdlpq8om608e12.apps.googleusercontent.com"
+                buttonText="Google Login"
+                onSuccess={this.googleLogin}
+                onFailure={this.loginFailure}/>
 
             </div>
 
