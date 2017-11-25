@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Pusher from 'pusher-js';
-import {mainBody} from '../Background/styles';
 import ChatApp from '../Chat/ChatApp';
 
+// import {mainBody} from '../Background/styles';
 
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
 
   render(){
     return (
-      <div style={mainBody} className="mainBody">
+      <div>
         <ChatApp/>
       </div>
     );
