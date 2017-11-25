@@ -14,7 +14,7 @@ import reducers from './reducers';
 import thunk from 'redux-thunk';
 import { GoogleLogin } from 'react-google-login';
 // /*CSS*/-----------------------------------------
-import './index.css';
+import './index.scss';
 // /*CONTAINERS*/----------------------------------
 import AppHeader from './components/AppHeader.js';
 import App from './containers/App';

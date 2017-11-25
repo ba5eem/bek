@@ -30,7 +30,7 @@ class ChatApp extends Component {
     return new Promise((resolve, reject) => {
       this.addMessage({ body: 'Connecting...' })
 
-      $.getJSON('/chat/token', (token) => {
+      $.getJSON('/api/chat/token', (token) => {
         console.log('token from ----->getToken()', token)
         this.setState({ username: token.identity })
         resolve(token)
