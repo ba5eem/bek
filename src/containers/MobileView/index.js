@@ -4,7 +4,7 @@ import {mainBody} from '../Background/styles';
 import { Redirect, Link } from 'react-router-dom';
 import Mobile from '../../components/Mobile.js';
 import { GoogleLogin } from 'react-google-login';
-import {loginUser} from '../../actions/login.js';
+import {addUser} from '../../actions/users.js';
 import MobileDashboard from '../../components/MobileDashboard.js';
 
 
@@ -26,7 +26,7 @@ class MobileView extends Component {
     let pic = res.profileObj.imageUrl
     localStorage.setItem('pic',pic);
     console.log(res.profileObj);
-    this.props.loginUser(name);
+    this.props.addUser(res.profileObj);
     this.setState({auth: true})
     this.setState({user: name})
   }
@@ -104,7 +104,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedMobileView = connect(
   mapStateToProps,
-  {loginUser}
+  {addUser}
 )(MobileView)
 
 export default ConnectedMobileView;

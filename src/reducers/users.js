@@ -1,4 +1,4 @@
-import { LOAD_USERS,EDIT_USER } from '../actions/users.js';
+import { LOAD_USERS,ADD_USER } from '../actions/users.js';
 
 
 const users = (state = {}, action) => {
@@ -7,7 +7,7 @@ const users = (state = {}, action) => {
     case LOAD_USERS:
       return action.users;
 
-    case EDIT_USER:
+    case ADD_USER:
       return action.user;
 
     default:
