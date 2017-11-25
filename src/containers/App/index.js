@@ -32,7 +32,7 @@ class App extends Component {
 
 
 
-/*
+
 const container = {
     display: "flex",
     justifyContent:"center",
@@ -56,7 +56,7 @@ const appBody = {
     display:"flex-wrap",
     justifyContent:"center"
     }
-*/
+
 const mapStateToProps = (state) => {
   return {
     users: state.users
