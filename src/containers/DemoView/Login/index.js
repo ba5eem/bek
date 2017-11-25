@@ -5,7 +5,7 @@ import { GoogleLogin } from 'react-google-login';
 import MobileView from '../MobileView';
 import TabletView from '../TabletView';
 import MacView from '../MacView';
-import {loginUser} from '../../actions/login.js';
+
 
 
 
@@ -27,7 +27,7 @@ class Login extends Component {
     console.log(res);
     let name = res.profileObj.name;
     console.log(res.profileObj);
-    this.props.loginUser(name);
+
     this.setState({isLoggedIn: true})
   }
   loginFailure(res){
@@ -66,8 +66,7 @@ const mapStateToProps = (state) => {
 
 
 const ConnectedLogin = connect(
-  mapStateToProps,
-  {loginUser}
+  mapStateToProps
 )(Login)
 
 export default ConnectedLogin;

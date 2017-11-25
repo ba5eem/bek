@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 export const LOAD_USERS = 'LOAD_USERS';
-export const EDIT_USER = 'EDIT_USER';
+export const ADD_USER = 'ADD_USER';
 
 export const loadUsers = () => {
   return function(dispatch){
@@ -15,15 +15,15 @@ export const loadUsers = () => {
   }
 }
 
-export const editUser = (newInfo) => {
+export const addUser = (newUser) => {
+  console.log('from user action: ',newUser)
   return function(dispatch){
-    return axios.put(`/api/users/${newInfo.id}`, newInfo)
-    .then (user => {
+    return axios.post('/api/users',newUser)
+    .then( user => {
       dispatch({
-        type: EDIT_USER,
+        type: ADD_USER,
         user: user.data
       });
     });
   }
 }
-

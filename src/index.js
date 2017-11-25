@@ -16,6 +16,9 @@ import { GoogleLogin } from 'react-google-login';
 //SCSS-----------------------------------------
 import './index.scss';
 //CONTAINERS----------------------------------
+// /*CSS*/-----------------------------------------
+import './index.scss';
+// /*CONTAINERS*/----------------------------------
 import App from './containers/App';
 import SideBar from './containers/SideBar';
 import Footer from './components/footer.components';
@@ -45,9 +48,9 @@ ReactDOM.render(
           <div id="header-bar" />
         </header>
 
-      <Route exact path="/" component={App} />
 
-        <Footer />
+      <Route exact path="/" component={App} />
+      <Footer />
       </div>
     </Router>
   </Provider>, document.getElementById('root'));
