@@ -4,12 +4,12 @@ import {mainBody} from '../Background/styles';
 import { createStore } from 'redux'
 import Mac from '../../components/Mac.js';
 import MacDashboard from '../../components/MacDashboard.js';
-import {loginUser} from '../../actions/login.js';
+import {addUser} from '../../actions/users.js';
 import login from '../../reducers/login.js';
 import Login from '../Login';
 import { GoogleLogin } from 'react-google-login';
 import ChatApp from '../Chat/ChatApp';
-const store = createStore(loginUser);
+
 
 
 class MacView extends Component {
@@ -28,7 +28,7 @@ class MacView extends Component {
     let name = res.profileObj.name;
     let pic = res.profileObj.imageUrl
     localStorage.setItem('pic',pic);
-    this.props.loginUser(name);
+    this.props.addUser(res.profileObj);
     this.setState({auth: true})
     this.setState({user: name})
   }
@@ -114,7 +114,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedMacView = connect(
   mapStateToProps,
-  {loginUser}
+  {addUser}
 )(MacView)
 
 export default ConnectedMacView;

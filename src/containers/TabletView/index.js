@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {mainBody} from '../Background/styles';
 import Tablet from '../../components/Tablet.js';
 import { GoogleLogin } from 'react-google-login';
-import {loginUser} from '../../actions/login.js';
+import {addUser} from '../../actions/users.js';
 import TabletDashboard from '../../components/TabletDashboard.js';
 
 
@@ -24,7 +24,7 @@ class TabletView extends Component {
     let name = res.profileObj.name;
     let pic = res.profileObj.imageUrl
     localStorage.setItem('pic',pic);
-    this.props.loginUser(name);
+    this.props.addUser(name);
     this.setState({auth: true})
     this.setState({user: name})
   }
@@ -103,7 +103,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedTabletView = connect(
   mapStateToProps,
-  {loginUser}
+  {addUser}
 )(TabletView)
 
 export default ConnectedTabletView;
