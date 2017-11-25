@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Iframe from 'react-iframe';
 import Pusher from 'pusher-js';
 import ChatApp from '../Chat/ChatApp';
+import NewShift from '../NewShift';
 
 // import {mainBody} from '../Background/styles';
 
@@ -20,6 +21,7 @@ class App extends Component {
     const path = "cohortuser19%40gmail.com"
     return (
       <div>
+        <NewShift />
         <div id="iframe-div">
           <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
           bgcolor="233366ff"

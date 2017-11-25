@@ -62,7 +62,7 @@
     "react": "^16.0.0",
     "react-burger-menu": "^2.1.11",
     "react-dev-utils": "^4.2.1",
-    "react-dom": "^16.0.0",
+    "react-dom": "^16.1.1",
     "react-google-login": "^3.0.2",
     "react-iframe": "^1.1.0",
     "react-poppop": "^1.0.1",

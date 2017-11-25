@@ -91,6 +91,6 @@ const addShift={
   marginTop:"10px"
 }
 const quickShifts = {
-  display:"flex-wrap",
+  display:"flex",
   maxWidth: "300px"
 }

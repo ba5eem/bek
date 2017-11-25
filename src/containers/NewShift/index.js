@@ -2,20 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { GoogleLogin } from 'react-google-login';
 import { loadUsers } from '../../actions/users';
-import { addUser } from '../../actions/register';
-import AppHeader from '../../components/AppHeader.js';
 import { QRCode } from 'react-qr-svg';
 import Formsy from 'formsy-react';
-import MyInput from './MyInput';
-import SelectMonth from './SelectMonth';
-import SelectDay from './SelectDay';
+import MyInput from '../../components/CreateShift/MyInput';
+import SelectMonth from '../../components/CreateShift/SelectMonth';
+import SelectDay from '../../components/CreateShift/SelectDay';
 import PopPop from 'react-poppop';
-import Popup from './Popup';
-import ShiftLength from './ShiftLength';
+import Popup from '../../components/CreateShift/Popup';
+import ShiftLength from '../../components/CreateShift/ShiftLength';
 
 
 
-class App extends Component {
+class NewShift extends Component {
   constructor(props) {
     super(props);
     this.disableButton = this.disableButton.bind(this);
@@ -70,9 +68,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-const ConnectedApp = connect(
+const ConnectedNewShift = connect(
   mapStateToProps,
-  {loadUsers,addUser}
-)(App)
+  {loadUsers}
+)(NewShift)
 
-export default ConnectedApp;
+export default ConnectedNewShift;
