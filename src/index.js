@@ -20,6 +20,7 @@ import './index.scss';
 import './index.scss';
 // /*CONTAINERS*/----------------------------------
 import App from './containers/App';
+import Login from './containers/Login';
 import SideBar from './containers/SideBar';
 import Footer from './components/footer.components';
 
@@ -48,8 +49,8 @@ ReactDOM.render(
           <div id="header-bar" />
         </header>
 
-
       <Route exact path="/" component={App} />
+      <Route path="/login" component={Login} />
       <Footer />
       </div>
     </Router>
