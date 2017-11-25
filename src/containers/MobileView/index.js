@@ -25,6 +25,7 @@ class MobileView extends Component {
     let name = res.profileObj.name;
     let pic = res.profileObj.imageUrl
     localStorage.setItem('pic',pic);
+    console.log(res.profileObj);
     this.props.loginUser(name);
     this.setState({auth: true})
     this.setState({user: name})
