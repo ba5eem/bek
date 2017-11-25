@@ -33,7 +33,7 @@ ReactDOM.render(
     <Router>
       <div id="source">
 
-        <Background />
+        <App />
 
       </div>
     </Router>
