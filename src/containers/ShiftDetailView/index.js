@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 //editshift, delete shift
 import { loadUsers } from '../../actions/users';
 import { loadShifts } from '../../actions/shifts';
-
+import SingleShift from '../../component/SingleShift';
 
 class ShiftDetailView extends Component {
   constructor() {
@@ -13,6 +13,15 @@ class ShiftDetailView extends Component {
       shift: '',
     }
   }
+
+
+render() {
+  return (
+    <div>
+
+    </div>
+  )
+}
 
 }
 
