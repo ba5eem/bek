@@ -2,21 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Pusher from 'pusher-js';
 import {mainBody} from '../Background/styles';
-
+import ChatApp from '../Chat/ChatApp';
 
 
 
 class App extends Component {
   constructor() {
     super();
-    
-    this.state={ 
+
+    this.state={
       data: []
     }
   }
-
-
-
 
 
 
@@ -27,7 +24,7 @@ class App extends Component {
     return (
 
       <div style={mainBody} className="mainBody">
-
+        <ChatApp/>
       </div>
     );
   }
@@ -35,7 +32,7 @@ class App extends Component {
 
 
 
-
+/*
 const container = {
     display: "flex",
     justifyContent:"center",
@@ -59,7 +56,7 @@ const appBody = {
     display:"flex-wrap",
     justifyContent:"center"
     }
-
+*/
 const mapStateToProps = (state) => {
   return {
     users: state.users
