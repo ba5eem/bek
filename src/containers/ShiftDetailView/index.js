@@ -18,7 +18,8 @@ class ShiftDetailView extends Component {
 render() {
   return (
     <div>
-
+      <h1>Shift Details</h1>
+      <SingleShift/>
     </div>
   )
 }
