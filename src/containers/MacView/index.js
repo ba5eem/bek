@@ -28,6 +28,7 @@ class MacView extends Component {
     let name = res.profileObj.name;
     let pic = res.profileObj.imageUrl
     localStorage.setItem('pic',pic);
+    console.log('res from macview--->', res)
     this.props.addUser(res.profileObj);
     this.setState({auth: true})
     this.setState({user: name})
@@ -56,13 +57,14 @@ class MacView extends Component {
             <img style={mac} src="http://bit.ly/2A7UiUC" alt="phone"/>
             <div style={macAppBody}>
 
-              {/*!auth ? <Mac /> : <MacDashboard user={user}/> }
+              {!auth ? <Mac /> : <MacDashboard user={user}/> }
               {!auth ? <GoogleLogin
                 clientId="366752664535-921iec03nsrtpbb4s8fdlpq8om608e12.apps.googleusercontent.com"
                 buttonText="Google Login"
                 onSuccess={this.googleLogin}
-                onFailure={this.loginFailure}/> : null*/}
-              <ChatApp/>
+                onFailure={this.loginFailure}/> : null}
+
+
 
             </div>
 
