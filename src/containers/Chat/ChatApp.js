@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import MessageForm from './MessageForm';
 import MessageList from './MessageList';
+import '../../index.scss';
 import $ from 'jquery';
-import '../../index.css';
+import '../../index.scss';
 import TwilioChat from 'twilio-chat';
-
 
 class ChatApp extends Component {
   constructor(props) {

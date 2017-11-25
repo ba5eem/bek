@@ -27,10 +27,12 @@ class MessageForm extends Component {
             placeholder="Enter your message..."
           />
         </div>
-        <div className="button-container">
-          <button type="submit">
-            Send
-          </button>
+
+        <div>
+          <input
+          className="send-button"
+          type="submit"
+          value="Send" />
         </div>
       </form>
     )

@@ -1,29 +1,173 @@
-body{
-  background-color: white;
+//theme colors
+$main: #FFFFFF;
+$accent: #66b3ff;
+
+// mixins
+@mixin flex-style($flow, $justify) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  flex-flow: $flow;
+  justify-content: $justify;
+}
+
+@mixin box-style($style) {
+  -webkit-box-sizing: $style;
+  -moz-box-sizing: $style;
+  box-sizing: $style;
+}
+
+body {
+  // prevents margin white spaces around page
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+textarea {
+  resize: none;
+}
+
+#iframe-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16em;
+}
+
+//Buttons---------------
+.send-button {
+  background-color: $accent;
+}
+// ---------------------
+/* STYLE SETTINGS  */
+#source {
+  position: relative;
+  min-height: 100%;
+}
+
+#header {
+  background-image: url("/assets/connect_@2X.png");
+  background-repeat: repeat;
+  background-position: center;
+  background-attachment: center fixed;
+}
+//Burger Bar -----------------
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #798086;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  opacity: 0.8;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  a {
+    color: $main;
+    padding: 8px;
+  }
+}
+
+.bm-menu a:hover {
+  color: $accent;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+  padding-top: 2em;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+//-----------------------------
+#line {
+  border: solid $main 0.5px;
+  width: 75%;
+}
+
+#logo {
+  background-image: url("/assets/");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: center fixed;
+  height: 150px;
+  width: 300px;
+  margin: 0 auto;
+  div {
+  height: 150px;
+  width: 300px;
+  }
+}
+
+#header-bar {
+  background-color: $accent;
+  width: auto;
+  height: 40px;
+}
+
+// Twillio---------------------
+#chat-app-div {
+  display: flex;
+  justify-content: center;
+  padding-top: 17em;
 }
 
 .ChatApp {
   border: 1px solid #ccc;
   border-radius: 3px;
-  height: 400px;
-  width: 600px;
+  height: 200px;
+  width: 700px;
   margin: .5em;
-  font-size: 13px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
-}
-
-.ChatApp .MessageList {
-  box-sizing: border-box;
-  flex: 1;
-}
-
-.ChatApp .MessageForm {
-  background: #eee;
-  border-top: 1px solid #ccc;
-  border-radius: 0 0 3px 3px;
-  box-sizing: border-box;
-  flex: 0 0 30px;
+  .MessageList {
+    box-sizing: border-box;
+    flex: 1;
+  }
+  .MessageForm {
+    background: #eee;
+    border-top: 1px solid #ccc;
+    border-radius: 0 0 3px 3px;
+    box-sizing: border-box;
+    flex: 0 0 30px;
+  }
 }
 
 .MessageList {
@@ -78,4 +222,17 @@ body{
 .MessageForm input {
   padding: 0 0 0 4px;
 }
-
+// ------------------------
+#footer {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  height: 30px;
+  width: 100%;
+  padding-top: 15px;
+  background-color: $accent;
+  color: $main;
+}

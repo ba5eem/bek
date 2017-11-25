@@ -14,8 +14,8 @@ class Login extends Component {
     super(props);
 
     const {dispatch} = props;
-    
-    this.state={ 
+
+    this.state={
       data: [],
       isLoggedIn: false
     }
@@ -40,12 +40,6 @@ class Login extends Component {
 
 
 // THIS CONTAINER IS NO LONGER NEEDED _ CAN DELETE IF YOU LIKE
-
-
-
-
-
-
 
 
   render(){

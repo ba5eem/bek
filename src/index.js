@@ -7,19 +7,25 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-// /*REDUX*/--------------------------------------
+//REDUX--------------------------------------
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
 import thunk from 'redux-thunk';
 import { GoogleLogin } from 'react-google-login';
+//SCSS-----------------------------------------
+import './index.scss';
+//CONTAINERS----------------------------------
 // /*CSS*/-----------------------------------------
 import './index.scss';
 // /*CONTAINERS*/----------------------------------
-import AppHeader from './components/AppHeader.js';
 import App from './containers/App';
-import Login from './containers/Login';
-import Background from './containers/Background';
+import SideBar from './containers/SideBar';
+import Footer from './components/footer.components';
+
+// import AppHeader from './components/AppHeader.js';
+// import Login from './containers/Login';
+// import Background from './containers/Background';
 
 // ------STORE--------
 const store = createStore(
@@ -32,9 +38,19 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div id="source">
+        <header id="header">
+          <SideBar />
+          <div id="logo">
+            <Link to="/">
+            <div></div>
+            </Link>
+          </div>
+          <div id="header-bar" />
+        </header>
 
-        <App />
 
+      <Route exact path="/" component={App} />
+      <Footer />
       </div>
     </Router>
   </Provider>, document.getElementById('root'));

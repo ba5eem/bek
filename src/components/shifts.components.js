@@ -54,4 +54,3 @@ const shiftCard = {
 
 
 
-              
