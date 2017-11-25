@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MessageForm from './MessageForm';
 import MessageList from './MessageList';
-import '../../index.css';
+import '../../index.scss';
 
 
 class ChatApp extends Component {

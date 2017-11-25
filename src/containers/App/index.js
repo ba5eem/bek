@@ -15,23 +15,14 @@ class App extends Component {
     }
   }
 
-
-
-
-
   render(){
-
     return (
-
       <div style={mainBody} className="mainBody">
         <ChatApp/>
       </div>
     );
   }
 }
-
-
-
 
 const container = {
     display: "flex",
