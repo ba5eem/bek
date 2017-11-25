@@ -20,7 +20,7 @@ class ChatApp extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="ChatApp">
         <MessageList messages={this.state.messages} />
         <MessageForm onMessageSend={this.handleNewMessage} />
       </div>

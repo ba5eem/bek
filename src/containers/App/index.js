@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Iframe from 'react-iframe';
 import Pusher from 'pusher-js';
 import ChatApp from '../Chat/ChatApp';
 
@@ -18,7 +19,14 @@ class App extends Component {
   render(){
     return (
       <div>
-        <ChatApp/>
+        <div id="iframe-div"><Iframe url="https://calendar.google.com/calendar/embed?src=cohortuser19%40gmail.com&ctz=Pacific/Honolulu"
+          width="700px"
+          height="500px"
+          frameborder="0"
+          scrolling="no"
+          position="absolute">
+          </Iframe></div>
+        <div id="chat-app-div"><ChatApp/></div>
       </div>
     );
   }

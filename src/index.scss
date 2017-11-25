@@ -33,6 +33,13 @@ textarea {
   resize: none;
 }
 
+#iframe-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16em;
+}
+
 //Buttons---------------
 .send-button {
   background-color: $accent;
@@ -135,28 +142,32 @@ textarea {
 }
 
 // Twillio---------------------
+#chat-app-div {
+  display: flex;
+  justify-content: center;
+  padding-top: 18em;
+}
+
 .ChatApp {
   border: 1px solid #ccc;
   border-radius: 3px;
-  height: 400px;
-  width: 600px;
+  height: 200px;
+  width: 700px;
   margin: .5em;
-  font-size: 13px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
-}
-
-.ChatApp .MessageList {
-  box-sizing: border-box;
-  flex: 1;
-}
-
-.ChatApp .MessageForm {
-  background: #eee;
-  border-top: 1px solid #ccc;
-  border-radius: 0 0 3px 3px;
-  box-sizing: border-box;
-  flex: 0 0 30px;
+  .MessageList {
+    box-sizing: border-box;
+    flex: 1;
+  }
+  .MessageForm {
+    background: #eee;
+    border-top: 1px solid #ccc;
+    border-radius: 0 0 3px 3px;
+    box-sizing: border-box;
+    flex: 0 0 30px;
+  }
 }
 
 .MessageList {
@@ -211,7 +222,7 @@ textarea {
 .MessageForm input {
   padding: 0 0 0 4px;
 }
-
+// ------------------------
 #footer {
   margin-top: 40px;
   display: flex;
