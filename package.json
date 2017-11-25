@@ -8,6 +8,7 @@
     "baseem": "^0.1.1",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
+    "chance": "^1.0.12",
     "classnames": "^2.2.5",
     "connect-redis": "^3.3.2",
     "cookie-session": "^2.0.0-beta.3",
