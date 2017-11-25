@@ -13,7 +13,7 @@ const CreateShift = ({handleChange,handleSubmit}) => {
             <input onChange={handleChange} type="text" name="endTime" placeholder="endTime" style={input}></input>
             <input type="submit" value="Post New Shift"></input>
           </form>
-       
+
         </div>
 
 

@@ -18,6 +18,7 @@ import './index.scss';
 //CONTAINERS----------------------------------
 import App from './containers/App';
 import SideBar from './containers/SideBar';
+import Footer from './components/footer.components';
 
 // import AppHeader from './components/AppHeader.js';
 // import Login from './containers/Login';
@@ -46,6 +47,7 @@ ReactDOM.render(
 
       <Route exact path="/" component={App} />
 
+        <Footer />
       </div>
     </Router>
   </Provider>, document.getElementById('root'));

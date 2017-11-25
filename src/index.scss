@@ -131,7 +131,7 @@ textarea {
 #header-bar {
   background-color: $accent;
   width: auto;
-  height: 15px;
+  height: 40px;
 }
 
 // Twillio---------------------
@@ -212,3 +212,16 @@ textarea {
   padding: 0 0 0 4px;
 }
 
+#footer {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  height: 30px;
+  width: 100%;
+  padding-top: 15px;
+  background-color: $accent;
+  color: $main;
+}
