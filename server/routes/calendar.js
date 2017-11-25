@@ -88,7 +88,13 @@ let calendarId = 'cohortuser19@gmail.com';
 let calendar = google.calendar('v3');
 gcal(token).events.insert(calendarId,event, function(err,data){
   if(err) return res.send(500,err);
-  return res.json("success");
+  return calendar.event.list({
+    auth: jwtClient,
+    calendarId: 'cohortuser19@gmail.com'
+  }, function(err,response){
+      var events = response.items;
+      res.json(events);
+  })
   })
  }
 });
