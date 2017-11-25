@@ -3,7 +3,12 @@ const express     = require('express');
 const Pusher      = require('pusher');
 const app         = express();
 const route       = express.Router();
+<<<<<<< HEAD
 var gcal = require('google-calendar');
+=======
+require('dotenv').config();
+
+>>>>>>> development
 const google          = require('googleapis');
 const privatekey      = require('../config/privatekey.json');
 let jwtClient = new google.auth.JWT(
