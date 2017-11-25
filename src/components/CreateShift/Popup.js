@@ -78,7 +78,7 @@ const addShift={
   backgroundColor:"cornflowerblue",
   color:"white",
   border: "transparent",
-  fontSize: "40px",
+  fontSize: "30px",
   paddingBottom:"10px",
   paddingRight:"15px",
   paddingLeft:"15px",

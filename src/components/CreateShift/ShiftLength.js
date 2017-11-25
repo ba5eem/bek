@@ -36,7 +36,7 @@ export default class Popup extends Component {
         {
           time.map((item,idx) => {
             return (
-              <div key={idx} value={item}>
+              <div key={idx} value={item} style={quickShifts}>
               <button  style={addShift} onClick={(e) => this.toggleShow(e)}>{item}</button>
               <PopPop position="centerCenter"
                   value={item}
@@ -84,7 +84,7 @@ const addShift={
   backgroundColor:"cornflowerblue",
   color:"white",
   border: "transparent",
-  fontSize: "40px",
+  fontSize: "30px",
   paddingBottom:"10px",
   paddingRight:"15px",
   paddingLeft:"15px",
@@ -92,5 +92,5 @@ const addShift={
 }
 const quickShifts = {
   display:"flex",
-  maxWidth: "300px"
+  textAlign:"center"
 }

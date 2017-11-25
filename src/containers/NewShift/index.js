@@ -54,7 +54,7 @@ class NewShift extends Component {
   render(){
 
     return (
-        <div>
+        <div style={quickShifts}>
         <Popup submit={this.submit.bind(this)}/>
         <ShiftLength submit={this.submit.bind(this)}/>
         </div>
@@ -62,6 +62,10 @@ class NewShift extends Component {
   }
 } /*END OF RENDER AND CLASS APP*/
 
+const quickShifts = {
+  display:"flex",
+  textAlign:"center"
+}
 const mapStateToProps = (state) => {
   return {
     users: state.users
