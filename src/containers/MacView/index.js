@@ -28,6 +28,7 @@ class MacView extends Component {
     let name = res.profileObj.name;
     let pic = res.profileObj.imageUrl
     localStorage.setItem('pic',pic);
+    console.log('res from macview--->', res)
     this.props.addUser(res.profileObj);
     this.setState({auth: true})
     this.setState({user: name})

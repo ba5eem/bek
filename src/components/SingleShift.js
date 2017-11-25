@@ -1,10 +1,14 @@
 import React from 'react';
 
 
-const SingleShift = ({}) => {
+const SingleShift = ({shift}) => {
   return (
     <div className='eachShift'>
-
+      Salesman Required
+      Date: {}
+      Time Start: {}
+      Time End: {}
+      Posted By: {}
     </div>
   )
 }
