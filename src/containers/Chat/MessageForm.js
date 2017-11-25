@@ -36,5 +36,4 @@ class MessageForm extends Component {
     )
   }
 }
-
 export default MessageForm

@@ -8,6 +8,7 @@ const route       = express.Router();
 const AccessToken = Twilio.jwt.AccessToken
 const ChatGrant = AccessToken.ChatGrant
 
+
 route.get('/token', function (req, res) {
   const token = new AccessToken(
     process.env.TWILIO_ACCOUNT_SID,
