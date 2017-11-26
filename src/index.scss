@@ -1,6 +1,8 @@
 //theme colors
 $main: #FFFFFF;
 $accent: #66b3ff;
+$link: #ff9966;
+$button: #bfbfbf;
 
 // mixins
 @mixin flex-style($flow, $justify) {
@@ -47,11 +49,6 @@ textarea {
   padding-top: 16em;
   background: linear-gradient(to bottom, #66b3ff 0%, #ffffff 100%);
 }
-
-//Buttons---------------
-.send-button {
-  background-color: $accent;
-}
 // ---------------------
 /* STYLE SETTINGS  */
 #source {
@@ -74,10 +71,10 @@ textarea {
       color: $main;
     }
   }
+  .nav-links a:hover {
+    color: $link;
+  }
 }
-
-//----------------------------
-
 //Burger Bar -----------------
 /* Position and sizing of burger button */
 .bm-burger-button {
@@ -90,7 +87,7 @@ textarea {
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #798086;
+  background: $button;
 }
 
 /* Position and sizing of clickable cross button */
@@ -172,6 +169,7 @@ textarea {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background: linear-gradient(to top, #66b3ff 0%, #ffffff 100%);
   .MessageList {
     box-sizing: border-box;
     flex: 1;
@@ -224,7 +222,6 @@ textarea {
 }
 
 .MessageForm input, .MessageForm button {
-  background: #fff;
   border-radius: 3px;
   border: 1px solid #ccc;
   box-sizing: border-box;
@@ -235,7 +232,14 @@ textarea {
 }
 
 .MessageForm input {
+  background: $main;
   padding: 0 0 0 4px;
+  font-family: 'Advent Pro', sans-serif;
+}
+
+input.send-button {
+ background: $button;
+
 }
 // ------------------------
 #footer {
