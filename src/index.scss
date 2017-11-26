@@ -1,6 +1,7 @@
 //theme colors
 $main: #FFFFFF;
 $accent: #66b3ff;
+$button: #ff9966;
 
 // mixins
 @mixin flex-style($flow, $justify) {
@@ -74,9 +75,10 @@ textarea {
       color: $main;
     }
   }
+  .nav-links a:hover {
+    color: $button;
+  }
 }
-
-//----------------------------
 
 //Burger Bar -----------------
 /* Position and sizing of burger button */
@@ -172,6 +174,7 @@ textarea {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background: linear-gradient(to top, #66b3ff 0%, #ffffff 100%);
   .MessageList {
     box-sizing: border-box;
     flex: 1;
@@ -224,7 +227,6 @@ textarea {
 }
 
 .MessageForm input, .MessageForm button {
-  background: #fff;
   border-radius: 3px;
   border: 1px solid #ccc;
   box-sizing: border-box;
@@ -235,7 +237,14 @@ textarea {
 }
 
 .MessageForm input {
+  background: $main;
   padding: 0 0 0 4px;
+  font-family: 'Advent Pro', sans-serif;
+}
+
+input.send-button {
+ background: $button;
+
 }
 // ------------------------
 #footer {
