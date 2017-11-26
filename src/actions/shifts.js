@@ -4,6 +4,7 @@ export const LOAD_SHIFTS = 'LOAD_SHIFTS';
 export const ADD_SHIFT = 'ADD_SHIFT';
 export const EDIT_SHIFT = 'EDIT_SHIFT';
 export const DELETE_SHIFT = 'DELETE_SHIFT';
+export const LOAD_PHONE = 'LOAD_PHONE';
 
 export const loadShifts = () => {
   return function(dispatch){

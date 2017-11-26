@@ -4,7 +4,7 @@ import Iframe from 'react-iframe';
 import Pusher from 'pusher-js';
 import ChatApp from '../Chat/ChatApp';
 import NewShift from '../NewShift';
-
+import SendSMS from '../SendSMS/index';
 // import {mainBody} from '../Background/styles';
 
 
