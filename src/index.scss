@@ -133,12 +133,12 @@ textarea {
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
-//-----------------------------
+
 #line {
   border: solid $main 0.5px;
   width: 75%;
 }
-
+//-----------------------------
 #logo {
   background-image: url("/assets/");
   background-repeat: no-repeat;
@@ -153,6 +153,25 @@ textarea {
   }
 }
 
+#login-container {
+  height: auto;
+  width: 100%;
+  text-align: center;
+  padding-top: 70px;
+  .login-welcome {
+    padding-bottom: 40px;
+  }
+}
+button.google-login {
+  background-color: #d14836;
+  color: $main;
+  width: 190px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: 'Advent Pro';
+  font-weight: bold;
+  font-size: 100%;
+}
 // Twillio---------------------
 #chat-app-div {
   display: flex;
