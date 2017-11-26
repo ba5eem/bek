@@ -6,9 +6,13 @@ const Nav = () => {
     return (
       <div className="nav-links">
         <Link to="/">Home</Link>
+        |
         <Link to="/">Management</Link>
+        |
         <Link to="/">Front</Link>
+        |
         <Link to="/">Back</Link>
+        |
         <Link to="/logout">Logout</Link>
       </div>
     )
@@ -16,7 +20,9 @@ const Nav = () => {
     return (
       <div className="nav-links">
         <Link to="/">Home</Link>
+        |
         <Link to="/profile">My Profile</Link>
+        |
         <Link to="/login">Login</Link>
       </div>
     );

@@ -1,7 +1,8 @@
 //theme colors
 $main: #FFFFFF;
 $accent: #66b3ff;
-$button: #ff9966;
+$link: #ff9966;
+$button: #bfbfbf;
 
 // mixins
 @mixin flex-style($flow, $justify) {
@@ -48,11 +49,6 @@ textarea {
   padding-top: 16em;
   background: linear-gradient(to bottom, #66b3ff 0%, #ffffff 100%);
 }
-
-//Buttons---------------
-.send-button {
-  background-color: $accent;
-}
 // ---------------------
 /* STYLE SETTINGS  */
 #source {
@@ -76,10 +72,9 @@ textarea {
     }
   }
   .nav-links a:hover {
-    color: $button;
+    color: $link;
   }
 }
-
 //Burger Bar -----------------
 /* Position and sizing of burger button */
 .bm-burger-button {
@@ -92,7 +87,7 @@ textarea {
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #798086;
+  background: $button;
 }
 
 /* Position and sizing of clickable cross button */
