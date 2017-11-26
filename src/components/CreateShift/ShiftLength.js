@@ -13,20 +13,21 @@ export default class Popup extends Component {
     super(props);
     this.state = {
       show: false,
-      shift:''
+      shift:'',
+      date: new Date()
     }
+
   }
 
 
   toggleShow(e){
-    if(!this.state.show){
+    if(e!==undefined){
       this.setState({shift:e.target.innerHTML, show:true})
     }
     if(this.state.show){
       this.setState({show:false}) 
     }
   }
-
 
   render() {
     const {show} = this.state;
@@ -46,6 +47,7 @@ export default class Popup extends Component {
                   onClose={() => this.toggleShow()}
                   closeOnOverlay={true}>
                   <Formsy onSubmit={this.props.submit}>
+                    <p style={heading}>{this.state.shift}</p>
                     <MyInput
                     name="title"
                     validations="isWords"
@@ -66,9 +68,11 @@ export default class Popup extends Component {
                     />
                     <SelectStart
                     name={this.state.shift}
+                    date={this.state.date}
                     required
                     />
-                  <button type="submit" disabled={this.state.canSubmit}>Submit</button>
+                  <button style={select} type="submit">Submit</button>
+                  HIT THE X WHEN YOU ARE DONE
                 </Formsy>
               </PopPop>
               </div>
@@ -81,7 +85,7 @@ export default class Popup extends Component {
 }
 
 const addShift={
-  backgroundColor:"cornflowerblue",
+  backgroundColor:"#66b3ff",
   color:"white",
   border: "transparent",
   fontSize: "30px",
@@ -93,4 +97,14 @@ const addShift={
 const quickShifts = {
   display:"flex",
   textAlign:"center"
+}
+const heading={
+  fontSize: "40px"
+}
+const select = {
+  width: "400px",
+  textAlign:"center",
+  backgroundColor: "#66b3ff",
+  height:"40px",
+  marginTop: "10px"
 }

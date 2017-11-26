@@ -33,7 +33,7 @@ class SelectEnd extends React.Component {
 
     return (
       <div>
-       <select className="select" onChange={this.changeValue}>
+       <select style={select} className="select" onChange={this.changeValue}>
         {
           time.map((item,idx) => {
             return (
@@ -47,6 +47,13 @@ class SelectEnd extends React.Component {
       </div>
     );
   }
+}
+const select = {
+  width: "400px",
+  textAlign:"center",
+  backgroundColor: "#66b3ff",
+  fontSize:"40px",
+  marginTop: "20px"
 }
  
 export default withFormsy(SelectEnd);

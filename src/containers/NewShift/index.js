@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { GoogleLogin } from 'react-google-login';
 import { loadUsers } from '../../actions/users';
+import { addShift } from '../../actions/shifts';
 import { QRCode } from 'react-qr-svg';
 import Formsy from 'formsy-react';
 import MyInput from '../../components/CreateShift/MyInput';
@@ -16,9 +17,10 @@ import ShiftLength from '../../components/CreateShift/ShiftLength';
 class NewShift extends Component {
   constructor(props) {
     super(props);
+
     this.disableButton = this.disableButton.bind(this);
     this.enableButton = this.enableButton.bind(this);
-    this.state = { canSubmit: false };
+    this.state = { canSubmit: false, complete: false };
   }
  
   disableButton() {
@@ -30,33 +32,20 @@ class NewShift extends Component {
   }
  
   submit(model) {
-    // if(model.quickshift){
-    //   console.log(model.quickshift)
-    // }
-
- 
+    this.setState({show:false}) 
     console.log(model);
+    this.props.addShift(model)
   }
-
-
-
-
-       // <QRCode
-       //              bgColor="#FFFFFF"
-       //              fgColor="#000000"
-       //              level="Q"
-       //              style={{ width: 256 }}
-       //              value="www.google.com"
-       //          />
-
 
 
   render(){
 
     return (
         <div style={quickShifts}>
-        <Popup submit={this.submit.bind(this)}/>
-        <ShiftLength submit={this.submit.bind(this)}/>
+        <Popup 
+          submit={this.submit.bind(this)}/>
+        <ShiftLength
+          submit={this.submit.bind(this)}/>
         </div>
     );/*END OF RETURN*/
   }
@@ -74,7 +63,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedNewShift = connect(
   mapStateToProps,
-  {loadUsers}
+  {loadUsers,addShift}
 )(NewShift)
 
 export default ConnectedNewShift;

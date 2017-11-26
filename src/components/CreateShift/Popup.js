@@ -66,7 +66,7 @@ export default class Popup extends Component {
             <SelectEnd
               name="end"
               />
-            <button type="submit" disabled={this.state.canSubmit}>Submit</button>
+            <button style={select} type="submit" disabled={this.state.canSubmit}>Submit</button>
           </Formsy>
         </PopPop>
       </div>
@@ -75,7 +75,7 @@ export default class Popup extends Component {
 }
 
 const addShift={
-  backgroundColor:"cornflowerblue",
+  backgroundColor:"#66b3ff",
   color:"white",
   border: "transparent",
   fontSize: "30px",
@@ -83,4 +83,10 @@ const addShift={
   paddingRight:"15px",
   paddingLeft:"15px",
   marginTop:"10px"
+}
+const select = {
+  width: "400px",
+  textAlign:"center",
+  backgroundColor: "#66b3ff",
+  fontSize:"40px"
 }
