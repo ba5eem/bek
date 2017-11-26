@@ -41,8 +41,8 @@ ReactDOM.render(
           <SideBar />
           <div id="logo">
             <Link to="/">
-            <div></div>
             </Link>
+          <div id="title">bek-connect</div>
           </div>
           <Nav />
         </header>

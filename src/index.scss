@@ -65,7 +65,7 @@ textarea {
     background-color: $accent;
     display: flex;
     justify-content: space-around;
-    padding: 1.5vw;
+    padding: 1vw;
     a {
       background-color: $accent;
       color: $main;
@@ -140,19 +140,24 @@ textarea {
 }
 //-----------------------------
 #logo {
-  background-image: url("/assets/");
+  background-image: url("/assets/network.icon.png");
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: center fixed;
   height: 150px;
   width: 300px;
   margin: 0 auto;
-  div {
-  height: 150px;
-  width: 300px;
-  }
+  padding-bottom: 10px;
 }
 
+#title {
+  font-size: 250%;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  color: $link;
+}
+//-----------------------------
 #login-container {
   height: auto;
   width: 100%;
