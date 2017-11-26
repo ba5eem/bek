@@ -45,6 +45,7 @@
     "jest": "20.0.4",
     "jquery": "^3.2.1",
     "method-override": "^2.3.10",
+    "moment": "^2.19.2",
     "object-assign": "4.1.1",
     "passport": "^0.4.0",
     "passport-google-oauth2": "^0.1.6",
@@ -88,6 +89,8 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "proxy": "http://localhost:8080",
+  "proxy": "http://localhost:3000",
+
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}"
