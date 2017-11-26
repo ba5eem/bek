@@ -59,13 +59,13 @@ calendar.events.list({
 
 route.post('/new', (req,res) => {
 //authenticate request
-  console.log(req.body);
+  //console.log(req.body);
   let time = req.body._4
   let today = moment().format('YYYY-MM-DDT');
   let start = today+time+':00-'+time;
   let endTime = parseInt(time)+4+':00';
   let end = today+endTime+':00-'+endTime;
-  console.log(end);
+  //console.log(end);
 
 var event = {
   'title':req.body.title,
