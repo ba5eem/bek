@@ -1,68 +1,69 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Pusher from 'pusher-js';
-import {mainBody} from '../Background/styles';
-import {addShift} from '../../actions/shifts.js';
-import CreateShift from '../../components/CreateShift.js';
-import {filterAll} from '../../lib/Filters';
-import {createShift,clearLocal} from '../../lib/Create';
+import { GoogleLogin } from 'react-google-login';
+import { loadUsers } from '../../actions/users';
+import { addShift } from '../../actions/shifts';
+import { QRCode } from 'react-qr-svg';
+import Formsy from 'formsy-react';
+import MyInput from '../../components/CreateShift/MyInput';
+import SelectMonth from '../../components/CreateShift/SelectMonth';
+import SelectDay from '../../components/CreateShift/SelectDay';
+import PopPop from 'react-poppop';
+import Popup from '../../components/CreateShift/Popup';
+import ShiftLength from '../../components/CreateShift/ShiftLength';
+
 
 
 class NewShift extends Component {
-  constructor() {
-    super();
-    
-    this.state={ 
-      query: false
-    }
+  constructor(props) {
+    super(props);
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.disableButton = this.disableButton.bind(this);
+    this.enableButton = this.enableButton.bind(this);
+    this.state = { canSubmit: false, complete: false };
   }
-
-
-  handleChange(e){ createShift(e) }
-
-  handleSubmit(e){
-    e.preventDefault();
-    let newShift = createShift(e);
-    this.props.addShift(newShift);
-    clearLocal();
+ 
+  disableButton() {
+    this.setState({ canSubmit: false });
   }
-
-
-
+ 
+  enableButton() {
+    this.setState({ canSubmit: true });
+  }
+ 
+  submit(model) {
+    this.setState({show:false}) 
+    console.log(model);
+    this.props.addShift(model)
+  }
 
 
   render(){
+
     return (
-      <div style={container}>
-        <CreateShift 
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-           />   
-      </div>
-    );
+        <div style={quickShifts}>
+        <Popup 
+          submit={this.submit.bind(this)}/>
+        <ShiftLength
+          submit={this.submit.bind(this)}/>
+        </div>
+    );/*END OF RETURN*/
   }
+} /*END OF RENDER AND CLASS APP*/
+
+const quickShifts = {
+  display:"flex",
+  textAlign:"center"
 }
-
-
-
-
-const container = {
-    display: "flex-wrap",
-    justifyContent:"center"
-}
-
 const mapStateToProps = (state) => {
   return {
-    shifts: state.shifts
+    users: state.users
   }
 }
 
 const ConnectedNewShift = connect(
   mapStateToProps,
-  {addShift}
+  {loadUsers,addShift}
 )(NewShift)
 
 export default ConnectedNewShift;
