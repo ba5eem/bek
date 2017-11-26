@@ -16,18 +16,17 @@ import { GoogleLogin } from 'react-google-login';
 //SCSS-----------------------------------------
 import './index.scss';
 //CONTAINERS----------------------------------
-// /*CSS*/-----------------------------------------
-import './index.scss';
-// /*CONTAINERS*/----------------------------------
 import App from './containers/App';
+import Login from './containers/Login';
 import SideBar from './containers/SideBar';
+
+import Nav from './components/nav.components';
 import Footer from './components/footer.components';
 
 // import AppHeader from './components/AppHeader.js';
-// import Login from './containers/Login';
 // import Background from './containers/Background';
 
-// ------STORE--------
+//STORE--------------------
 const store = createStore(
   reducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
@@ -45,11 +44,11 @@ ReactDOM.render(
             <div></div>
             </Link>
           </div>
-          <div id="header-bar" />
+          <Nav />
         </header>
 
-
       <Route exact path="/" component={App} />
+      <Route path="/login" component={Login} />
       <Footer />
       </div>
     </Router>
