@@ -19,22 +19,28 @@ class SendSMS extends Component {
   }
 
   handleChangePhone(event){
-    this.setstate({
+    this.setState({
       phone: event.target.value
     })
     console.log(event)
   }
 
   handleSending(event) {
-    const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    event.preventDefault();
+
+    /*const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;*/
     let content = {
-      phone: this.props.phoneinput.value,
+      phone: this.state.phone,
       payload: "Shift Open! Shift Details here"
     }
     console.log(content)
 
 
       this.props.actionsms(content)
+
+      this.setState({
+        phone:'',
+      });
 
   }
 
@@ -43,7 +49,7 @@ class SendSMS extends Component {
       <div>
       SEND SMS
       <form onSubmit={this.handleSending}>
-       <input ref="phoneinput" type="text" id="phonenumber" className="form-control sms-input" placeholder="808-xxx-xxxx" value={this.handleChangePhone}/>
+       <input type="text" id="phonenumber" className="form-control sms-input" placeholder="808-xxx-xxxx" value={this.state.phone} onChange={this.handleChangePhone}/>
        <button ref="buttoninput" className="btn btn-default phone-button">Get Info Sent To You</button>
        </form>
       </div>
