@@ -21,7 +21,7 @@ class App extends Component {
     const path = "cohortuser19%40gmail.com"
     return (
       <div>
-        {/*<NewShift />
+        <NewShift />
         <div id="iframe-div">
           <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
           width="700px"
@@ -33,9 +33,7 @@ class App extends Component {
         </div>
         <div id="chat-app-div">
         <ChatApp/>
-        </div>*/}
-        <SendSMS/>
-
+        </div>
       </div>
     );
   }
