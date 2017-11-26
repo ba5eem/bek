@@ -20,6 +20,12 @@ $accent: #66b3ff;
   box-sizing: $style;
 }
 
+html {
+  @include box-style(border-box);
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 18px;
+}
+
 body {
   // prevents margin white spaces around page
   margin: 0;
@@ -27,6 +33,7 @@ body {
 
 a {
   text-decoration: none;
+  color: white;
 }
 
 textarea {
@@ -57,7 +64,20 @@ textarea {
   background-repeat: repeat;
   background-position: center;
   background-attachment: center fixed;
+  .nav-links {
+    background-color: $accent;
+    display: flex;
+    justify-content: space-around;
+    padding: 1.5vw;
+    a {
+      background-color: $accent;
+      color: $main;
+    }
+  }
 }
+
+//----------------------------
+
 //Burger Bar -----------------
 /* Position and sizing of burger button */
 .bm-burger-button {
@@ -136,23 +156,17 @@ textarea {
   }
 }
 
-#header-bar {
-  background-color: $accent;
-  width: auto;
-  height: 40px;
-}
-
 // Twillio---------------------
 #chat-app-div {
   display: flex;
   justify-content: center;
-  padding-top: 17em;
+  padding-top: 14em;
 }
 
 .ChatApp {
   border: 1px solid #ccc;
   border-radius: 3px;
-  height: 200px;
+  height: 175px;
   width: 700px;
   margin: .5em;
   display: flex;
