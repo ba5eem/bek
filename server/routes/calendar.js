@@ -57,10 +57,17 @@ calendar.events.list({
 
 route.post('/new', (req,res) => {
 //authenticate request
-console.log(req.body);
+  console.log(req.body);
+  var keys = req.body.map((elem) =>{
+    return Object.keys(elem);
+  })
+  let end = keys[0];
+  console.log(end);
+
 var event = {
+  'title':req.body.title,
   'summary': req.body.summary,
-  'location': req.body.location,
+  'location': "Manoa Innovation Center",
   'description': req.body.description,
   'start': {
     'dateTime': '2017-11-29T09:00:00-07:00',

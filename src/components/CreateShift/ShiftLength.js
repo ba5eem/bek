@@ -21,9 +21,8 @@ export default class Popup extends Component {
 
 
   toggleShow(e){
-    if(e!==undefined){
-      this.setState({shift:e.target.innerHTML, show:true})
-    }
+    let val = e.target.innerHTML.slice(0,-8);
+      this.setState({shift:val, show:true})
     if(this.state.show){
       this.setState({show:false}) 
     }
@@ -31,14 +30,14 @@ export default class Popup extends Component {
 
   render() {
     const {show} = this.state;
-    const time = ["4HR SHIFT","6HR SHIFT","8HR SHIFT"]
+    const time = ["4","6","8"]
     return (
       <div style={quickShifts}>
         {
           time.map((item,idx) => {
             return (
               <div key={idx} value={item} style={quickShifts}>
-              <button  style={addShift} onClick={(e) => this.toggleShow(e)}>{item}</button>
+              <button  style={addShift} onClick={(e) => this.toggleShow(e)}>{item}HR SHIFT</button>
               <PopPop position="centerCenter"
                   value={item}
                   open={show}
@@ -47,7 +46,7 @@ export default class Popup extends Component {
                   onClose={() => this.toggleShow()}
                   closeOnOverlay={true}>
                   <Formsy onSubmit={this.props.submit}>
-                    <p style={heading}>{this.state.shift}</p>
+                    <p style={heading}>{this.state.shift}HR SHIFT</p>
                     <MyInput
                     name="title"
                     validations="isWords"
