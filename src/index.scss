@@ -158,6 +158,15 @@ textarea {
   width: 100%;
   text-align: center;
   padding-top: 70px;
+  .google-icon {
+    background-image: url("/assets/google.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: center fixed;
+    height: 120px;
+    width: 120px;
+    margin: 0 auto;
+  }
   .login-welcome {
     padding-bottom: 40px;
   }

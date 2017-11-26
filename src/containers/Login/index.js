@@ -38,6 +38,7 @@ class Login extends Component {
   render(){
     return (
         <div id="login-container">
+          <div className="google-icon"></div>
           <div className="login-welcome">Please log in to your GOOGLE account</div>
 
           <GoogleLogin
