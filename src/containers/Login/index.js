@@ -37,12 +37,17 @@ class Login extends Component {
 
   render(){
     return (
-        <div className="Login">
+        <div id="login-container">
+          <div className="google-icon"></div>
+          <div className="login-welcome">Please log in to your GOOGLE account</div>
+
           <GoogleLogin
             clientId="366752664535-921iec03nsrtpbb4s8fdlpq8om608e12.apps.googleusercontent.com"
+            className="google-login"
             buttonText="Google Login"
             onSuccess={this.googleLogin}
             onFailure={this.loginFailure}/>
+
         </div>
     );
   }

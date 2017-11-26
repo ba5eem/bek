@@ -65,7 +65,7 @@ textarea {
     background-color: $accent;
     display: flex;
     justify-content: space-around;
-    padding: 1.5vw;
+    padding: 0.8vw;
     a {
       background-color: $accent;
       color: $main;
@@ -133,26 +133,59 @@ textarea {
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
-//-----------------------------
+
 #line {
   border: solid $main 0.5px;
   width: 75%;
 }
-
+//-----------------------------
 #logo {
-  background-image: url("/assets/");
+  background-image: url("/assets/network.icon.png");
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: center fixed;
   height: 150px;
   width: 300px;
   margin: 0 auto;
-  div {
-  height: 150px;
-  width: 300px;
-  }
+  padding-bottom: 10px;
 }
 
+#title {
+  font-size: 250%;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  color: $link;
+}
+//-----------------------------
+#login-container {
+  height: auto;
+  width: 100%;
+  text-align: center;
+  padding-top: 70px;
+  .google-icon {
+    background-image: url("/assets/google.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: center fixed;
+    height: 120px;
+    width: 120px;
+    margin: 0 auto;
+  }
+  .login-welcome {
+    padding-bottom: 40px;
+  }
+}
+button.google-login {
+  background-color: #d14836;
+  color: $main;
+  width: 190px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: 'Advent Pro';
+  font-weight: bold;
+  font-size: 100%;
+}
 // Twillio---------------------
 #chat-app-div {
   display: flex;

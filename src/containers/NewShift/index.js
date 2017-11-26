@@ -12,8 +12,6 @@ import PopPop from 'react-poppop';
 import Popup from '../../components/CreateShift/Popup';
 import ShiftLength from '../../components/CreateShift/ShiftLength';
 
-
-
 class NewShift extends Component {
   constructor(props) {
     super(props);
@@ -22,27 +20,25 @@ class NewShift extends Component {
     this.enableButton = this.enableButton.bind(this);
     this.state = { canSubmit: false, complete: false };
   }
- 
+
   disableButton() {
     this.setState({ canSubmit: false });
   }
- 
+
   enableButton() {
     this.setState({ canSubmit: true });
   }
- 
+
   submit(model) {
-    this.setState({show:false}) 
+    this.setState({show:false})
     console.log(model);
     this.props.addShift(model)
   }
 
-
   render(){
-
     return (
         <div style={quickShifts}>
-        <Popup 
+        <Popup
           submit={this.submit.bind(this)}/>
         <ShiftLength
           submit={this.submit.bind(this)}/>
