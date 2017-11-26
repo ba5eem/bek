@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
-import MobileView from '../MobileView';
-import TabletView from '../TabletView';
-import MacView from '../MacView';
-
-
+// import MobileView from '../MobileView';
+// import TabletView from '../TabletView';
+// import MacView from '../MacView';
 
 
 class Login extends Component {
@@ -37,11 +35,6 @@ class Login extends Component {
     this.setState({isLoggedIn: false})
   }
 
-
-
-// THIS CONTAINER IS NO LONGER NEEDED _ CAN DELETE IF YOU LIKE
-
-
   render(){
     return (
         <div className="Login">
@@ -51,19 +44,15 @@ class Login extends Component {
             onSuccess={this.googleLogin}
             onFailure={this.loginFailure}/>
         </div>
-
     );
   }
 }
-
-
 
 const mapStateToProps = (state) => {
   return {
     users: state.users
   }
 }
-
 
 const ConnectedLogin = connect(
   mapStateToProps

@@ -24,7 +24,6 @@ class App extends Component {
         <NewShift />
         <div id="iframe-div">
           <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
-          bgcolor="233366ff"
           width="700px"
           height="500px"
           frameborder="0"
@@ -45,7 +44,6 @@ const container = {
     justifyContent:"center",
     position: "relative"
     }
-
 
 const mobile = {
     maxHeight: "900px",
