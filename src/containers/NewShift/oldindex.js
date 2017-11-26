@@ -11,8 +11,8 @@ import {createShift,clearLocal} from '../../lib/Create';
 class NewShift extends Component {
   constructor() {
     super();
-    
-    this.state={ 
+
+    this.state={
       query: false
     }
 
@@ -30,23 +30,17 @@ class NewShift extends Component {
     clearLocal();
   }
 
-
-
-
-
   render(){
     return (
       <div style={container}>
-        <CreateShift 
+        <CreateShift
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
-           />   
+           />
       </div>
     );
   }
 }
-
-
 
 
 const container = {
