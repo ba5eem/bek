@@ -17,8 +17,12 @@ module.exports = function(sequelize,DataTypes){
     },
     name: {
       type: DataTypes.STRING
+    },
+    admin:{
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
-
   })
+
  return User;
 }
