@@ -28,6 +28,15 @@ class Login extends Component {
 console.log('localStorage from Login ---->', localStorage)
     this.setState({isLoggedIn: true})
   }
+  // googleLogin(res){
+  //   let name = res.profileObj.name;
+  //   let pic = res.profileObj.imageUrl
+  //   localStorage.setItem('pic',pic);
+  //   console.log('res from macview--->', res)
+  //   this.props.addUser(res.profileObj);
+  //   this.setState({auth: true})
+  //   this.setState({user: name})
+  // }
   loginFailure(res){
     let name = res.profileObj.name;
     localStorage.clear();

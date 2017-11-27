@@ -15,6 +15,7 @@ let jwtClient     = new google.auth.JWT(
 
 
 route.get('/', (req,res) => {
+  let local = {}
 //calendar setup:
 // configure a JWT auth client
 
@@ -49,11 +50,24 @@ calendar.events.list({
        }
    } 
     for (var i = 0; i < events.length; i ++){
-      let x = events[i].start.dateTime;
-      events[i].date = x;
-      
+      let date = events[i].start.dateTime;
+      let starttime = events[i].start.dateTime;
+      let endtime = events[i].end.dateTime;
+        if(date !== undefined){
+          let res = date.slice(0,-15);
+          events[i].date = res;
+        }
+        if(starttime !== undefined){
+          let res = starttime.slice(11,-9);
+          events[i].starttime = res;
+        }
+        if(endtime !== undefined){
+          let res = endtime.slice(11,-9);
+          events[i].endtime = res;
+        }
     }
-     res.json(events);
+    var local = Object.assign({},events.date);
+     res.json(local);
   });
 })
 
