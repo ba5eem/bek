@@ -13,10 +13,10 @@ const UserList = ({users}) => {
               key={idx}
               id={user.id}
               name={user.name}
-              givenName={user.givenName}
-              familyName={user.familyName}
+              givenName={user.givenname}
+              familyName={user.familyname}
               email={user.email}
-              image={user.imageUrl}
+              image={user.image}
             />
           )
         })

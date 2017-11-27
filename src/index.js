@@ -38,7 +38,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div id="source">
-      <UsersListView/>
+      <App/>
 
       </div>
     </Router>

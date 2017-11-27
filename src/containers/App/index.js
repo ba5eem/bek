@@ -36,11 +36,12 @@ class App extends Component {
         <div id="chat-app-div">
         <ChatApp/>
         </div>*/}
-        {/*auth
+        {auth
           ?<UsersListView/>
           :<Login/>
-        */}
-        <UsersListView/>
+        }
+
+
 
       </div>
     );
