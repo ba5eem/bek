@@ -288,3 +288,18 @@ input.send-button {
   background-color: $accent;
   color: $main;
 }
+
+.overlay {
+  //position: absolute;
+  z-index: 1000;
+  align-self: center;
+}
+
+.LoginPage{
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  //z-index:-1
+}

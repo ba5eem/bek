@@ -22,7 +22,7 @@ import SideBar from './containers/SideBar';
 
 import Nav from './components/nav.components';
 import Footer from './components/footer.components';
-
+import LogInPage from './components/LogInPage';
 // import AppHeader from './components/AppHeader.js';
 // import Background from './containers/Background';
 
@@ -32,25 +32,28 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(thunk)
   );
+const auth = localStorage.auth
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <div id="source">
-        <header id="header">
-          <SideBar />
-          <div id="logo">
-            <Link to="/">
-            </Link>
-          <div id="title">bek-connect</div>
-          </div>
-          <Nav />
-        </header>
+          {!auth
+            ? <LogInPage/>
+            : <div id="source">
+            <header id="header">
+              <SideBar />
+              <div id="logo">
+                <Link to="/">
+                </Link>
+              <div id="title">bek-connect</div>
+              </div>
+              <Nav />
+            </header>
 
-      <Route exact path="/" component={App} />
-      <Route path="/login" component={Login} />
-      <Footer />
-      </div>
+          <Route exact path="/" component={App} />
+          <Route path="/login" component={Login} />
+          <Footer />
+          </div>}
     </Router>
   </Provider>, document.getElementById('root'));
 registerServiceWorker();
