@@ -3,6 +3,7 @@ import UserDetailView from './UserDetailView';
 
 
 const UserList = ({users}) => {
+  console.log(users)
   return (
     <div className='all-user-list'>
      {

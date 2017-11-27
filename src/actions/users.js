@@ -4,7 +4,7 @@ export const LOAD_USERS = 'LOAD_USERS';
 export const ADD_USER = 'ADD_USER';
 
 export const loadUsers = () => {
-  console.log('loadusers? ' )
+  console.log('loadusers to server ' )
   return function(dispatch){
     return axios.get('/api/users')
     .then( users => {

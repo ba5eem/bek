@@ -8,6 +8,7 @@ const {user}      = db;
 route.get('/', ( req, res ) => {
   user.findAll({raw:true})
   .then((DataCollection) => {
+    console.log('server calling', DataCollection)
     res.json(DataCollection);
   });
 });

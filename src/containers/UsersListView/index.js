@@ -15,7 +15,7 @@ class UserListView extends Component {
     super();
 
     this.state = {
-      user: ''
+
     }
   }
 /*
@@ -44,9 +44,12 @@ class UserListView extends Component {
     }
   }
 */
-  componentWillMount(user){
+  componentWillMount(){
     this.props.loadUsers();
-     }
+
+  }
+
+
 /*  loadUser(id,e){ this.setState( {user: filterUser(this.props.users,id)} ); }
 
   backToUsers(e){
@@ -55,12 +58,13 @@ class UserListView extends Component {
   }*/
 
   render(){
-    const user = this.state.user;
+    const user = this.props.users
+    console.log(user)
     return(
       <div>
       <h1>USERS LIST</h1>
         <UserList
-          users={this.props.users}
+          users={user}
         />
       </div>
     )
