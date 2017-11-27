@@ -66,8 +66,8 @@ calendar.events.list({
           events[i].endtime = res;
         }
     }
-    var local = Object.assign({},events.date);
-     res.json(local);
+    
+     res.json(events);
   });
 })
 
