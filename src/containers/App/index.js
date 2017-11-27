@@ -5,8 +5,9 @@ import Pusher from 'pusher-js';
 import ChatApp from '../Chat/ChatApp';
 import NewShift from '../NewShift';
 import SendSMS from '../SendSMS/index';
+import UsersListView from  '../UsersListView';
 // import {mainBody} from '../Background/styles';
-
+import Login from '../Login';
 
 class App extends Component {
   constructor() {
@@ -18,7 +19,8 @@ class App extends Component {
   }
 
   render(){
-    const path = "cohortuser19%40gmail.com"
+    const path = "cohortuser19%40gmail.com";
+    const auth = this.state.auth || localStorage.auth;
     return (
       <div>
         {/*<NewShift />
@@ -30,10 +32,16 @@ class App extends Component {
           scrolling="no"
           position="absolute">
           </Iframe>
-        </div>*/}
+        </div>
         <div id="chat-app-div">
         <ChatApp/>
-        </div>
+        </div>*/}
+        {auth
+          ?<UsersListView/>
+          :<Login/>
+        }
+
+
 
       </div>
     );
