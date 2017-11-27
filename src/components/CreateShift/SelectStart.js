@@ -22,7 +22,7 @@ class SelectStart extends React.Component {
     // An error message is returned only if the component is invalid
     const errorMessage = this.props.getErrorMessage();
     
-    const time = ['SELECT START TIME', "9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00"]
+    const time = ['SELECT START TIME', "09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00"]
 
 
 
@@ -37,7 +37,7 @@ class SelectStart extends React.Component {
         {
           time.map((item,idx) => {
             return (
-              <option key={idx} date={this.props.date}value={item || this.props.start} > {item} </option>
+              <option key={idx} value={item} > {item} </option>
             );
           })
         }

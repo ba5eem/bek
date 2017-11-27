@@ -22,7 +22,7 @@ export default class Popup extends Component {
 
   toggleShow(e){
     let val = e.target.innerHTML.slice(0,-8);
-      this.setState({shift:val, show:true})
+      this.setState({shift:'_'+val, show:true})
     if(this.state.show){
       this.setState({show:false}) 
     }

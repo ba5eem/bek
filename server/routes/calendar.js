@@ -2,6 +2,8 @@
 const express     = require('express');
 const Pusher      = require('pusher');
 const app         = express();
+const moment = require('moment');
+
 const route       = express.Router();
 
 var gcal = require('google-calendar');
@@ -57,12 +59,13 @@ calendar.events.list({
 
 route.post('/new', (req,res) => {
 //authenticate request
-  console.log(req.body);
-  var keys = req.body.map((elem) =>{
-    return Object.keys(elem);
-  })
-  let end = keys[0];
-  console.log(end);
+  //console.log(req.body);
+  let time = req.body._4
+  let today = moment().format('YYYY-MM-DDT');
+  let start = today+time+':00-'+time;
+  let endTime = parseInt(time)+4+':00';
+  let end = today+endTime+':00-'+endTime;
+  //console.log(end);
 
 var event = {
   'title':req.body.title,
@@ -70,11 +73,11 @@ var event = {
   'location': "Manoa Innovation Center",
   'description': req.body.description,
   'start': {
-    'dateTime': '2017-11-29T09:00:00-07:00',
+    'dateTime': start,
     'timeZone': 'America/Los_Angeles',
   },
   'end': {
-    'dateTime': "2017-11-29T17:00:00-07:00",
+    'dateTime': end,
     'timeZone': 'America/Los_Angeles',
   },
   'reminders': {
@@ -98,8 +101,8 @@ let token = tokens.access_token;
 let calendarId = 'cohortuser19@gmail.com';
 let calendar = google.calendar('v3');
 gcal(token).events.insert(calendarId,event, function(err,data){
-  if(err) return res.send(500,err);
-  return calendar.event.list({
+  if(err) console.log(500,err);
+  return calendar.events.list({
     auth: jwtClient,
     calendarId: 'cohortuser19@gmail.com'
   }, function(err,response){
