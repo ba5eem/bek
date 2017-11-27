@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Pusher from 'pusher-js';
-import {mainBody} from '../Background/styles';
 import {loadShifts} from '../../actions/shifts.js';
-import Shifts from '../../components/Shifts.js';
+import Shifts from '../../components/shifts.components.js';
 import {filterAll} from '../../lib/Filters';
 
 
@@ -45,6 +44,7 @@ class Shift extends Component {
   render(){
     const query = this.state.query;
     const shifts = filterAll(this.props.shifts,'id',query);
+    
     return (
       <div style={container}>
 

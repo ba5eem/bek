@@ -2,24 +2,20 @@
 const express     = require('express');
 const Pusher      = require('pusher');
 const app         = express();
-const moment = require('moment');
-
+const moment      = require('moment');
 const route       = express.Router();
-
-var gcal = require('google-calendar');
-
-
-
-const google          = require('googleapis');
-const privatekey      = require('../config/privatekey.json');
-let jwtClient = new google.auth.JWT(
+const gcal        = require('google-calendar');
+const google      = require('googleapis');
+const privatekey  = require('../config/privatekey.json');
+let jwtClient     = new google.auth.JWT(
        privatekey.client_email,
        null,
        privatekey.private_key,
        ['https://www.googleapis.com/auth/calendar']);
 
-route.get('/', (req,res) => {
 
+route.get('/', (req,res) => {
+  let local = {}
 //calendar setup:
 // configure a JWT auth client
 
@@ -52,7 +48,25 @@ calendar.events.list({
        for (let event of response.items) {
            //console.log('Event name: %s, Creator name: %s, Create date: %s', event.summary, event.creator.displayName, event.start.date);
        }
-   }
+   } 
+    for (var i = 0; i < events.length; i ++){
+      let date = events[i].start.dateTime;
+      let starttime = events[i].start.dateTime;
+      let endtime = events[i].end.dateTime;
+        if(date !== undefined){
+          let res = date.slice(0,-15);
+          events[i].date = res;
+        }
+        if(starttime !== undefined){
+          let res = starttime.slice(11,-9);
+          events[i].starttime = res;
+        }
+        if(endtime !== undefined){
+          let res = endtime.slice(11,-9);
+          events[i].endtime = res;
+        }
+    }
+    
      res.json(events);
   });
 })
@@ -91,7 +105,7 @@ var event = {
 jwtClient.authorize(function (err, tokens) {
   
  if (err) {
-   console.log(err);
+   console.log("Did not connect!", err);
    return;
  } else {
    console.log("Successfully connected!");
@@ -107,6 +121,7 @@ gcal(token).events.insert(calendarId,event, function(err,data){
     calendarId: 'cohortuser19@gmail.com'
   }, function(err,response){
       var events = response.items;
+
       res.json(events);
   })
   })

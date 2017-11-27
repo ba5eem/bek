@@ -27,6 +27,7 @@ export function filterNum(arr,key,query){
   return res;
   }
   else{
+    console.log(arr)
     return arr;
   }
 }
