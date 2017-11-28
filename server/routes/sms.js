@@ -23,12 +23,15 @@ route.post('/', (req,res) => {
 })
 
 route.post('/notify', (req,res) => {
-  let body = req.body.data;
+  let numbers = req.body[1].data; //this is an array for numbers
+  let body = req.body[0].data;
   let newShift = body[body.length-1];
   let link = newShift.htmlLink;
 
+
+numbers.forEach(function(phones){
   let content = {
-      phone: "612-998-2261",
+      phone: phones,
       payload: `Shift Open! Shift Details here: ${link}`
     }
     const client = require('twilio')(
@@ -39,9 +42,11 @@ route.post('/notify', (req,res) => {
     from: process.env.TWILIO_PHONE_NUMBER,
     to: "+1"+ content.phone,
     body: content.payload
-  }).then(() => console.log('Success!'))
-    .catch( err => { console.log(err);
-  });
+  }).then(()=>{
+    console.log("succes");
+  })
+})
+
 })
 
 module.exports = route;
