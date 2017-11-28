@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserDetailView = ({id, name, givenName, familyName, email, image}) => {
+const UserDetailView = ({id, name, givenName, familyName, email, image, phone}) => {
   return (
 
       <div className='eachUser'>
@@ -13,6 +13,7 @@ const UserDetailView = ({id, name, givenName, familyName, email, image}) => {
           <b>User-Id:</b> {id}<br/>
           <b>Google Name:</b> {name}<br/>
           <b>Email:</b> {email}<br/>
+          <b>Phone:</b> {phone}<br/>
         </div>
       </div>
 

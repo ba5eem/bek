@@ -8,7 +8,7 @@ const UserList = ({users}) => {
     <div className='all-user-list'>
      {
         users.map((user,idx) => {
-          console.log(user)
+          console.log('USERLIST', user)
           return (
               <UserDetailView
                 key={idx}

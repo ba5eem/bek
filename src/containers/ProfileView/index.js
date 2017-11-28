@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-//import { loadUsers, getOneUser } from '../../actions/users';
+import { loadUsers } from '../../actions/users';
 
 import ProfileDetail from '../../components/ProfileDetail.js';
 
@@ -47,7 +47,7 @@ class ProfileView extends Component {
   }
 */
   componentWillMount(){
-    this.props.getOneUser();
+    this.props.loadUsers();
 
   }
 
@@ -95,7 +95,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedProfileView = connect(
   mapStateToProps,
-//  {getOneUser}
+  {loadUsers}
 )(ProfileView)
 
 export default ConnectedProfileView;

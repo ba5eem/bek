@@ -9,7 +9,7 @@ route.get('/', ( req, res ) => {
   let local = {}
   user.findAll({
     attributes: {
-      exclude : ['googleid', 'familyname','givenname','phone','createdAt','updatedAt']
+      exclude : ['googleid', 'familyname','givenname','createdAt','updatedAt']
     }
   })
   .then((users) => {
