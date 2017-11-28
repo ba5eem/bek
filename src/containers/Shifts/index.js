@@ -44,8 +44,11 @@ class Shift extends Component {
 
 
   render(){
+
     const query = this.state.query;
     const shifts = filterAll(this.props.shifts,'id',query);
+
+
     
     return (
       <div style={container}>
