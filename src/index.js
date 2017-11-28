@@ -34,25 +34,30 @@ const store = createStore(
   applyMiddleware(thunk)
   );
 
+const pic = localStorage.pic;
+
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <div id="source">
-        <div id="header">
-          <SideBar />
-          <div id="logo">
-            <Link to="/">
-            </Link>
-          <div id="title">bek-connect</div>
+      {pic ?
+        <div id="source">
+          <div id="header">
+            <SideBar />
+            <div id="logo">
+              <Link to="/">
+              </Link>
+            <div id="title">bek-connect</div>
+            </div>
+            <Nav />
           </div>
-          <Nav />
-        </div>
 
-        <Route exact path="/" component={App} />
-        <Route path="/login" component={Login} />
-        <Route path="/users" component={UsersListView} />
-      <Footer />
+          <Route exact path="/home" component={App} />
+          <Route path="/login" component={Login} />
+          <Route path="/users" component={UsersListView} />
+        <Footer />
       </div>
+      :<Login/>}
     </Router>
   </Provider>, document.getElementById('root'));
 registerServiceWorker();

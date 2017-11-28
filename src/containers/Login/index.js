@@ -14,7 +14,8 @@ class Login extends Component {
     this.state={
       user: '',
       auth: false,
-      isLoggedIn: false
+      isLoggedIn: false,
+      redirect: false
     }
     this.googleLogin = this.googleLogin.bind(this);
     this.loginFailure = this.loginFailure.bind(this);
@@ -29,6 +30,7 @@ class Login extends Component {
     this.setState({auth: true})
     this.setState({user: name})
     this.setState({isLoggedIn: true})
+    this.setState({redirect: true});
     this.props.history.pushState(null, '/');
   }
   loginFailure(res){
@@ -43,7 +45,9 @@ class Login extends Component {
     const user = this.state.user || localStorage.user;
     const auth = this.state.auth || localStorage.auth;
     const pic = this.state.pic || localStorage.pic;
-
+    if(this.state.redirect){
+      return ( <Redirect to='/home'/> )
+    }else{
     return (
         <div id="login-container">
           <div className="google-icon"></div>
@@ -55,10 +59,9 @@ class Login extends Component {
             buttonText="Google Login"
             onSuccess={this.googleLogin}
             onFailure={this.loginFailure}/>
-
         </div>
     );
-  }
+  }}
 }
 
 const mapStateToProps = (state) => {
