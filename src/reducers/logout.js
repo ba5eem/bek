@@ -5,9 +5,11 @@ const logout = (state = {}, action) => {
 
   switch(action.type){
     case LOGOUT_USER:
-      localStorage.clear();
-      localStorage.setItem('isLoggedOut',action.status.isLoggedOut)
-      return action.status;
+      localStorage.removeItem('isLoggedIn')
+      localStorage.removeItem('admin')
+      localStorage.setItem('isLoggedIn', false);
+      localStorage.setItem('admin', false);
+      return null;
     default:
       return state
   }

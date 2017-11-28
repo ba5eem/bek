@@ -10,13 +10,19 @@ const users = (state = [], action) => {
 
     case ADD_USER:
       let user = action.user;
-      localStorage.setItem('admin',user.admin)
       localStorage.setItem('group', user.businessGroup)
       localStorage.setItem('email', user.email);
       localStorage.setItem('id', user.id);
-      localStorage.setItem('isLoggedIn', user.isLoggedIn);
+      if(user.isLoggedIn === true){
+        localStorage.setItem('isLoggedIn', true);
+        console.log(localStorage.isLoggedIn, ' --- within reducer')
+      }
+      console.log(user.admin);
+      if(user.admin === true){
+        localStorage.setItem('admin',true)
+        console.log(localStorage.admin);
+      }
       localStorage.setItem('image', user.image);
-      localStorage.setItem('isLoggedOut', false);
       return user;
 
     default:

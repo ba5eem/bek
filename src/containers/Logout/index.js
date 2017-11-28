@@ -14,14 +14,15 @@ class Logout extends Component {
 
 
   handleLogout(event){
+    console.log("hi")
     localStorage.clear();
     this.props.logoutUser();
+    console.log("hi2")
   }
 
   render(){
-    const auth = this.props.status;
-    const isLoggedOut = auth.isLoggedOut;
-    if(isLoggedOut){ return (<Redirect to='/'/>)}
+    const isLoggedIn = localStorage.isLoggedIn;
+    if(!isLoggedIn){ return (<Redirect to='/'/>)}
 
     return (
         <div id="logout-form">
@@ -33,15 +34,8 @@ class Logout extends Component {
     }
 }
 
-const mapStatetoProps = (state) => {
-  return {
-    status : state.logout
-
-  }
-}
-
 const ConnectedLogout = connect(
-  mapStatetoProps,
+  null,
   {logoutUser}
 )(Logout)
 

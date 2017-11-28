@@ -11,8 +11,7 @@ class SideBar extends Component {
     super();
 
     this.state = {
-      isLoggedIn: localStorage.isLoggedIn,
-      admin: localStorage.admin
+      user: ''
     };
   }
 
@@ -20,17 +19,17 @@ class SideBar extends Component {
 
 
   render() {
-    const isLoggedIn = this.props.users.isLoggedIn;
-    const access = this.props.users.admin;
-    const auth = isLoggedIn !== undefined ? true : false;
-    const admin = access !== undefined ? true : false;
+    const auth = localStorage.isLoggedIn !== undefined ? localStorage.isLoggedIn : false;
+    const admin = localStorage.admin !== undefined ? localStorage.admin : false;
+    console.log('auth: ',auth);
+    console.log('admin: ', admin);
 
     return(
       <div id="sidebar">
         <Menu
           width="200px"
           noOverlay>
-        <Link to="/">Home</Link>
+        {auth ? <Link to="/home">Home</Link> : <Link to="/home">Home</Link> }
       <div id="line"/>
         {/*WITH ADMIN ACCESS THEY CAN SEE USERS*/}
         {admin ? <Link to="/users">Users</Link> : null  }
@@ -46,7 +45,7 @@ class SideBar extends Component {
 
         {auth ? <div id="line"/> : null }
 
-        {auth ? <Link to="/logout">Logout</Link> : 
+        {auth ? <Link to="/logout"><Logout /></Link> : 
         <Link to="/login">Login</Link> }
 
       <div id="line"/>
