@@ -31,7 +31,7 @@ class ChatApp extends Component {
       this.addMessage({ body: 'Connecting...' })
 
       $.getJSON('/api/chat/token', (token) => {
-        console.log('token from ----->getToken()', token)
+        //console.log('token from ----->getToken()', token)
         this.setState({ username: token.identity })
         resolve(token)
       }).fail(() => {
@@ -41,7 +41,7 @@ class ChatApp extends Component {
   }
 
   createChatClient = (token) => {
-    console.log('Token ------- >',token)
+    //console.log('Token ------- >',token)
     return new Promise((resolve, reject) => {
       resolve(new TwilioChat(token.jwt))
     })
@@ -77,7 +77,7 @@ class ChatApp extends Component {
 
   addMessage = (message) => {
     const messageData = { ...message, me: message.author === this.state.username }
-    console.log('Message from----->addmessage()', message)
+    //console.log('Message from----->addmessage()', message)
     this.setState({
       messages: [...this.state.messages, messageData],
     })

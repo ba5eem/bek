@@ -53,6 +53,8 @@ calendar.events.list({
       let date = events[i].start.dateTime;
       let starttime = events[i].start.dateTime;
       let endtime = events[i].end.dateTime;
+      let created = events[i].created;
+      let organizer = events[i].organizer.email;
         if(date !== undefined){
           let res = date.slice(0,-15);
           events[i].date = res;
@@ -65,8 +67,26 @@ calendar.events.list({
           let res = endtime.slice(11,-9);
           events[i].endtime = res;
         }
+        if(created !== undefined){
+          let res = created.slice(11,-8);
+          events[i].created = res;
+        }
+        if(organizer !== undefined){
+          events[i].organizer = organizer
+        }
+        delete events[i].kind;
+        delete events[i].etag;
+        delete events[i].creator;//not sure if we need this - it should always be the admin right? - thought anyone?
+        delete events[i].iCalUID;
+        delete events[i].reminders;
+        delete events[i].updated;
+        delete events[i].start;
+        delete events[i].end;
+        delete events[i].sequence;
+        
     }
-    
+
+
      res.json(events);
   });
 })
@@ -88,11 +108,11 @@ var event = {
   'description': req.body.description,
   'start': {
     'dateTime': start,
-    'timeZone': 'America/Los_Angeles',
+    'timeZone': 'America/Adak',
   },
   'end': {
     'dateTime': end,
-    'timeZone': 'America/Los_Angeles',
+    'timeZone': 'America/Adak',
   },
   'reminders': {
     'useDefault': false,

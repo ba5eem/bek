@@ -7,26 +7,44 @@ export const DELETE_SHIFT = 'DELETE_SHIFT';
 export const LOAD_PHONE = 'LOAD_PHONE';
 
 export const loadShifts = () => {
+  let local = [];
   return function(dispatch){
+    return axios.get('/api/users')
+    .then((users) => {
+      local.push(users.data)
     return axios.get('/api/shifts')
     .then( shifts => {
+      local.push(shifts.data)
       dispatch({
         type: LOAD_SHIFTS,
-        shifts: shifts.data
+        shifts: local
       });
+      })
     });
   }
 }
 
 export const addShift = (newShift) => {
+  let local = [];
   console.log('from action: ',newShift)
   return function(dispatch){
     return axios.post('/api/shifts/new',newShift)
-    .then( shift => {
-      dispatch({
+    .then( () => {
+      return axios.get('/api/shifts')
+      .then( (shifts) => {
+        local.push(shifts);
+        return axios.get('/api/users/phone')
+        .then((phone) =>{ 
+          local.push(phone);
+        return axios.post('/api/sms/notify', local )
+        .then(() =>{
+        dispatch({
         type: ADD_SHIFT,
-        shift: shift.data
+        shifts: shifts.data
       });
+    })
+        })
+      })  
     });
   }
 }

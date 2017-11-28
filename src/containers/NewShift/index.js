@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { GoogleLogin } from 'react-google-login';
 import { loadUsers } from '../../actions/users';
 import { addShift } from '../../actions/shifts';
-import { QRCode } from 'react-qr-svg';
-import Formsy from 'formsy-react';
-import MyInput from '../../components/CreateShift/MyInput';
-import SelectMonth from '../../components/CreateShift/SelectMonth';
-import SelectDay from '../../components/CreateShift/SelectDay';
-import PopPop from 'react-poppop';
+//import { QRCode } from 'react-qr-svg';
+//import Formsy from 'formsy-react';
+//import MyInput from '../../components/CreateShift/MyInput';
+//import SelectMonth from '../../components/CreateShift/SelectMonth';
+//import SelectDay from '../../components/CreateShift/SelectDay';
+//import PopPop from 'react-poppop';
 import Popup from '../../components/CreateShift/Popup';
 import ShiftLength from '../../components/CreateShift/ShiftLength';
 import { notifySms } from '../../actions/sms';
@@ -37,7 +36,7 @@ class NewShift extends Component {
     if(model.start !== undefined){
       this.setState({canSubmit:true})
       this.props.addShift(model)
-      this.props.notifySms();
+      
     }
   }
 
@@ -47,7 +46,7 @@ class NewShift extends Component {
     if(model._4!== undefined){
       this.setState({canSubmit:true})
       this.props.addShift(model)
-      this.props.notifySms();
+      
     } 
   }
 
