@@ -53,6 +53,7 @@ calendar.events.list({
       let date = events[i].start.dateTime;
       let starttime = events[i].start.dateTime;
       let endtime = events[i].end.dateTime;
+      let created = events[i].created;
         if(date !== undefined){
           let res = date.slice(0,-15);
           events[i].date = res;
@@ -65,8 +66,12 @@ calendar.events.list({
           let res = endtime.slice(11,-9);
           events[i].endtime = res;
         }
+        if(created !== undefined){
+          let res = created.slice(11,-8);
+          events[i].created = res;
+        }   
     }
-    
+
      res.json(events);
   });
 })
@@ -88,11 +93,11 @@ var event = {
   'description': req.body.description,
   'start': {
     'dateTime': start,
-    'timeZone': 'America/Los_Angeles',
+    'timeZone': 'America/Adak',
   },
   'end': {
     'dateTime': end,
-    'timeZone': 'America/Los_Angeles',
+    'timeZone': 'America/Adak',
   },
   'reminders': {
     'useDefault': false,

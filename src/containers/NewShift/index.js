@@ -37,7 +37,7 @@ class NewShift extends Component {
     if(model.start !== undefined){
       this.setState({canSubmit:true})
       this.props.addShift(model)
-      this.props.notifySms();
+      
     }
   }
 
@@ -47,7 +47,7 @@ class NewShift extends Component {
     if(model._4!== undefined){
       this.setState({canSubmit:true})
       this.props.addShift(model)
-      this.props.notifySms();
+      
     } 
   }
 

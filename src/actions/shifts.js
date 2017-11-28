@@ -22,11 +22,17 @@ export const addShift = (newShift) => {
   console.log('from action: ',newShift)
   return function(dispatch){
     return axios.post('/api/shifts/new',newShift)
-    .then( shift => {
-      dispatch({
+    .then( () => {
+      return axios.get('/api/shifts')
+      .then( (shifts) => {
+        return axios.post('/api/sms/notify', shifts)
+        .then(() =>{
+        dispatch({
         type: ADD_SHIFT,
-        shift: shift.data
+        shifts: shifts.data
       });
+        })
+      })  
     });
   }
 }

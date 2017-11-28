@@ -23,10 +23,13 @@ route.post('/', (req,res) => {
 })
 
 route.post('/notify', (req,res) => {
-  let uri = "http://bit.ly/2k61tbK"
-  let body = {
+  let body = req.body.data;
+  let newShift = body[body.length-1];
+  let link = newShift.htmlLink;
+
+  let content = {
       phone: "612-998-2261",
-      payload: `Shift Open! Shift Details here: ${uri}`
+      payload: `Shift Open! Shift Details here: ${link}`
     }
     const client = require('twilio')(
     process.env.TWILIO_ACCOUNT_SID,
@@ -34,8 +37,8 @@ route.post('/notify', (req,res) => {
   );
   client.messages.create({
     from: process.env.TWILIO_PHONE_NUMBER,
-    to: "+1"+ body.phone,
-    body: body.payload
+    to: "+1"+ content.phone,
+    body: content.payload
   }).then(() => console.log('Success!'))
     .catch( err => { console.log(err);
   });
