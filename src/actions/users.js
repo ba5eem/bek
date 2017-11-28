@@ -31,15 +31,3 @@ export const addUser = (newUser) => {
   }
 }
 
-export const logoutUser = () => {
-  localStorage.clear();
-  return function(dispatch){
-    return axios.get('/api/logout')
-    .then( () => {
-      dispatch({
-        type: LOGOUT_USER,
-        user: null
-      });
-    });
-  }
-}

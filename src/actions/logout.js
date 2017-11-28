@@ -8,10 +8,11 @@ export const logoutUser = () => {
   return function(dispatch){
     console.log('logout from actions', dispatch)
     return axios.get('/api/logout')
-    .then( () => {
+    .then( (status) => {
+      console.log(status);
       dispatch({
         type: LOGOUT_USER,
-        user: null
+        status: status.data
       });
     });
   }

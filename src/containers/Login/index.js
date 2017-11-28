@@ -37,7 +37,7 @@ class Login extends Component {
     return (
         <div id="login-container">
           <div className="google-icon"></div>
-          <div className="login-welcome">Please log in to your GOOGLE account</div>
+          <div className="login-welcome">Please login with your GOOGLE account</div>
 
           <GoogleLogin
             clientId="366752664535-921iec03nsrtpbb4s8fdlpq8om608e12.apps.googleusercontent.com"

@@ -20,6 +20,7 @@ const {user}      = db;
       local.email = email;
       local.id = user.id;
       local.admin = user.admin;
+      local.image = user.image;
       //console.log(local);
       return res.json(local);
     }).catch((err) =>{
