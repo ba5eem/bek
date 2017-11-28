@@ -19,9 +19,17 @@ export default class Popup extends Component {
   toggleShow = show => {
     this.setState({show});
   }
+   changeValue(event) {
+    // setValue() will set the value of the component, which in
+    // turn will validate it and the rest of the form
+    // Important: Don't skip this step. This pattern is required
+    // for Formsy to work.
+    this.props.setValue(event.currentTarget.value);
+  }
 
 
   render() {
+    //const errorMessage = this.props.getErrorMessage();
     const {show} = this.state;
     return (
       <div>
@@ -66,9 +74,13 @@ export default class Popup extends Component {
             <SelectEnd
               name="end"
               />
-            <button style={select} type="submit" disabled={this.state.canSubmit}>Submit</button>
+            <button style={select} type="submit">Submit</button>
+            <br></br>
+            <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "HIT THE X WHEN YOU ARE DONE"}</h3>
           </Formsy>
+
         </PopPop>
+
       </div>
     )
   }
@@ -89,4 +101,7 @@ const select = {
   textAlign:"center",
   backgroundColor: "#66b3ff",
   fontSize:"40px"
+}
+const close ={
+  textAlign: "center"
 }

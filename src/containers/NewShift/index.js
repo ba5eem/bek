@@ -11,6 +11,7 @@ import SelectDay from '../../components/CreateShift/SelectDay';
 import PopPop from 'react-poppop';
 import Popup from '../../components/CreateShift/Popup';
 import ShiftLength from '../../components/CreateShift/ShiftLength';
+import { notifySms } from '../../actions/sms';
 
 class NewShift extends Component {
   constructor(props) {
@@ -18,7 +19,8 @@ class NewShift extends Component {
 
     this.disableButton = this.disableButton.bind(this);
     this.enableButton = this.enableButton.bind(this);
-    this.state = { canSubmit: false, complete: false };
+    this.quickSubmit = this.quickSubmit.bind(this);
+    this.state = { canSubmit: false, show: false };
   }
 
   disableButton() {
@@ -32,16 +34,32 @@ class NewShift extends Component {
   submit(model) {
     this.setState({show:false})
     console.log(model);
-    this.props.addShift(model)
+    if(model.start !== undefined){
+      this.setState({canSubmit:true})
+      this.props.addShift(model)
+      this.props.notifySms();
+    }
+  }
+
+  quickSubmit(model) {
+    this.setState({show:false})
+    console.log(model);
+    if(model._4!== undefined){
+      this.setState({canSubmit:true})
+      this.props.addShift(model)
+      this.props.notifySms();
+    } 
   }
 
   render(){
     return (
         <div style={quickShifts}>
         <Popup
-          submit={this.submit.bind(this)}/>
+          submit={this.submit.bind(this)}
+          canSubmit={this.state.canSubmit}/>
         <ShiftLength
-          submit={this.submit.bind(this)}/>
+          submit={this.quickSubmit.bind(this)}
+          canSubmit={this.state.canSubmit}/>
         </div>
     );/*END OF RETURN*/
   }
@@ -59,7 +77,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedNewShift = connect(
   mapStateToProps,
-  {loadUsers,addShift}
+  {loadUsers,addShift,notifySms}
 )(NewShift)
 
 export default ConnectedNewShift;
