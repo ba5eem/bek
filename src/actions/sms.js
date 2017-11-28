@@ -15,3 +15,17 @@ export const actionsms = (body) => {
     });
   }
 }
+
+
+export const notifySms = (body) => {
+  return function(dispatch){
+    return axios.post('/api/sms/notify', body)
+    .then( sms => {
+      console.log('sms from actions--->', sms )
+      dispatch({
+        type: ACTION_SMS,
+        sms: sms.data
+      });
+    });
+  }
+}

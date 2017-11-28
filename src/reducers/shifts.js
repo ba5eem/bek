@@ -20,7 +20,7 @@ const shifts = (state = [], action) => {
 
       return action.shifts;
     case ADD_SHIFT:
-      return action.shifts;
+      return state;
     default:
       return state
   }

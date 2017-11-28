@@ -6,6 +6,8 @@ import Shifts from '../../components/shifts.components.js';
 import {filterAll} from '../../lib/Filters';
 
 
+
+
 class Shift extends Component {
   constructor() {
     super();
@@ -42,8 +44,11 @@ class Shift extends Component {
 
 
   render(){
+
     const query = this.state.query;
     const shifts = filterAll(this.props.shifts,'id',query);
+
+
     
     return (
       <div style={container}>

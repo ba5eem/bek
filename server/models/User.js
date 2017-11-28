@@ -15,6 +15,9 @@ module.exports = function(sequelize,DataTypes){
     image: {
       type: DataTypes.STRING //for toolio
     },
+    phone: {
+      type: DataTypes.STRING
+    },
     name: {
       type: DataTypes.STRING
     },
