@@ -24,6 +24,7 @@ class App extends Component {
     return (
       <div>
         <NewShift />
+
         <div id="iframe-div">
           <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
           width="700px"
@@ -33,6 +34,7 @@ class App extends Component {
           position="absolute">
           </Iframe>
         </div>
+
         <div id="chat-app-div">
         <ChatApp/>
         </div>
@@ -40,8 +42,6 @@ class App extends Component {
           ?<UsersListView/>
           :<Login/>
         */}
-
-
 
       </div>
     );

@@ -32,14 +32,10 @@ class SideBar extends Component {
           className="menu-item"
           href="/role/admin">
           Management</a>
-          <a id="Front"
+          <a id="staff"
           className="menu-item"
           href="/role/front">
-          Front</a>
-          <a id="Back"
-          className="menu-item"
-          href="/role/back">
-          Back</a>
+          Staff</a>
 
           <div id="line"/>
 
