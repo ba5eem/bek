@@ -12,15 +12,14 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
 import thunk from 'redux-thunk';
-// import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
 //SCSS-----------------------------------------
 import './index.scss';
 //CONTAINERS----------------------------------
 import App from './containers/App';
-import Home from './containers/Home';
 import Login from './containers/Login';
 import SideBar from './containers/SideBar';
-import Shifts from './containers/Shifts';
+
 import Nav from './components/nav.components';
 import Footer from './components/footer.components';
 import UsersListView from './containers/UsersListView';
@@ -52,8 +51,6 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route path="/login" component={Login} />
         <Route path="/users" component={UsersListView} />
-        <Route path="/shifts" component={Shifts} />
-        <Route path="/home" component={Home} />
       <Footer />
       </div>
     </Router>
