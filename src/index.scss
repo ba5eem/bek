@@ -3,6 +3,7 @@ $main: #FFFFFF;
 $accent: #66b3ff;
 $link: #ff9966;
 $button: #bfbfbf;
+$dark: #27303e;
 
 // mixins
 @mixin flex-style($flow, $justify) {
@@ -296,14 +297,14 @@ input.send-button {
   top: 0; bottom: 0; left: 0;
   width: 250px;
   padding-top: 150px;
-  background-color:$accent;
+  background-color:$dark;
 
 }
 .Nav{
   color: #fff;
   font: 22px 'Jura', sans-serif;
   padding: 11px;
-  background-color:$accent;
+  background-color:$dark;
 }
 .Nav:hover{
   background-color: rgba(0,0,0,0.3);
@@ -312,7 +313,7 @@ input.send-button {
 
 .Content{
   position: absolute;
-  top: 60px; bottom: 30px; left: 170px; right: 30px;
+  top: 150px; bottom: 30px; left: 250px; right: 30px;
   padding: 30px 40px;
 }
 
