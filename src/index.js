@@ -17,6 +17,7 @@ import thunk from 'redux-thunk';
 import './index.scss';
 //CONTAINERS----------------------------------
 import App from './containers/App';
+import Home from './containers/Home';
 import Login from './containers/Login';
 import SideBar from './containers/SideBar';
 import Shifts from './containers/Shifts';
@@ -52,6 +53,7 @@ ReactDOM.render(
         <Route path="/login" component={Login} />
         <Route path="/users" component={UsersListView} />
         <Route path="/shifts" component={Shifts} />
+        <Route path="/home" component={Home} />
       <Footer />
       </div>
     </Router>
