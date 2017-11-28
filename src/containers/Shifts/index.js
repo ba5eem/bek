@@ -13,10 +13,13 @@ class Shift extends Component {
     super();
     
     this.state={ 
-      query: false
+      query: false,
+      absent: false
     }
     this.singleShift = this.singleShift.bind(this);
     this.exitSingle = this.exitSingle.bind(this);
+    this.markAbsent = this.markAbsent.bind(this);
+    this.openChat = this.openChat.bind(this);
   }
 
 
@@ -36,6 +39,14 @@ class Shift extends Component {
     e.preventDefault();
     this.setState({query:false})
     localStorage.clear('single');
+  }
+
+  markAbsent(e){
+
+  }
+
+  openChat(e){
+
   }
 
 
@@ -58,7 +69,11 @@ class Shift extends Component {
               <Shifts 
                 key={idx} 
                 shift={shift}
+                query={this.state.query}
+                absent={this.state.absent}
                 singleShift={this.singleShift}
+                markAbsent={this.markAbsent}
+                openChat={this.openChat}
                 exitSingle={this.exitSingle} />)
             })}
       </div>
