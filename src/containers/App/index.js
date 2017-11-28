@@ -24,16 +24,8 @@ class App extends Component {
     return (
       <div id="main-App-container">
         <NewShift />
-        <div id="iframe-div">
-          <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
-          width="700px"
-          height="500px"
-          frameborder="0"
-          scrolling="no"
-          position="absolute">
-          </Iframe>
-        <Shift />
-        </div>
+
+        <div><Shift /></div>
         <div id="chat-app-div">
         <ChatApp/>
         </div>
@@ -41,9 +33,6 @@ class App extends Component {
           ?<UsersListView/>
           :<Login/>
         */}
-
-
-
       </div>
     );
   }
@@ -86,19 +75,12 @@ export default ConnectedApp;
 
 
 
-
-// <iframe url="https://calendar.google.com/calendar/embed?
-//         title=bek&amp;
-//         height=600&amp;
-//         wkst=1&amp;
-//         bgcolor=%23ccffff&amp;
-//         src=cohortuser19%40gmail.com&amp;
-//         color=%231B887A&amp;
-//         src=en.usa%23holiday%40group.v.calendar.google.com&amp;
-//         color=%23125A12&amp;
-//         ctz=Pacific%2FHonolulu"
-//         style="border-width:0"
-//         width="700"
-//         height="500"
-//         frameborder="0"
-//         scrolling="no"></iframe>
+ // <div id="iframe-div">
+ //          <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
+ //          width="700px"
+ //          height="500px"
+ //          frameborder="0"
+ //          scrolling="no"
+ //          position="absolute">
+ //          </Iframe>
+ //        </div>

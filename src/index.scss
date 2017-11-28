@@ -41,12 +41,13 @@ a {
 textarea {
   resize: none;
 }
-
+//Main App (Parent Container)---
 #main-app-container {
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
 }
-
+//------------------------------
 #iframe-div {
   display: flex;
   align-items: center;
@@ -54,7 +55,7 @@ textarea {
   padding-top: 16em;
   background: linear-gradient(to bottom, #66b3ff 0%, #ffffff 100%);
 }
-// ---------------------
+// ---------------------------
 /* STYLE SETTINGS  */
 #source {
   position: relative;
@@ -195,25 +196,26 @@ button.google-login {
 }
 //Main Shift Container----------
 #main-shift-container {
-
+  order: 4;
 }
 
 //Shift Card--------------------
 .shiftCard {
-  width: 400px;
-  height: 200px;
-  background-color: cornflowerblue;
-  display: flex-wrap;
+  width: 270px;
+  height: 170px;
+  background-color: $main;
   justify-content: center;
   text-align: center;
   border-radius: 15px;
-  margin-left: 20px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border: 0.5px solid $button;
 }
 .shiftCard:hover {
   box-shadow: 10px 10px 5px #888888;
-  margin-top:4px;
-  width: 400px;
-  height: 200px;
+  margin-top:5px;
+  width: 285px;
+  height: 170px;
   background-color: cornflowerblue;
   display: flex-wrap;
   justify-content: center;
@@ -225,8 +227,8 @@ button.google-login {
 }
 
 .shiftCardSummary {
-  background-color: lightgrey;
-  font-size: 20px;
+  background-color: $link;
+  // font-size: 20px;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
   max-height: 30px;
@@ -234,18 +236,18 @@ button.google-login {
 
 .shiftCardLocation {
   background-color: lightgrey;
-  font-size: 20px;
+  // font-size: 20px;
   max-height: 30px;
 }
 
 .shiftCardStart {
   background-color: lightgrey;
-  font-size: 20px;
+  // font-size: 20px;
 }
 
 .shiftCardLength {
   background-color: lightgrey;
-  font-size: 20px;
+  // font-size: 20px;
 }
 
 .empCardImage {
@@ -257,7 +259,6 @@ button.google-login {
   background-color: #66b3ff;
   color: white;
   border: transparent;
-  font-size: 15px;
   box-shadow: 2px 2px 2px black;
   margin-right: 10px;
 }
@@ -265,7 +266,7 @@ button.google-login {
 .chatButtonOnShiftCard:hover {
   background-color: #66b3ff;
   border: transparent;
-  font-size: 20px;
+  // font-size: 20px;
   transition: 0.5s ease-in-out;
   transition: 0.5s ease;
 }
@@ -273,7 +274,6 @@ button.google-login {
 .detailsButtonOnShiftCard {
   background-color: #66b3ff;
   border: transparent;
-  font-size: 15px;
   box-shadow: 2px 2px 2px black;
   margin-right: 10px;
 }
@@ -281,7 +281,7 @@ button.google-login {
 .detailsButtonOnShiftCard:hover {
   background-color: #66b3ff;
   border: transparent;
-  font-size: 20px;
+  // font-size: 20px;
   transition: 0.5s ease-in-out;
   transition: 0.5s ease;
 }
@@ -290,7 +290,6 @@ button.google-login {
   background-color: #66b3ff;
   color: white;
   border: transparent;
-  font-size: 15px;
   box-shadow: 2px 2px 2px black;
   margin-right: 10px;
 }
