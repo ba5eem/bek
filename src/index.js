@@ -54,10 +54,10 @@ ReactDOM.render(
           <Nav />
         </div>
 
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={App} />
         <Route path="/login" component={Login} />
         <Route path="/users" component={UsersListView} />
-        <Route path="/home" component={App} />
+        <Route path="/home" component={Home} />
       <Footer />
       </div>
     </Router>

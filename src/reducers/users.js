@@ -16,6 +16,7 @@ const users = (state = [], action) => {
       localStorage.setItem('id', user.id);
       localStorage.setItem('isLoggedIn', user.isLoggedIn);
       localStorage.setItem('image', user.image);
+      localStorage.setItem('isLoggedOut', false);
       return user;
 
     default:

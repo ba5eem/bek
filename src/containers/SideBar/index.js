@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { slide as Menu } from 'react-burger-menu';
+import { connect } from 'react-redux';
 import Logout from '../Logout';
 import { Link } from 'react-router-dom';
+import {addUser} from '../../actions/users.js';
+import { logoutUser } from '../../actions/logout';
 
 class SideBar extends Component {
   constructor() {
@@ -17,8 +20,8 @@ class SideBar extends Component {
 
 
   render() {
-    const isLoggedIn = this.state.isLoggedIn;
-    const access = this.state.admin;
+    const isLoggedIn = this.props.users.isLoggedIn;
+    const access = this.props.users.admin;
     const auth = isLoggedIn !== undefined ? true : false;
     const admin = access !== undefined ? true : false;
 
@@ -57,4 +60,16 @@ class SideBar extends Component {
 
 }
 
-export default SideBar;
+const mapStateToProps = (state) => {
+  return {
+    users: state.users,
+    status: state.logout
+  }
+}
+
+const ConnectedSideBar = connect(
+  mapStateToProps,
+  {addUser,logoutUser}
+)(SideBar)
+
+export default ConnectedSideBar;
