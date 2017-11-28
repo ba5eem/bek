@@ -103,9 +103,10 @@ textarea {
 
 /* General sidebar styles */
 .bm-menu {
+  // width: 250px;
   background: #373a47;
   opacity: 0.8;
-  padding: 2.5em 1.5em 0;
+  padding: 2.5em 1em 0;
   font-size: 1.15em;
   a {
     color: $main;
@@ -124,6 +125,7 @@ textarea {
 
 /* Wrapper for item list */
 .bm-item-list {
+  width: 200px;
   color: #b8b7ad;
   padding: 0.8em;
   padding-top: 2em;
@@ -287,4 +289,11 @@ input.send-button {
   padding-top: 15px;
   background-color: $accent;
   color: $main;
+}
+
+
+@media (max-width: 200px) {
+  #sidebar {
+    display: none;
+  }
 }

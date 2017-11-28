@@ -21,23 +21,26 @@ class SideBar extends Component {
   render() {
     const auth = this.state.auth || localStorage.auth;
     return(
-      <div>
+      <div id="sidebar">
       {/*!auth?
         null:*/
-        <Menu>
-
-        <div id="line"/>
+        <Menu
+        width="200px"
+        isOpen
+        noOverlay>
 
         <Link to="/">
         Home</Link>
+        <div id="line"/>
+
         <Link to="/chat">
-        Chatroom</Link>
+        Chat</Link>
         <Link to="/users">
         Users</Link>
         <Link to="/logout">
-        <Logout/></Link>
 
         <div id="line"/>
+        <Logout/></Link>
       </Menu>
     }
       </div>
