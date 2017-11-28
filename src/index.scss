@@ -288,3 +288,101 @@ input.send-button {
   background-color: $accent;
   color: $main;
 }
+
+.shiftCard{
+  width: 400px;
+  height: 200px;
+  background-color: cornflowerblue;
+  display: flex-wrap;
+  justify-content: center;
+  text-align: center;
+  border-radius: 15px;
+  margin-left: 20px;
+
+}
+.shiftCard:hover{
+  box-shadow: 10px 10px 5px #888888;
+  margin-top:4px;
+  width: 400px;
+  height: 200px;
+  background-color: cornflowerblue;
+  display: flex-wrap;
+  justify-content: center;
+  text-align: center;
+  border-radius: 15px;
+  margin-left: 12px;
+  transition: 0.5s ease-in-out;
+  transition: 0.5s ease;
+
+
+
+}
+
+.shiftCardSummary{
+  background-color: lightgrey;
+  font-size: 20px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  max-height: 30px;
+
+}
+
+.shiftCardLocation{
+  background-color: lightgrey;
+  font-size: 20px;
+  max-height: 30px;
+}
+.shiftCardStart{
+  background-color: lightgrey;
+  font-size: 20px;
+}
+.shiftCardLength{
+  background-color: lightgrey;
+  font-size: 20px;
+}
+
+.empCardImage {
+  max-width: 50px;
+  max-height: 50px;
+}
+.chatButtonOnShiftCard{
+  background-color: #66b3ff;
+  color: white;
+  border: transparent;
+  font-size: 15px;
+  box-shadow: 2px 2px 2px black;
+  margin-right: 10px;
+}
+.chatButtonOnShiftCard:hover{
+  background-color: #66b3ff;
+  border: transparent;
+  font-size: 20px;
+  transition: 0.5s ease-in-out;
+  transition: 0.5s ease;
+
+}
+
+.detailsButtonOnShiftCard{
+  background-color: #66b3ff;
+  border: transparent;
+  font-size: 15px;
+  box-shadow: 2px 2px 2px black;
+  margin-right: 10px;
+}
+.detailsButtonOnShiftCard:hover{
+  background-color: #66b3ff;
+  border: transparent;
+  font-size: 20px;
+  transition: 0.5s ease-in-out;
+  transition: 0.5s ease;
+
+}
+
+.absentBoxOnShiftCard{
+  background-color: #66b3ff;
+  color: white;
+  border: transparent;
+  font-size: 15px;
+  box-shadow: 2px 2px 2px black;
+  margin-right: 10px;
+}
