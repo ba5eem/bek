@@ -14,15 +14,18 @@ export default class Popup extends Component {
     this.state = {
       show: false,
       shift:'',
-      date: new Date()
+      date: new Date(),
+      canSubmit: false
     }
 
   }
 
 
   toggleShow(e){
+    if(e){
     let val = e.target.innerHTML.slice(0,-8);
       this.setState({shift:'_'+val, show:true})
+    }
     if(this.state.show){
       this.setState({show:false}) 
     }
@@ -31,6 +34,7 @@ export default class Popup extends Component {
   render() {
     const {show} = this.state;
     const time = ["4","6","8"]
+    //const errorMessage = this.props.getErrorMessage();
     return (
       <div style={quickShifts}>
         {
@@ -68,10 +72,12 @@ export default class Popup extends Component {
                     <SelectStart
                     name={this.state.shift}
                     date={this.state.date}
+                    validationError="This a required field"
                     required
                     />
                   <button style={select} type="submit">Submit</button>
-                  HIT THE X WHEN YOU ARE DONE
+                  <br></br>
+                  <h3 style={close}>{this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "HIT THE X WHEN YOU ARE DONE"}</h3>
                 </Formsy>
               </PopPop>
               </div>
@@ -105,5 +111,9 @@ const select = {
   textAlign:"center",
   backgroundColor: "#66b3ff",
   height:"40px",
-  marginTop: "10px"
+  marginTop: "10px",
+  fontSize: "30px"
+}
+const close ={
+  textAlign: "center"
 }

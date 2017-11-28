@@ -18,6 +18,7 @@ class NewShift extends Component {
 
     this.disableButton = this.disableButton.bind(this);
     this.enableButton = this.enableButton.bind(this);
+    this.quickSubmit = this.quickSubmit.bind(this);
     this.state = { canSubmit: false, complete: false };
   }
 
@@ -32,16 +33,30 @@ class NewShift extends Component {
   submit(model) {
     this.setState({show:false})
     console.log(model);
-    this.props.addShift(model)
+    if(model.start === undefined){
+      this.setState({canSubmit:false})
+    }
+    //this.props.addShift(model)
+  }
+
+  quickSubmit(model) {
+    this.setState({show:false})
+    console.log(model);
+    if(model._4!== undefined){
+      this.setState({canSubmit:true})
+    }
+    //this.props.addShift(model)
   }
 
   render(){
     return (
         <div style={quickShifts}>
         <Popup
-          submit={this.submit.bind(this)}/>
+          submit={this.submit.bind(this)}
+          canSubmit={this.state.canSubmit}/>
         <ShiftLength
-          submit={this.submit.bind(this)}/>
+          submit={this.quickSubmit.bind(this)}
+          canSubmit={this.state.canSubmit}/>
         </div>
     );/*END OF RETURN*/
   }
