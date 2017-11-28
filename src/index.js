@@ -24,6 +24,7 @@ import Nav from './components/nav.components';
 import Footer from './components/footer.components';
 import UsersListView from './containers/UsersListView';
 import ProfileView from './containers/ProfileView';
+import UserList from './components/UserList';
 // import AppHeader from './components/AppHeader.js';
 // import Background from './containers/Background';
 
@@ -50,7 +51,7 @@ ReactDOM.render(
 
         <Route exact path="/" component={App} />
         <Route path="/login" component={Login} />
-        <Route path="/users" component={UsersListView} />
+        <Route path="/users" component={UserList} />
         <Route path="/shifts" component={Shifts} />
         <Route path="/:id" component={ProfileView}/>
       <Footer />
