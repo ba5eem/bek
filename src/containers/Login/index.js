@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+//import { Redirect, Link } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import {addUser} from '../../actions/users.js';
 
@@ -9,7 +9,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
 
-    const {dispatch} = props;
+    //const {dispatch} = props;
 
     this.state={
       user: '',
@@ -32,7 +32,7 @@ class Login extends Component {
     this.props.history.pushState(null, '/');
   }
   loginFailure(res){
-    let name = res.profileObj.name;
+    //let name = res.profileObj.name;
     localStorage.clear();
     //console.log(res.profileObj);
     this.setState({auth: false})
@@ -40,9 +40,9 @@ class Login extends Component {
   }
 
   render(){
-    const user = this.state.user || localStorage.user;
-    const auth = this.state.auth || localStorage.auth;
-    const pic = this.state.pic || localStorage.pic;
+    //const user = this.state.user || localStorage.user;
+    //const auth = this.state.auth || localStorage.auth;
+    //const pic = this.state.pic || localStorage.pic;
 
     return (
         <div id="login-container">

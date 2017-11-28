@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Iframe from 'react-iframe';
-import Pusher from 'pusher-js';
+//import Pusher from 'pusher-js';
 import ChatApp from '../Chat/ChatApp';
 import NewShift from '../NewShift';
-import SendSMS from '../SendSMS/index';
-import UsersListView from  '../UsersListView';
+//import SendSMS from '../SendSMS/index';
+//import UsersListView from  '../UsersListView';
 // import {mainBody} from '../Background/styles';
-import Login from '../Login';
+//import Login from '../Login';
 
 class App extends Component {
   constructor() {
@@ -20,7 +20,7 @@ class App extends Component {
 
   render(){
     const path = "cohortuser19%40gmail.com";
-    const auth = this.state.auth || localStorage.auth;
+    //const auth = this.state.auth || localStorage.auth;
     return (
       <div>
         <NewShift />
@@ -48,28 +48,28 @@ class App extends Component {
   }
 }
 
-const container = {
-    display: "flex",
-    justifyContent:"center",
-    position: "relative"
-    }
+// const container = {
+//     display: "flex",
+//     justifyContent:"center",
+//     position: "relative"
+//     }
 
-const mobile = {
-    maxHeight: "900px",
-    zIndex: "0"
-    }
+// const mobile = {
+//     maxHeight: "900px",
+//     zIndex: "0"
+//     }
 
-const appBody = {
-    backgroundColor: "white",
-    height: "552px",
-    width: "310px",
-    left: "286px",
-    zIndex: "1",
-    position: "absolute",
-    marginTop: "164px",
-    display:"flex-wrap",
-    justifyContent:"center"
-    }
+// const appBody = {
+//     backgroundColor: "white",
+//     height: "552px",
+//     width: "310px",
+//     left: "286px",
+//     zIndex: "1",
+//     position: "absolute",
+//     marginTop: "164px",
+//     display:"flex-wrap",
+//     justifyContent:"center"
+//     }
 
 const mapStateToProps = (state) => {
   return {

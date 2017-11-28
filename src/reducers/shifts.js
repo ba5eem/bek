@@ -1,5 +1,5 @@
 import { LOAD_SHIFTS,ADD_SHIFT } from '../actions/shifts.js';
-var moment = require('moment');
+//var moment = require('moment');
 
 const shifts = (state = [], action) => {
 

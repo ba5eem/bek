@@ -1,21 +1,42 @@
 import React from 'react';
+import timeDifference from '../lib/TimeDifference';
+var moment = require('moment');
+
+const Shifts = ({shift,idx,singleShift,exitSingle,openChat,markAbsent,absent,query}) => {
+  let end = moment(shift.endtime, "HH:mm Z").format('H:mm');
+  let start = moment(shift.starttime, "HH:mm Z").format('HH:mm')
+  const res = timeDifference(start,end);
+  const shiftLength = parseInt(res)
 
 
-const Shifts = ({shift,idx,singleShift,exitSingle}) => {
   return (
-        <div style={shiftCard} key={idx}>
-          <div style={organizer} >{shift.organizer.email}</div>
-          <a href={shift.htmlLink}></a>
-          <p onClick={(e)=>singleShift(e,shift.id)}>Available Shift</p>
-          <p>{shift.status}</p>
-          <p>{shift.summary}</p>
-          <p>{shift.location}</p>
-          <p>{shift.start.dateTime}</p>
-          <p>{shift.end.dateTime}</p>
-          <br></br>
-          <p>Take the Shift</p>
-          <p onClick={exitSingle}>BACK</p>
-          <p>Messages</p>
+        <div className="shiftCard" key={idx}>
+          <h2 className="shiftCardSummary" onClick={(e)=>singleShift(e,shift.id)}>
+            {shift.summary ? shift.summary : 'Shift Open'}</h2>
+          <h3 className="shiftCardLocation" >
+            {shift.location ? shift.location : 'Click for Location'}</h3>
+          <div className="shiftCardStart" >
+            {shift.starttime ? 'Starts: '+shift.starttime : 'Click for Start Time'}</div>
+          <div className="shiftCardLength" >
+            {shiftLength ? shiftLength+'hr shift' : 'Click for Shift Length'}</div>
+
+          {query ?  //if in single view this buttonw will appear
+          <button className="backButtonOnShiftCard" onClick={exitSingle}>BACK</button>
+          : null}
+          <button className="chatButtonOnShiftCard" onClick={openChat}>CHAT
+          </button>
+          <button className="detailsButtonOnShiftCard" onClick={openChat}>
+          <a href={shift.htmlLink}>DETAILS</a>
+          </button>
+          <label htmlFor="absent" onClick={(e)=>markAbsent(e,shift.id)}>
+          <input id="absent" className="absentBoxOnShiftCard" type="checkbox"/>mark absent
+          </label>
+          <img className="empCardImage" src="http://bit.ly/2BvryFB" alt="icon"></img>
+          
+
+
+
+
         </div>
 
 
@@ -23,24 +44,6 @@ const Shifts = ({shift,idx,singleShift,exitSingle}) => {
 };
 
 export default Shifts;
-
-
-const organizer = {
-  backgroundColor: "lightgrey",
-  fontSize: "30px",
-  flexShrink: "1"
-}
-
-
-const shiftCard = {
-    marginTop: "10px",
-    width: "400px",
-    height:"200px",
-    backgroundColor: "lightgreen",
-    display: "flex",
-    flexFlow: "row-reverse wrap",
-    justifyContent:"center"
-}
 
 
 

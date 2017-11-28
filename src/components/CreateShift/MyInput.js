@@ -43,11 +43,11 @@ const input = {
   marginTop: "10px"
 
 }
-const select = {
-  width: "200px",
-  textAlign:"center",
-  backgroundColor: "#66b3ff",
-  fontSize:"40px"
-}
+// const select = {
+//   width: "200px",
+//   textAlign:"center",
+//   backgroundColor: "#66b3ff",
+//   fontSize:"40px"
+// }
  
 export default withFormsy(MyInput);

@@ -45,8 +45,31 @@ numbers.forEach(function(phones){
   }).then(()=>{
     console.log("succes");
   })
+  })
 })
 
+route.post('/absent', (req,res) => {
+  let numbers = req.body[0].data;
+  let link = req.body[1].htmlLink
+
+
+  numbers.forEach(function(phones){
+  let content = {
+      phone: phones,
+      payload: `Someone Called Out - Shift just became available! Shift Details here: ${link}`
+    }
+    const client = require('twilio')(
+    process.env.TWILIO_ACCOUNT_SID,
+    process.env.TWILIO_AUTH_TOKEN
+  );
+  client.messages.create({
+    from: process.env.TWILIO_PHONE_NUMBER,
+    to: "+1"+ content.phone,
+    body: content.payload
+  }).then(()=>{
+    console.log("succes");
+  })
+  })
 })
 
 module.exports = route;

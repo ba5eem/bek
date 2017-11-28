@@ -7,7 +7,8 @@ class SideBar extends Component {
     super();
 
     this.state = {
-      showNav : false
+      showNav : false,
+      auth: false
     };
   }
 
@@ -19,7 +20,7 @@ class SideBar extends Component {
   }
 
   render() {
-    const auth = this.state.auth || localStorage.auth;
+    //const auth = this.state.auth || localStorage.auth;
     return(
       <div>
       {/*!auth?
