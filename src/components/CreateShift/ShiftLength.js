@@ -27,7 +27,7 @@ export default class Popup extends Component {
       this.setState({shift:'_'+val, show:true})
     }
     if(this.state.show){
-      this.setState({show:false}) 
+      this.setState({show:false})
     }
   }
 
@@ -90,28 +90,25 @@ export default class Popup extends Component {
 }
 
 const addShift={
-  backgroundColor:"#66b3ff",
+  backgroundColor:"#bfbfbf",
   color:"white",
-  border: "transparent",
-  fontSize: "30px",
-  paddingBottom:"10px",
-  paddingRight:"15px",
-  paddingLeft:"15px",
-  marginTop:"10px"
+  border: "transparent"
 }
+
 const quickShifts = {
   display:"flex",
   textAlign:"center"
 }
+
 const heading={
   fontSize: "40px"
 }
+
 const select = {
   width: "400px",
   textAlign:"center",
   backgroundColor: "#66b3ff",
   height:"40px",
-  marginTop: "10px",
   fontSize: "30px"
 }
 const close ={

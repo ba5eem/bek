@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { scaleDown as Menu } from 'react-burger-menu';
+import { slide as Menu } from 'react-burger-menu';
 import Logout from '../Logout';
 import { Link } from 'react-router-dom';
+
 class SideBar extends Component {
   constructor() {
     super();
@@ -26,15 +27,12 @@ class SideBar extends Component {
         null:*/
         <Menu
         width="200px"
-        isOpen
         noOverlay>
 
         <Link to="/">
         Home</Link>
         <div id="line"/>
 
-        <Link to="/chat">
-        Chat</Link>
         <Link to="/users">
         Users</Link>
         <Link to="/logout">
