@@ -20,8 +20,11 @@ route.post('/', (req,res) => {
   }).then((messsage) => console.log('message.sid', message.sid)).catch( err => {
     console.log(err);
   });
+})
 
-
+route.post('/notify', (req,res) => {
+  console.log('sms from routes--->',req.body)
+  res.json('done');
 })
 
 module.exports = route;
