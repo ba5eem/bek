@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { loadUsers } from '../../actions/users';
+//import { loadUsers, getOneUser } from '../../actions/users';
 
 import ProfileDetail from '../../components/ProfileDetail.js';
 
@@ -47,7 +47,7 @@ class ProfileView extends Component {
   }
 */
   componentWillMount(){
-    this.props.loadUsers();
+    this.props.getOneUser();
 
   }
 
@@ -67,19 +67,17 @@ class ProfileView extends Component {
       return data;
     }*/
 
+
   render(){
-    const user = this.props.users
+    const user = this.props.user
     console.log(localStorage)
-   /* let filteredUsers = user.filter(
-      (filteredUsers) => {
-        return (filteredUsers.itemcategory.id).toString().indexOf(this.state.category) !== -1;
-      }
-    );*/
+    console.log('user from ProfileView-->',user)
+
     return(
       <div>
-        <ProfileDetail
-        user = {user}
-        />
+        {/*<ProfileDetail
+
+        />*/}
       </div>
     )
   }
@@ -97,7 +95,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedProfileView = connect(
   mapStateToProps,
-  {loadUsers}
+//  {getOneUser}
 )(ProfileView)
 
 export default ConnectedProfileView;

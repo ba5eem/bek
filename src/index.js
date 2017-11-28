@@ -52,7 +52,7 @@ ReactDOM.render(
         <Route path="/login" component={Login} />
         <Route path="/users" component={UsersListView} />
         <Route path="/shifts" component={Shifts} />
-        <Route path="/users/:id" component={ProfileView}/>
+        <Route path="/:id" component={ProfileView}/>
       <Footer />
       </div>
     </Router>

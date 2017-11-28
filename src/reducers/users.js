@@ -1,14 +1,18 @@
-import { LOAD_USERS,ADD_USER } from '../actions/users.js';
+import { LOAD_USERS,ADD_USER, GETONE_USER } from '../actions/users.js';
 
 
 const users = (state = [], action) => {
 
   switch(action.type){
     case LOAD_USERS:
-    console.log('reducers triggered', action.users)
+
       return action.users;
 
     case ADD_USER:
+      return action.user;
+
+    case GETONE_USER:
+    console.log('reducers triggered', action.user)
       return action.user;
 
     default:
