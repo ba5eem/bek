@@ -29,6 +29,7 @@ class Login extends Component {
     this.setState({auth: true})
     this.setState({user: name})
     this.setState({isLoggedIn: true})
+    this.props.history.pushState(null, '/');
   }
   loginFailure(res){
     let name = res.profileObj.name;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { scaleDown as Menu } from 'react-burger-menu';
-
+import Logout from '../Logout';
+import { Link } from 'react-router-dom';
 class SideBar extends Component {
   constructor() {
     super();
@@ -18,64 +19,32 @@ class SideBar extends Component {
   }
 
   render() {
-    if(localStorage.admin) {
-      return(
+    const auth = this.state.auth || localStorage.auth;
+    return(
+      <div>
+      {/*!auth?
+        null:*/
         <Menu>
-          <a id="messages"
-          className="menu-item"
-          href="/messages">
-          Messages</a>
-
-          <div id="line"/>
-
-          <a id="management"
-          className="menu-item"
-          href="/role/admin">
-          Management</a>
-          <a id="Front"
-          className="menu-item"
-          href="/role/front">
-          Front</a>
-          <a id="Back"
-          className="menu-item"
-          href="/role/back">
-          Back</a>
-
-          <div id="line"/>
-
-          <a id="profile"
-          className="menu-item"
-          href="/profile">
-          Profile</a>
-          <a id="logout"
-          className="menu-item"
-          href="/logout">
-          Logout</a>
-        </Menu>
-      )
-    }else{
-      return(
-      <Menu>
-        <a id="messages"
-        className="menu-item"
-        href="/messages">
-        Messages</a>
 
         <div id="line"/>
 
-        <a id="profile"
-        className="menu-item"
-        href="/profile">
-        Profile</a>
-        <a id="logout"
-        className="menu-item"
-        href="/logout">
-        Logout</a>
+        <Link to="/">
+        Home</Link>
+        <Link to="/chat">
+        Chatroom</Link>
+        <Link to="/users">
+        Users</Link>
+        <Link to="/logout">
+        <Logout/></Link>
+
+        <div id="line"/>
       </Menu>
+    }
+      </div>
       )
 
     }
-  }
+
 
 }
 

@@ -2,6 +2,7 @@ const axios = require('axios');
 
 export const LOAD_USERS = 'LOAD_USERS';
 export const ADD_USER = 'ADD_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';
 
 export const loadUsers = () => {
   console.log('loadusers to server ' )
@@ -25,6 +26,19 @@ export const addUser = (newUser) => {
       dispatch({
         type: ADD_USER,
         user: user.data
+      });
+    });
+  }
+}
+
+export const logoutUser = () => {
+  localStorage.clear();
+  return function(dispatch){
+    return axios.get('/api/logout')
+    .then( () => {
+      dispatch({
+        type: LOGOUT_USER,
+        user: null
       });
     });
   }

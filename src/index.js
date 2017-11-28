@@ -22,6 +22,7 @@ import SideBar from './containers/SideBar';
 
 import Nav from './components/nav.components';
 import Footer from './components/footer.components';
+import UsersListView from './containers/UsersListView';
 
 // import AppHeader from './components/AppHeader.js';
 // import Background from './containers/Background';
@@ -37,7 +38,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div id="source">
-        <header id="header">
+        <div id="header">
           <SideBar />
           <div id="logo">
             <Link to="/">
@@ -45,10 +46,11 @@ ReactDOM.render(
           <div id="title">bek-connect</div>
           </div>
           <Nav />
-        </header>
+        </div>
 
-      <Route exact path="/" component={App} />
-      <Route path="/login" component={Login} />
+        <Route exact path="/" component={App} />
+        <Route path="/login" component={Login} />
+        <Route path="/users" component={UsersListView} />
       <Footer />
       </div>
     </Router>
