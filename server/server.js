@@ -13,7 +13,7 @@ const app             = express();
 //need this for deployment
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}));
 
 
 //Routes
@@ -28,6 +28,6 @@ app.get('*', ( req, res ) => {
 });
 
 const server = app.listen(PORT,() => {
-  db.sequelize.sync( { force: false } ); //this is to link with your DB defined in the config file - set to true to overwrite, set to false to not overwrite:
+  db.sequelize.sync( { force: true } ); //this is to link with your DB defined in the config file - set to true to overwrite, set to false to not overwrite:
   console.log(`Server connected on PORT: ${PORT}`);
 });
