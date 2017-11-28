@@ -21,20 +21,10 @@ class Login extends Component {
   }
 
   googleLogin(res){
-    let name = res.profileObj.name;
-    let pic = res.profileObj.imageUrl
-    localStorage.setItem('pic',pic);
-    console.log('res from macview--->', res)
     this.props.addUser(res.profileObj);
-    this.setState({auth: true})
-    this.setState({user: name})
-    this.setState({isLoggedIn: true})
-    this.props.history.pushState(null, '/');
   }
   loginFailure(res){
-    //let name = res.profileObj.name;
     localStorage.clear();
-    //console.log(res.profileObj);
     this.setState({auth: false})
     this.setState({isLoggedIn: false})
   }
@@ -43,9 +33,6 @@ class Login extends Component {
     const auth = this.props.users;
     const isLoggedIn = auth.isLoggedIn;
     if(isLoggedIn){ return (<Redirect to='/'/>)}
-    //const user = this.state.user || localStorage.user;
-    //const auth = this.state.auth || localStorage.auth;
-    //const pic = this.state.pic || localStorage.pic;
 
     return (
         <div id="login-container">
