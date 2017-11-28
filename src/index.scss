@@ -288,3 +288,70 @@ input.send-button {
   background-color: $accent;
   color: $main;
 }
+
+
+
+.NavBar{
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 250px;
+  padding-top: 150px;
+  background-color:$accent;
+
+}
+.Nav{
+  color: #fff;
+  font: 22px 'Jura', sans-serif;
+  padding: 11px;
+  background-color:$accent;
+}
+.Nav:hover{
+  background-color: rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+.Content{
+  position: absolute;
+  top: 60px; bottom: 30px; left: 170px; right: 30px;
+  padding: 30px 40px;
+}
+
+.Header{
+  position: absolute;
+  top: 0; left: 250px; right: 0;
+  height: 150px;
+  background-image: url("/assets/connect_@2X.png");
+  background-repeat: repeat;
+  background-position: center;
+  background-attachment: center fixed;
+}
+.HeadBar{
+  float: right;
+  padding: 5px;
+}
+.Top{
+  display: inline-block;
+  font: 14px sans-serif;
+  color: #fff;
+}
+
+.btn{
+  background-color: #fff;
+  color: #ccc;
+  font: 600 16px 'Jura', sans-serif;
+  border-radius: 8px;
+  text-align: center;
+  height: 30px; line-height: 30px;
+  width: 120px;
+}
+.btn:hover{
+  color: #ff4044;
+  cursor: pointer;
+}
+
+.BG{
+  background-image: url("/assets/connect_@2X.png");
+  background-repeat: repeat;
+  background-position: center;
+  background-attachment: center fixed;
+}
