@@ -48,7 +48,8 @@ class Shift extends Component {
     this.setState({show: true, absentShift: id})
     if(this.state.show){
       let shift = filterAll(this.props.shifts, 'id', this.state.absentShift);
-      this.props.absentSms(shift);
+      let absentShift = shift.pop()
+      this.props.absentSms(absentShift);
       this.setState({show: false})
     }
 
