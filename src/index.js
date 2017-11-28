@@ -36,6 +36,7 @@ const store = createStore(
   applyMiddleware(thunk)
   );
 
+const auth = localStorage.isLoggedIn !== undefined ? true : false;
 ReactDOM.render(
   <Provider store={store}>
     <Router>
@@ -43,17 +44,20 @@ ReactDOM.render(
         <div id="header">
           <SideBar />
           <div id="logo">
-            <Link to="/">
-            </Link>
-          <div id="title">bek-connect</div>
+            {auth ?
+            <span><Link to="/home">
+          <div id="title" >bek-connect</div></Link></span>
+          : <span><Link to="/">
+          <div id="title" >bek-connect</div></Link></span>
+            }
           </div>
           <Nav />
         </div>
 
-        <Route exact path="/" component={App} />
+        <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/users" component={UsersListView} />
-        <Route path="/home" component={Home} />
+        <Route path="/home" component={App} />
       <Footer />
       </div>
     </Router>
