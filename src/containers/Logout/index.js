@@ -21,7 +21,7 @@ class Logout extends Component {
   render(){
     const auth = this.props.status;
     const isLoggedOut = auth.isLoggedOut;
-    if(isLoggedOut){ return (<Redirect to='/home'/>)}
+    if(isLoggedOut){ return (<Redirect to='/'/>)}
 
     return (
         <div id="logout-form">

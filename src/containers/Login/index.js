@@ -32,7 +32,7 @@ class Login extends Component {
   render(){
     const auth = this.props.users;
     const isLoggedIn = auth.isLoggedIn;
-    if(isLoggedIn){ return (<Redirect to='/'/>)}
+    if(isLoggedIn){ return (<Redirect to='/home'/>)}
 
     return (
         <div id="login-container">
