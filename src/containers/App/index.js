@@ -23,7 +23,7 @@ class App extends Component {
     const auth = this.state.auth || localStorage.auth;
     return (
       <div>
-        {/*<NewShift />
+        <NewShift />
         <div id="iframe-div">
           <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
           width="700px"
@@ -35,11 +35,11 @@ class App extends Component {
         </div>
         <div id="chat-app-div">
         <ChatApp/>
-        </div>*/}
-        {auth
+        </div>
+        {/*auth
           ?<UsersListView/>
           :<Login/>
-        }
+        */}
 
 
 
