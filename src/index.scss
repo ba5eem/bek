@@ -194,6 +194,31 @@ button.google-login {
   font-weight: bold;
   font-size: 100%;
 }
+//Create shift buttons----------
+#main-shift-button-container {
+  order: 1;
+  width: 180px;
+  display: flex;
+  flex-wrap: row;
+  margin-left: 20px;
+}
+
+#custom-button {
+  height: 35px;
+  background-color: $button;
+  color: $main;
+  border: transparent;
+  margin: 5px;
+}
+
+#create-shift-button {
+  height: 35px;
+  background-color: $button;
+  color: $main;
+  border: transparent;
+  margin: 5px;
+}
+
 //Main Shift Container----------
 #main-shift-container {
   order: 4;

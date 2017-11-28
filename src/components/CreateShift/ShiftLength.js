@@ -20,7 +20,6 @@ export default class Popup extends Component {
 
   }
 
-
   toggleShow(e){
     if(e){
     let val = e.target.innerHTML.slice(0,-8);
@@ -36,12 +35,12 @@ export default class Popup extends Component {
     const time = ["4","6","8"]
     //const errorMessage = this.props.getErrorMessage();
     return (
-      <div style={quickShifts}>
+      <div id="shift-hour-button-container">
         {
           time.map((item,idx) => {
             return (
-              <div key={idx} value={item} style={quickShifts}>
-              <button  style={addShift} onClick={(e) => this.toggleShow(e)}>{item}HR SHIFT</button>
+              <div key={idx} value={item}>
+              <button  id="create-shift-button" onClick={(e) => this.toggleShow(e)}>{item}HR SHIFT</button>
               <PopPop position="centerCenter"
                   value={item}
                   open={show}
@@ -77,7 +76,7 @@ export default class Popup extends Component {
                     />
                   <button style={select} type="submit">Submit</button>
                   <br></br>
-                  <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "HIT THE X WHEN YOU ARE DONE"}</h3>
+                  <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "CLICK ON 'X' WHEN YOU ARE DONE"}</h3>
                 </Formsy>
               </PopPop>
               </div>
@@ -87,17 +86,6 @@ export default class Popup extends Component {
       </div>
     )
   }
-}
-
-const addShift={
-  backgroundColor:"#bfbfbf",
-  color:"white",
-  border: "transparent"
-}
-
-const quickShifts = {
-  display:"flex",
-  textAlign:"center"
 }
 
 const heading={
