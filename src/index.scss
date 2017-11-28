@@ -1,0 +1,290 @@
+//theme colors
+$main: #FFFFFF;
+$accent: #66b3ff;
+$link: #ff9966;
+$button: #bfbfbf;
+
+// mixins
+@mixin flex-style($flow, $justify) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  flex-flow: $flow;
+  justify-content: $justify;
+}
+
+@mixin box-style($style) {
+  -webkit-box-sizing: $style;
+  -moz-box-sizing: $style;
+  box-sizing: $style;
+}
+
+html {
+  @include box-style(border-box);
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 18px;
+}
+
+body {
+  // prevents margin white spaces around page
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+textarea {
+  resize: none;
+}
+
+#iframe-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16em;
+  background: linear-gradient(to bottom, #66b3ff 0%, #ffffff 100%);
+}
+// ---------------------
+/* STYLE SETTINGS  */
+#source {
+  position: relative;
+  min-height: 100%;
+}
+
+#header {
+  background-image: url("/assets/connect_@2X.png");
+  background-repeat: repeat;
+  background-position: center;
+  background-attachment: center fixed;
+  .nav-links {
+    background-color: $accent;
+    display: flex;
+    justify-content: space-around;
+    padding: 0.8vw;
+    a {
+      background-color: $accent;
+      color: $main;
+    }
+  }
+  .nav-links a:hover {
+    color: $link;
+  }
+}
+//Burger Bar -----------------
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: $button;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  opacity: 0.8;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+  a {
+    color: $main;
+    padding: 8px;
+  }
+}
+
+.bm-menu a:hover {
+  color: $accent;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+  padding-top: 2em;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#line {
+  border: solid $main 0.5px;
+  width: 75%;
+}
+//-----------------------------
+#logo {
+  background-image: url("/assets/network.icon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: center fixed;
+  height: 150px;
+  width: 300px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+#title {
+  font-size: 250%;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  color: $link;
+}
+//-----------------------------
+#login-container {
+  height: auto;
+  width: 100%;
+  text-align: center;
+  padding-top: 70px;
+  .google-icon {
+    background-image: url("/assets/google.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: center fixed;
+    height: 120px;
+    width: 120px;
+    margin: 0 auto;
+  }
+  .login-welcome {
+    padding-bottom: 40px;
+  }
+}
+button.google-login {
+  background-color: #d14836;
+  color: $main;
+  width: 190px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: 'Advent Pro';
+  font-weight: bold;
+  font-size: 100%;
+}
+// Twillio---------------------
+#chat-app-div {
+  display: flex;
+  justify-content: center;
+  padding-top: 14em;
+}
+
+.ChatApp {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  height: 175px;
+  width: 700px;
+  margin: .5em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(to top, #66b3ff 0%, #ffffff 100%);
+  .MessageList {
+    box-sizing: border-box;
+    flex: 1;
+  }
+  .MessageForm {
+    background: #eee;
+    border-top: 1px solid #ccc;
+    border-radius: 0 0 3px 3px;
+    box-sizing: border-box;
+    flex: 0 0 30px;
+  }
+}
+
+.MessageList {
+  overflow-y: auto;
+  padding: 4px;
+}
+
+.Message {
+  line-height: 1.5em;
+}
+
+.Message.log {
+  color: #bbb;
+}
+
+.Message .author {
+  font-weight: bold;
+  color: #888;
+  margin: 0 5px 0 0;
+}
+
+.Message.me .author {
+  color: #b6191e;
+}
+
+.MessageForm {
+  display: flex;
+  background: #ccc;
+}
+
+.MessageForm .input-container {
+  flex: 1;
+  margin: 1px;
+}
+
+.MessageForm .button-container {
+  flex: 0 0 6em;
+  margin: 1px 1px 1px 0;
+}
+
+.MessageForm input, .MessageForm button {
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: inherit;
+  height: 100%;
+  outline: none;
+  width: 100%;
+}
+
+.MessageForm input {
+  background: $main;
+  padding: 0 0 0 4px;
+  font-family: 'Advent Pro', sans-serif;
+}
+
+input.send-button {
+ background: $button;
+
+}
+// ------------------------
+#footer {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  height: 30px;
+  width: 100%;
+  padding-top: 15px;
+  background-color: $accent;
+  color: $main;
+}
