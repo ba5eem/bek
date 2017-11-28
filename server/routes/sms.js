@@ -23,9 +23,10 @@ route.post('/', (req,res) => {
 })
 
 route.post('/notify', (req,res) => {
+  let uri = "http://bit.ly/2k61tbK"
   let body = {
       phone: "612-998-2261",
-      payload: "Shift Open! Shift Details here"
+      payload: `Shift Open! Shift Details here: ${uri}`
     }
     const client = require('twilio')(
     process.env.TWILIO_ACCOUNT_SID,
