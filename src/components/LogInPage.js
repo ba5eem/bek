@@ -14,9 +14,18 @@ const LogInPage = ({shift}) => {
                   line_linked: {
                     shadow: {
                       enable: true,
-                      color: "#3CA9D1",
-                      blur: 5
+                      color: "#3333ff",
+                      blur: 0.4,
+                      width: 1,
+                      distance: 150
+                    },
+                  number: {
+                    value: 80,
+                    density: {
+                      enbale: true,
+                      value_area: 800
                     }
+                  }
                   }
                 }
               }}

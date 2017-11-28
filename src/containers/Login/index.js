@@ -27,7 +27,9 @@ class Login extends Component {
     console.log(res.profileObj);
 console.log('localStorage from Login ---->', localStorage)
     this.setState({isLoggedIn: true})
+    this.props.history.pushState(null, '/')
   }
+
   loginFailure(res){
     let name = res.profileObj.name;
     localStorage.clear();
