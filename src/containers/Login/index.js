@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import {addUser} from '../../actions/users.js';
 
@@ -21,33 +21,23 @@ class Login extends Component {
   }
 
   googleLogin(res){
-    let name = res.profileObj.name;
-    let pic = res.profileObj.imageUrl
-    localStorage.setItem('pic',pic);
-    console.log('res from macview--->', res)
     this.props.addUser(res.profileObj);
-    this.setState({auth: true})
-    this.setState({user: name})
-    this.setState({isLoggedIn: true})
-    this.props.history.pushState(null, '/');
   }
   loginFailure(res){
-    //let name = res.profileObj.name;
     localStorage.clear();
-    //console.log(res.profileObj);
     this.setState({auth: false})
     this.setState({isLoggedIn: false})
   }
 
   render(){
-    //const user = this.state.user || localStorage.user;
-    //const auth = this.state.auth || localStorage.auth;
-    //const pic = this.state.pic || localStorage.pic;
+    const auth = this.props.users;
+    const isLoggedIn = auth.isLoggedIn;
+    if(isLoggedIn){ return (<Redirect to='/home'/>)}
 
     return (
         <div id="login-container">
           <div className="google-icon"></div>
-          <div className="login-welcome">Please log in to your GOOGLE account</div>
+          <div className="login-welcome">Please login with your GOOGLE account</div>
 
           <GoogleLogin
             clientId="366752664535-921iec03nsrtpbb4s8fdlpq8om608e12.apps.googleusercontent.com"
