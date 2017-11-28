@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { scaleDown as Menu } from 'react-burger-menu';
+import { slide as Menu } from 'react-burger-menu';
 import Logout from '../Logout';
 import { Link } from 'react-router-dom';
+
 class SideBar extends Component {
   constructor() {
     super();
@@ -22,23 +23,23 @@ class SideBar extends Component {
   render() {
     //const auth = this.state.auth || localStorage.auth;
     return(
-      <div>
+      <div id="sidebar">
       {/*!auth?
         null:*/
-        <Menu>
-
-        <div id="line"/>
+        <Menu
+        width="200px"
+        noOverlay>
 
         <Link to="/">
         Home</Link>
-        <Link to="/chat">
-        Chatroom</Link>
+        <div id="line"/>
+
         <Link to="/users">
         Users</Link>
         <Link to="/logout">
-        <Logout/></Link>
 
         <div id="line"/>
+        <Logout/></Link>
       </Menu>
     }
       </div>

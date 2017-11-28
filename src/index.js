@@ -19,7 +19,6 @@ import './index.scss';
 import App from './containers/App';
 import Login from './containers/Login';
 import SideBar from './containers/SideBar';
-import Shifts from './containers/Shifts';
 import Nav from './components/nav.components';
 import Footer from './components/footer.components';
 import UsersListView from './containers/UsersListView';
@@ -51,7 +50,6 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route path="/login" component={Login} />
         <Route path="/users" component={UsersListView} />
-        <Route path="/shifts" component={Shifts} />
       <Footer />
       </div>
     </Router>

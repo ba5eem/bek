@@ -13,8 +13,8 @@ import { absentSms } from '../../actions/sms';
 class Shift extends Component {
   constructor() {
     super();
-    
-    this.state={ 
+
+    this.state={
       query: false,
       show: false
     }
@@ -23,9 +23,6 @@ class Shift extends Component {
     this.markAbsent = this.markAbsent.bind(this);
     this.openChat = this.openChat.bind(this);
   }
-
-
-  
 
   componentDidMount(){
     this.props.loadShifts();
@@ -64,19 +61,14 @@ class Shift extends Component {
   }
 
 
-
-
-
-
   render(){
 
     const query = this.state.query;
     const shifts = filterAll(this.props.shifts,'id',query);
     const {show} = this.state;
 
-    
     return (
-      <div style={container}>
+      <div id="main-shift-container">
             <PopPop position="centerCenter"
                 open={show}
                 closeBtn={true}
@@ -89,8 +81,8 @@ class Shift extends Component {
 
           {shifts.map((shift,idx) => {
             return (
-              <Shifts 
-                key={idx} 
+              <Shifts
+                key={idx}
                 shift={shift}
                 query={this.state.query}
                 absent={this.state.absent}
@@ -103,14 +95,6 @@ class Shift extends Component {
       </div>
     );
   }
-}
-
-
-
-
-const container = {
-    display: "flex-wrap",
-    justifyContent:"center"
 }
 
 const mapStateToProps = (state) => {
