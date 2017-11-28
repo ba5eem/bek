@@ -23,8 +23,21 @@ route.post('/', (req,res) => {
 })
 
 route.post('/notify', (req,res) => {
-  console.log('sms from routes--->',req.body)
-  res.json('done');
+  let body = {
+      phone: "612-998-2261",
+      payload: "Shift Open! Shift Details here"
+    }
+    const client = require('twilio')(
+    process.env.TWILIO_ACCOUNT_SID,
+    process.env.TWILIO_AUTH_TOKEN
+  );
+  client.messages.create({
+    from: process.env.TWILIO_PHONE_NUMBER,
+    to: "+1"+ body.phone,
+    body: body.payload
+  }).then(() => console.log('Success!'))
+    .catch( err => { console.log(err);
+  });
 })
 
 module.exports = route;
