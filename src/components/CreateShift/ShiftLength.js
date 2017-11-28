@@ -77,7 +77,7 @@ export default class Popup extends Component {
                     />
                   <button style={select} type="submit">Submit</button>
                   <br></br>
-                  <h3 style={close}>{this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "HIT THE X WHEN YOU ARE DONE"}</h3>
+                  <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "HIT THE X WHEN YOU ARE DONE"}</h3>
                 </Formsy>
               </PopPop>
               </div>

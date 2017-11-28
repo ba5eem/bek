@@ -74,7 +74,9 @@ export default class Popup extends Component {
             <SelectEnd
               name="end"
               />
-            <button style={select} type="submit" disabled={!this.props.canSubmit} >Submit</button>
+            <button style={select} type="submit">Submit</button>
+            <br></br>
+            <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "HIT THE X WHEN YOU ARE DONE"}</h3>
           </Formsy>
 
         </PopPop>
@@ -99,4 +101,7 @@ const select = {
   textAlign:"center",
   backgroundColor: "#66b3ff",
   fontSize:"40px"
+}
+const close ={
+  textAlign: "center"
 }
