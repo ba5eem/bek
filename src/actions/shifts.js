@@ -19,18 +19,24 @@ export const loadShifts = () => {
 }
 
 export const addShift = (newShift) => {
+  let local = [];
   console.log('from action: ',newShift)
   return function(dispatch){
     return axios.post('/api/shifts/new',newShift)
     .then( () => {
       return axios.get('/api/shifts')
       .then( (shifts) => {
-        return axios.post('/api/sms/notify', shifts)
+        local.push(shifts);
+        return axios.get('/api/users/phone')
+        .then((phone) =>{ 
+          local.push(phone);
+        return axios.post('/api/sms/notify', local )
         .then(() =>{
         dispatch({
         type: ADD_SHIFT,
         shifts: shifts.data
       });
+    })
         })
       })  
     });

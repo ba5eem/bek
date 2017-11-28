@@ -6,10 +6,21 @@ const db          = require('../models');
 const {user}      = db;
 
 route.get('/', ( req, res ) => {
+  let local = {}
   user.findAll({raw:true})
-  .then((DataCollection) => {
-    console.log('server calling', DataCollection)
-    res.json(DataCollection);
+  .then((users) => {
+    res.json(users);
+  });
+});
+
+route.get('/phone', ( req, res ) => {
+  let local = []
+  user.findAll({raw:true})
+  .then((users) => {
+    for (var i = 0; i < users.length; i++){
+      local.push(users[i].phone);
+    }
+    res.json(local);
   });
 });
 
