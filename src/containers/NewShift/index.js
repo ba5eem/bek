@@ -35,7 +35,7 @@ class NewShift extends Component {
     console.log(model);
     if(model.start !== undefined){
       this.setState({canSubmit:true})
-      //this.props.addShift(model)
+      this.props.addShift(model)
     }
 
     
@@ -46,7 +46,7 @@ class NewShift extends Component {
     console.log(model);
     if(model._4!== undefined){
       this.setState({canSubmit:true})
-      //this.props.addShift(model)
+      this.props.addShift(model)
     }
 
     
