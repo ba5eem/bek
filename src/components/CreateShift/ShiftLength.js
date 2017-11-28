@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import PopPop from 'react-poppop';
 import Formsy from 'formsy-react';
 import MyInput from './MyInput';
-import SelectMonth from './SelectMonth';
-import SelectDay from './SelectDay';
+//import SelectMonth from './SelectMonth';
+//import SelectDay from './SelectDay';
 import SelectStart from './SelectStart';
-import SelectEnd from './SelectEnd';
-import ShiftLength from './ShiftLength';
+//import SelectEnd from './SelectEnd';
+//import ShiftLength from './ShiftLength';
 
 export default class Popup extends Component {
   constructor(props) {

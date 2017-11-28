@@ -12,7 +12,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
 import thunk from 'redux-thunk';
-import { GoogleLogin } from 'react-google-login';
+// import { GoogleLogin } from 'react-google-login';
 //SCSS-----------------------------------------
 import './index.scss';
 //CONTAINERS----------------------------------
