@@ -7,7 +7,11 @@ const {user}      = db;
 
 route.get('/', ( req, res ) => {
   let local = {}
-  user.findAll({raw:true})
+  user.findAll({
+    attributes: {
+      exclude : ['googleid', 'familyname','givenname','phone','createdAt','updatedAt']
+    }
+  })
   .then((users) => {
     res.json(users);
   });

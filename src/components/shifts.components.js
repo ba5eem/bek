@@ -31,7 +31,7 @@ const Shifts = ({shift,idx,singleShift,exitSingle,openChat,markAbsent,absent,que
           <label htmlFor="absent" onClick={(e)=>markAbsent(e,shift.id)}>
           <input id="absent" className="absentBoxOnShiftCard" type="checkbox"/>mark absent
           </label>
-          <img className="empCardImage" src="http://bit.ly/2BvryFB" alt="icon"></img>
+          <img className="empCardImage" src={shift.userimage} alt="icon"></img>
           
 
 

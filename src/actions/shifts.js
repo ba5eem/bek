@@ -7,13 +7,19 @@ export const DELETE_SHIFT = 'DELETE_SHIFT';
 export const LOAD_PHONE = 'LOAD_PHONE';
 
 export const loadShifts = () => {
+  let local = [];
   return function(dispatch){
+    return axios.get('/api/users')
+    .then((users) => {
+      local.push(users.data)
     return axios.get('/api/shifts')
     .then( shifts => {
+      local.push(shifts.data)
       dispatch({
         type: LOAD_SHIFTS,
-        shifts: shifts.data
+        shifts: local
       });
+      })
     });
   }
 }
