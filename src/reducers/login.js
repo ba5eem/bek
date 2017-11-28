@@ -1,20 +1,20 @@
 // import { LOGIN_USER } from '../actions/login.js';
 
 
-const login = (state = {}, action) => {
+// const login = (state = {}, action) => {
 
-  switch(action.type){
-    case "LOGIN_USER":
-    console.log(action.user);
-    localStorage.setItem('user',action.user);
-    localStorage.setItem('auth','true');
-      return action.user;
-    default:
-      return state
-  }
-}
+//   switch(action.type){
+//     case "LOGIN_USER":
+//     console.log(action.user);
+//     localStorage.setItem('user',action.user);
+//     localStorage.setItem('auth','true');
+//       return action.user;
+//     default:
+//       return state
+//   }
+// }
 
-export default login;
+// export default login;
 
 
 // import * as actionTypes from '../actionTypes'

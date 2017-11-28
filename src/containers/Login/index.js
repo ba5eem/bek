@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 import {addUser} from '../../actions/users.js';
 
@@ -40,6 +40,9 @@ class Login extends Component {
   }
 
   render(){
+    const auth = this.props.users;
+    const isLoggedIn = auth.isLoggedIn;
+    if(isLoggedIn){ return (<Redirect to='/'/>)}
     //const user = this.state.user || localStorage.user;
     //const auth = this.state.auth || localStorage.auth;
     //const pic = this.state.pic || localStorage.pic;

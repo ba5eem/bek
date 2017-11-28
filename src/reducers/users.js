@@ -9,7 +9,14 @@ const users = (state = [], action) => {
       return action.users;
 
     case ADD_USER:
-      return action.user;
+      let user = action.user;
+      localStorage.setItem('admin',user.admin)
+      localStorage.setItem('group', user.businessGroup)
+      localStorage.setItem('email', user.email);
+      localStorage.setItem('id', user.id);
+      localStorage.setItem('isLoggedIn', user.isLoggedIn);
+
+      return user;
 
     default:
       return state
