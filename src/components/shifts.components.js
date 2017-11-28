@@ -1,6 +1,5 @@
 import React from 'react';
 import timeDifference from '../lib/TimeDifference';
-import Absent from './CreateShift/Absent';
 var moment = require('moment');
 
 const Shifts = ({shift,idx,singleShift,exitSingle,openChat,markAbsent,absent,query}) => {
@@ -29,11 +28,11 @@ const Shifts = ({shift,idx,singleShift,exitSingle,openChat,markAbsent,absent,que
           <button className="detailsButtonOnShiftCard" onClick={openChat}>
           <a href={shift.htmlLink}>DETAILS</a>
           </button>
-          <label htmlFor="absent" onClick={markAbsent}>
+          <label htmlFor="absent" onClick={(e)=>markAbsent(e,shift.id)}>
           <input id="absent" className="absentBoxOnShiftCard" type="checkbox"/>mark absent
           </label>
           <img className="empCardImage" src="http://bit.ly/2BvryFB" alt="icon"></img>
-          {absent ? <Absent /> : null }
+          
 
 
 

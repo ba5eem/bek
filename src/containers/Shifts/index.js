@@ -4,6 +4,8 @@ import Pusher from 'pusher-js';
 import {loadShifts} from '../../actions/shifts.js';
 import Shifts from '../../components/shifts.components.js';
 import {filterAll} from '../../lib/Filters';
+import PopPop from 'react-poppop';
+import { absentSms } from '../../actions/sms';
 
 
 
@@ -14,7 +16,7 @@ class Shift extends Component {
     
     this.state={ 
       query: false,
-      absent: false
+      show: false
     }
     this.singleShift = this.singleShift.bind(this);
     this.exitSingle = this.exitSingle.bind(this);
@@ -41,12 +43,23 @@ class Shift extends Component {
     localStorage.clear('single');
   }
 
-  markAbsent(e){
+  markAbsent(e,id){
+    e.preventDefault();
+    this.setState({show: true, absentShift: id})
+    if(this.state.show){
+      let shift = filterAll(this.props.shifts, 'id', this.state.absentShift);
+      this.props.absentSms(shift);
+      this.setState({show: false})
+    }
 
   }
 
   openChat(e){
 
+  }
+
+  toggleShow = show => {
+    this.setState({show});
   }
 
 
@@ -58,11 +71,20 @@ class Shift extends Component {
 
     const query = this.state.query;
     const shifts = filterAll(this.props.shifts,'id',query);
-
+    const {show} = this.state;
 
     
     return (
       <div style={container}>
+            <PopPop position="centerCenter"
+                open={show}
+                closeBtn={true}
+                closeOnEsc={true}
+                onClose={() => this.toggleShow(false)}
+                closeOnOverlay={true}>
+              <h2 className="confirmAbsentHeading">You Marked this shift as absent, do you want to release it as an available open shift?</h2>
+              <button className="confirmAbsentButton" onClick={(e)=>this.markAbsent(e)}>YES</button>
+            </PopPop>
 
           {shifts.map((shift,idx) => {
             return (
@@ -74,7 +96,8 @@ class Shift extends Component {
                 singleShift={this.singleShift}
                 markAbsent={this.markAbsent}
                 openChat={this.openChat}
-                exitSingle={this.exitSingle} />)
+                exitSingle={this.exitSingle} />
+                )
             })}
       </div>
     );
@@ -97,7 +120,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedShift = connect(
   mapStateToProps,
-  {loadShifts}
+  {loadShifts,absentSms}
 )(Shift)
 
 export default ConnectedShift;

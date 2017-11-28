@@ -29,3 +29,16 @@ export const notifySms = (body) => {
     });
   }
 }
+
+export const absentSms = (body) => {
+  return function(dispatch){
+    return axios.post('/api/sms/absent', body)
+    .then( sms => {
+      console.log('sms from actions--->', sms )
+      dispatch({
+        type: ACTION_SMS,
+        sms: sms.data
+      });
+    });
+  }
+}
