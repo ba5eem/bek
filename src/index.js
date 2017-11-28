@@ -18,6 +18,8 @@ import './index.scss';
 //CONTAINERS----------------------------------
 import App from './containers/App';
 import Login from './containers/Login';
+import Home from './containers/Home';
+
 import SideBar from './containers/SideBar';
 
 import Nav from './components/nav.components';
@@ -51,6 +53,7 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route path="/login" component={Login} />
         <Route path="/users" component={UsersListView} />
+        <Route path="/home" component={Home} />
       <Footer />
       </div>
     </Router>
