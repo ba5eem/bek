@@ -23,16 +23,22 @@ class Home extends Component {
     //const auth = this.state.auth || localStorage.auth;
     return (
       <div id="main-App-container">
-        <div id="iframe-div">
         <NewShift />
 
+        <div id="iframe-div">
+        <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
+          width="650px"
+          height="500px"
+          frameborder="0"
+          scrolling="no"
+          position="relative">
+          </Iframe>
+          <div id="chat-app-div">
+          <ChatApp/>
+          </div>
+        </div>
+
         <Shift />
-
-
-        <div id="chat-app-div">
-        <ChatApp/>
-        </div>
-        </div>
         {/*auth
           ?<UsersListView/>
           :<Login/>
@@ -54,11 +60,3 @@ const ConnectedHome = connect(
 )(Home)
 
 export default ConnectedHome;
-
-// <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
-//           width="700px"
-//           height="500px"
-//           frameborder="0"
-//           scrolling="no"
-//           position="absolute">
-//           </Iframe>

@@ -42,11 +42,10 @@ textarea {
   resize: none;
 }
 //Main App (Parent Container)---
-#main-app-container {
+#main-App-container {
   display: flex;
-  flex-direction: column;
-  flex-wrap: row-wrap;
-  justify-content: space-evenly;
+  flex-flow: row-wrap;
+  justify-content: center;
 }
 //------------------------------
 
@@ -212,7 +211,22 @@ button.google-login {
   border: transparent;
   margin: 5px;
 }
-
+//---------------------------
+#iframe-div {
+  width: 700px;
+  order: 2;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #66b3ff 0%, #ffffff 100%);
+}
+//---------------------------
+#chat-app-div {
+  // order: 3;
+  // display: flex;
+  // justify-content: center;
+}
 //Main Shift Container----------
 #main-shift-container {
   order: 4;
@@ -338,23 +352,8 @@ button.google-login {
   text-align: center;
 }
 // ---------------------------
-#iframe-div {
-  order: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 16em;
-  background: linear-gradient(to bottom, #66b3ff 0%, #ffffff 100%);
-}
 
 // Twillio---------------------
-#chat-app-div {
-  order: 3;
-  display: flex;
-  justify-content: center;
-  padding-top: 14em;
-}
-
 .ChatApp {
   border: 1px solid #ccc;
   border-radius: 3px;
