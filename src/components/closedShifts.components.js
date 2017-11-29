@@ -30,7 +30,7 @@ const closedShifts = ({shift,idx,singleShift,exitSingle,openChat,markAbsent,abse
           <a href={shift.htmlLink}>DETAILS</a>
           </button>
           <label htmlFor="absent" onClick={(e)=>markAbsent(e,shift.id)}>
-          <input id="absent" className="absentBoxOnShiftCard" type="checkbox"/>mark absent
+          <input id="absent" className="absentBoxOnShiftCard" type="checkbox"/>absent
           </label>
 
 

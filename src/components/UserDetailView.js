@@ -6,7 +6,7 @@ const UserDetailView = ({id, name, givenName, familyName, email, image, phone}) 
 
       <div className='eachUser'>
         <div className='eachUserPhoto'>
-          <Link to={`/${id}`}><img style={profilepicStyle} src={image}/></Link>
+          <Link to={`/${id}`}><img style={profilepicStyle} src={image} alt="photo not available" /></Link>
         </div><br/>
 
         <div className='eachUserDetail'>

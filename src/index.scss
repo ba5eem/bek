@@ -213,7 +213,7 @@ button.google-login {
   justify-content: center;
   margin-left: 20px;
   #custom-button {
-    height: 40px;
+    height: 140px;
     font-size: 80%;
     background-color: $link;
     color: $main;
@@ -365,7 +365,6 @@ button.google-login {
 .chatButtonOnShiftCard:hover {
   background-color: #66b3ff;
   border: transparent;
-  // font-size: 20px;
   transition: 0.5s ease-in-out;
   transition: 0.5s ease;
 }
@@ -380,7 +379,6 @@ button.google-login {
 .detailsButtonOnShiftCard:hover {
   background-color: #66b3ff;
   border: transparent;
-  // font-size: 20px;
   transition: 0.5s ease-in-out;
   transition: 0.5s ease;
 }
@@ -394,10 +392,9 @@ button.google-login {
 }
 
 .backButtonOnShiftCard {
-  background-color: #66b3ff;
+  background-color: $accent;
   color: white;
   border: transparent;
-  font-size: 15px;
   box-shadow: 2px 2px 2px black;
   margin-right: 10px;
 }
