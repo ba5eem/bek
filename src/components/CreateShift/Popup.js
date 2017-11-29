@@ -28,6 +28,7 @@ export default class Popup extends Component {
   }
 
 
+
   render() {
     //const errorMessage = this.props.getErrorMessage();
     const {show} = this.state;

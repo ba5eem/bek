@@ -26,7 +26,6 @@ export const loadShifts = () => {
 
 export const addShift = (newShift) => {
   let local = [];
-  console.log('from action: ',newShift)
   return function(dispatch){
     return axios.post('/api/shifts/new',newShift)
     .then( () => {
@@ -38,10 +37,14 @@ export const addShift = (newShift) => {
           local.push(phone);
         return axios.post('/api/sms/notify', local )
         .then(() =>{
+          return axios.get('/api/shifts')
+            .then((shifts) =>{
+              console.log(shifts);
         dispatch({
         type: ADD_SHIFT,
         shifts: shifts.data
       });
+        })
     })
         })
       })  
