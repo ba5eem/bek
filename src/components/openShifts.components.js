@@ -10,8 +10,8 @@ const openShifts = ({shift,idx,singleShift,exitSingle,openChat,query}) => {
 
 
   return (
-        <div className="shiftCard" key={idx}>
-          <div className="shiftCardSummary" onClick={(e)=>singleShift(e,shift.id)}>
+        <div className="open-shiftCard" key={idx}>
+          <div className="open-shiftCardSummary" onClick={(e)=>singleShift(e,shift.id)}>
             {shift.summary ? shift.summary : 'Shift Open'}</div>
           <div className="shiftCardLocation" >
             {shift.location ? shift.location : 'Click for Location'}</div>

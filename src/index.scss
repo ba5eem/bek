@@ -1,6 +1,6 @@
 //theme colors
 $main: #FFFFFF;
-$accent: #66b3ff;
+$accent: #006699;
 $link: #ff9966;
 $button: #bfbfbf;
 
@@ -216,12 +216,20 @@ button.google-login {
 #create-shift-button {
   height: 50px;
   font-size: 90%;
-  background-color: #00b3b3;
+  background-color: #0086b3;
   color: $main;
   border: transparent;
   margin: 5px;
 }
 //---------------------------
+.open-shifts {
+  display: flex;
+  justify-content: center;
+  font-size: 120%;
+  border-bottom: 2px solid black;
+  padding-top: 20px;
+}
+
 #iframe-div {
   order: 2;
   width: 650px;
@@ -252,6 +260,32 @@ button.google-login {
 }
 
 //Shift Card--------------------
+.open-shiftCard {
+  width: 270px;
+  height: 170px;
+  background-color: $main;
+  justify-content: center;
+  text-align: center;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border: 0.5px solid $button;
+}
+.open-shiftCard:hover {
+  box-shadow: 10px 10px 5px #888888;
+  margin-top:5px;
+  width: 270px;
+  height: 170px;
+  background-color: #cc6600;
+  display: flex-wrap;
+  justify-content: center;
+  text-align: center;
+  border-radius: 15px;
+  margin-left: 12px;
+  transition: 0.5s ease-in-out;
+  transition: 0.5s ease;
+}
+//---------------------
 .shiftCard {
   width: 270px;
   height: 170px;
@@ -268,7 +302,7 @@ button.google-login {
   margin-top:5px;
   width: 270px;
   height: 170px;
-  background-color: cornflowerblue;
+  background-color: #009999;
   display: flex-wrap;
   justify-content: center;
   text-align: center;
@@ -278,6 +312,13 @@ button.google-login {
   transition: 0.5s ease;
 }
 
+.open-shiftCardSummary {
+  background-color: $link;
+  color: $main;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  max-height: 30px;
+}
 .shiftCardSummary {
   background-color: $link;
   border-top-right-radius: 15px;

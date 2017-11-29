@@ -24,7 +24,11 @@ class Home extends Component {
     //const auth = this.state.auth || localStorage.auth;
     return (
       <div id="main-Home-container">
+        <div>
         <NewShift />
+        <div className="open-shifts">*** Open Shifts ***</div>
+        <OpenShift />
+        </div>
 
         <div id="iframe-div">
         <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
@@ -39,7 +43,6 @@ class Home extends Component {
           <ChatApp/>
           </div>
         </div>
-        <OpenShift />
         <ClosedShift />
         {/*auth
           ?<UsersListView/>
