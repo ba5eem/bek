@@ -71,6 +71,7 @@ class OpenShift extends Component {
 
     return (
       <div id="main-shift-container">
+
             <PopPop position="centerCenter"
                 open={show}
                 closeBtn={true}
