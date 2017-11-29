@@ -21,7 +21,8 @@ const shifts = (state = [], action) => {
       console.log(shifts);
       return shifts;
     case ADD_SHIFT:
-      console.log(shifts)
+    console.log('helo')
+      console.log(action.shifts)
       let index = state.findIndex((shifts) => {
        return shifts.id === action.shifts.id
      });
