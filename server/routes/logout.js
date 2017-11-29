@@ -6,8 +6,9 @@ const {user}      = db;
 
 
 route.get('/', (req,res) =>{
-  req.logout();
-  res.sendStatus(200);
+  let local = {};
+  local.isLoggedOut = true;
+  res.json(local)
 });
 
 
