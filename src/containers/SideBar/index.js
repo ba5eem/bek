@@ -29,7 +29,7 @@ class SideBar extends Component {
         <Menu
           width="200px"
           noOverlay>
-        {auth ? <Link to="/home">Home</Link> : <Link to="/home">Home</Link> }
+        {auth ? <Link to="/">Home</Link> : <Link to="/home">Home</Link> }
       <div id="line"/>
         {/*WITH ADMIN ACCESS THEY CAN SEE USERS*/}
         {admin ? <Link to="/users">Users</Link> : null  }

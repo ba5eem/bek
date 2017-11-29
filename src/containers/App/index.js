@@ -16,7 +16,7 @@ class App extends Component {
     const path = "0v3li03tvfjntqvhfq6n759dhg@group.calendar.google.com";
     return (
       <div id="main-App-container">
-        <div id="new-shift-container"><NewShift /></div>
+
 
         <div id="iframe-div">
           <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
@@ -28,28 +28,10 @@ class App extends Component {
           </Iframe>
         </div>
 
-        <div id="chat-app-div">
-        <ChatApp />
-        </div>
-
-        <Shift />
-        {/*auth
-          ?<UsersListView/>
-          :<Login/>
-        */}
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    users: state.users
-  }
-}
 
-const ConnectedApp = connect(
-  mapStateToProps
-)(App)
-
-export default ConnectedApp;
+export default App;
