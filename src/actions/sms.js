@@ -37,18 +37,19 @@ export const absentSms = (body) => {
     .then((phone)=>{
       local.push(phone);
       local.push(body)
-    return axios.post('/api/sms/absent', local)
-      .then( () => {
-      return axios.get('/api/shifts')
-        .then((shifts) =>{
-          local.push(shifts);
-
-      dispatch({
-        type: SMS_SHIFT,
-        shifts: local
-      });
-      })
-       })
-    });
-  }
-}
+      return axios.post('/api/sms/absent', local)
+        .then( () => {
+          return axios.put('/api/shifts/update',body)
+            .then(()=> {
+              return axios.get('/api/shifts')
+                .then((shifts) =>{
+                    dispatch({
+                      type: SMS_SHIFT,
+                      shifts: shifts.data
+                      });
+                    })
+                  })
+                })
+              });
+            }
+          }

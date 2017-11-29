@@ -34,16 +34,12 @@ const shifts = (state = [], action) => {
 
 
     case SMS_SHIFT:
-      let res = action.shifts[2].data;
-      let id = action.shifts[1];
-      console.log(id);
-      console.log(res);
+      let res = action.shifts.pop()
+      console.log(res.id);
       let index = state.findIndex((elem) => {
-       return elem.id === id.id
+       return elem.id === res.id
      });
-      id.closed=false;
-
-     return [...state,id];
+     return [ ...(state.slice(0, index)), res, ...(state.slice((index + 1), state.length))];
     default:
       return state
   }
