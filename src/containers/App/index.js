@@ -23,12 +23,23 @@ class App extends Component {
     //const auth = this.state.auth || localStorage.auth;
     return (
       <div id="main-App-container">
-        <NewShift />
+        <div id="new-shift-container"><NewShift /></div>
 
-        <div><Shift /></div>
+        <div id="iframe-div">
+          <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
+            width="650px"
+            height="500px"
+            frameborder="0"
+            scrolling="no"
+            position="absolute">
+          </Iframe>
+        </div>
+
         <div id="chat-app-div">
         <ChatApp/>
         </div>
+
+        <Shift />
         {/*auth
           ?<UsersListView/>
           :<Login/>
@@ -72,15 +83,3 @@ const ConnectedApp = connect(
 )(App)
 
 export default ConnectedApp;
-
-
-
- // <div id="iframe-div">
- //          <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
- //          width="700px"
- //          height="500px"
- //          frameborder="0"
- //          scrolling="no"
- //          position="absolute">
- //          </Iframe>
- //        </div>
