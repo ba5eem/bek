@@ -63,7 +63,7 @@ class ClosedShift extends Component {
     console.log(e.target);
     console.log(elem);
     localStorage.setItem('channel',elem.summary);
-    localStorage.setItem('author',elem.useremail);
+    localStorage.setItem('author',elem.organizer);
     this.setState({
       chat: true, 
       channel: elem.summary,
