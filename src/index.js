@@ -25,7 +25,8 @@ import SideBar from './containers/SideBar';
 import Nav from './components/nav.components';
 import Footer from './components/footer.components';
 import UsersListView from './containers/UsersListView';
-
+import ProfileView from './containers/ProfileView';
+import UserList from './components/UserList';
 // import AppHeader from './components/AppHeader.js';
 // import Background from './containers/Background';
 
