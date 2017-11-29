@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loadUsers } from '../../actions/users';
+import { editPhone } from '../../actions/users';
 //import { QRCode } from 'react-qr-svg';
 //import Formsy from 'formsy-react';
 //import MyInput from '../../components/CreateShift/MyInput';
@@ -28,27 +28,13 @@ class EditPhone extends Component {
     this.setState({ canSubmit: true });
   }
 
-  submit(model) {
-    this.setState({show:false})
-    console.log(model);
-  }
 
-  quickSubmit(model) {
-    this.setState({show:false})
-    console.log(model);
-    if(model._4!== undefined){
-      this.setState({canSubmit:true})
-      this.props.addShift(model)
-
-    }
-  }
 
   render(){
     return (
         <div style={quickShifts}>
-          <PopupUser
-            submit={this.submit.bind(this)}
-            canSubmit={this.state.canSubmit}/>
+
+
         </div>
     );/*END OF RETURN*/
   }
@@ -66,7 +52,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedEditPhone = connect(
   mapStateToProps,
-  {loadUsers}
+  {editPhone}
 )(NewShift)
 
 export default ConnectedEditPhone;

@@ -1,4 +1,4 @@
-import { LOAD_USERS,ADD_USER, /*GETONE_USER*/ } from '../actions/users.js';
+import { LOAD_USERS,ADD_USER, EDIT_PHONE } from '../actions/users.js';
 
 
 const users = (state = [], action) => {
@@ -11,6 +11,8 @@ const users = (state = [], action) => {
     case ADD_USER:
       return action.user;
 
+    case EDIT_PHONE:
+      return action.user;
 
     default:
       return state

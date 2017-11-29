@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { loadUsers } from '../actions/users';
+import { loadUsers, editPhone } from '../actions/users';
 import UserDetailView from './UserDetailView';
 import { Link } from 'react-router-dom';
 import EditableCell from './EditableCell'
@@ -20,13 +20,28 @@ class UserList extends Component {
     this.props.updatePuck(name, {[attribute]: value})
   }
 
+  submit(model) {
+    console.log('triggered submit', model)
+    this.setState({show:true})
+    this.props.editPhone(model)
+    console.log('submit --- >',model);
+  }
+
+  quickSubmit(model) {
+    this.setState({show:false})
+    console.log(model);
+    if(model._4!== undefined){
+      this.setState({canSubmit:true})
+      //this.props.editPhone(model)
+
+    }
+  }
   render() {
     const users = this.props.users
     return (
       <div className='all-user-list'>
        {
           users.map((user,idx) => {
-            console.log('USERLIST', user)
             return (
               <div>
                 <UserDetailView
@@ -38,7 +53,9 @@ class UserList extends Component {
                   phone={user.phone}
                 />
                 <PopupEditPhone
-                />
+                submit={this.submit.bind(this)}
+              canSubmit={this.state.canSubmit}/>
+
               </div>
             )
           })
@@ -60,7 +77,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedUserList = connect(
   mapStateToProps,
-  {loadUsers}
+  {loadUsers, editPhone}
 )(UserList)
 
 export default ConnectedUserList;

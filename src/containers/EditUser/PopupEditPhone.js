@@ -5,7 +5,7 @@ import MyInputPhone from './MyInputPhone';
 
 //import ShiftLength from './ShiftLength';
 
-export default class PopupUser extends Component {
+export default class PopupEditPhone extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,6 +28,7 @@ export default class PopupUser extends Component {
   render() {
     //const errorMessage = this.props.getErrorMessage();
     const {show} = this.state;
+    const {user} = this.state;
     return (
       <div>
         <button style={addShift} onClick={() => this.toggleShow(true)}>Edit Phone</button>
@@ -40,9 +41,10 @@ export default class PopupUser extends Component {
           <Formsy onSubmit={this.props.submit}>
             <MyInputPhone
               name="phone"
-              validations="isNumeric"
+              validations="isWords"
               validationError="Please enter a valid phone"
               required
+              value={user}
             />
             <button style={select} type="submit">Submit</button>
             <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "HIT THE X WHEN YOU ARE DONE"}</h3>
