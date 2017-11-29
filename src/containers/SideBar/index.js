@@ -5,9 +5,6 @@ import Logout from '../Logout';
 import { Link } from 'react-router-dom';
 import {addUser} from '../../actions/users.js';
 import { logoutUser } from '../../actions/logout';
-import NonUserSideBar from '../../components/NonUserSideBar.components.js';
-import UserSideBar from '../../components/UserSideBar.components.js';
-import AdminSideBar from '../../components/AdminSideBar.components.js';
 
 class SideBar extends Component {
   constructor() {
@@ -22,20 +19,34 @@ class SideBar extends Component {
 
 
   render() {
-    const checkAuth = localStorage.isLoggedIn !== undefined ? localStorage.isLoggedIn : false;
-    const checkAdmin = localStorage.admin !== undefined ? localStorage.admin : false;
-    const auth = checkAuth === "true"
-    const admin = checkAdmin === "true"
+    const auth = localStorage.isLoggedIn !== undefined ? localStorage.isLoggedIn : false;
+    const admin = localStorage.admin !== undefined ? localStorage.admin : false;
     console.log('auth: ',auth);
     console.log('admin: ', admin);
 
     return(
       <div id="sidebar">
-        
-        {!auth ? <NonUserSideBar /> : null }
-        {auth ? <UserSideBar /> : null }
-        {admin ? <AdminSideBar /> : null }
+        <Menu
+          width="200px">
+        {auth ? <Link to="/">Home</Link> : <Link to="/home">Home</Link> }
+      <div id="line"/>
+        {/*WITH ADMIN ACCESS THEY CAN SEE USERS*/}
+        {admin ? <Link to="/users">Users</Link> : null}
 
+        {admin ? <div id="line"/> : null }
+        {/*WITH AUTH/USER ACCESS THEY CAN SEE USERS*/}
+        {auth ? <Link to="/shifts">Shifts</Link> :
+        <Link to="/home">Learn More</Link>  }
+
+      <div id="line"/>
+        {/*WITH AUTH/USER/ADMIN ACCESS THEY CAN SEE PROFILE*/}
+        {auth ? <Link to="/profile">Profile</Link> : null  }
+
+        {auth ? <div id="line"/> : null }
+
+        {auth ? <Link to="/logout"><Logout /></Link> :
+        <Link to="/login">Login</Link> }
+      </Menu>
       </div>
       )
 
