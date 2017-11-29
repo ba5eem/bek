@@ -1,46 +1,56 @@
 import React, { Component } from 'react';
-import { scaleDown as Menu } from 'react-burger-menu';
+import { slide as Menu } from 'react-burger-menu';
+import { connect } from 'react-redux';
 import Logout from '../Logout';
 import { Link } from 'react-router-dom';
+import {addUser} from '../../actions/users.js';
+import { logoutUser } from '../../actions/logout';
+
 class SideBar extends Component {
   constructor() {
     super();
 
     this.state = {
-      showNav : false,
-      auth: false
+      user: ''
     };
   }
 
-  toggleNav(evt) {
-    evt.preventDefault();
-    this.setState({
-      showNav : !this.state.showNav
-    });
-  }
+
+
 
   render() {
-    //const auth = this.state.auth || localStorage.auth;
+    const auth = localStorage.isLoggedIn !== undefined ? localStorage.isLoggedIn : false;
+    const admin = localStorage.admin !== undefined ? localStorage.admin : false;
+    console.log('auth: ',auth);
+    console.log('admin: ', admin);
+
     return(
-      <div>
-      {/*!auth?
-        null:*/
-        <Menu>
+      <div id="sidebar">
+        <Menu
+          width="200px"
+          noOverlay>
+        {auth ? <Link to="/">Home</Link> : <Link to="/home">Home</Link> }
+      <div id="line"/>
+        {/*WITH ADMIN ACCESS THEY CAN SEE USERS*/}
+        {admin ? <Link to="/users">Users</Link> : null  }
 
-        <div id="line"/>
+        {admin ? <div id="line"/> : null }
+        {/*WITH AUTH/USER ACCESS THEY CAN SEE USERS*/}
+        {auth ? <Link to="/shifts">Shifts</Link> : 
+        <Link to="/home">Learn More</Link>  }
 
-        <Link to="/">
-        Home</Link>
-        <Link to="/chat">
-        Chatroom</Link>
-        <Link to="/users">
-        Users</Link>
-        <Link to="/logout">
-        <Logout/></Link>
+      <div id="line"/>
+        {/*WITH AUTH/USER/ADMIN ACCESS THEY CAN SEE PROFILE*/}
+        {auth ? <Link to="/profile">Profile</Link> : null  }
 
-        <div id="line"/>
+        {auth ? <div id="line"/> : null }
+
+        {auth ? <Link to="/logout"><Logout /></Link> : 
+        <Link to="/login">Login</Link> }
+
+      <div id="line"/>
+
       </Menu>
-    }
       </div>
       )
 
@@ -49,4 +59,16 @@ class SideBar extends Component {
 
 }
 
-export default SideBar;
+const mapStateToProps = (state) => {
+  return {
+    users: state.users,
+    status: state.logout
+  }
+}
+
+const ConnectedSideBar = connect(
+  mapStateToProps,
+  {addUser,logoutUser}
+)(SideBar)
+
+export default ConnectedSideBar;

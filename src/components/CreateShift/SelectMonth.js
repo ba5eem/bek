@@ -3,13 +3,13 @@ import { withFormsy } from 'formsy-react';
 import React from 'react';
 
 
- 
+
 class SelectMonth extends React.Component {
   constructor(props) {
     super(props);
     this.changeValue = this.changeValue.bind(this);
   }
- 
+
   changeValue(event) {
     // setValue() will set the value of the component, which in
     // turn will validate it and the rest of the form
@@ -17,7 +17,7 @@ class SelectMonth extends React.Component {
     // for Formsy to work.
     this.props.setValue(event.currentTarget.value);
   }
- 
+
   render() {
     // An error message is returned only if the component is invalid
     const errorMessage = this.props.getErrorMessage();
@@ -33,14 +33,6 @@ class SelectMonth extends React.Component {
       month:"December",
       value: "2017-12-"
     }]
-
-
-
-
-
-
-
-
 
     return (
       <div>
@@ -66,5 +58,5 @@ const select = {
   fontSize:"40px",
   marginTop: "20px"
 }
- 
+
 export default withFormsy(SelectMonth);

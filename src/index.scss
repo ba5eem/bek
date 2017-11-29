@@ -41,15 +41,15 @@ a {
 textarea {
   resize: none;
 }
-
-#iframe-div {
+//Main App (Parent Container)---
+#main-App-container {
+  height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 16em;
-  background: linear-gradient(to bottom, #66b3ff 0%, #ffffff 100%);
+  flex-flow: row-wrap;
+  justify-content: space-around;
 }
-// ---------------------
+//------------------------------
+
 /* STYLE SETTINGS  */
 #source {
   position: relative;
@@ -103,9 +103,10 @@ textarea {
 
 /* General sidebar styles */
 .bm-menu {
+  // width: 250px;
   background: #373a47;
   opacity: 0.8;
-  padding: 2.5em 1.5em 0;
+  padding: 2.5em 1em 0;
   font-size: 1.15em;
   a {
     color: $main;
@@ -124,6 +125,7 @@ textarea {
 
 /* Wrapper for item list */
 .bm-item-list {
+  width: 200px;
   color: #b8b7ad;
   padding: 0.8em;
   padding-top: 2em;
@@ -186,19 +188,178 @@ button.google-login {
   font-weight: bold;
   font-size: 100%;
 }
-// Twillio---------------------
-#chat-app-div {
+//Create shift buttons----------
+#main-shift-button-container {
+  order: 1;
+  width: 180px;
   display: flex;
-  justify-content: center;
-  padding-top: 14em;
+  flex-wrap: row;
+  margin-left: 20px;
 }
 
+#custom-button {
+  height: 35px;
+  background-color: $button;
+  color: $main;
+  border: transparent;
+  margin: 5px;
+}
+
+#create-shift-button {
+  height: 35px;
+  background-color: $button;
+  color: $main;
+  border: transparent;
+  margin: 5px;
+}
+//---------------------------
+#iframe-div {
+  order: 2;
+  width: 700px;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  // background: linear-gradient(to bottom, #66b3ff 0%, #ffffff 100%);
+}
+//---------------------------
+#chat-app-div {
+  order: 3;
+}
+
+//Main Shift Container----------
+#main-shift-container {
+  order: 4;
+  width: 300px;
+}
+
+//Shift Card--------------------
+.shiftCard {
+  width: 270px;
+  height: 170px;
+  background-color: $main;
+  justify-content: center;
+  text-align: center;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border: 0.5px solid $button;
+}
+.shiftCard:hover {
+  box-shadow: 10px 10px 5px #888888;
+  margin-top:5px;
+  width: 285px;
+  height: 170px;
+  background-color: cornflowerblue;
+  display: flex-wrap;
+  justify-content: center;
+  text-align: center;
+  border-radius: 15px;
+  margin-left: 12px;
+  transition: 0.5s ease-in-out;
+  transition: 0.5s ease;
+}
+
+.shiftCardSummary {
+  background-color: $link;
+  // font-size: 20px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  max-height: 30px;
+}
+
+.shiftCardLocation {
+  background-color: lightgrey;
+  // font-size: 20px;
+  max-height: 30px;
+}
+
+.shiftCardStart {
+  background-color: lightgrey;
+  // font-size: 20px;
+}
+
+.shiftCardLength {
+  background-color: lightgrey;
+  // font-size: 20px;
+}
+
+.empCardImage {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.chatButtonOnShiftCard {
+  background-color: #66b3ff;
+  color: white;
+  border: transparent;
+  box-shadow: 2px 2px 2px black;
+  margin-right: 10px;
+}
+
+.chatButtonOnShiftCard:hover {
+  background-color: #66b3ff;
+  border: transparent;
+  // font-size: 20px;
+  transition: 0.5s ease-in-out;
+  transition: 0.5s ease;
+}
+
+.detailsButtonOnShiftCard {
+  background-color: #66b3ff;
+  border: transparent;
+  box-shadow: 2px 2px 2px black;
+  margin-right: 10px;
+}
+
+.detailsButtonOnShiftCard:hover {
+  background-color: #66b3ff;
+  border: transparent;
+  // font-size: 20px;
+  transition: 0.5s ease-in-out;
+  transition: 0.5s ease;
+}
+
+.absentBoxOnShiftCard {
+  background-color: #66b3ff;
+  color: white;
+  border: transparent;
+  box-shadow: 2px 2px 2px black;
+  margin-right: 10px;
+}
+
+.backButtonOnShiftCard {
+  background-color: #66b3ff;
+  color: white;
+  border: transparent;
+  font-size: 15px;
+  box-shadow: 2px 2px 2px black;
+  margin-right: 10px;
+}
+
+.confirmAbsentButton {
+  background-color: #66b3ff;
+  color: white;
+  border: transparent;
+  font-size: 15px;
+  box-shadow: 2px 2px 2px black;
+  margin-right: 10px;
+}
+
+.confirmAbsentHeading {
+  color: black;
+  font-size: 30px;
+  text-align: center;
+}
+
+// Twillio---------------------
 .ChatApp {
   border: 1px solid #ccc;
   border-radius: 3px;
   height: 175px;
-  width: 700px;
-  margin: .5em;
+  width: 650px;
+  // margin-bottom: 50px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -288,127 +449,3 @@ input.send-button {
   background-color: $accent;
   color: $main;
 }
-
-.shiftCard{
-  width: 400px;
-  height: 200px;
-  background-color: cornflowerblue;
-  display: flex-wrap;
-  justify-content: center;
-  text-align: center;
-  border-radius: 15px;
-  margin-left: 20px;
-
-}
-.shiftCard:hover{
-  box-shadow: 10px 10px 5px #888888;
-  margin-top:4px;
-  width: 400px;
-  height: 200px;
-  background-color: cornflowerblue;
-  display: flex-wrap;
-  justify-content: center;
-  text-align: center;
-  border-radius: 15px;
-  margin-left: 12px;
-  transition: 0.5s ease-in-out;
-  transition: 0.5s ease;
-
-
-
-}
-
-.shiftCardSummary{
-  background-color: lightgrey;
-  font-size: 20px;
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
-  max-height: 30px;
-
-}
-
-.shiftCardLocation{
-  background-color: lightgrey;
-  font-size: 20px;
-  max-height: 30px;
-}
-.shiftCardStart{
-  background-color: lightgrey;
-  font-size: 20px;
-}
-.shiftCardLength{
-  background-color: lightgrey;
-  font-size: 20px;
-}
-
-.empCardImage {
-  max-width: 50px;
-  max-height: 50px;
-}
-.chatButtonOnShiftCard{
-  background-color: #66b3ff;
-  color: white;
-  border: transparent;
-  font-size: 15px;
-  box-shadow: 2px 2px 2px black;
-  margin-right: 10px;
-}
-.chatButtonOnShiftCard:hover{
-  background-color: #66b3ff;
-  border: transparent;
-  font-size: 20px;
-  transition: 0.5s ease-in-out;
-  transition: 0.5s ease;
-
-}
-
-.detailsButtonOnShiftCard{
-  background-color: #66b3ff;
-  border: transparent;
-  font-size: 15px;
-  box-shadow: 2px 2px 2px black;
-  margin-right: 10px;
-}
-.detailsButtonOnShiftCard:hover{
-  background-color: #66b3ff;
-  border: transparent;
-  font-size: 20px;
-  transition: 0.5s ease-in-out;
-  transition: 0.5s ease;
-
-}
-
-.absentBoxOnShiftCard{
-  background-color: #66b3ff;
-  color: white;
-  border: transparent;
-  font-size: 15px;
-  box-shadow: 2px 2px 2px black;
-  margin-right: 10px;
-}
-
-.backButtonOnShiftCard{
-  background-color: #66b3ff;
-  color: white;
-  border: transparent;
-  font-size: 15px;
-  box-shadow: 2px 2px 2px black;
-  margin-right: 10px;
-}
-
-.confirmAbsentButton{
-  background-color: #66b3ff;
-  color: white;
-  border: transparent;
-  font-size: 15px;
-  box-shadow: 2px 2px 2px black;
-  margin-right: 10px;
-}
-
-.confirmAbsentHeading{
-  color: black;
-  font-size: 30px;
-  text-align: center;
-}
-
-

@@ -36,6 +36,7 @@ route.get('/:id', ( req, res ) => {
   });
 });
 
+<<<<<<< HEAD
 route.post('/', (req,res) => {
   let body = req.body;
   let local = {};
@@ -60,6 +61,9 @@ route.post('/', (req,res) => {
     return res.json(null)
   })
 })
+=======
+
+>>>>>>> development
 
 route.put('/:id/editphone', ( req, res ) => {
   let id = req.params.id;

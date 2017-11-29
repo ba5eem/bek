@@ -24,7 +24,7 @@ export const loadUsers = () => {
 export const addUser = (newUser) => {
   console.log('from user action: ',newUser)
   return function(dispatch){
-    return axios.post('/api/users',newUser)
+    return axios.post('/api/login',newUser)
     .then( user => {
       dispatch({
         type: ADD_USER,
@@ -33,6 +33,7 @@ export const addUser = (newUser) => {
     });
   }
 }
+
 
 export const editPhone = (newInfo) => {
   console.log('server newInfo --- >(1)', newInfo.id)
@@ -48,16 +49,3 @@ export const editPhone = (newInfo) => {
   }
 }
 
-
-export const logoutUser = () => {
-  localStorage.clear();
-  return function(dispatch){
-    return axios.get('/api/logout')
-    .then( () => {
-      dispatch({
-        type: LOGOUT_USER,
-        user: null
-      });
-    });
-  }
-}

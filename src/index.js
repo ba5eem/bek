@@ -12,14 +12,16 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
 import thunk from 'redux-thunk';
-// import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin } from 'react-google-login';
 //SCSS-----------------------------------------
 import './index.scss';
 //CONTAINERS----------------------------------
 import App from './containers/App';
 import Login from './containers/Login';
+import Home from './containers/Home';
+
 import SideBar from './containers/SideBar';
-import Shifts from './containers/Shifts';
+
 import Nav from './components/nav.components';
 import Footer from './components/footer.components';
 import UsersListView from './containers/UsersListView';
@@ -35,6 +37,7 @@ const store = createStore(
   applyMiddleware(thunk)
   );
 
+const auth = localStorage.isLoggedIn !== undefined ? localStorage.isLoggedIn : false;
 ReactDOM.render(
   <Provider store={store}>
     <Router>
@@ -42,18 +45,20 @@ ReactDOM.render(
         <div id="header">
           <SideBar />
           <div id="logo">
-            <Link to="/">
-            </Link>
-          <div id="title">bek-connect</div>
+            {auth ?
+            <span><Link to="/">
+          <div id="title" >bek-connect</div></Link></span>
+          : <span><Link to="/">
+          <div id="title" >bek-connect</div></Link></span>
+            }
           </div>
           <Nav />
         </div>
 
         <Route exact path="/" component={App} />
         <Route path="/login" component={Login} />
-        <Route path="/users" component={UserList} />
-        <Route path="/shifts" component={Shifts} />
-        <Route path="/:id" component={ProfileView}/>
+        <Route path="/users" component={UsersListView} />
+        <Route path="/home" component={Home} />
       <Footer />
       </div>
     </Router>

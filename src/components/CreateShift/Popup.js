@@ -33,7 +33,7 @@ export default class Popup extends Component {
     const {show} = this.state;
     return (
       <div>
-        <button style={addShift} onClick={() => this.toggleShow(true)}>CUSTOM</button>
+        <button id="custom-button" onClick={() => this.toggleShow(true)}>CUSTOM</button>
         <PopPop position="centerCenter"
                 open={show}
                 closeBtn={true}
@@ -86,16 +86,16 @@ export default class Popup extends Component {
   }
 }
 
-const addShift={
-  backgroundColor:"#66b3ff",
-  color:"white",
-  border: "transparent",
-  fontSize: "30px",
-  paddingBottom:"10px",
-  paddingRight:"15px",
-  paddingLeft:"15px",
-  marginTop:"10px"
-}
+// const addShift={
+//   backgroundColor:"#66b3ff",
+//   color:"white",
+//   border: "transparent",
+//   fontSize: "30px",
+//   paddingBottom:"10px",
+//   paddingRight:"15px",
+//   paddingLeft:"15px",
+//   marginTop:"10px"
+// }
 const select = {
   width: "400px",
   textAlign:"center",

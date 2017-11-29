@@ -20,14 +20,13 @@ export default class Popup extends Component {
 
   }
 
-
   toggleShow(e){
     if(e){
     let val = e.target.innerHTML.slice(0,-8);
       this.setState({shift:'_'+val, show:true})
     }
     if(this.state.show){
-      this.setState({show:false}) 
+      this.setState({show:false})
     }
   }
 
@@ -36,12 +35,12 @@ export default class Popup extends Component {
     const time = ["4","6","8"]
     //const errorMessage = this.props.getErrorMessage();
     return (
-      <div style={quickShifts}>
+      <div id="shift-hour-button-container">
         {
           time.map((item,idx) => {
             return (
-              <div key={idx} value={item} style={quickShifts}>
-              <button  style={addShift} onClick={(e) => this.toggleShow(e)}>{item}HR SHIFT</button>
+              <div key={idx} value={item}>
+              <button  id="create-shift-button" onClick={(e) => this.toggleShow(e)}>{item}HR SHIFT</button>
               <PopPop position="centerCenter"
                   value={item}
                   open={show}
@@ -77,7 +76,7 @@ export default class Popup extends Component {
                     />
                   <button style={select} type="submit">Submit</button>
                   <br></br>
-                  <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "HIT THE X WHEN YOU ARE DONE"}</h3>
+                  <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "CLICK ON 'X' WHEN YOU ARE DONE"}</h3>
                 </Formsy>
               </PopPop>
               </div>
@@ -89,29 +88,15 @@ export default class Popup extends Component {
   }
 }
 
-const addShift={
-  backgroundColor:"#66b3ff",
-  color:"white",
-  border: "transparent",
-  fontSize: "30px",
-  paddingBottom:"10px",
-  paddingRight:"15px",
-  paddingLeft:"15px",
-  marginTop:"10px"
-}
-const quickShifts = {
-  display:"flex",
-  textAlign:"center"
-}
 const heading={
   fontSize: "40px"
 }
+
 const select = {
   width: "400px",
   textAlign:"center",
   backgroundColor: "#66b3ff",
   height:"40px",
-  marginTop: "10px",
   fontSize: "30px"
 }
 const close ={
