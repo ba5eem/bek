@@ -36,7 +36,7 @@ class NewShift extends Component {
     if(model.start !== undefined){
       this.setState({canSubmit:true})
       this.props.addShift(model)
-      
+
     }
   }
 
@@ -46,13 +46,13 @@ class NewShift extends Component {
     if(model._4!== undefined){
       this.setState({canSubmit:true})
       this.props.addShift(model)
-      
-    } 
+
+    }
   }
 
   render(){
     return (
-        <div style={quickShifts}>
+        <div id="main-shift-button-container">
         <Popup
           submit={this.submit.bind(this)}
           canSubmit={this.state.canSubmit}/>
@@ -64,10 +64,6 @@ class NewShift extends Component {
   }
 } /*END OF RENDER AND CLASS APP*/
 
-const quickShifts = {
-  display:"flex",
-  textAlign:"center"
-}
 const mapStateToProps = (state) => {
   return {
     users: state.users

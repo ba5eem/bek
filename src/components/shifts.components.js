@@ -11,10 +11,11 @@ const Shifts = ({shift,idx,singleShift,exitSingle,openChat,markAbsent,absent,que
 
   return (
         <div className="shiftCard" key={idx}>
-          <h2 className="shiftCardSummary" onClick={(e)=>singleShift(e,shift.id)}>
-            {shift.summary ? shift.summary : 'Shift Open'}</h2>
-          <h3 className="shiftCardLocation" >
-            {shift.location ? shift.location : 'Click for Location'}</h3>
+          <div className="shiftCardSummary" onClick={(e)=>singleShift(e,shift.id)}>
+            {shift.summary ? shift.summary : 'Shift Open'}</div>
+          <div className="shiftCardLocation" >
+            {shift.location ? shift.location : 'Click for Location'}</div>
+          <img className="empCardImage" src={shift.userimage} alt="icon"></img>
           <div className="shiftCardStart" >
             {shift.starttime ? 'Starts: '+shift.starttime : 'Click for Start Time'}</div>
           <div className="shiftCardLength" >
@@ -31,7 +32,7 @@ const Shifts = ({shift,idx,singleShift,exitSingle,openChat,markAbsent,absent,que
           <label htmlFor="absent" onClick={(e)=>markAbsent(e,shift.id)}>
           <input id="absent" className="absentBoxOnShiftCard" type="checkbox"/>mark absent
           </label>
-          <img className="empCardImage" src={shift.userimage} alt="icon"></img>
+
 
         </div>
 

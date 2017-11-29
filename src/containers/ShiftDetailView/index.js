@@ -14,7 +14,6 @@ class ShiftDetailView extends Component {
     }
   }
 
-
 render() {
   return (
     <div>
