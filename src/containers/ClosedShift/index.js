@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Pusher from 'pusher-js';
 import {loadShifts} from '../../actions/shifts.js';
-import Shifts from '../../components/shifts.components.js';
-import {filterAll} from '../../lib/Filters';
+import ClosedShifts from '../../components/closedShifts.components.js';
+import {filterAll,filterOpen} from '../../lib/Filters';
 import PopPop from 'react-poppop';
 import { absentSms } from '../../actions/sms';
 
 
 
 
-class Shift extends Component {
+class ClosedShift extends Component {
   constructor() {
     super();
 
@@ -64,7 +64,8 @@ class Shift extends Component {
   render(){
 
     const query = this.state.query;
-    const shifts = filterAll(this.props.shifts,'id',query);
+    const data = filterOpen(this.props.shifts,'closed',true);
+    const shifts = filterAll(data,'id', query);
     const {show} = this.state;
 
     return (
@@ -81,7 +82,7 @@ class Shift extends Component {
 
           {shifts.map((shift,idx) => {
             return (
-              <Shifts
+              <ClosedShifts
                 key={idx}
                 shift={shift}
                 query={this.state.query}
@@ -103,9 +104,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-const ConnectedShift = connect(
+const ConnectedClosedShift = connect(
   mapStateToProps,
   {loadShifts,absentSms}
-)(Shift)
+)(ClosedShift)
 
-export default ConnectedShift;
+export default ConnectedClosedShift;
