@@ -1,7 +1,10 @@
 //theme colors
 $main: #FFFFFF;
 $accent: #006699;
+$lt-accent: #0086b3;
 $link: #ff9966;
+$orange: #cc6600;
+$green: #009999;
 $button: #bfbfbf;
 
 // mixins
@@ -276,7 +279,7 @@ button.google-login {
   margin-top:5px;
   width: 270px;
   height: 170px;
-  background-color: #cc6600;
+  background-color: $orange;
   display: flex-wrap;
   justify-content: center;
   text-align: center;
@@ -302,7 +305,7 @@ button.google-login {
   margin-top:5px;
   width: 270px;
   height: 170px;
-  background-color: #009999;
+  background-color: $green;
   display: flex-wrap;
   justify-content: center;
   text-align: center;
