@@ -22,7 +22,7 @@ class Logout extends Component {
 
   render(){
     const isLoggedIn = localStorage.isLoggedIn;
-    if(this.state.redirect){ return (<Redirect to='/'/>)}
+    if(this.state.redirect){ return (<Redirect to='/login'/>)}
 
     return (
         <div id="logout-form">

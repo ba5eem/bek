@@ -51,16 +51,16 @@ ReactDOM.render(
           <SideBar />
           <div id="logo">
             {auth ?
-            <span><Link to="/">
+            <span><Link to="/login">
           <div id="title" >bek-connect</div></Link></span>
-          : <span><Link to="/">
+          : <span><Link to="/login">
           <div id="title" >bek-connect</div></Link></span>
             }
           </div>
           <Nav />
         </div>
         <Switch>
-          <Route exact path="/" component={App} />
+          <Route exact path="/" component={Login} />
           <Route path="/login" component={Login} />
           <Route path="/users" component={UsersListView} />
           <Route path="/home" component={Home} />
