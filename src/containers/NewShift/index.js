@@ -52,6 +52,8 @@ class NewShift extends Component {
 
   render(){
     return (
+      <div>
+        <div id="todays-shifts">Create a New Shift</div>
         <div id="main-shift-button-container">
         <Popup
           show={this.state.show}
@@ -62,6 +64,7 @@ class NewShift extends Component {
           submit={this.quickSubmit.bind(this)}
           canSubmit={this.state.canSubmit}/>
         </div>
+      </div>
     );/*END OF RETURN*/
   }
 } /*END OF RENDER AND CLASS APP*/

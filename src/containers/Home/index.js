@@ -24,7 +24,7 @@ class Home extends Component {
     //const auth = this.state.auth || localStorage.auth;
     return (
       <div id="main-Home-container">
-        <div>
+        <div id="column-1">
         <NewShift />
         <div className="open-shifts">*** Open Shifts ***</div>
         <OpenShift />
