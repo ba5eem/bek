@@ -8,35 +8,33 @@ import SelectStart from './SelectStart';
 import SelectEnd from './SelectEnd';
 //import ShiftLength from './ShiftLength';
 
-export default class Popup extends Component {
+export default class Custom extends Component {
   constructor(props) {
     super(props);
     this.state = {
       show: false
     }
+    console.log(this.props.show);
   }
 
   toggleShow = show => {
     this.setState({show});
   }
    changeValue(event) {
-    // setValue() will set the value of the component, which in
-    // turn will validate it and the rest of the form
-    // Important: Don't skip this step. This pattern is required
-    // for Formsy to work.
     this.props.setValue(event.currentTarget.value);
   }
 
 
 
   render() {
-    //const errorMessage = this.props.getErrorMessage();
     const {show} = this.state;
+    const {hide} = this.props;
     return (
       <div>
         <button id="custom-button" onClick={() => this.toggleShow(true)}>CUSTOM</button>
         <PopPop position="centerCenter"
                 open={show}
+                close={hide}
                 closeBtn={true}
                 closeOnEsc={true}
                 onClose={() => this.toggleShow(false)}
@@ -55,7 +53,7 @@ export default class Popup extends Component {
               required
             />
             <MyInput
-              name="description"
+              name="role"
               validations="isWords"
               validationError="This a required field"
               required

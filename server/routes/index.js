@@ -4,11 +4,17 @@ const app         = express();
 const route       = express.Router();
 const users       = require('./users.js');
 const login       = require('./login.js');
-const shifts      = require('./calendar.js');
+const shifts      = require('./shifts.js');
 const chat        = require('./chat.js');
 const sms         = require('./sms.js');
 const logout      = require('./logout.js');
+const six         = require('./six.js');
+const eight       = require('./eight.js');
+const custom      = require('./custom.js');
 
+route.use('/custom', custom);
+route.use('/eight', eight);
+route.use('/six', six);
 route.use('/shifts', shifts);
 route.use('/login', login);
 route.use('/users', users);

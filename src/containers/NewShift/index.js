@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadUsers } from '../../actions/users';
-import { addShift } from '../../actions/shifts';
-//import { QRCode } from 'react-qr-svg';
-//import Formsy from 'formsy-react';
-//import MyInput from '../../components/CreateShift/MyInput';
-//import SelectMonth from '../../components/CreateShift/SelectMonth';
-//import SelectDay from '../../components/CreateShift/SelectDay';
-//import PopPop from 'react-poppop';
-import Popup from '../../components/CreateShift/Popup';
+import { addShift,addSix,addEight,addCustom } from '../../actions/shifts';
+import Custom from '../../components/CreateShift/Custom';
 import ShiftLength from '../../components/CreateShift/ShiftLength';
 import { notifySms } from '../../actions/sms';
+import {createShift} from './customIndex.js'
+import {clearLocal} from './customIndex.js'
 
 class NewShift extends Component {
   constructor(props) {
@@ -31,21 +27,34 @@ class NewShift extends Component {
   }
 
   submit(model) {
-    console.log(model);
-    if(model.start !== undefined){
-      this.setState({canSubmit:true})
-      this.props.addShift(model)
-
+    if(model.title === undefined){
+      this.setState({canSubmit: false})
+    }
+    if(model.summary === undefined){
+      this.setState({canSubmit: false})
+    }
+    if(model.start === undefined){
+      this.setState({canSubmit: false})
+    }
+    if(model.end === undefined){
+      this.setState({canSubmit: false})
+    }
+    else{
+      this.setState({canSubmit: true})
+      let res = createShift(model)
+      console.log(res);
     }
   }
 
   quickSubmit(model) {
     console.log(model);
-    if(model._4!== undefined){
+    if(model.summary !== undefined){
       if(model.title !==undefined){
-      this.setState({show:false})
-      this.setState({canSubmit:true})
-      this.props.addShift(model)
+        this.setState({show:false})
+        this.setState({canSubmit:true})
+        if(model._4 !== undefined){this.props.addShift(model)}
+        if(model._6 !== undefined){this.props.addSix(model)}
+        if(model._8 !== undefined){this.props.addEight(model)}
       }
     }
   }
@@ -55,7 +64,7 @@ class NewShift extends Component {
       <div>
         <div id="todays-shifts">Create a New Shift</div>
         <div id="main-shift-button-container">
-        <Popup
+        <Custom
           show={this.state.show}
           submit={this.submit.bind(this)}
           canSubmit={this.state.canSubmit}/>
@@ -77,7 +86,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedNewShift = connect(
   mapStateToProps,
-  {loadUsers,addShift,notifySms}
+  {loadUsers,addShift,notifySms,addSix,addEight,addCustom}
 )(NewShift)
 
 export default ConnectedNewShift;

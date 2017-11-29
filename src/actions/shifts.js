@@ -52,6 +52,90 @@ export const addShift = (newShift) => {
   }
 }
 
+export const addSix = (newShift) => {
+  let local = [];
+  return function(dispatch){
+    return axios.post('/api/six',newShift)
+    .then( () => {
+      return axios.get('/api/shifts')
+      .then( (shifts) => {
+        local.push(shifts);
+        return axios.get('/api/users/phone')
+        .then((phone) =>{ 
+          local.push(phone);
+        return axios.post('/api/sms/notify', local )
+        .then(() =>{
+          return axios.get('/api/shifts')
+            .then((shifts) =>{
+              console.log(shifts);
+        dispatch({
+        type: ADD_SHIFT,
+        shifts: shifts.data
+      });
+        })
+    })
+        })
+      })  
+    });
+  }
+}
+
+export const addEight = (newShift) => {
+  let local = [];
+  return function(dispatch){
+    return axios.post('/api/eight',newShift)
+    .then( () => {
+      return axios.get('/api/shifts')
+      .then( (shifts) => {
+        local.push(shifts);
+        return axios.get('/api/users/phone')
+        .then((phone) =>{ 
+          local.push(phone);
+        return axios.post('/api/sms/notify', local )
+        .then(() =>{
+          return axios.get('/api/shifts')
+            .then((shifts) =>{
+              console.log(shifts);
+        dispatch({
+        type: ADD_SHIFT,
+        shifts: shifts.data
+      });
+        })
+    })
+        })
+      })  
+    });
+  }
+}
+
+export const addCustom = (newShift) => {
+  let local = [];
+  return function(dispatch){
+    return axios.post('/api/custom',newShift)
+    .then( () => {
+      return axios.get('/api/shifts')
+      .then( (shifts) => {
+        local.push(shifts);
+        return axios.get('/api/users/phone')
+        .then((phone) =>{ 
+          local.push(phone);
+        return axios.post('/api/sms/notify', local )
+        .then(() =>{
+          return axios.get('/api/shifts')
+            .then((shifts) =>{
+              console.log(shifts);
+        dispatch({
+        type: ADD_SHIFT,
+        shifts: shifts.data
+      });
+        })
+    })
+        })
+      })  
+    });
+  }
+}
+
 
 export const editShift = (newInfo) => {
   return function(dispatch){
