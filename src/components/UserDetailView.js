@@ -21,9 +21,8 @@ const UserDetailView = ({id, name, givenName, familyName, email, image, phone}) 
 }
 const profilepicStyle={
   width: 100,
-  height: 100
+  height: 100,
+  padding: 30
 }
-
-
 
 export default UserDetailView;

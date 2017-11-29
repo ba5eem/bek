@@ -29,11 +29,11 @@ class UserList extends Component {
   render() {
     const users = this.props.users
     return (
-      <div className='all-user-list'>
+      <div id="all-user-list">
        {
           users.map((user,idx) => {
             return (
-              <div>
+              <div id="user-card-container">
                 <UserDetailView
                   key={idx}
                   id={user.id}
@@ -56,8 +56,6 @@ class UserList extends Component {
   }
 }
 
-
-
 const mapStateToProps = (state) => {
   return{
     users: state.users,
@@ -71,4 +69,3 @@ const ConnectedUserList = connect(
 )(UserList)
 
 export default ConnectedUserList;
-
