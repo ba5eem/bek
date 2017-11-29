@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { loadUsers } from '../../actions/users';
-import UserList from '../../components/UserList.js';
+
+import ProfileDetail from '../../components/ProfileDetail.js';
 
 //import filterUserStatus from '../../lib/filterUserStatus';
 //import filterRoles from '../../lib/filterRoles';
@@ -11,12 +12,12 @@ import UserList from '../../components/UserList.js';
 
 
 
-class UserListView extends Component {
+class ProfileView extends Component {
   constructor(){
     super();
 
     this.state = {
-
+      user:{}
     }
   }
 /*
@@ -58,19 +59,30 @@ class UserListView extends Component {
     this.setState({user: null});
   }*/
 
+
+/*  filterUser(arr, this.props.user.id){
+    const data = arr.filter((elem) => {
+      return elem.id === this.props.user.id;
+      });
+      return data;
+    }*/
+
+
   render(){
-    const user = this.props.users
-    console.log(user)
+    const user = this.props.user
+    console.log(localStorage)
+    console.log('user from ProfileView-->',user)
+
     return(
       <div>
-      <h1>USERS LIST</h1>
-        <UserList
-          users={user}
-        />
+        {/*<ProfileDetail
+
+        />*/}
       </div>
     )
   }
 }
+
 
 
 const mapStateToProps = (state) => {
@@ -81,9 +93,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-const ConnectedUserListView = connect(
+const ConnectedProfileView = connect(
   mapStateToProps,
   {loadUsers}
-)(UserListView)
+)(ProfileView)
 
-export default ConnectedUserListView;
+export default ConnectedProfileView;

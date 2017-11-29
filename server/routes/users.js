@@ -9,7 +9,7 @@ route.get('/', ( req, res ) => {
   let local = {}
   user.findAll({
     attributes: {
-      exclude : ['googleid', 'familyname','givenname','phone','createdAt','updatedAt']
+      exclude : ['googleid', 'familyname','givenname','createdAt','updatedAt']
     }
   })
   .then((users) => {
@@ -36,6 +36,24 @@ route.get('/:id', ( req, res ) => {
   });
 });
 
+
+
+
+route.put('/:id/editphone', ( req, res ) => {
+  let id = req.params.id;
+  console.log('-------->ID',id)
+  let newPhone = req.body.phone;
+  console.log('route newInfo(1)--->', newPhone)
+  return user.findById(id)
+  .then((user) => {
+    console.log('route then user (2)--->', user)
+    return user.update({phone: newPhone},{where: {id: id}})
+    .then((phone)=>{
+      console.log('route then after update phone (3)--->', phone)
+      return res.json(phone);
+    })
+  })
+})
 
 
 module.exports = route;

@@ -1,12 +1,11 @@
-import { LOAD_USERS,ADD_USER } from '../actions/users.js';
+import { LOAD_USERS,ADD_USER, EDIT_PHONE } from '../actions/users.js';
 
 
 const users = (state = [], action) => {
 
-  switch(action.type){
-    case LOAD_USERS:
-    console.log('reducers triggered', action.users)
-      return action.users;
+ switch(action.type){
+   case LOAD_USERS:
+     return action.users;
 
     case ADD_USER:
       let user = action.user;
@@ -25,9 +24,16 @@ const users = (state = [], action) => {
       localStorage.setItem('image', user.image);
       return user;
 
-    default:
-      return state
-  }
+   case EDIT_PHONE:
+     let index = state.findIndex((user) => {
+       return user.id === action.user.id
+     });
+     console.log([ ...(state.slice(0, index)), action.user, ...(state.slice((index + 1), state.length))])
+     return [ ...(state.slice(0, index)), action.user, ...(state.slice((index + 1), state.length))];
+
+   default:
+     return state
+ }
 }
 
 export default users;
