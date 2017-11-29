@@ -1,4 +1,5 @@
 import { LOAD_SHIFTS,ADD_SHIFT } from '../actions/shifts.js';
+import { SMS_SHIFT } from '../actions/sms';
 //var moment = require('moment');
 
 const shifts = (state = [], action) => {
@@ -19,14 +20,30 @@ const shifts = (state = [], action) => {
           }
       }
       return shifts;
+
+
     case ADD_SHIFT:
     console.log('helo')
-      let res = action.shifts.pop()
+      let x = action.shifts.pop()
+      console.log(x);
+      let idx = state.findIndex((elem) => {
+       return elem.id === x.id
+     });
+     return [ ...(state.slice(0, idx)), x, ...(state.slice((idx + 1), state.length))];
+
+
+
+    case SMS_SHIFT:
+      let res = action.shifts[2].data;
+      let id = action.shifts[1];
+      console.log(id);
       console.log(res);
       let index = state.findIndex((elem) => {
-       return elem.id === res.id
+       return elem.id === id.id
      });
-     return [ ...(state.slice(0, index)), res, ...(state.slice((index + 1), state.length))];
+      id.closed=false;
+
+     return [...state,id];
     default:
       return state
   }
