@@ -5,7 +5,7 @@ const route       = express.Router();
 const users       = require('./users.js');
 const login       = require('./login.js');
 const shifts      = require('./calendar.js');
-const chat        = require('./twilioChat.js');
+const chat        = require('./chat.js');
 const sms         = require('./sms.js');
 const logout      = require('./logout.js');
 

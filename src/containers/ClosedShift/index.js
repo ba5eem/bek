@@ -6,6 +6,7 @@ import ClosedShifts from '../../components/closedShifts.components.js';
 import {filterAll,filterOpen} from '../../lib/Filters';
 import PopPop from 'react-poppop';
 import { absentSms } from '../../actions/sms';
+import ChatApp from '../Chat/ChatApp';
 
 
 
@@ -19,7 +20,9 @@ class ClosedShift extends Component {
 
     this.state={
       query: false,
-      show: false
+      show: false,
+      chat: false,
+      channel: ''
     }
     this.singleShift = this.singleShift.bind(this);
     this.exitSingle = this.exitSingle.bind(this);
@@ -55,13 +58,24 @@ class ClosedShift extends Component {
 
   }
 
-  openChat(e){
-
+  openChat(e,elem){
+    console.log(e.target);
+    console.log(elem);
+    localStorage.setItem('channel',elem);
+    this.setState({chat: true, channel: elem})
   }
+
+
 
   toggleShow = show => {
     this.setState({show});
   }
+
+  closeChat(){
+    localStorage.removeItem('channel');
+    this.setState({chat: false, channel: ''})
+  }
+
 
 
   render(){
@@ -70,6 +84,7 @@ class ClosedShift extends Component {
     const data = filterOpen(this.props.shifts,'closed',true);
     const shifts = filterAll(data,'id', query);
     const {show} = this.state;
+    const {chat} = this.state;
 
     return (
       <div id="main-shift-container">
@@ -82,6 +97,14 @@ class ClosedShift extends Component {
                 closeOnOverlay={true}>
               <h2 className="confirmAbsentHeading">You Marked this shift as absent, do you want to release it as an available open shift?</h2>
               <button className="confirmAbsentButton" onClick={(e)=>this.markAbsent(e)}>YES</button>
+            </PopPop>
+            <PopPop position="centerCenter"
+                open={chat}
+                closeBtn={true}
+                closeOnEsc={true}
+                onClose={() => this.closeChat()}
+                closeOnOverlay={true}>
+                <ChatApp channel={this.state.channel} /> 
             </PopPop>
 
           {shifts.map((shift,idx) => {

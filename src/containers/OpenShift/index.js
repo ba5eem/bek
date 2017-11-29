@@ -54,6 +54,7 @@ class OpenShift extends Component {
   }
 
   openChat(e){
+    console.log(e.target);
 
   }
 
