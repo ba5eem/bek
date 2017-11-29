@@ -56,11 +56,11 @@ class ChatApp extends Component {
     return new Promise((resolve, reject) => {
       chatClient.getSubscribedChannels().then(() => {
         chatClient.getChannelByUniqueName('general').then((channel) => {
-          this.addMessage({ body: `Joining ${this.state.channel} channel...` })
+          this.addMessage({ body: `Joining ${this.state.channel || 'General'} channel...` })
           this.setState({ channel })
 
           channel.join().then(() => {
-            this.addMessage({ body: `Joined ${this.props.channel} as ${localStorage.author}` })
+            this.addMessage({ body: `Joined ${this.props.channel || 'General'} as ${localStorage.author}` })
             window.addEventListener('beforeunload', () => channel.leave())
           }).catch(() => reject(Error(`Could not join ${this.state.channel}.`)))
 
