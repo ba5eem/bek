@@ -24,6 +24,7 @@ class ChatApp extends Component {
       .catch((error) => {
         this.addMessage({ body: `Error: ${error.message}` })
       })
+    this.setState({channel:this.props.channel})
   }
 
   getToken = () => {
@@ -51,7 +52,7 @@ class ChatApp extends Component {
     return new Promise((resolve, reject) => {
       chatClient.getSubscribedChannels().then(() => {
         chatClient.getChannelByUniqueName('general').then((channel) => {
-          this.addMessage({ body: 'Joining general channel...' })
+          this.addMessage({ body: `Joining ${this.state.channel} channel...` })
           this.setState({ channel })
 
           channel.join().then(() => {
