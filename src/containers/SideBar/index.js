@@ -32,7 +32,7 @@ class SideBar extends Component {
         {auth ? <Link to="/">Home</Link> : <Link to="/home">Home</Link> }
       <div id="line"/>
         {/*WITH ADMIN ACCESS THEY CAN SEE USERS*/}
-        {admin ? <Link to="/users">Users</Link> : null  }
+        {admin ? <Link to="/users">Users</Link> : null}
 
         {admin ? <div id="line"/> : null }
         {/*WITH AUTH/USER ACCESS THEY CAN SEE USERS*/}
