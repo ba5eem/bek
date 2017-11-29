@@ -22,7 +22,8 @@ class ClosedShift extends Component {
       query: false,
       show: false,
       chat: false,
-      channel: ''
+      channel: '',
+      user: ''
     }
     this.singleShift = this.singleShift.bind(this);
     this.exitSingle = this.exitSingle.bind(this);
@@ -61,8 +62,12 @@ class ClosedShift extends Component {
   openChat(e,elem){
     console.log(e.target);
     console.log(elem);
-    localStorage.setItem('channel',elem);
-    this.setState({chat: true, channel: elem})
+    localStorage.setItem('channel',elem.summary);
+    localStorage.setItem('author',elem.useremail);
+    this.setState({
+      chat: true, 
+      channel: elem.summary,
+      user: elem.useremail})
   }
 
 
@@ -73,6 +78,7 @@ class ClosedShift extends Component {
 
   closeChat(){
     localStorage.removeItem('channel');
+    localStorage.removeItem('author');
     this.setState({chat: false, channel: ''})
   }
 
