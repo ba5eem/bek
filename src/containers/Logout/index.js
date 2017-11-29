@@ -15,14 +15,9 @@ class Logout extends Component {
 
 
   handleLogout(event){
-    console.log("hi")
     localStorage.clear();
     this.props.logoutUser();
-    console.log("hi2")
-    setTimeout(function() {
-      this.setState({redirect: true})
-    }.bind(this),200);
-
+    this.setState({redirect: true})
   }
 
   render(){
