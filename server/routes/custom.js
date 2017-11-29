@@ -21,6 +21,7 @@ route.post('/', (req,res) => {
   let date = req.body.month+req.body.day+"T";
   let start = date+req.body.start+':00';
   let end = date+req.body.end+':00';
+  let endTime = end + '-'+req.body.end+':00';
 
 
   var event = {
@@ -33,7 +34,7 @@ route.post('/', (req,res) => {
       'timeZone': 'America/Adak',
     },
     'end': {
-      'dateTime': end + '-'+req.body.end+':00',
+      'dateTime': endTime,
       'timeZone': 'America/Adak',
     },
     'reminders': {
