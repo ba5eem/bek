@@ -27,8 +27,7 @@ class SideBar extends Component {
     return(
       <div id="sidebar">
         <Menu
-          width="200px"
-          noOverlay>
+          width="200px">
         {auth ? <Link to="/">Home</Link> : <Link to="/home">Home</Link> }
       <div id="line"/>
         {/*WITH ADMIN ACCESS THEY CAN SEE USERS*/}
@@ -36,7 +35,7 @@ class SideBar extends Component {
 
         {admin ? <div id="line"/> : null }
         {/*WITH AUTH/USER ACCESS THEY CAN SEE USERS*/}
-        {auth ? <Link to="/shifts">Shifts</Link> : 
+        {auth ? <Link to="/shifts">Shifts</Link> :
         <Link to="/home">Learn More</Link>  }
 
       <div id="line"/>
@@ -45,11 +44,8 @@ class SideBar extends Component {
 
         {auth ? <div id="line"/> : null }
 
-        {auth ? <Link to="/logout"><Logout /></Link> : 
+        {auth ? <Link to="/logout"><Logout /></Link> :
         <Link to="/login">Login</Link> }
-
-      <div id="line"/>
-
       </Menu>
       </div>
       )

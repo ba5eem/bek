@@ -73,7 +73,7 @@ class ClosedShift extends Component {
 
     return (
       <div id="main-shift-container">
-            <div id="todays-shift">Today's Shifts</div>
+            <div id="todays-shifts">Today's Shifts</div>
             <PopPop position="centerCenter"
                 open={show}
                 closeBtn={true}
