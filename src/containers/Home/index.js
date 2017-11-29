@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import Iframe from 'react-iframe';
 //import Pusher from 'pusher-js';
 import NewShift from '../NewShift';
-import Shift from '../Shift';
+import ClosedShift from '../ClosedShift';
+import OpenShift from '../OpenShift';
 import ChatApp from '../Chat/ChatApp';
 //import SendSMS from '../SendSMS/index';
 // import {mainBody} from '../Background/styles';
@@ -38,8 +39,8 @@ class Home extends Component {
           <ChatApp/>
           </div>
         </div>
-
-        <Shift />
+        <OpenShift />
+        <ClosedShift />
         {/*auth
           ?<UsersListView/>
           :<Login/>

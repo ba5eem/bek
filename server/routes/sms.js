@@ -46,6 +46,7 @@ numbers.forEach(function(phones){
     console.log("succes");
   })
   })
+res.json('success');
 })
 
 route.post('/absent', (req,res) => {
@@ -70,6 +71,7 @@ route.post('/absent', (req,res) => {
     console.log("succes");
   })
   })
+  res.json('succes');
 })
 
 module.exports = route;

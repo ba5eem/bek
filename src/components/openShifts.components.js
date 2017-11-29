@@ -2,7 +2,7 @@ import React from 'react';
 import timeDifference from '../lib/TimeDifference';
 var moment = require('moment');
 
-const Shifts = ({shift,idx,singleShift,exitSingle,openChat,markAbsent,absent,query}) => {
+const openShifts = ({shift,idx,singleShift,exitSingle,openChat,query}) => {
   let end = moment(shift.endtime, "HH:mm Z").format('H:mm');
   let start = moment(shift.starttime, "HH:mm Z").format('HH:mm')
   const res = timeDifference(start,end);
@@ -29,9 +29,6 @@ const Shifts = ({shift,idx,singleShift,exitSingle,openChat,markAbsent,absent,que
           <button className="detailsButtonOnShiftCard" onClick={openChat}>
           <a href={shift.htmlLink}>DETAILS</a>
           </button>
-          <label htmlFor="absent" onClick={(e)=>markAbsent(e,shift.id)}>
-          <input id="absent" className="absentBoxOnShiftCard" type="checkbox"/>mark absent
-          </label>
 
 
         </div>
@@ -40,7 +37,7 @@ const Shifts = ({shift,idx,singleShift,exitSingle,openChat,markAbsent,absent,que
     )//end of return
 };
 
-export default Shifts;
+export default openShifts;
 
 
 

@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 export const ACTION_SMS = 'ACTION_SMS';
-
+export const SMS_SHIFT = 'SMS_SHIFT';
 
 export const actionsms = (body) => {
   return function(dispatch){
@@ -37,14 +37,19 @@ export const absentSms = (body) => {
     .then((phone)=>{
       local.push(phone);
       local.push(body)
-    return axios.post('/api/sms/absent', local)
-    .then( sms => {
-      console.log('sms from actions--->', sms )
-      dispatch({
-        type: ACTION_SMS,
-        sms: sms.data
-      });
-       })
-    });
-  }
-}
+      return axios.post('/api/sms/absent', local)
+        .then( () => {
+          return axios.put('/api/shifts/update',body)
+            .then(()=> {
+              return axios.get('/api/shifts')
+                .then((shifts) =>{
+                    dispatch({
+                      type: SMS_SHIFT,
+                      shifts: shifts.data
+                      });
+                    })
+                  })
+                })
+              });
+            }
+          }
