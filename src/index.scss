@@ -545,9 +545,9 @@ input.send-button {
   left: 0;
   bottom: 0;
   position: fixed;
-  height: 30px;
+  height: 25px;
   width: 100%;
-  padding-top: 15px;
+  // padding-top: 10px;
   background-color: $accent;
   color: $main;
 }
