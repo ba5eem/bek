@@ -18,16 +18,15 @@ const shifts = (state = [], action) => {
             }
           }
       }
-      console.log(shifts);
       return shifts;
     case ADD_SHIFT:
     console.log('helo')
-      console.log(action.shifts)
-      let index = state.findIndex((shifts) => {
-       return shifts.id === action.shifts.id
+      let res = action.shifts.pop()
+      console.log(res);
+      let index = state.findIndex((elem) => {
+       return elem.id === res.id
      });
-     console.log([ ...(state.slice(0, index)), action.shifts, ...(state.slice((index + 1), state.length))])
-     return [ ...(state.slice(0, index)), action.shifts, ...(state.slice((index + 1), state.length))];
+     return [ ...(state.slice(0, index)), res, ...(state.slice((index + 1), state.length))];
     default:
       return state
   }
