@@ -92,14 +92,12 @@ calendar.events.list({
 })
 
 route.post('/new', (req,res) => {
-//authenticate request
-  //console.log(req.body);
   let time = req.body._4
   let today = moment().format('YYYY-MM-DDT');
-  let start = today+time+':00-'+time;
-  let endTime = parseInt(time)+4+':00';
-  let end = today+endTime+':00-'+endTime;
-  //console.log(end);
+  let add = parseInt(time)+4;
+  let four = add+':00:00';
+  let start = today+time+':00';
+  let end = today+four;
 
 var event = {
   'title':req.body.title,
