@@ -459,8 +459,9 @@ button.google-login {
 .ChatApp {
   border: 1px solid #ccc;
   border-radius: 3px;
-  height: 175px;
+  height: 400px;
   width: 650px;
+  margin-top: 30px;
   // margin-bottom: 50px;
   display: flex;
   justify-content: center;
@@ -486,20 +487,23 @@ button.google-login {
 
 .Message {
   line-height: 1.5em;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .Message.log {
-  color: #bbb;
+  color: black;
+  font-size: 24px;
 }
 
 .Message .author {
   font-weight: bold;
-  color: #888;
+  color: black;
   margin: 0 5px 0 0;
 }
 
 .Message.me .author {
-  color: #b6191e;
+  color: black;
 }
 
 .MessageForm {
@@ -510,6 +514,10 @@ button.google-login {
 .MessageForm .input-container {
   flex: 1;
   margin: 1px;
+  color: black;
+  font-size: 24px;
+  height: 50px;
+  margin-bottom: 10px;
 }
 
 .MessageForm .button-container {
@@ -535,6 +543,9 @@ button.google-login {
 
 input.send-button {
  background: $button;
+ margin: 1px;
+ height: 50px;
+ font-size: 24px;
 
 }
 // ------------------------

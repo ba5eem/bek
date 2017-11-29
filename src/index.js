@@ -19,7 +19,7 @@ import './index.scss';
 import App from './containers/App';
 import Login from './containers/Login';
 import Home from './containers/Home';
-
+import ChatApp from './containers/Chat/ChatApp';
 import SideBar from './containers/SideBar';
 
 import Nav from './components/nav.components';
@@ -59,6 +59,7 @@ ReactDOM.render(
         <Route path="/login" component={Login} />
         <Route path="/users" component={UsersListView} />
         <Route path="/home" component={Home} />
+        <Route path="/chat" component={ChatApp} />
       <Footer />
       </div>
     </Router>

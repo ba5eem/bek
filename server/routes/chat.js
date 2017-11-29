@@ -1,6 +1,6 @@
 require('dotenv').load()
 
-const Twilio = require('twilio')
+const Twilio = require('twilio');
 const chance = new require('chance')()
 const express = require('express')
 const app = express()
@@ -20,6 +20,7 @@ route.get('/token', function (req, res) {
   token.addGrant(new ChatGrant({
     serviceSid: process.env.TWILIO_CHAT_SERVICE_SID
   }))
+
 
   res.send({
     identity: token.identity,
