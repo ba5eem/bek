@@ -14,14 +14,13 @@ class App extends Component {
     const path = "0v3li03tvfjntqvhfq6n759dhg@group.calendar.google.com";
     return (
       <div id="main-App-container">
-
-        <div id="iframe-div">
+        <div id="main-App-iframe-div">
           <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
             width="650px"
             height="500px"
             frameborder="0"
             scrolling="no"
-            position="absolute">
+            position="relative">
           </Iframe>
         </div>
 

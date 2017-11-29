@@ -67,7 +67,7 @@ class Shift extends Component {
 
     return (
       <div id="main-shift-container">
-            <div id="todays-shift">Today's Shift</div>
+            <div id="todays-shift">Today's Shifts</div>
             <PopPop position="centerCenter"
                 open={show}
                 closeBtn={true}
