@@ -47,6 +47,7 @@ textarea {
   display: flex;
   flex-flow: row-wrap;
   justify-content: space-around;
+  padding-bottom: 50px;
 }
 //------------------------------
 
@@ -191,23 +192,25 @@ button.google-login {
 //Create shift buttons----------
 #main-shift-button-container {
   order: 1;
-  width: 180px;
+  width: 200px;
   display: flex;
   flex-wrap: row;
   margin-left: 20px;
 }
 
 #custom-button {
-  height: 35px;
-  background-color: $button;
+  height: 50px;
+  font-size: 90%;
+  background-color: $link;
   color: $main;
   border: transparent;
   margin: 5px;
 }
 
 #create-shift-button {
-  height: 35px;
-  background-color: $button;
+  height: 50px;
+  font-size: 90%;
+  background-color: #00b3b3;
   color: $main;
   border: transparent;
   margin: 5px;
@@ -232,6 +235,7 @@ button.google-login {
 #main-shift-container {
   order: 4;
   width: 300px;
+  height: 100%;
 }
 
 //Shift Card--------------------
@@ -263,7 +267,6 @@ button.google-login {
 
 .shiftCardSummary {
   background-color: $link;
-  // font-size: 20px;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
   max-height: 30px;
@@ -271,18 +274,15 @@ button.google-login {
 
 .shiftCardLocation {
   background-color: lightgrey;
-  // font-size: 20px;
   max-height: 30px;
 }
 
 .shiftCardStart {
   background-color: lightgrey;
-  // font-size: 20px;
 }
 
 .shiftCardLength {
   background-color: lightgrey;
-  // font-size: 20px;
 }
 
 .empCardImage {
