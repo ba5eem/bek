@@ -5,7 +5,10 @@ import registerServiceWorker from './registerServiceWorker';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  Redirect,
+  withRouter,
+  Switch
 } from 'react-router-dom';
 //REDUX--------------------------------------
 import { createStore, applyMiddleware } from 'redux';
@@ -21,7 +24,7 @@ import Login from './containers/Login';
 import Home from './containers/Home';
 import ChatApp from './containers/Chat/ChatApp';
 import SideBar from './containers/SideBar';
-
+import NotFound from './containers/NotFound';
 import Nav from './components/nav.components';
 import Footer from './components/footer.components';
 import UsersListView from './containers/UsersListView';
@@ -36,8 +39,10 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(thunk)
   );
-
 const auth = localStorage.isLoggedIn !== undefined ? localStorage.isLoggedIn : false;
+
+
+
 ReactDOM.render(
   <Provider store={store}>
     <Router>
@@ -54,12 +59,14 @@ ReactDOM.render(
           </div>
           <Nav />
         </div>
-
-        <Route exact path="/" component={App} />
-        <Route path="/login" component={Login} />
-        <Route path="/users" component={UsersListView} />
-        <Route path="/home" component={Home} />
-        <Route path="/chat" component={ChatApp} />
+        <Switch>
+          <Route exact path="/" component={App} />
+          <Route path="/login" component={Login} />
+          <Route path="/users" component={UsersListView} />
+          <Route path="/home" component={Home} />
+          <Route path="/chat" component={ChatApp} />
+          <Route component={NotFound} />
+        </Switch>
       <Footer />
       </div>
     </Router>
