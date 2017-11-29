@@ -3,39 +3,29 @@ import { connect } from 'react-redux';
 import { loadUsers, editPhone } from '../actions/users';
 import UserDetailView from './UserDetailView';
 import { Link } from 'react-router-dom';
-import EditableCell from './EditableCell'
-import PopupEditPhone from '../containers/EditUser/PopupEditPhone'
+import PopupEditPhone from '../containers/EditUser/PopupEditPhone';
+
 class UserList extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
 
     this.state = {
       text: '',
       editing: false
     }
+    this.state = { canSubmit: false, show: false };
   }
 
-  attributeChange (attribute, value) {
-    const { name } = this.props.puck
-    this.props.updatePuck(name, {[attribute]: value})
-  }
+  submit(model,id) {
+   console.log('triggered submit', model)
+   console.log(id);
+   this.setState({show:false})
+   model.id = id;
+   this.props.editPhone(model)
+   console.log('submit --- >',model);
+ }
 
-  submit(model) {
-    console.log('triggered submit', model)
-    this.setState({show:true})
-    this.props.editPhone(model)
-    console.log('submit --- >',model);
-  }
 
-  quickSubmit(model) {
-    this.setState({show:false})
-    console.log(model);
-    if(model._4!== undefined){
-      this.setState({canSubmit:true})
-      //this.props.editPhone(model)
-
-    }
-  }
   render() {
     const users = this.props.users
     return (
@@ -53,9 +43,9 @@ class UserList extends Component {
                   phone={user.phone}
                 />
                 <PopupEditPhone
-                submit={this.submit.bind(this)}
-              canSubmit={this.state.canSubmit}/>
-
+                 id={user}
+                 submit={this.submit.bind(this)}
+                 canSubmit={this.state.canSubmit}/>
               </div>
             )
           })

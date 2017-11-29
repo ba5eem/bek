@@ -24,38 +24,38 @@ export default class PopupEditPhone extends Component {
     this.props.setValue(event.currentTarget.value);
   }
 
+render() {
+   //const errorMessage = this.props.getErrorMessage();
+   const {show} = this.state;
+   let id = this.props.id.id;
+   return (
+     <div>
+       <button style={addShift} onClick={() => this.toggleShow(true)}>Edit Phone</button>
+       <PopPop position="centerCenter"
+               open={show}
+               closeBtn={true}
+               closeOnEsc={true}
+               onClose={() => this.toggleShow(false)}
+               closeOnOverlay={true}>
+         <Formsy onSubmit={(e)=>this.props.submit(e,id)}>
+           <MyInputPhone
+             name="phone"
+             validations="isNumeric"
+             validationError="Please enter a valid phone"
+             required
 
-  render() {
-    //const errorMessage = this.props.getErrorMessage();
-    const {show} = this.state;
-    const {user} = this.state;
-    return (
-      <div>
-        <button style={addShift} onClick={() => this.toggleShow(true)}>Edit Phone</button>
-        <PopPop position="centerCenter"
-                open={show}
-                closeBtn={true}
-                closeOnEsc={true}
-                onClose={() => this.toggleShow(false)}
-                closeOnOverlay={true}>
-          <Formsy onSubmit={this.props.submit}>
-            <MyInputPhone
-              name="phone"
-              validations="isWords"
-              validationError="Please enter a valid phone"
-              required
-              value={user}
-            />
-            <button style={select} type="submit">Submit</button>
-            <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "HIT THE X WHEN YOU ARE DONE"}</h3>
-          </Formsy>
+           />
+           <button style={select} type="submit">Submit</button>
+           <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "HIT THE X WHEN YOU ARE DONE"}</h3>
+         </Formsy>
 
-        </PopPop>
+       </PopPop>
 
-      </div>
-    )
-  }
+     </div>
+   )
+ }
 }
+
 
 const addShift={
   backgroundColor:"#66b3ff",
