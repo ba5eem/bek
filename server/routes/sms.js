@@ -30,24 +30,24 @@ route.post('/notify', (req,res) => {
   let date = newShift.date;
 
 
-numbers.forEach(function(phones){
-  let content = {
-      phone: phones,
-      payload: `Shift Open - on ${date}! Shift Details here: ${link}`
-    }
-    const client = require('twilio')(
-    process.env.TWILIO_ACCOUNT_SID,
-    process.env.TWILIO_AUTH_TOKEN
-  );
-  client.messages.create({
-    from: process.env.TWILIO_PHONE_NUMBER,
-    to: "+1"+ content.phone,
-    body: content.payload
-  }).then(()=>{
-    console.log("succes");
-  })
-  })
-res.json('success');
+// numbers.forEach(function(phones){
+//   let content = {
+//       phone: phones,
+//       payload: `Shift Open - on ${date}! Shift Details here: ${link}`
+//     }
+//     const client = require('twilio')(
+//     process.env.TWILIO_ACCOUNT_SID,
+//     process.env.TWILIO_AUTH_TOKEN
+//   );
+//   client.messages.create({
+//     from: process.env.TWILIO_PHONE_NUMBER,
+//     to: "+1"+ content.phone,
+//     body: content.payload
+//   }).then(()=>{
+//     console.log("succes");
+//   })
+//   })
+res.json('success notify sms -its still commented out');
 })
 
 route.post('/absent', (req,res) => {
