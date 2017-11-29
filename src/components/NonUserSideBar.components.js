@@ -7,8 +7,7 @@ const NonUserSideBar = () => {
     return (
           <div>
             <Menu
-              width="200px"
-              noOverLay>
+              width="200px">
                 <Link to="/">Home</Link>
               <div id="line"/>
                 <Link to="/login">Login</Link>

@@ -7,8 +7,7 @@ const AdminSideBar = () => {
     return (
             <div>
               <Menu
-                width="200px"
-                noOverLay>
+                width="200px">
                   <Link to="/home">Home</Link>
                 <div id="line"/>
                   <Link to="/users">Employees</Link>
