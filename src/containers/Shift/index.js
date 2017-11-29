@@ -8,8 +8,6 @@ import PopPop from 'react-poppop';
 import { absentSms } from '../../actions/sms';
 
 
-
-
 class Shift extends Component {
   constructor() {
     super();
@@ -69,6 +67,7 @@ class Shift extends Component {
 
     return (
       <div id="main-shift-container">
+            <div id="todays-shift">Today's Shift</div>
             <PopPop position="centerCenter"
                 open={show}
                 closeBtn={true}
