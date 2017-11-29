@@ -62,12 +62,12 @@ class UserListView extends Component {
     const user = this.props.users
     console.log(user)
     return(
-      <div>
-      <h1>USERS LIST</h1>
-        <UserList
-          users={user}
-        />
-      </div>
+      <div id="user-list-container">
+        <div id="staff-title">Staff</div>
+          <UserList
+            users={user}
+          />
+        </div>
     )
   }
 }

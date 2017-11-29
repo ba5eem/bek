@@ -45,6 +45,13 @@ textarea {
 #main-App-container {
   height: 100%;
   display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+#main-Home-container {
+  height: 100%;
+  display: flex;
   flex-flow: row-wrap;
   justify-content: space-around;
   padding-bottom: 50px;
@@ -241,9 +248,8 @@ button.google-login {
 #todays-shift {
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid gray;
-  font-size: 110%;
-  font-weight: 900;
+  border-bottom: 2px solid black;
+  font-size: 120%;
 }
 
 //Shift Card--------------------
@@ -359,6 +365,16 @@ button.google-login {
   color: black;
   font-size: 30px;
   text-align: center;
+}
+//----------------------------
+#user-list-container {
+  padding: 10px;
+}
+
+#staff-title {
+  width: 200px;
+  font-size: 200%;
+  border-bottom: 2px solid black;
 }
 
 // Twillio---------------------
