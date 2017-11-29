@@ -27,12 +27,13 @@ route.post('/notify', (req,res) => {
   let body = req.body[0].data;
   let newShift = body[body.length-1];
   let link = newShift.htmlLink;
+  let date = newShift.date;
 
 
 numbers.forEach(function(phones){
   let content = {
       phone: phones,
-      payload: `Shift Open! Shift Details here: ${link}`
+      payload: `Shift Open - on ${date}! Shift Details here: ${link}`
     }
     const client = require('twilio')(
     process.env.TWILIO_ACCOUNT_SID,
