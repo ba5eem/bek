@@ -63,11 +63,15 @@ class UserListView extends Component {
     console.log(user)
     return(
       <div id="user-list-container">
-        <div id="staff-title">Staff</div>
-          <UserList
-            users={user}
-          />
+        <div id="staff-title">
+        <p>Staff</p>
         </div>
+
+        <div>
+        <UserList
+          users={user} />
+        </div>
+      </div>
     )
   }
 }

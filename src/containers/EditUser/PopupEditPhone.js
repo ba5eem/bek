@@ -59,19 +59,18 @@ render() {
 
 const addShift={
   backgroundColor:"#66b3ff",
-  color:"white",
+  color: "white",
   border: "transparent",
-  fontSize: "30px",
-  paddingBottom:"10px",
-  paddingRight:"15px",
-  paddingLeft:"15px",
-  marginTop:"10px"
+  fontSize: "20px",
+  padding: "10px",
+  marginTop: "10px",
+  width: "150px"
 }
 const select = {
   width: "400px",
   textAlign:"center",
   backgroundColor: "#66b3ff",
-  fontSize:"40px"
+  fontSize:"30px"
 }
 const close ={
   textAlign: "center"
