@@ -10,7 +10,10 @@ import { absentSms } from '../../actions/sms';
 
 
 
+
 class ClosedShift extends Component {
+
+
   constructor() {
     super();
 
@@ -70,6 +73,7 @@ class ClosedShift extends Component {
 
     return (
       <div id="main-shift-container">
+            <div id="todays-shift">Today's Shift</div>
             <PopPop position="centerCenter"
                 open={show}
                 closeBtn={true}
