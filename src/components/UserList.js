@@ -4,7 +4,7 @@ import { loadUsers } from '../actions/users';
 import UserDetailView from './UserDetailView';
 import { Link } from 'react-router-dom';
 import EditableCell from './EditableCell'
-
+import PopupEditPhone from '../containers/EditUser/PopupEditPhone'
 class UserList extends Component {
   constructor(){
     super();
@@ -28,6 +28,7 @@ class UserList extends Component {
           users.map((user,idx) => {
             console.log('USERLIST', user)
             return (
+              <div>
                 <UserDetailView
                   key={idx}
                   id={user.id}
@@ -36,6 +37,9 @@ class UserList extends Component {
                   image={user.image}
                   phone={user.phone}
                 />
+                <PopupEditPhone
+                />
+              </div>
             )
           })
         }

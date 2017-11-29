@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 import PopPop from 'react-poppop';
 import Formsy from 'formsy-react';
-import MyInput from './MyInput';
-import SelectMonth from './SelectMonth';
-import SelectDay from './SelectDay';
-import SelectStart from './SelectStart';
-import SelectEnd from './SelectEnd';
+import MyInputPhone from './MyInputPhone';
+
 //import ShiftLength from './ShiftLength';
 
 export default class PopupUser extends Component {
@@ -41,13 +38,14 @@ export default class PopupUser extends Component {
                 onClose={() => this.toggleShow(false)}
                 closeOnOverlay={true}>
           <Formsy onSubmit={this.props.submit}>
-            <MyInput
+            <MyInputPhone
               name="phone"
               validations="isNumeric"
               validationError="Please enter a valid phone"
               required
             />
-
+            <button style={select} type="submit">Submit</button>
+            <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "HIT THE X WHEN YOU ARE DONE"}</h3>
           </Formsy>
 
         </PopPop>
