@@ -11,11 +11,11 @@ const openShifts = ({shift,idx,singleShift,exitSingle,openChat,query}) => {
 
   return (
         <div className="shiftCard" key={idx}>
-          <div className="shiftCardSummary" onClick={(e)=>singleShift(e,shift.id)}>
+          <div className="openShiftCardSummary" onClick={(e)=>singleShift(e,shift.id)}>
             {shift.summary ? shift.summary : 'Shift Open'}</div>
           <div className="shiftCardLocation" >
             {shift.location ? shift.location : 'Click for Location'}</div>
-          <img className="empCardImage" src={shift.userimage} alt="icon"></img>
+          <img className="empCardImage" src="https://news.postimees.ee/public/img/shrek-gray.svg" alt="icon"></img>
           <div className="shiftCardStart" >
             {shift.starttime ? 'Starts: '+shift.starttime : 'Click for Start Time'}</div>
           <div className="shiftCardLength" >

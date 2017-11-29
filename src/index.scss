@@ -263,6 +263,7 @@ button.google-login {
   margin-bottom: 5px;
   margin-top: 5px;
   border: 0.5px solid $button;
+
 }
 .shiftCard:hover {
   box-shadow: 10px 10px 5px #888888;
@@ -284,6 +285,14 @@ button.google-login {
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
   max-height: 30px;
+}
+
+.openShiftCardSummary {
+  background-color: salmon;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  max-height: 30px;
+
 }
 
 .shiftCardLocation {
