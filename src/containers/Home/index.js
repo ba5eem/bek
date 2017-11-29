@@ -22,7 +22,7 @@ class Home extends Component {
     const path = "cohortuser19%40gmail.com";
     //const auth = this.state.auth || localStorage.auth;
     return (
-      <div id="main-App-container">
+      <div id="main-Home-container">
         <NewShift />
 
         <div id="iframe-div">
