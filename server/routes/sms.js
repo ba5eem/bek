@@ -29,23 +29,23 @@ route.post('/notify', (req,res) => {
   let link = newShift.htmlLink;
 
 
-// numbers.forEach(function(phones){
-//   let content = {
-//       phone: phones,
-//       payload: `Shift Open! Shift Details here: ${link}`
-//     }
-//     const client = require('twilio')(
-//     process.env.TWILIO_ACCOUNT_SID,
-//     process.env.TWILIO_AUTH_TOKEN
-//   );
-//   client.messages.create({
-//     from: process.env.TWILIO_PHONE_NUMBER,
-//     to: "+1"+ content.phone,
-//     body: content.payload
-//   }).then(()=>{
-//     console.log("succes");
-//   })
-//   })
+numbers.forEach(function(phones){
+  let content = {
+      phone: phones,
+      payload: `Shift Open! Shift Details here: ${link}`
+    }
+    const client = require('twilio')(
+    process.env.TWILIO_ACCOUNT_SID,
+    process.env.TWILIO_AUTH_TOKEN
+  );
+  client.messages.create({
+    from: process.env.TWILIO_PHONE_NUMBER,
+    to: "+1"+ content.phone,
+    body: content.payload
+  }).then(()=>{
+    console.log("succes");
+  })
+  })
 res.json('success');
 })
 
@@ -54,23 +54,23 @@ route.post('/absent', (req,res) => {
   let link = req.body[1].htmlLink
 
 
-  // numbers.forEach(function(phones){
-  // let content = {
-  //     phone: phones,
-  //     payload: `Someone Called Out - Shift just became available! Shift Details here: ${link}`
-  //   }
-  //   const client = require('twilio')(
-  //   process.env.TWILIO_ACCOUNT_SID,
-  //   process.env.TWILIO_AUTH_TOKEN
-  // );
-  // client.messages.create({
-  //   from: process.env.TWILIO_PHONE_NUMBER,
-  //   to: "+1"+ content.phone,
-  //   body: content.payload
-  // }).then(()=>{
-  //   console.log("succes");
-  // })
-  // })
+  numbers.forEach(function(phones){
+  let content = {
+      phone: phones,
+      payload: `Someone Called Out - Shift just became available! Shift Details here: ${link}`
+    }
+    const client = require('twilio')(
+    process.env.TWILIO_ACCOUNT_SID,
+    process.env.TWILIO_AUTH_TOKEN
+  );
+  client.messages.create({
+    from: process.env.TWILIO_PHONE_NUMBER,
+    to: "+1"+ content.phone,
+    body: content.payload
+  }).then(()=>{
+    console.log("succes");
+  })
+  })
   res.json('succes');
 })
 
