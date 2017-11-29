@@ -8,7 +8,8 @@ class Logout extends Component {
     super(props);
 
     this.state = {
-      isLoggedOut: false
+      isLoggedOut: false,
+      redirect: false
     }
   }
 
@@ -18,11 +19,15 @@ class Logout extends Component {
     localStorage.clear();
     this.props.logoutUser();
     console.log("hi2")
+    setTimeout(function() {
+      this.setState({redirect: true})
+    }.bind(this),200);
+
   }
 
   render(){
     const isLoggedIn = localStorage.isLoggedIn;
-    if(!isLoggedIn){ return (<Redirect to='/'/>)}
+    if(this.state.redirect){ return (<Redirect to='/'/>)}
 
     return (
         <div id="logout-form">
