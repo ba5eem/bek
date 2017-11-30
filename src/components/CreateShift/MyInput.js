@@ -38,7 +38,7 @@ const input = {
   width: "400px",
   borderRadius: "5px",
   border: "2px solid #66b3ff",
-  fontSize:"30px",
+  fontSize:"25px",
   textAlign:"center",
   marginTop: "10px"
 
