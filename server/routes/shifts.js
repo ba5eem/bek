@@ -94,10 +94,10 @@ calendar.events.list({
 route.post('/new', (req,res) => {
   let time = req.body._4
   let today = moment().format('YYYY-MM-DDT');
-  let add = parseInt(time)+4;
+  let add = parseInt(time)+2;
   let four = add+':00:00';
-  let start = today+time+':00';
-  let end = today+four;
+  let start = today+time+':00-'+time+':00';
+  let end = today+four+'-'+four;
 
 var event = {
   'title':req.body.title,
@@ -120,13 +120,14 @@ var event = {
     ],
   },
 };
+console.log(event);
 jwtClient.authorize(function (err, tokens) {
   
  if (err) {
    console.log("Did not connect!", err);
    return;
  } else {
-   console.log("Successfully connected!");
+   console.log("4 hour post - Successfully connected!");
    
 
 let token = tokens.access_token;
