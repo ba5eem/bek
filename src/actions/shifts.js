@@ -137,9 +137,9 @@ export const addCustom = (newShift) => {
   }
 }
 
-export const availableShift = () => {
+export const availableShift = (url) => {
   return function(dispatch){
-    return axios.get('/api/accept/65e33ctpsajstq790t3v8mdmrt')
+    return axios.get(`/api${url}`)
       .then( shift => {
         dispatch({
           type:LOAD_SHIFT,
@@ -147,6 +147,10 @@ export const availableShift = () => {
         })
       })
   }
+}
+
+export const acceptShifts = (body) => {
+
 }
 
 

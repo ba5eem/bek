@@ -24,8 +24,8 @@ const AcceptShiftMobile = ({shift,idx,singleShift,exitSingle,acceptShift,decline
           </div>
 
           <div className="mobileButtons">
-            <button className="acceptShiftButton" onClick={(e)=>acceptShift(e,shift.id)}>ACCEPT</button>
-            <button className="declineShift" onClick={(e)=>declineShift(e,shift.id)}>DECLINE
+            <button className="acceptShiftButton" name="accept" onClick={(e)=>acceptShift(e,shift.id)}>ACCEPT</button>
+            <button className="declineShift" name="decline" onClick={(e)=>declineShift(e,shift.id)}>DECLINE
             </button>
             <button className="detailsShift">
             <a href={shift.htmlLink} target="_blank">DETAILS</a>
