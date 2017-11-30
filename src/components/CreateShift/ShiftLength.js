@@ -97,7 +97,7 @@ const select = {
   textAlign:"center",
   backgroundColor: "#66b3ff",
   height:"40px",
-  fontSize: "30px",
+  fontSize: "25px",
   color: "white"
 }
 

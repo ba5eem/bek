@@ -55,7 +55,7 @@ const select = {
   width: "400px",
   textAlign:"center",
   backgroundColor: "#66b3ff",
-  fontSize:"40px",
+  fontSize:"25px",
   marginTop: "20px"
 }
 

@@ -229,8 +229,6 @@ button.google-login {
     margin: 5px;
   }
 }
-
-
 //---------------------------
 .open-shifts {
   display: flex;
@@ -563,10 +561,10 @@ button.google-login {
   font-size: 30px;
 }
 
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
-  and (-webkit-min-device-pixel-ratio: 2) { 
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
   .nav-links {
     background-color: $accent;
     display:flex;
@@ -623,7 +621,7 @@ button.google-login {
     margin-top: 10px;
   }
 
-  
+
 
 
 
