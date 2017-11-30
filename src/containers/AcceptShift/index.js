@@ -15,7 +15,7 @@ class AcceptShift extends Component {
       url: '',
       declined: false,
       redirect: false,
-      shift: undefined
+      accepted: false
     }
     this.acceptShift = this.acceptShift.bind(this);
     this.declineShift = this.declineShift.bind(this);
@@ -31,22 +31,17 @@ class AcceptShift extends Component {
     let id = this.state.url;
     let shift = filterAll(this.props.shifts,'id',id )
     this.props.acceptShifts(shift);
+    this.setState({accepted: true})
     setTimeout(function() {
-      this.setState({redirect: true}); }.bind(this),500);
+      this.setState({redirect: true}); }.bind(this),900);
     }
 
 
   declineShift(e){
     this.setState({declined:true})
     setTimeout(function() {
-      this.setState({redirect: true}); }.bind(this),500);
+      this.setState({redirect: true}); }.bind(this),900);
   }
-
-
-
-
-  //based off the uri that is reference in the text message will define what will show up here: 
-
 
   render(){
     let id = this.state.url;
@@ -63,6 +58,8 @@ class AcceptShift extends Component {
               {shifts.map((shift,idx)=>{
                 return (
                   <AcceptShiftMobile
+                    accepted={this.state.accepted}
+                    declined={this.state.declined}
                     key={idx}
                     shift={shift}
                     acceptShift={this.acceptShift}

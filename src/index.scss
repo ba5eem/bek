@@ -622,6 +622,37 @@ button.google-login {
     background-color: cornflowerblue;
     margin-top: 10px;
   }
+  .declined-Shift{
+    position: absolute;
+    z-index: 2000;
+    width: 270px;
+    height: 220px;
+    background-color: salmon;
+    font-size: 40px;
+    padding-top: 140px;
+    color: black;
+    font-style: bold;
+    vertical-align: center;
+    text-align: center;
+    opacity: 0.9;
+
+
+  }
+  .accepted-Shift{
+    position: absolute;
+    z-index: 2000;
+    width: 270px;
+    height: 220px;
+    background-color: lightgreen;
+    font-size: 40px;
+    padding-top: 140px;
+    color: black;
+    font-style: bold;
+    vertical-align: center;
+    text-align: center;
+    opacity: 0.9;
+
+  }
 
   
 
