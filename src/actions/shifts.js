@@ -53,6 +53,31 @@ export const addShift = (newShift) => {
   }
 }
 
+//jesses - example of better format for promise
+// export const addShift = newShift => {
+//   return dispatch => {
+//     return axios.post('url', newShift)
+//       .then(() => {
+//         return new Promise.all([
+//             axios.get('shifts'),
+//             axios.get('phones')
+//           ]);
+//       })
+//       .then((shiftsAndPhonesArr)=> {
+//         return axios.post('notify', shiftsAndPhonesArr)
+//           .then(() => {
+//             return shiftsAndPhonesArr[0];
+//           });
+//       })
+//       .then(shifts => {
+//         console.log(shifts);
+//         dispatch({
+//         type: ADD_SHIFT,
+//         shifts: shifts.data
+//       });
+//   }
+// }
+
 export const addSix = (newShift) => {
   let local = [];
   return function(dispatch){

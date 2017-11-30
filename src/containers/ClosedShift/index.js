@@ -103,6 +103,7 @@ class ClosedShift extends Component {
                 closeBtn={true}
                 closeOnEsc={true}
                 onClose={() => this.toggleShow(false)}
+                contentStyle={{overflow: "hidden"}}
                 closeOnOverlay={true}>
               <h3 className="confirmAbsentHeading">You Marked this shift as absent.<br/>Are you sure you want to release this shift?</h3>
              <center><button className="confirmAbsentButton" onClick={(e)=>this.markAbsent(e)}>YES</button></center>
@@ -112,6 +113,7 @@ class ClosedShift extends Component {
                 closeBtn={true}
                 closeOnEsc={true}
                 onClose={() => this.closeChat()}
+                contentStyle={{overflow: "hidden"}}
                 closeOnOverlay={true}>
                 <ChatApp channel={this.state.channel} />
             </PopPop>
