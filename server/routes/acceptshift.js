@@ -15,62 +15,59 @@ let jwtClient     = new google.auth.JWT(
 
 
 route.put('/', (req,res) => {
-//authenticate request
-  console.log(req.body);
-  let b = req.body;
-  let start = b.date + 'T' + b.starttime + ':00';
-  let end = b.date + 'T' + b.endtime + ':00';
-  console.log(start);
-  console.log(end)
-  //console.log(end);
+  let body = req.body[0]
+  let today = moment().format('YYYY-MM-DDT');
+  let start = body.date+'T'+body.starttime+':00-'+body.starttime+':00';
+  let end = body.date+'T'+body.endtime+':00-'+body.endtime+':00';
 
-// var event = {
-//   'title':b.title,
-//   'summary': b.summary,
-//   'location': b.location,
-//   'description': "open",
-//   'start': {
-//     'dateTime': start,
-//     'timeZone': 'America/Adak',
-//   },
-//   'end': {
-//     'dateTime': end,
-//     'timeZone': 'America/Adak',
-//   },
-//   'reminders': {
-//     'useDefault': false,
-//     'overrides': [
-//       {'method': 'email', 'minutes': 24 * 60},
-//       {'method': 'popup', 'minutes': 10},
-//     ],
-//   },
-// };
-// jwtClient.authorize(function (err, tokens) {
-  
-//  if (err) {
-//    console.log("Did not connect!", err);
-//    return;
-//  } else {
-//    console.log("Successfully connected!");
-   
+  var event = {
+    'title':body.summary,
+    'summary': body.summary,
+    'location': "Manoa Innovation Center",
+    'description': "helloworld@gmailbek.com",
+    'start': {
+      'dateTime': start,
+      'timeZone': 'America/Adak',
+    },
+    'end': {
+      'dateTime': end,
+      'timeZone': 'America/Adak',
+    },
+    'reminders': {
+      'useDefault': false,
+      'overrides': [
+        {'method': 'email', 'minutes': 24 * 60},
+        {'method': 'popup', 'minutes': 10},
+      ],
+    },
+  };
 
-// let token = tokens.access_token;
-// let calendarId = 'cohortuser19@gmail.com';
-// let calendar = google.calendar('v3');
+  jwtClient.authorize(function (err, tokens) {
+    
+   if (err) {
+     console.log("Did not connect!", err);
+     return;
+   } else {
+     console.log("Successfully connected!");
+     
 
-// gcal(token).events.update(calendarId,b.id,event, function(err,data){
-//   if(err) console.log(500,err);
-//   return calendar.events.list({
-//     auth: jwtClient,
-//     calendarId: 'cohortuser19@gmail.com'
-//   }, function(err,response){
-//       var events = response.items;
+  let token = tokens.access_token;
+  let calendarId = 'cohortuser19@gmail.com';
+  let calendar = google.calendar('v3');
 
-//       res.json(events);
-//   })
-//   })
-//  }
-// });
+  gcal(token).events.update(calendarId,body.id,event, function(err,data){
+    if(err) console.log(500,err);
+    return calendar.events.list({
+      auth: jwtClient,
+      calendarId: 'cohortuser19@gmail.com'
+    }, function(err,response){
+        var events = response.items;
+
+        res.json(events);
+       })
+      })
+    }
+  });
 })
 
 
