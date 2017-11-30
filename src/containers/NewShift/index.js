@@ -13,7 +13,7 @@ class NewShift extends Component {
     this.disableButton = this.disableButton.bind(this);
     this.enableButton = this.enableButton.bind(this);
     this.quickSubmit = this.quickSubmit.bind(this);
-    this.state = { canSubmit: false, hide: false };
+    this.state = { canSubmit: false, hide: false, refs:'' };
   }
 
   disableButton() {
@@ -25,6 +25,7 @@ class NewShift extends Component {
   }
 
   submit(model) {
+    this.setState({refs:''})
     if(model.title === undefined){
       this.setState({canSubmit: false})
     }

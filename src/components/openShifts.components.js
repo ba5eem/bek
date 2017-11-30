@@ -27,7 +27,7 @@ const openShifts = ({shift,idx,singleShift,exitSingle,openChat,query}) => {
           <button className="chatButtonOnShiftCard" onClick={(e)=>openChat(e,shift.id)}>CHAT
           </button>
           <button className="detailsButtonOnShiftCard">
-          <a href={shift.htmlLink}>DETAILS</a>
+          <a href={shift.htmlLink} target="_blank">DETAILS</a>
           </button>
 
 
