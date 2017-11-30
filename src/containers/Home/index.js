@@ -31,6 +31,7 @@ class Home extends Component {
         </div>
 
         <div id="iframe-div">
+        <div id="calendar-title">-- Cohort 19 --</div>
         <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
           width="650px"
           height="500px"
