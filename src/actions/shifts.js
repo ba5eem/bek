@@ -5,6 +5,7 @@ export const ADD_SHIFT = 'ADD_SHIFT';
 export const EDIT_SHIFT = 'EDIT_SHIFT';
 export const DELETE_SHIFT = 'DELETE_SHIFT';
 export const LOAD_PHONE = 'LOAD_PHONE';
+export const LOAD_SHIFT = 'LOAD_SHIFT';
 
 export const loadShifts = () => {
   let local = [];
@@ -51,6 +52,31 @@ export const addShift = (newShift) => {
     });
   }
 }
+
+//jesses - example of better format for promise
+// export const addShift = newShift => {
+//   return dispatch => {
+//     return axios.post('url', newShift)
+//       .then(() => {
+//         return new Promise.all([
+//             axios.get('shifts'),
+//             axios.get('phones')
+//           ]);
+//       })
+//       .then((shiftsAndPhonesArr)=> {
+//         return axios.post('notify', shiftsAndPhonesArr)
+//           .then(() => {
+//             return shiftsAndPhonesArr[0];
+//           });
+//       })
+//       .then(shifts => {
+//         console.log(shifts);
+//         dispatch({
+//         type: ADD_SHIFT,
+//         shifts: shifts.data
+//       });
+//   }
+// }
 
 export const addSix = (newShift) => {
   let local = [];
@@ -132,6 +158,52 @@ export const addCustom = (newShift) => {
     })
         })
       })  
+    });
+  }
+}
+
+export const availableShift = (url) => {
+  return function(dispatch){
+    return axios.get(`/api${url}`)
+      .then( shift => {
+        dispatch({
+          type:LOAD_SHIFT,
+          shift: shift.data 
+        })
+      })
+  }
+}
+
+export const acceptShifts = (body,id) => {
+  let local = []
+  return function(dispatch){
+    return axios.put(`/api/acceptshift/${id}`, body)
+    .then( () => {
+      return axios.get('/api/users')
+      .then((users) => {
+        local.push(users.data)
+        return axios.get('/api/shifts')
+        .then( shifts => {
+          local.push(shifts.data)
+            dispatch({
+              type: LOAD_SHIFTS,
+              shifts: local
+              });
+            });
+          });
+        });
+
+  }
+}
+
+export const declinedShift = (body) =>{
+  return function(dispatch){
+    return axios.put(`/api/declineshift`, body)
+    .then( () => {
+      dispatch({
+        type: EDIT_SHIFT,
+        shift: null
+      });
     });
   }
 }

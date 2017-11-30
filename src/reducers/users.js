@@ -12,6 +12,9 @@ const users = (state = [], action) => {
       localStorage.setItem('group', user.businessGroup)
       localStorage.setItem('email', user.email);
       localStorage.setItem('id', user.id);
+      console.log(user)
+      console.log(user.name);
+      localStorage.setItem('username', user.name);
       if(user.isLoggedIn === true){
         localStorage.setItem('isLoggedIn', true);
         console.log(localStorage.isLoggedIn, ' --- within reducer')

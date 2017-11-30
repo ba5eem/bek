@@ -21,7 +21,7 @@ class Home extends Component {
 
   render(){
     const path = "cohortuser19%40gmail.com";
-    //const auth = this.state.auth || localStorage.auth;
+    
     return (
       <div id="main-Home-container">
         <div id="column-1">
@@ -31,6 +31,7 @@ class Home extends Component {
         </div>
 
         <div id="iframe-div">
+        <div id="calendar-title">-- Cohort 19 --</div>
         <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
           width="650px"
           height="500px"

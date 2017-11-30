@@ -14,7 +14,7 @@ export default class Custom extends Component {
     this.state = {
       show: false
     }
-    console.log(this.props.show);
+
   }
 
   toggleShow = show => {
@@ -24,22 +24,21 @@ export default class Custom extends Component {
     this.props.setValue(event.currentTarget.value);
   }
 
-
-
   render() {
     const {show} = this.state;
-    const {hide} = this.props;
+
     return (
       <div>
         <button id="custom-button" onClick={() => this.toggleShow(true)}>CUSTOM</button>
         <PopPop position="centerCenter"
                 open={show}
-                close={hide}
                 closeBtn={true}
                 closeOnEsc={true}
                 onClose={() => this.toggleShow(false)}
+                contentStyle={{overflow: "hidden"}}
                 closeOnOverlay={true}>
           <Formsy onSubmit={this.props.submit}>
+          <h1>_Custom</h1>
             <MyInput
               name="title"
               validations="isWords"
@@ -75,7 +74,7 @@ export default class Custom extends Component {
               />
             <button style={select} type="submit">Submit</button>
             <br></br>
-            <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "HIT THE X WHEN YOU ARE DONE"}</h3>
+            <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "CLICK 'X' WHEN YOU ARE DONE"}</h3>
           </Formsy>
 
         </PopPop>
@@ -85,21 +84,12 @@ export default class Custom extends Component {
   }
 }
 
-// const addShift={
-//   backgroundColor:"#66b3ff",
-//   color:"white",
-//   border: "transparent",
-//   fontSize: "30px",
-//   paddingBottom:"10px",
-//   paddingRight:"15px",
-//   paddingLeft:"15px",
-//   marginTop:"10px"
-// }
 const select = {
   width: "400px",
   textAlign:"center",
   backgroundColor: "#66b3ff",
-  fontSize:"40px"
+  fontSize:"25px",
+  color: "white"
 }
 const close ={
   textAlign: "center"

@@ -21,6 +21,7 @@ const {user}      = db;
       local.id = user.id;
       local.admin = user.admin;
       local.image = user.image;
+      local.name = user.name;
       //console.log(local);
       return res.json(local);
     }).catch((err) =>{

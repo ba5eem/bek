@@ -12,6 +12,20 @@ module.exports = {
       phone: '8087280608',
       name: 'John_Smith',
       admin: false,
+      hours: 20,
+      createdAt: '2017-11-23 00:00:57',
+      updatedAt: '2017-11-23 01:00:57'
+    },
+    {
+      email: 'captain@gmailbek.com',
+      familyname: 'Stewar',
+      givenname: 'Patick',
+      googleid: '112587183780205170008',
+      image: 'http://bit.ly/2AlXfAL',
+      phone: '6122762292',
+      name: 'Capt.Jean-Luc.Picard',
+      admin: false,
+      hours: 90,
       createdAt: '2017-11-23 00:00:57',
       updatedAt: '2017-11-23 01:00:57'
     },
@@ -24,6 +38,7 @@ module.exports = {
       phone: '6129982261',
       name: 'cohort user',
       admin: true,
+      hours: 25,
       createdAt: '2017-11-23 00:00:57',
       updatedAt: '2017-11-23 01:00:57'
     },
@@ -36,6 +51,7 @@ module.exports = {
       phone: '8087280608',
       name: 'Ethan_Hunt',
       admin: false,
+      hours: 30,
       createdAt: '2017-11-23 00:00:57',
       updatedAt: '2017-11-23 01:00:57'
     },
@@ -48,6 +64,7 @@ module.exports = {
       image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png',
       name: 'Sherlock_Elementary',
       admin: false,
+      hours: 10,
       createdAt: '2017-11-23 00:00:57',
       updatedAt: '2017-11-23 01:00:57'
     },
@@ -60,6 +77,7 @@ module.exports = {
       phone: '6129982261',
       name: 'Dee_Ligent',
       admin: false,
+      hours: 5,
       createdAt: '2017-11-23 00:00:57',
       updatedAt: '2017-11-23 01:00:57'
     },
@@ -72,6 +90,7 @@ module.exports = {
       phone: '6129982261',
       name: 'Amy_Lock',
       admin: false,
+      hours: 35,
       createdAt: '2017-11-23 00:00:57',
       updatedAt: '2017-11-23 01:00:57'
     }], {});

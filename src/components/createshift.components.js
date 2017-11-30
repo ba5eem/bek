@@ -11,12 +11,9 @@ const CreateShift = ({handleChange,handleSubmit}) => {
             <input onChange={handleChange} type="text" name="description" placeholder="description" style={input}></input>
             <input onChange={handleChange} type="text" name="startTime" placeholder="startTime" style={input}></input>
             <input onChange={handleChange} type="text" name="endTime" placeholder="endTime" style={input}></input>
-            <input type="submit" value="Post New Shift"></input>
+            <input className="submit" type="submit" value="Post New Shift"></input>
           </form>
-
         </div>
-
-
     )//end of return
 };
 
@@ -41,7 +38,6 @@ const shiftCard = {
     marginTop: "10px",
     width: "400px",
     height:"200px",
-    backgroundColor: "lightgreen",
     display: "flex-wrap",
     justifyContent:"center",
     textAlign:"center"

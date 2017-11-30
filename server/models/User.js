@@ -24,6 +24,9 @@ module.exports = function(sequelize,DataTypes){
     admin:{
       type: DataTypes.BOOLEAN,
       defaultValue: false
+    },
+    hours: {
+      type: DataTypes.INTEGER
     }
   })
 

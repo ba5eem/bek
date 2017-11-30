@@ -47,6 +47,7 @@ export default class Popup extends Component {
                   closeBtn={true}
                   closeOnEsc={true}
                   onClose={() => this.toggleShow()}
+                  contentStyle={{overflow: "hidden"}}
                   closeOnOverlay={true}>
                   <Formsy onSubmit={this.props.submit}>
                     <p style={heading}>{this.state.shift}HR SHIFT</p>
@@ -63,7 +64,7 @@ export default class Popup extends Component {
                     required
                     />
                     <MyInput
-                    name="description"
+                    name="role"
                     validations="isWords"
                     validationError="This a required field"
                     required
@@ -89,7 +90,7 @@ export default class Popup extends Component {
 }
 
 const heading={
-  fontSize: "40px"
+  fontSize: "30px"
 }
 
 const select = {
@@ -97,8 +98,10 @@ const select = {
   textAlign:"center",
   backgroundColor: "#66b3ff",
   height:"40px",
-  fontSize: "30px"
+  fontSize: "25px",
+  color: "white"
 }
+
 const close ={
   textAlign: "center"
 }

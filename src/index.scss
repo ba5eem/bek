@@ -74,7 +74,7 @@ textarea {
   .nav-links {
     background-color: $accent;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     padding: 0.8vw;
     a {
       background-color: $accent;
@@ -229,8 +229,6 @@ button.google-login {
     margin: 5px;
   }
 }
-
-
 //---------------------------
 .open-shifts {
   display: flex;
@@ -248,7 +246,10 @@ button.google-login {
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
-  // background: linear-gradient(to bottom, #66b3ff 0%, #ffffff 100%);
+}
+
+#calendar-title {
+  font-size: 200%;
 }
 //---------------------------
 #chat-app-div {
@@ -400,17 +401,16 @@ button.google-login {
 }
 
 .confirmAbsentButton {
+  font-size: 115%;
   background-color: #66b3ff;
   color: white;
   border: transparent;
-  font-size: 15px;
   box-shadow: 2px 2px 2px black;
-  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .confirmAbsentHeading {
   color: black;
-  font-size: 30px;
   text-align: center;
 }
 //User List-------------------
@@ -456,10 +456,11 @@ button.google-login {
 .ChatApp {
   border: 1px solid #ccc;
   border-radius: 3px;
-  height: 400px;
+  height: 375px;
   width: 650px;
-  margin-top: 30px;
-  // margin-bottom: 50px;
+  margin-top: 35px;
+  margin-bottom: 25px;
+  margin-left: 25px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -469,11 +470,27 @@ button.google-login {
     flex: 1;
   }
   .MessageForm {
+    display: flex;
     background: #eee;
     border-top: 1px solid #ccc;
     border-radius: 0 0 3px 3px;
     box-sizing: border-box;
     flex: 0 0 30px;
+  }
+  .MessageForm .input-container {
+  flex: 1;
+  color: black;
+  font-size: 24px;
+  height: 35px;
+  }
+  .MessageForm .button-container {
+  flex: 0 0 6em;
+  // margin: 1px 1px 1px 0;
+  }
+  input.send-button {
+   background: $button;
+   height: 35px;
+   font-size: 24px;
   }
 }
 
@@ -503,25 +520,6 @@ button.google-login {
   color: black;
 }
 
-.MessageForm {
-  display: flex;
-  background: #ccc;
-}
-
-.MessageForm .input-container {
-  flex: 1;
-  margin: 1px;
-  color: black;
-  font-size: 24px;
-  height: 50px;
-  margin-bottom: 10px;
-}
-
-.MessageForm .button-container {
-  flex: 0 0 6em;
-  margin: 1px 1px 1px 0;
-}
-
 .MessageForm input, .MessageForm button {
   border-radius: 3px;
   border: 1px solid #ccc;
@@ -534,16 +532,7 @@ button.google-login {
 
 .MessageForm input {
   background: $main;
-  padding: 0 0 0 4px;
   font-family: 'Advent Pro', sans-serif;
-}
-
-input.send-button {
- background: $button;
- margin: 1px;
- height: 50px;
- font-size: 24px;
-
 }
 // ------------------------
 #footer {
@@ -561,7 +550,125 @@ input.send-button {
 }
 
 #notfound{
-  background-color: #FA5517;
+  background-color: #f7674a;
   text-align: center;
+  height: 100%;
+  margin-top: 10px;
 }
+
+.welcomeUserSign{
+  color: white;
+  margin-right: 10px;
+  font-size: 120%;
+}
+
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .nav-links {
+    background-color: $accent;
+    display:flex;
+    justify-content: center;
+  }
+  .welcomeUserSign{
+    color: transparent;
+  }
+  .mobileWelcomeUserSignOnly{
+    color: white;
+  }
+  .accept-Shift-Container{
+  display: flex-wrap;
+  justify-content: center;
+  text-align: center;
+  }
+  .accept-shiftCard {
+    width: 270px;
+    height: 170px;
+    background-color: $main;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    border: 0.5px solid $button;
+  }
+
+  .mobileButtons{
+    display: flex-wrap;
+    justify-content: center;
+  }
+
+  .mobile-container{
+    margin-left: 50px;
+  }
+
+  .acceptShiftButton{
+    width: 270px;
+    height: 50px;
+    background-color: lightgreen;
+    margin-top: 10px;
+  }
+
+  .declineShift{
+    width: 270px;
+    height: 50px;
+    background-color: salmon;
+    margin-top: 10px;
+  }
+
+  .detailsShift{
+    width: 270px;
+    height: 50px;
+    background-color: cornflowerblue;
+    margin-top: 10px;
+  }
+  .declined-Shift{
+    position: absolute;
+    z-index: 2000;
+    width: 270px;
+    height: 220px;
+    background-color: salmon;
+    font-size: 40px;
+    padding-top: 140px;
+    color: black;
+    font-style: bold;
+    vertical-align: center;
+    text-align: center;
+    opacity: 0.9;
+
+
+  }
+  .accepted-Shift{
+    position: absolute;
+    z-index: 2000;
+    width: 270px;
+    height: 220px;
+    background-color: lightgreen;
+    font-size: 40px;
+    padding-top: 140px;
+    color: black;
+    font-style: bold;
+    vertical-align: center;
+    text-align: center;
+    opacity: 0.9;
+
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  #header {
+    width: 100%;
+  }
+  #main-Home-container {
+    display: block;
+    align-items: center;
+    width: 100%;
+  }
+  #iframe-div {
+    overflow: scroll;
+  }
+}
+
 

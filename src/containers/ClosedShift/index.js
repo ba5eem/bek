@@ -35,6 +35,9 @@ class ClosedShift extends Component {
     this.props.loadShifts();
 
   }
+  // componentWillReceiveProps(){
+  //   this.props.loadShifts();
+  // }
   singleShift(e,id){
     e.preventDefault();
     this.setState({query:id})
@@ -65,7 +68,7 @@ class ClosedShift extends Component {
     localStorage.setItem('channel',elem.summary);
     localStorage.setItem('author',elem.organizer);
     this.setState({
-      chat: true, 
+      chat: true,
       channel: elem.summary,
       user: elem.useremail})
   }
@@ -100,17 +103,19 @@ class ClosedShift extends Component {
                 closeBtn={true}
                 closeOnEsc={true}
                 onClose={() => this.toggleShow(false)}
+                contentStyle={{overflow: "hidden"}}
                 closeOnOverlay={true}>
-              <h2 className="confirmAbsentHeading">You Marked this shift as absent, do you want to release it as an available open shift?</h2>
-              <button className="confirmAbsentButton" onClick={(e)=>this.markAbsent(e)}>YES</button>
+              <h3 className="confirmAbsentHeading">You Marked this shift as absent.<br/>Are you sure you want to release this shift?</h3>
+             <center><button className="confirmAbsentButton" onClick={(e)=>this.markAbsent(e)}>YES</button></center>
             </PopPop>
             <PopPop position="centerCenter"
                 open={chat}
                 closeBtn={true}
                 closeOnEsc={true}
                 onClose={() => this.closeChat()}
+                contentStyle={{overflow: "hidden"}}
                 closeOnOverlay={true}>
-                <ChatApp channel={this.state.channel} /> 
+                <ChatApp channel={this.state.channel} />
             </PopPop>
 
           {shifts.map((shift,idx) => {
