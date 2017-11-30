@@ -32,4 +32,3 @@ const server = app.listen(PORT,() => {
   console.log(`Server connected on PORT: ${PORT}`);
 });
 
-res.sendFile(path.join(__dirname, [path-to-index.html])));
