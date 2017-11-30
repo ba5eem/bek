@@ -74,7 +74,7 @@ textarea {
   .nav-links {
     background-color: $accent;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     padding: 0.8vw;
     a {
       background-color: $accent;
@@ -567,5 +567,11 @@ input.send-button {
 #notfound{
   background-color: #FA5517;
   text-align: center;
+}
+
+.welcomeUserSign{
+  color: white;
+  margin-right: 10px;
+  font-size: 30px;
 }
 
