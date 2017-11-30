@@ -56,7 +56,8 @@ const select = {
   textAlign:"center",
   backgroundColor: "#66b3ff",
   fontSize:"25px",
-  marginTop: "20px"
+  marginTop: "20px",
+  textAlignLast: "center"
 }
 
 export default withFormsy(SelectMonth);

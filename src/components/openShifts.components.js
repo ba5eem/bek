@@ -24,7 +24,7 @@ const openShifts = ({shift,idx,singleShift,exitSingle,openChat,query}) => {
           {query ?  //if in single view this buttonw will appear
           <button className="backButtonOnShiftCard" onClick={exitSingle}>BACK</button>
           : null}
-          <button className="chatButtonOnShiftCard" onClick={(e)=>openChat(e,shift.id)}>CHAT
+          <button className="chatButtonOnShiftCard" onClick={(e)=>openChat(e,shift)}>CHAT
           </button>
           <button className="detailsButtonOnShiftCard">
           <a href={shift.htmlLink} target="_blank">DETAILS</a>

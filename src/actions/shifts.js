@@ -53,6 +53,31 @@ export const addShift = (newShift) => {
   }
 }
 
+//jesses - example of better format for promise
+// export const addShift = newShift => {
+//   return dispatch => {
+//     return axios.post('url', newShift)
+//       .then(() => {
+//         return new Promise.all([
+//             axios.get('shifts'),
+//             axios.get('phones')
+//           ]);
+//       })
+//       .then((shiftsAndPhonesArr)=> {
+//         return axios.post('notify', shiftsAndPhonesArr)
+//           .then(() => {
+//             return shiftsAndPhonesArr[0];
+//           });
+//       })
+//       .then(shifts => {
+//         console.log(shifts);
+//         dispatch({
+//         type: ADD_SHIFT,
+//         shifts: shifts.data
+//       });
+//   }
+// }
+
 export const addSix = (newShift) => {
   let local = [];
   return function(dispatch){
@@ -149,15 +174,25 @@ export const availableShift = (url) => {
   }
 }
 
-export const acceptShifts = (body) => {
+export const acceptShifts = (body,id) => {
+  let local = []
   return function(dispatch){
-    return axios.put(`/api/acceptshift`, body)
+    return axios.put(`/api/acceptshift/${id}`, body)
     .then( () => {
-      dispatch({
-        type: EDIT_SHIFT,
-        shift: null
-      });
-    });
+      return axios.get('/api/users')
+      .then((users) => {
+        local.push(users.data)
+        return axios.get('/api/shifts')
+        .then( shifts => {
+          local.push(shifts.data)
+            dispatch({
+              type: LOAD_SHIFTS,
+              shifts: local
+              });
+            });
+          });
+        });
+
   }
 }
 
