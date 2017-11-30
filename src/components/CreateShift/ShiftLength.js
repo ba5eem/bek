@@ -89,7 +89,7 @@ export default class Popup extends Component {
 }
 
 const heading={
-  fontSize: "40px"
+  fontSize: "30px"
 }
 
 const select = {
@@ -97,8 +97,10 @@ const select = {
   textAlign:"center",
   backgroundColor: "#66b3ff",
   height:"40px",
-  fontSize: "30px"
+  fontSize: "30px",
+  color: "white"
 }
+
 const close ={
   textAlign: "center"
 }
