@@ -1,4 +1,4 @@
-import { LOAD_SHIFTS,ADD_SHIFT } from '../actions/shifts.js';
+import { LOAD_SHIFTS,ADD_SHIFT,LOAD_SHIFT } from '../actions/shifts.js';
 import { SMS_SHIFT } from '../actions/sms';
 //var moment = require('moment');
 
@@ -40,6 +40,11 @@ const shifts = (state = [], action) => {
        return elem.id === res.id
      });
      return [ ...(state.slice(0, index)), res, ...(state.slice((index + 1), state.length))];
+    case LOAD_SHIFT:
+
+ 
+      return [...action.shift];
+
     default:
       return state
   }
