@@ -29,6 +29,7 @@ import Nav from './components/nav.components';
 import Footer from './components/footer.components';
 import UsersListView from './containers/UsersListView';
 import ProfileView from './containers/ProfileView';
+import AcceptShift from './containers/AcceptShift/index.js';
 import UserList from './components/UserList';
 // import AppHeader from './components/AppHeader.js';
 // import Background from './containers/Background';
@@ -41,6 +42,7 @@ const store = createStore(
   );
 const auth = localStorage.isLoggedIn !== undefined ? localStorage.isLoggedIn : false;
 
+const accepturi = localStorage.accepturi !== undefined ? localStorage.accepturi : '/accept';
 
 
 ReactDOM.render(
@@ -65,6 +67,7 @@ ReactDOM.render(
           <Route path="/users" component={UsersListView} />
           <Route path="/home" component={Home} />
           <Route path="/chat" component={ChatApp} />
+          <Route path={accepturi} component={AcceptShift}/>
           <Route component={NotFound} />
         </Switch>
       <Footer />
