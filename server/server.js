@@ -24,10 +24,12 @@ app.get('/', ( req, res ) =>{
 });
 
 app.get('*', ( req, res ) => {
-  res.json('This page does not exist, 404 not found');
+  res.sendFile(path.join(__dirname, '..', 'public'));
 });
 
 const server = app.listen(PORT,() => {
   db.sequelize.sync( { force: false } ); //this is to link with your DB defined in the config file - set to true to overwrite, set to false to not overwrite:
   console.log(`Server connected on PORT: ${PORT}`);
 });
+
+res.sendFile(path.join(__dirname, [path-to-index.html])));
