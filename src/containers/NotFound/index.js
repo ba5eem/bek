@@ -17,7 +17,6 @@ class NotFound extends Component {
 
         <img src="http://bit.ly/2BwEWsS" alt="image not found...kinda like this page"/>
 
-
       </div>
     );
   }
