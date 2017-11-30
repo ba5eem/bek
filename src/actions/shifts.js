@@ -5,6 +5,7 @@ export const ADD_SHIFT = 'ADD_SHIFT';
 export const EDIT_SHIFT = 'EDIT_SHIFT';
 export const DELETE_SHIFT = 'DELETE_SHIFT';
 export const LOAD_PHONE = 'LOAD_PHONE';
+export const LOAD_SHIFT = 'LOAD_SHIFT';
 
 export const loadShifts = () => {
   let local = [];
@@ -132,6 +133,42 @@ export const addCustom = (newShift) => {
     })
         })
       })  
+    });
+  }
+}
+
+export const availableShift = (url) => {
+  return function(dispatch){
+    return axios.get(`/api${url}`)
+      .then( shift => {
+        dispatch({
+          type:LOAD_SHIFT,
+          shift: shift.data 
+        })
+      })
+  }
+}
+
+export const acceptShifts = (body) => {
+  return function(dispatch){
+    return axios.put(`/api/acceptshift`, body)
+    .then( () => {
+      dispatch({
+        type: EDIT_SHIFT,
+        shift: null
+      });
+    });
+  }
+}
+
+export const declinedShift = (body) =>{
+  return function(dispatch){
+    return axios.put(`/api/declineshift`, body)
+    .then( () => {
+      dispatch({
+        type: EDIT_SHIFT,
+        shift: null
+      });
     });
   }
 }

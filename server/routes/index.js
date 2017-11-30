@@ -12,7 +12,12 @@ const six         = require('./six.js');
 const eight       = require('./eight.js');
 const custom      = require('./custom.js');
 const accept      = require('./accept.js');
+const acceptshift = require('./acceptshift.js');
+const declineshift= require('./declineshift.js');
 
+
+route.use('/acceptshift', acceptshift);
+route.use('/declineshift', declineshift);
 route.use('/accept', accept);
 route.use('/custom', custom);
 route.use('/eight', eight);

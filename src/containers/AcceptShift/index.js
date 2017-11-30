@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {loadShifts} from '../../actions/shifts';
+import { Redirect } from 'react-router';
+import {availableShift, acceptShifts,declinedShift,loadShifts} from '../../actions/shifts';
 import AcceptShiftMobile from '../../components/AcceptShift.component.js';
-import {filterAll,filterClosed} from '../../lib/Filters';
+import {filterAll,filterClosed,filterOpen} from '../../lib/Filters';
 
 
 
@@ -11,46 +12,61 @@ class AcceptShift extends Component {
     super();
 
     this.state={
-      query: "65e33ctpsajstq790t3v8mdmrt"
+      url: '',
+      declined: false,
+      redirect: false,
+      accepted: false
     }
+    this.acceptShift = this.acceptShift.bind(this);
+    this.declineShift = this.declineShift.bind(this);
   }
 
   componentDidMount(){
-    this.props.loadShifts();
+    this.props.loadShifts()
+    let url = this.props.location.pathname;
+    let id = url.slice(8);
+    this.setState({url: id})
   }
+  acceptShift(e){
+    let id = this.state.url;
+    let shift = filterAll(this.props.shifts,'id',id )
+    this.props.acceptShifts(shift);
+    this.setState({accepted: true})
+    setTimeout(function() {
+      this.setState({redirect: true}); }.bind(this),900);
+    }
 
-  singleShift(e,id){
-    e.preventDefault();
-    this.setState({query:id})
-    localStorage.setItem('single',id);
+
+  declineShift(e){
+    this.setState({declined:true})
+    setTimeout(function() {
+      this.setState({redirect: true}); }.bind(this),900);
   }
-
-  //based off the uri that is reference in the text message will define what will show up here: 
-
 
   render(){
-    const query = this.state.query;
-    const data = filterClosed(this.props.shifts,'closed',undefined);
-    const shifts = filterAll(data,'id', query);
-    console.log(shifts);
+    let id = this.state.url;
+    const data = filterOpen(this.props.shifts,'closed',true);
+    const shifts = filterAll(data,'id', id);
+    const declined = this.state.declined;
+    if(this.state.redirect) {return ( <Redirect to='/'/>)}
 
 
     return (
 
         <div className="acceptShift">
-          {shifts.map((shift,idx) => {
-            return (
-              <AcceptShiftMobile
-                key={idx}
-                shift={shift}
-                query={this.state.query}
-                showAbsent={this.state.showAbsent}
-                singleShift={this.singleShift}
-                markAbsent={this.markAbsent}
-                openChat={this.openChat}
-                exitSingle={this.exitSingle} />
-                )
-            })}
+
+              {shifts.map((shift,idx)=>{
+                return (
+                  <AcceptShiftMobile
+                    accepted={this.state.accepted}
+                    declined={this.state.declined}
+                    key={idx}
+                    shift={shift}
+                    acceptShift={this.acceptShift}
+                    declineShift={this.declineShift}/>
+                  )
+              })}
+              
         </div>
 
     );
@@ -67,7 +83,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedAcceptShift = connect(
   mapStateToProps,
-  {loadShifts}
+  {loadShifts,availableShift,declinedShift,acceptShifts}
 )(AcceptShift)
 
 export default ConnectedAcceptShift;

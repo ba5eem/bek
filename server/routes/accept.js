@@ -22,6 +22,7 @@ route.get('/', (req,res) =>{
 route.get('/:id', (req,res) => {
   let local = {}
   let id = req.params.id;
+  console.log(id);
 
 
   jwtClient.authorize(function (err, tokens) {
@@ -82,14 +83,13 @@ calendar.events.list({
         delete events[i].start;
         delete events[i].end;
         delete events[i].sequence;
-        if(events[i].id === id){
-          res.json(events[i]);
         }
-        else{
-          res.json('shift no longer is availble');
-       }  
-     } 
+        let shift = events.filter((elem)=>{
+          return elem.id === id;
+        })
+        res.json(shift);
   });
+  
 })
 
 

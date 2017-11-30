@@ -67,7 +67,7 @@ ReactDOM.render(
           <Route path="/users" component={UsersListView} />
           <Route path="/home" component={Home} />
           <Route path="/chat" component={ChatApp} />
-          <Route path={accepturi} component={AcceptShift}/>
+          <Route path="/accept" component={AcceptShift}/>
           <Route component={NotFound} />
         </Switch>
       <Footer />
