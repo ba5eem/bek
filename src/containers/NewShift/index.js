@@ -5,8 +5,6 @@ import { addShift,addSix,addEight,addCustom } from '../../actions/shifts';
 import Custom from '../../components/CreateShift/Custom';
 import ShiftLength from '../../components/CreateShift/ShiftLength';
 import { notifySms } from '../../actions/sms';
-import {createShift} from './customIndex.js'
-import {clearLocal} from './customIndex.js'
 
 class NewShift extends Component {
   constructor(props) {
@@ -15,7 +13,7 @@ class NewShift extends Component {
     this.disableButton = this.disableButton.bind(this);
     this.enableButton = this.enableButton.bind(this);
     this.quickSubmit = this.quickSubmit.bind(this);
-    this.state = { canSubmit: false, show: false };
+    this.state = { canSubmit: false, hide: false, refs:'' };
   }
 
   disableButton() {
@@ -27,6 +25,7 @@ class NewShift extends Component {
   }
 
   submit(model) {
+    this.setState({refs:''})
     if(model.title === undefined){
       this.setState({canSubmit: false})
     }
@@ -40,9 +39,9 @@ class NewShift extends Component {
       this.setState({canSubmit: false})
     }
     else{
-      this.setState({canSubmit: true})
-      let res = createShift(model)
-      console.log(res);
+      this.setState({canSubmit: true, hide: true})
+      this.props.addCustom(model)
+      console.log(model);
     }
   }
 
@@ -65,11 +64,11 @@ class NewShift extends Component {
         <div id="todays-shifts">Create a New Shift</div>
         <div id="main-shift-button-container">
         <Custom
-          show={this.state.show}
+          hide={this.state.hide}
           submit={this.submit.bind(this)}
           canSubmit={this.state.canSubmit}/>
         <ShiftLength
-          show={this.state.show}
+          hide={this.state.hide}
           submit={this.quickSubmit.bind(this)}
           canSubmit={this.state.canSubmit}/>
         </div>

@@ -4,6 +4,8 @@ import { loadUsers, editPhone } from '../actions/users';
 import UserDetailView from './UserDetailView';
 import { Link } from 'react-router-dom';
 import PopupEditPhone from '../containers/EditUser/PopupEditPhone';
+import _sortBy from 'lodash/sortBy';
+const _ = require('lodash');
 
 class UserList extends Component {
   constructor(props){
@@ -17,12 +19,9 @@ class UserList extends Component {
   }
 
   submit(model,id) {
-   console.log('triggered submit', model)
-   console.log(id);
    this.setState({show:false})
    model.id = id;
    this.props.editPhone(model)
-   console.log('submit --- >',model);
  }
 
 
@@ -30,10 +29,10 @@ class UserList extends Component {
     const users = this.props.users
     return (
       <div id="all-user-list">
-       {
-          users.map((user,idx) => {
-            return (
-              <div id="user-card-container">
+       { _.sortBy(users, o => +new Date(o.id))
+        .map((user,idx) => {
+          return (
+              <div id="user-card-container" key={idx}>
                 <UserDetailView
                   key={idx}
                   id={user.id}

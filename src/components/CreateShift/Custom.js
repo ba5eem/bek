@@ -14,7 +14,7 @@ export default class Custom extends Component {
     this.state = {
       show: false
     }
-    console.log(this.props.show);
+
   }
 
   toggleShow = show => {
@@ -25,16 +25,18 @@ export default class Custom extends Component {
   }
 
 
+  
+
+
 
   render() {
     const {show} = this.state;
-    const {hide} = this.props;
+    
     return (
       <div>
         <button id="custom-button" onClick={() => this.toggleShow(true)}>CUSTOM</button>
         <PopPop position="centerCenter"
                 open={show}
-                close={hide}
                 closeBtn={true}
                 closeOnEsc={true}
                 onClose={() => this.toggleShow(false)}
