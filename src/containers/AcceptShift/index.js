@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {loadShifts} from '../../actions/shifts';
+import {availableShift} from '../../actions/shifts';
 import AcceptShiftMobile from '../../components/AcceptShift.component.js';
 import {filterAll,filterClosed} from '../../lib/Filters';
 
@@ -16,7 +16,7 @@ class AcceptShift extends Component {
   }
 
   componentDidMount(){
-    this.props.loadShifts();
+    this.props.availableShift();
   }
 
   singleShift(e,id){
@@ -29,16 +29,14 @@ class AcceptShift extends Component {
 
 
   render(){
-    const query = this.state.query;
-    const data = filterClosed(this.props.shifts,'closed',undefined);
-    const shifts = filterAll(data,'id', query);
+    const shifts = this.props.shift;
     console.log(shifts);
 
 
     return (
 
         <div className="acceptShift">
-          {shifts.map((shift,idx) => {
+         {shifts.map((shift,idx) => {
             return (
               <AcceptShiftMobile
                 key={idx}
@@ -61,13 +59,13 @@ class AcceptShift extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    shifts: state.shifts
+    shift: state.shifts
   }
 }
 
 const ConnectedAcceptShift = connect(
   mapStateToProps,
-  {loadShifts}
+  {availableShift}
 )(AcceptShift)
 
 export default ConnectedAcceptShift;
