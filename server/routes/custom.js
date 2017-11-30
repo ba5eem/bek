@@ -22,7 +22,7 @@ route.post('/', (req,res) => {
   let start = date+req.body.start+':00';
   let end = date+req.body.end+':00';
   let endTime = end + '-'+req.body.end+':00';
-
+  console.log(time)
 
   var event = {
     'title':req.body.title,
@@ -45,6 +45,7 @@ route.post('/', (req,res) => {
       ],
     },
   };
+
   jwtClient.authorize(function (err, tokens) {
     if (err) { console.log("Did not connect!", err);
      return; } 
@@ -66,6 +67,8 @@ route.post('/', (req,res) => {
         })
      }
   });
+
+
 })
 
 
