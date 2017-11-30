@@ -459,10 +459,11 @@ button.google-login {
 .ChatApp {
   border: 1px solid #ccc;
   border-radius: 3px;
-  height: 400px;
+  height: 375px;
   width: 650px;
-  margin-top: 30px;
-  // margin-bottom: 50px;
+  margin-top: 35px;
+  margin-bottom: 25px;
+  margin-left: 25px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -472,11 +473,27 @@ button.google-login {
     flex: 1;
   }
   .MessageForm {
+    display: flex;
     background: #eee;
     border-top: 1px solid #ccc;
     border-radius: 0 0 3px 3px;
     box-sizing: border-box;
     flex: 0 0 30px;
+  }
+  .MessageForm .input-container {
+  flex: 1;
+  color: black;
+  font-size: 24px;
+  height: 35px;
+  }
+  .MessageForm .button-container {
+  flex: 0 0 6em;
+  // margin: 1px 1px 1px 0;
+  }
+  input.send-button {
+   background: $button;
+   height: 35px;
+   font-size: 24px;
   }
 }
 
@@ -506,25 +523,6 @@ button.google-login {
   color: black;
 }
 
-.MessageForm {
-  display: flex;
-  background: #ccc;
-}
-
-.MessageForm .input-container {
-  flex: 1;
-  margin: 1px;
-  color: black;
-  font-size: 24px;
-  height: 50px;
-  margin-bottom: 10px;
-}
-
-.MessageForm .button-container {
-  flex: 0 0 6em;
-  margin: 1px 1px 1px 0;
-}
-
 .MessageForm input, .MessageForm button {
   border-radius: 3px;
   border: 1px solid #ccc;
@@ -537,16 +535,7 @@ button.google-login {
 
 .MessageForm input {
   background: $main;
-  padding: 0 0 0 4px;
   font-family: 'Advent Pro', sans-serif;
-}
-
-input.send-button {
- background: $button;
- margin: 1px;
- height: 50px;
- font-size: 24px;
-
 }
 // ------------------------
 #footer {
