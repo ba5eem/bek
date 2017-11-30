@@ -24,7 +24,7 @@ app.get('/', ( req, res ) =>{
 });
 
 app.get('*', ( req, res ) => {
-  res.json('This page does not exist, 404 not found');
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
 const server = app.listen(PORT,() => {

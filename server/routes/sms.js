@@ -23,7 +23,7 @@ route.post('/', (req,res) => {
 })
 
 route.post('/notify', (req,res) => {
-  const link = "http://localhost:3000/accept/";
+  const link = "http://bek.ellamaearana.com/accept/";//change to local host for development
   let body = req.body[0].data;
   let newShift = body[body.length-1];
   let shiftId = newShift.id;
