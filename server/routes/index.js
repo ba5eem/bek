@@ -11,7 +11,9 @@ const logout      = require('./logout.js');
 const six         = require('./six.js');
 const eight       = require('./eight.js');
 const custom      = require('./custom.js');
+const accept      = require('./accept.js');
 
+route.use('/accept', accept);
 route.use('/custom', custom);
 route.use('/eight', eight);
 route.use('/six', six);
