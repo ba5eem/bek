@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {availableShift, acceptShifts,declinedShift} from '../../actions/shifts';
+import {availableShift, acceptShifts,declinedShift,loadShifts} from '../../actions/shifts';
 import AcceptShiftMobile from '../../components/AcceptShift.component.js';
 import {filterAll,filterClosed} from '../../lib/Filters';
 
@@ -19,19 +19,26 @@ class AcceptShift extends Component {
 
   componentDidMount(){
     this.props.availableShift();
-    let url = this.props.location;
+    this.props.loadShifts()
+    let url = this.props.location.pathname;
     this.setState({url: url})
   }
   acceptShift(e){
-    let accepted = e.target.name;
     let url = this.state.url;
-    this.props.acceptShifts(url);
+    console.log(url);
+    let id = url.slice(8);
+    let shift = filterAll(this.props.shifts,'id',id )
+    let accepted = e.target.name;
+    this.props.acceptShifts(shift);
   }
 
-  declineShift(e,id){
+  declineShift(e){
     let declined = e.target.name;
     let url = this.state.url;
-    this.props.declinedShift(url);
+    let id = url.splice(8);
+    let shift = filterAll(this.props.shifts,'id',id )
+    let accepted = e.target.name;
+    this.props.declinedShift(shift);
 
   }
 
@@ -61,13 +68,14 @@ class AcceptShift extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    shift: state.shifts
+    shift: state.shifts,
+    shifts: state.shifts
   }
 }
 
 const ConnectedAcceptShift = connect(
   mapStateToProps,
-  {availableShift,declinedShift,acceptShifts}
+  {loadShifts,availableShift,declinedShift,acceptShifts}
 )(AcceptShift)
 
 export default ConnectedAcceptShift;

@@ -150,7 +150,27 @@ export const availableShift = (url) => {
 }
 
 export const acceptShifts = (body) => {
+  return function(dispatch){
+    return axios.put(`/api/acceptshift`, body)
+    .then( () => {
+      dispatch({
+        type: EDIT_SHIFT,
+        shift: null
+      });
+    });
+  }
+}
 
+export const declinedShift = (body) =>{
+  return function(dispatch){
+    return axios.put(`/api/declineshift`, body)
+    .then( () => {
+      dispatch({
+        type: EDIT_SHIFT,
+        shift: null
+      });
+    });
+  }
 }
 
 
