@@ -24,8 +24,6 @@ route.post('/', (req,res) => {
 
 route.post('/notify', (req,res) => {
   const link = "http://localhost:3000/accept/";
-  //let numbers = req.body[1].data; //this is an array for numbers
-  //let numbers = ['6122762292'];
   let body = req.body[0].data;
   let newShift = body[body.length-1];
   let shiftId = newShift.id;

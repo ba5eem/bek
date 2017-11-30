@@ -7,6 +7,8 @@ const route       = express.Router();
 const gcal        = require('google-calendar');
 const google      = require('googleapis');
 const privatekey  = require('../config/privatekey.json');
+const db          = require('../models');
+const {user}      = db;
 let jwtClient     = new google.auth.JWT(
        privatekey.client_email,
        null,
@@ -14,17 +16,32 @@ let jwtClient     = new google.auth.JWT(
        ['https://www.googleapis.com/auth/calendar']);
 
 
-route.put('/', (req,res) => {
+route.put('/:id', (req,res) => {
   let body = req.body[0]
+  //console.log(body);
+  let userId = req.params.id;
+  //console.log(userId);
   let today = moment().format('YYYY-MM-DDT');
   let start = body.date+'T'+body.starttime+':00-'+body.starttime+':00';
   let end = body.date+'T'+body.endtime+':00-'+body.endtime+':00';
+  user.findAll({
+    raw:true,
+    attributes: {
+      exclude : ['googleid', 'familyname','givenname','createdAt','updatedAt','phone','image','admin','name','hours']
+    }
+  })
+  .then((users) => {
+    let res = users.filter((elem)=>{
+      return elem.id === parseInt(userId);
+    })
+    let userEmail = res[0].email;
+
 
   var event = {
     'title':body.summary,
     'summary': body.summary,
     'location': "Manoa Innovation Center",
-    'description': "helloworld@gmailbek.com",
+    'description': userEmail,
     'start': {
       'dateTime': start,
       'timeZone': 'America/Adak',
@@ -41,6 +58,7 @@ route.put('/', (req,res) => {
       ],
     },
   };
+  console.log(event);
 
   jwtClient.authorize(function (err, tokens) {
     
@@ -63,11 +81,13 @@ route.put('/', (req,res) => {
     }, function(err,response){
         var events = response.items;
 
-        res.json(events);
+        console.log('updated accepted shift success')
        })
       })
     }
   });
+  });
+  res.json('awesome')
 })
 
 

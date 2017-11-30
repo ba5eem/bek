@@ -149,9 +149,11 @@ export const availableShift = (url) => {
   }
 }
 
-export const acceptShifts = (body) => {
+export const acceptShifts = (body,id) => {
+  console.log(body)
+  console.log(id);
   return function(dispatch){
-    return axios.put(`/api/acceptshift`, body)
+    return axios.put(`/api/acceptshift/${id}`, body)
     .then( () => {
       dispatch({
         type: EDIT_SHIFT,
