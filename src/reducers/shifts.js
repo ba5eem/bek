@@ -23,13 +23,12 @@ const shifts = (state = [], action) => {
 
 
     case ADD_SHIFT:
-    console.log('helo')
       let x = action.shifts.pop()
       console.log(x);
       let idx = state.findIndex((elem) => {
        return elem.id === x.id
      });
-     return [ ...(state.slice(0, idx)), x, ...(state.slice((idx + 1), state.length))];
+     return [...state,x]
 
 
 

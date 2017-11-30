@@ -18,12 +18,14 @@ let jwtClient     = new google.auth.JWT(
 
 route.put('/:id', (req,res) => {
   let body = req.body[0]
-  //console.log(body);
+  console.log(body);
   let userId = req.params.id;
   //console.log(userId);
   let today = moment().format('YYYY-MM-DDT');
   let start = body.date+'T'+body.starttime+':00-'+body.starttime+':00';
-  let end = body.date+'T'+body.endtime+':00-'+body.endtime+':00';
+  let endMinus = parseInt(body.endtime)-2;
+  let end = body.date+'T'+endMinus+':00:00-'+endMinus+':00:00';
+  console.log(end);
   user.findAll({
     raw:true,
     attributes: {
