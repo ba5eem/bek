@@ -16,9 +16,6 @@ class App extends Component {
       <div id="main-App-container">
         <div id="main-App-iframe-div">
           <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
-            width="650px"
-            height="500px"
-            frameborder="0"
             scrolling="no"
             position="relative">
           </Iframe>
@@ -31,3 +28,7 @@ class App extends Component {
 
 
 export default App;
+
+// width="650px"
+// height="500px"
+// frameborder="0"
