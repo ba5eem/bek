@@ -71,18 +71,10 @@ textarea {
   background-repeat: repeat;
   background-position: center;
   background-attachment: center fixed;
-  .nav-links {
+  #header-bottom-border {
+    width:100%;
+    height: 30px;
     background-color: $accent;
-    display: flex;
-    justify-content: flex-end;
-    padding: 0.8vw;
-    a {
-      background-color: $accent;
-      color: $main;
-    }
-  }
-  .nav-links a:hover {
-    color: $link;
   }
 }
 //Burger Bar -----------------
@@ -151,7 +143,15 @@ textarea {
   border: solid $main 0.5px;
   width: 75%;
 }
-//-----------------------------
+//Welcom user--------------------
+.welcomeUserSign{
+  text-align: right;
+  color: $accent;
+  margin-right: 10px;
+  font-size: 120%;
+  padding: 10px;
+}
+//Logo/App Title-----------------
 #logo {
   background-image: url("/assets/network.icon.png");
   background-repeat: no-repeat;
@@ -555,13 +555,7 @@ button.google-login {
   height: 100%;
   margin-top: 10px;
 }
-
-.welcomeUserSign{
-  color: white;
-  margin-right: 10px;
-  font-size: 120%;
-}
-
+//----------------------------
 @media only screen
   and (min-device-width: 375px)
   and (max-device-width: 667px)
