@@ -9,6 +9,7 @@ const AcceptShiftMobile = ({shift,idx,singleShift,exitSingle,acceptShift,decline
   const shiftLength = parseInt(res)
 
 
+
   return (
         <div className="mobile-container">
           <div className="accept-shiftCard" key={idx}>

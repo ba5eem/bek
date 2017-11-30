@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import {availableShift, acceptShifts,declinedShift,loadShifts} from '../../actions/shifts';
 import AcceptShiftMobile from '../../components/AcceptShift.component.js';
-import {filterAll,filterClosed} from '../../lib/Filters';
+import {filterAll,filterClosed,filterOpen} from '../../lib/Filters';
 
 
 
@@ -11,35 +12,34 @@ class AcceptShift extends Component {
     super();
 
     this.state={
-      url: ''
+      url: '',
+      declined: false,
+      redirect: false,
+      shift: undefined
     }
     this.acceptShift = this.acceptShift.bind(this);
     this.declineShift = this.declineShift.bind(this);
   }
 
   componentDidMount(){
-    this.props.availableShift();
     this.props.loadShifts()
     let url = this.props.location.pathname;
-    this.setState({url: url})
+    let id = url.slice(8);
+    this.setState({url: id})
   }
   acceptShift(e){
-    let url = this.state.url;
-    console.log(url);
-    let id = url.slice(8);
+    let id = this.state.url;
     let shift = filterAll(this.props.shifts,'id',id )
-    let accepted = e.target.name;
     this.props.acceptShifts(shift);
-  }
+    setTimeout(function() {
+      this.setState({redirect: true}); }.bind(this),500);
+    }
+
 
   declineShift(e){
-    let declined = e.target.name;
-    let url = this.state.url;
-    let id = url.splice(8);
-    let shift = filterAll(this.props.shifts,'id',id )
-    let accepted = e.target.name;
-    this.props.declinedShift(shift);
-
+    this.setState({declined:true})
+    setTimeout(function() {
+      this.setState({redirect: true}); }.bind(this),500);
   }
 
 
@@ -49,15 +49,27 @@ class AcceptShift extends Component {
 
 
   render(){
-    const shift = this.props.shift;
+    let id = this.state.url;
+    const data = filterOpen(this.props.shifts,'closed',true);
+    const shifts = filterAll(data,'id', id);
+    const declined = this.state.declined;
+    if(this.state.redirect) {return ( <Redirect to='/'/>)}
+
 
     return (
 
         <div className="acceptShift">
-              <AcceptShiftMobile
-                shift={shift}
-                acceptShift={this.acceptShift}
-                declineShift={this.declineShift}/>
+
+              {shifts.map((shift,idx)=>{
+                return (
+                  <AcceptShiftMobile
+                    key={idx}
+                    shift={shift}
+                    acceptShift={this.acceptShift}
+                    declineShift={this.declineShift}/>
+                  )
+              })}
+              
         </div>
 
     );
@@ -68,7 +80,6 @@ class AcceptShift extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    shift: state.shifts,
     shifts: state.shifts
   }
 }
