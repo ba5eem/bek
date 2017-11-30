@@ -575,3 +575,73 @@ input.send-button {
   font-size: 30px;
 }
 
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+  .nav-links {
+    background-color: $accent;
+    display:flex;
+    justify-content: center;
+  }
+  .welcomeUserSign{
+    color: transparent;
+  }
+  .mobileWelcomeUserSignOnly{
+    color: white;
+    font-size: 30px;
+  }
+  .accept-Shift-Container{
+  display: flex-wrap;
+  justify-content: center;
+  text-align: center;
+  }
+  .accept-shiftCard {
+    width: 270px;
+    height: 170px;
+    background-color: $main;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    border: 0.5px solid $button;
+  }
+  .mobileButtons{
+    display: flex-wrap;
+    justify-content: center;
+
+
+  }
+  .mobile-container{
+    margin-left: 50px;
+  }
+  .acceptShiftButton{
+    width: 270px;
+    height: 50px;
+    background-color: lightgreen;
+    margin-top: 10px;
+  }
+  .declineShift{
+    width: 270px;
+    height: 50px;
+    background-color: salmon;
+    margin-top: 10px;
+  }
+  .detailsShift{
+    width: 270px;
+    height: 50px;
+    background-color: orange;
+    margin-top: 10px;
+  }
+
+  
+
+
+
+
+}
+
+
+
+
