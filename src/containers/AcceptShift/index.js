@@ -12,7 +12,7 @@ class AcceptShift extends Component {
     super();
 
     this.state={
-      url: '',
+      shiftId: '',
       declined: false,
       redirect: false,
       accepted: false
@@ -24,13 +24,17 @@ class AcceptShift extends Component {
   componentDidMount(){
     this.props.loadShifts()
     let url = this.props.location.pathname;
-    let id = url.slice(8);
-    this.setState({url: id})
+    let shiftId = url.slice(9);
+    var userId = url.slice(8,9);
+    console.log(url);
+    console.log(userId);
+    this.setState({shiftId: shiftId, userId: userId})
   }
   acceptShift(e){
-    let id = this.state.url;
+    let id = this.state.shiftId;
     let shift = filterAll(this.props.shifts,'id',id )
-    this.props.acceptShifts(shift);
+    let userId = this.state.userId;
+    this.props.acceptShifts(shift,userId);
     this.setState({accepted: true})
     setTimeout(function() {
       this.setState({redirect: true}); }.bind(this),900);
@@ -44,9 +48,10 @@ class AcceptShift extends Component {
   }
 
   render(){
-    let id = this.state.url;
-    const data = filterOpen(this.props.shifts,'closed',true);
-    const shifts = filterAll(data,'id', id);
+    let id = this.state.shiftId;
+    const shifts = filterOpen(this.props.shifts,'id',id);
+    console.log(shifts);
+    console.log(this.props.shifts);
     const declined = this.state.declined;
     if(this.state.redirect) {return ( <Redirect to='/'/>)}
 

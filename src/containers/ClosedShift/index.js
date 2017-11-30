@@ -35,6 +35,9 @@ class ClosedShift extends Component {
     this.props.loadShifts();
 
   }
+  // componentWillReceiveProps(){
+  //   this.props.loadShifts();
+  // }
   singleShift(e,id){
     e.preventDefault();
     this.setState({query:id})

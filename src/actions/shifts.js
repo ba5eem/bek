@@ -149,15 +149,25 @@ export const availableShift = (url) => {
   }
 }
 
-export const acceptShifts = (body) => {
+export const acceptShifts = (body,id) => {
+  let local = []
   return function(dispatch){
-    return axios.put(`/api/acceptshift`, body)
+    return axios.put(`/api/acceptshift/${id}`, body)
     .then( () => {
-      dispatch({
-        type: EDIT_SHIFT,
-        shift: null
-      });
-    });
+      return axios.get('/api/users')
+      .then((users) => {
+        local.push(users.data)
+        return axios.get('/api/shifts')
+        .then( shifts => {
+          local.push(shifts.data)
+            dispatch({
+              type: LOAD_SHIFTS,
+              shifts: local
+              });
+            });
+          });
+        });
+
   }
 }
 
