@@ -101,7 +101,7 @@ class ClosedShift extends Component {
                 closeOnEsc={true}
                 onClose={() => this.toggleShow(false)}
                 closeOnOverlay={true}>
-              <h2 className="confirmAbsentHeading">You Marked this shift as absent.<br/> Are you sure you want to release this shift?</h2>
+              <h3 className="confirmAbsentHeading">You Marked this shift as absent.<br/>Are you sure you want to release this shift?</h3>
              <center><button className="confirmAbsentButton" onClick={(e)=>this.markAbsent(e)}>YES</button></center>
             </PopPop>
             <PopPop position="centerCenter"
