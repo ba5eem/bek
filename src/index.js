@@ -25,7 +25,6 @@ import Home from './containers/Home';
 import ChatApp from './containers/Chat/ChatApp';
 import SideBar from './containers/SideBar';
 import NotFound from './containers/NotFound';
-import Nav from './components/nav.components';
 import Footer from './components/footer.components';
 import UsersListView from './containers/UsersListView';
 import ProfileView from './containers/ProfileView';
@@ -59,7 +58,7 @@ ReactDOM.render(
           <div id="title" >bek-connect</div></Link></span>
             }
           </div>
-          <Nav />
+          <div id="header-bottom-border"></div>
         </div>
         <Switch>
           <Route exact path="/" component={Login} />

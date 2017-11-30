@@ -48,7 +48,7 @@ calendar.events.list({
        for (let event of response.items) {
            //console.log('Event name: %s, Creator name: %s, Create date: %s', event.summary, event.creator.displayName, event.start.date);
        }
-   } 
+   }
     for (var i = 0; i < events.length; i ++){
       let date = events[i].start.dateTime;
       let starttime = events[i].start.dateTime;
@@ -83,7 +83,7 @@ calendar.events.list({
         delete events[i].start;
         delete events[i].end;
         delete events[i].sequence;
-        
+
     }
 
 
@@ -121,13 +121,13 @@ var event = {
   },
 };
 jwtClient.authorize(function (err, tokens) {
-  
+
  if (err) {
    console.log("Did not connect!", err);
    return;
  } else {
    console.log("Successfully connected!");
-   
+
 
 let token = tokens.access_token;
 let calendarId = 'cohortuser19@gmail.com';
@@ -179,13 +179,13 @@ var event = {
   },
 };
 jwtClient.authorize(function (err, tokens) {
-  
+
  if (err) {
    console.log("Did not connect!", err);
    return;
  } else {
    console.log("Successfully connected!");
-   
+
 
 let token = tokens.access_token;
 let calendarId = 'cohortuser19@gmail.com';
