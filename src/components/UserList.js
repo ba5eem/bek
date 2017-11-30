@@ -32,7 +32,7 @@ class UserList extends Component {
        { _.sortBy(users, o => +new Date(o.id))
         .map((user,idx) => {
           return (
-              <div id="user-card-container">
+              <div id="user-card-container" key={idx}>
                 <UserDetailView
                   key={idx}
                   id={user.id}
