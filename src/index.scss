@@ -246,7 +246,6 @@ button.google-login {
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
-  // background: linear-gradient(to bottom, #66b3ff 0%, #ffffff 100%);
 }
 
 #calendar-title {
@@ -594,27 +593,30 @@ button.google-login {
     margin-top: 10px;
     border: 0.5px solid $button;
   }
+
   .mobileButtons{
     display: flex-wrap;
     justify-content: center;
-
-
   }
+
   .mobile-container{
     margin-left: 50px;
   }
+
   .acceptShiftButton{
     width: 270px;
     height: 50px;
     background-color: lightgreen;
     margin-top: 10px;
   }
+
   .declineShift{
     width: 270px;
     height: 50px;
     background-color: salmon;
     margin-top: 10px;
   }
+
   .detailsShift{
     width: 270px;
     height: 50px;
@@ -655,6 +657,18 @@ button.google-login {
 
 }
 
-
+@media screen and (max-width: 768px) {
+  #header {
+    width: 100%;
+  }
+  #main-Home-container {
+    display: block;
+    align-items: center;
+    width: 100%;
+  }
+  #iframe-div {
+    overflow: scroll;
+  }
+}
 
 
