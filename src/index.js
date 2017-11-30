@@ -30,8 +30,7 @@ import UsersListView from './containers/UsersListView';
 import ProfileView from './containers/ProfileView';
 import AcceptShift from './containers/AcceptShift/index.js';
 import UserList from './components/UserList';
-// import AppHeader from './components/AppHeader.js';
-// import Background from './containers/Background';
+import Welcome from './components/welcome.components';
 
 //STORE--------------------
 const store = createStore(
@@ -50,16 +49,23 @@ ReactDOM.render(
       <div id="source">
         <div id="header">
           <SideBar />
+          <Welcome />
           <div id="logo">
             {auth ?
             <span><Link to="/login">
-          <div id="title" >bek-connect</div></Link></span>
-          : <span><Link to="/login">
-          <div id="title" >bek-connect</div></Link></span>
+            <div id="title" >bek-connect</div>
+            </Link></span>
+            :
+            <span><Link to="/login">
+            <div id="title" >bek-connect</div>
+            </Link></span>
             }
           </div>
+
           <div id="header-bottom-border"></div>
+
         </div>
+
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/login" component={Login} />

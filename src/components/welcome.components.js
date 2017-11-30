@@ -1,16 +1,19 @@
 import React from 'react';
 
-const Nav = () => {
-    const user = localStorage.username;
-    const group = localStorage.group;
+const Welcome = () => {
+  const user = localStorage.username;
+  const admin = localStorage.admin;
+
+if(localStorage.username) {
     return (
-      <div className="nav-links">
-        <div className="welcomeUserSign">
-          Welcome back, {user ? user : 'you'}!
-        </div>
+      <div className="welcomeUserSign">
+        Welcome back, {user}!
       </div>
-    );
+    )
+  } else {
+    return null;
+  }
 
 }
 
-export default Nav;
+export default Welcome;
