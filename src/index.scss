@@ -145,11 +145,13 @@ textarea {
 }
 //Welcom user--------------------
 .welcomeUserSign{
-  text-align: right;
+  display: flex;
+  justify-content: flex-end;
   color: $accent;
   margin-right: 10px;
   font-size: 120%;
-  padding: 10px;
+  padding-top: 10px;
+  padding-right: 5px;
 }
 //Logo/App Title-----------------
 #logo {
