@@ -64,7 +64,7 @@ export default class Popup extends Component {
                     required
                     />
                     <MyInput
-                    name="description"
+                    name="role"
                     validations="isWords"
                     validationError="This a required field"
                     required

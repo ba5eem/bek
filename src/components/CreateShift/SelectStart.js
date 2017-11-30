@@ -30,7 +30,7 @@ class SelectStart extends React.Component {
         {
           time.map((item,idx) => {
             return (
-              <option key={idx} value={item} > {item} </option>
+              <option style={optionSelect} key={idx} value={item} > {item} </option>
             );
           })
         }
@@ -46,7 +46,11 @@ const select = {
   textAlign:"center",
   backgroundColor: "#66b3ff",
   fontSize:"25px",
-  marginTop: "20px"
+  marginTop: "20px",
+  textAlignLast: "center"
+}
+const optionSelect = {
+  textAlignLast: "center"
 }
 
 export default withFormsy(SelectStart);
