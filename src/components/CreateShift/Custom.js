@@ -35,6 +35,7 @@ export default class Custom extends Component {
                 closeBtn={true}
                 closeOnEsc={true}
                 onClose={() => this.toggleShow(false)}
+                contentStyle={{overflow: "hidden"}}
                 closeOnOverlay={true}>
           <Formsy onSubmit={this.props.submit}>
           <h1>_Custom</h1>

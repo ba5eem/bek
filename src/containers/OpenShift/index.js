@@ -6,6 +6,7 @@ import OpenShifts from '../../components/openShifts.components.js';
 import {filterAll,filterClosed} from '../../lib/Filters';
 import PopPop from 'react-poppop';
 import { absentSms } from '../../actions/sms';
+import ChatApp from '../Chat/ChatApp';
 
 
 
@@ -17,7 +18,10 @@ class OpenShift extends Component {
     this.state={
       query: false,
       show: false,
-      showAbsent: false
+      showAbsent: false,
+      chat: false,
+      channel: '',
+      user: ''
     }
     this.singleShift = this.singleShift.bind(this);
     this.exitSingle = this.exitSingle.bind(this);
@@ -53,9 +57,20 @@ class OpenShift extends Component {
 
   }
 
-  openChat(e){
+  openChat(e,elem){
     console.log(e.target);
-
+    console.log(elem);
+    localStorage.setItem('channel',elem.summary);
+    localStorage.setItem('author',elem.organizer);
+    this.setState({
+      chat: true,
+      channel: elem.summary,
+      user: elem.useremail})
+  }
+  closeChat(){
+    localStorage.removeItem('channel');
+    localStorage.removeItem('author');
+    this.setState({chat: false, channel: ''})
   }
 
   toggleShow = show => {
@@ -69,6 +84,7 @@ class OpenShift extends Component {
     const data = filterClosed(this.props.shifts,'closed',undefined);
     const shifts = filterAll(data,'id', query);
     const {show} = this.state;
+    const {chat} = this.state;
 
     return (
       <div id="main-shift-container">
@@ -78,9 +94,19 @@ class OpenShift extends Component {
                 closeBtn={true}
                 closeOnEsc={true}
                 onClose={() => this.toggleShow(false)}
+                contentStyle={{overflow: "hidden"}}
                 closeOnOverlay={true}>
               <h2 className="confirmAbsentHeading">You Marked this shift as absent, do you want to release it as an available open shift?</h2>
               <button className="confirmAbsentButton" onClick={(e)=>this.markAbsent(e)}>YES</button>
+            </PopPop>
+            <PopPop position="centerCenter"
+                open={chat}
+                closeBtn={true}
+                closeOnEsc={true}
+                onClose={() => this.closeChat()}
+                contentStyle={{overflow: "hidden"}}
+                closeOnOverlay={true}>
+                <ChatApp channel={this.state.channel} />
             </PopPop>
 
           {shifts.map((shift,idx) => {
