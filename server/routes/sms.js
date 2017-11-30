@@ -41,7 +41,7 @@ route.post('/notify', (req,res) => {
       let usersNum = users[i].phone;
       let uri = link+usersId+shiftId;
       let content = {
-        phone: '6122762292',
+        phone: usersNum,
         payload: `Shift Open - on ${date}! Shift Details here: ${uri}`
         }
       const client = require('twilio')(
