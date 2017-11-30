@@ -7,7 +7,7 @@ const Nav = () => {
     return (
       <div className="nav-links">
         <div className="welcomeUserSign">
-          Welcome {user ? user : 'to our site'}, your group name is {group ? group : 'guest'}
+          Welcome back, {user ? user : 'you'}!
         </div>
       </div>
     );

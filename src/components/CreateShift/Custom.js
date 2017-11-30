@@ -37,6 +37,7 @@ export default class Custom extends Component {
                 onClose={() => this.toggleShow(false)}
                 closeOnOverlay={true}>
           <Formsy onSubmit={this.props.submit}>
+          <h1>_Custom</h1>
             <MyInput
               name="title"
               validations="isWords"
