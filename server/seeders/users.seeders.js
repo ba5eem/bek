@@ -17,6 +17,19 @@ module.exports = {
       updatedAt: '2017-11-23 01:00:57'
     },
     {
+      email: 'captain@gmailbek.com',
+      familyname: 'Stewar',
+      givenname: 'Patick',
+      googleid: '112587183780205170008',
+      image: 'http://bit.ly/2AlXfAL',
+      phone: '6122762292',
+      name: 'Capt.Jean-Luc.Picard',
+      admin: false,
+      hours: 90,
+      createdAt: '2017-11-23 00:00:57',
+      updatedAt: '2017-11-23 01:00:57'
+    },
+    {
       email: 'cohortuser19@gmail.com',
       familyname: 'user',
       givenname: 'cohort',

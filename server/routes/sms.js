@@ -23,32 +23,47 @@ route.post('/', (req,res) => {
 })
 
 route.post('/notify', (req,res) => {
-  let numbers = req.body[1].data; //this is an array for numbers
+  const link = "http://localhost:3000/accept/";
+  //let numbers = req.body[1].data; //this is an array for numbers
+  //let numbers = ['6122762292'];
   let body = req.body[0].data;
   let newShift = body[body.length-1];
-  let link = newShift.htmlLink;
-  let date = newShift.date;
-
-
-// numbers.forEach(function(phones){
-//   let content = {
-//       phone: phones,
-//       payload: `Shift Open - on ${date}! Shift Details here: ${link}`
-//     }
-//     const client = require('twilio')(
-//     process.env.TWILIO_ACCOUNT_SID,
-//     process.env.TWILIO_AUTH_TOKEN
-//   );
-//   client.messages.create({
-//     from: process.env.TWILIO_PHONE_NUMBER,
-//     to: "+1"+ content.phone,
-//     body: content.payload
-//   }).then(()=>{
-//     console.log("succes");
-//   })
-//   })
-res.json('success notify sms -its still commented out');
+  let shiftId = newShift.id;
+  user.findAll({
+    raw:true,
+    attributes: {
+      exclude : ['googleid', 'familyname','givenname','createdAt','updatedAt','email','image','admin','name','hours']
+    }
+  })
+  .then((users) => {
+    let uriArr = []
+    let date = newShift.date;
+    for (var i = 0; i < users.length; i ++){
+      let usersId = users[i].id;
+      let usersNum = users[i].phone;
+      let uri = link+usersId+shiftId;
+      let content = {
+        phone: '6122762292',
+        payload: `Shift Open - on ${date}! Shift Details here: ${uri}`
+        }
+      const client = require('twilio')(
+      process.env.TWILIO_ACCOUNT_SID,
+      process.env.TWILIO_AUTH_TOKEN
+      );
+      client.messages.create({
+        from: process.env.TWILIO_PHONE_NUMBER,
+        to: "+1"+ content.phone,
+        body: content.payload
+      }).then(()=>{
+        console.log("succes");
+        })
+       }
+    });
+    res.json('success notify sms -its still commented out');
 })
+
+
+
 
 route.post('/absent', (req,res) => {
   let numbers = req.body[0].data;
