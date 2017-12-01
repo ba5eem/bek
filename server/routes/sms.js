@@ -21,7 +21,7 @@ route.post('/', (req,res) => {
     console.log(err);
   });
 })
-
+/*
 route.post('/notify', (req,res) => {
   const link = "http://bek.ellamaearana.com/accept/";//change to local host for development
   let body = req.body[0].data;
@@ -59,7 +59,57 @@ route.post('/notify', (req,res) => {
     });
     res.json('success notify sms -its still commented out');
 })
+*/
 
+
+route.post('/notify', (req,res) => {
+  const link = "http://bek.ellamaearana.com/accept/";//change to local host for development
+  let body = req.body[0].data;
+  let newShift = body[body.length-1];
+  let shiftId = newShift.id;
+  user.findAll({
+    raw:true,
+    attributes: {
+      exclude : ['googleid', 'familyname','givenname','createdAt','updatedAt','email','image','admin','name','hours']
+    }
+  })
+  .then((users) => {
+    let uriArr = []
+    let date = newShift.date;
+    for (var i = 0; i < users.length; i ++){
+      let usersId = users[i].id;
+      let usersNum = users[i].phone;
+      let uri = link+usersId+shiftId;
+      let payload = {userID: usersId}
+      let content = {
+        phone: usersNum,
+        payload: `Shift Open - on ${date}! Shift Details here: ${uri}`
+      }
+      const client = require('twilio')(
+      process.env.TWILIO_ACCOUNT_SID,
+      process.env.TWILIO_AUTH_TOKEN
+      );
+      let requestPayload = {userID: usersId};
+      client.messages.create({
+        from: process.env.TWILIO_PHONE_NUMBER,
+        to: "+1"+ content.phone,
+        body: content.payload
+      }).then({
+        body: JSON.stringify(requestPayload),
+        headers: {
+          'accept': 'application/json'
+        },
+        json: true
+      }).then(function(response) {
+        console.log(response.body)
+        callback(null, response.body);
+      }).then(()=>{
+        console.log("succes");
+      })
+     }
+    });
+    res.json('success notify sms -its still commented out');
+})
 
 
 
@@ -94,6 +144,7 @@ route.post('/response', (req,res) => {
   const twiml = new MessagingResponse();
   console.log(req.body.Body);
   console.log(req.body.From);
+  console.log('BODY!',req.body);
   if(req.body.Body == 'yes'){
     console.log('received yes reply')
     twiml.message('You replied YES, period')
