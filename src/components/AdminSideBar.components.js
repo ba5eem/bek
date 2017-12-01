@@ -8,11 +8,16 @@ const AdminSideBar = () => {
             <div>
               <Menu
                 width="200px">
-                  <Link to="/home">Home</Link>
+                <Link to="/home">Home</Link>
+
                 <div id="line"/>
-                  <Link to="/users">Staff</Link>
+
+                <Link to="/users">Staff</Link>
+
                 <div id="line"/>
-                  <Link to="/logout"><Logout/></Link>
+
+                <Link to="/logout"><Logout/></Link>
+
               </Menu>
            </div>
     );
