@@ -1,0 +1,17 @@
+#ideaContainer{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 25%;
+  margin-top: 15%; 
+}
+
+.box{
+  width: 95px;
+  height: 95px;
+  transition: all 8s ease-in-out;
+  display: flex;
+  flex-wrap: wrap;
+  position:absolute;
+  border-radius: 100px;
+}
+

@@ -52,7 +52,7 @@ ReactDOM.render(
           <Welcome />
           <div id="logo">
             {auth ?
-            <span><Link to="/login">
+            <span><Link to="/home">
             <div id="title" >bek-connect</div>
             </Link></span>
             :
