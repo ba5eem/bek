@@ -162,7 +162,7 @@ var event = {
   'title':b.title,
   'summary': b.summary,
   'location': b.location,
-  'description': "open",
+  'description': b.description,
   'start': {
     'dateTime': start,
     'timeZone': 'America/Adak',
@@ -179,6 +179,67 @@ var event = {
     ],
   },
 };
+jwtClient.authorize(function (err, tokens) {
+
+ if (err) {
+   console.log("Did not connect!", err);
+   return;
+ } else {
+   console.log("Successfully connected!");
+
+
+let token = tokens.access_token;
+let calendarId = 'cohortuser19@gmail.com';
+let calendar = google.calendar('v3');
+
+gcal(token).events.update(calendarId,b.id,event, function(err,data){
+  if(err) console.log(500,err);
+  return calendar.events.list({
+    auth: jwtClient,
+    calendarId: 'cohortuser19@gmail.com'
+  }, function(err,response){
+      var events = response.items;
+
+      res.json(events);
+  })
+  })
+ }
+});
+})
+
+route.put('/assign', (req,res) => {
+  let user = req.body[0];
+  let b = req.body[1];
+  delete b.users;
+  let endtime = parseInt(b.endtime)-2;
+  let start = b.date + 'T' + b.starttime +':00-'+b.starttime+':00';
+  let end = b.date + 'T' + endtime + ':00'+':00-'+endtime + ':00:00';
+  console.log(start);
+  console.log(end)
+  console.log(user.email);
+
+var event = {
+  'title':b.title,
+  'summary': b.summary,
+  'location': b.location,
+  'description': user.email,
+  'start': {
+    'dateTime': start,
+    'timeZone': 'America/Adak',
+  },
+  'end': {
+    'dateTime': end,
+    'timeZone': 'America/Adak',
+  },
+  'reminders': {
+    'useDefault': false,
+    'overrides': [
+      {'method': 'email', 'minutes': 24 * 60},
+      {'method': 'popup', 'minutes': 10},
+    ],
+  },
+};
+console.log(event);
 jwtClient.authorize(function (err, tokens) {
 
  if (err) {

@@ -17,6 +17,7 @@ const shifts = (state = [], action) => {
               shifts[i].admin = users[j].admin;
               shifts[i].closed = true;
             }
+            shifts[i].users = users;
           }
       }
       return shifts;

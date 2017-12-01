@@ -2,11 +2,12 @@ import React from 'react';
 import timeDifference from '../lib/TimeDifference';
 var moment = require('moment');
 
-const openShifts = ({shift,idx,singleShift,exitSingle,openChat,query}) => {
+const openShifts = ({shift,idx,singleShift,exitSingle,openChat,query,assignEmployee,photo,user}) => {
   let end = moment(shift.endtime, "HH:mm Z").format('H:mm');
   let start = moment(shift.starttime, "HH:mm Z").format('HH:mm')
   const res = timeDifference(start,end);
   const shiftLength = parseInt(res)
+  const image = "https://news.postimees.ee/public/img/shrek-gray.svg"
 
 
   return (
@@ -15,7 +16,16 @@ const openShifts = ({shift,idx,singleShift,exitSingle,openChat,query}) => {
             {shift.summary ? shift.summary : 'Shift Open'}</div>
           <div className="shiftCardLocation" >
             {shift.location ? shift.location : 'Click for Location'}</div>
-          <img className="empCardImage" src="https://news.postimees.ee/public/img/shrek-gray.svg" alt="icon"></img>
+
+          <img  className="empCardImage" 
+                onClick={(e)=>assignEmployee(e,shift)}
+                src={image} 
+                alt="icon"></img>
+
+
+
+
+
           <div className="shiftCardStart" >
             {shift.starttime ? 'Starts: '+shift.starttime : 'Click for Start Time'}</div>
           <div className="shiftCardLength" >

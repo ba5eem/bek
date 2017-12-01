@@ -221,6 +221,18 @@ export const editShift = (newInfo) => {
   }
 }
 
+export const assignShift = (newShift) => {
+  return function(dispatch){
+    return axios.put(`/api/shifts/assign`, newShift)
+    .then( shift => {
+      dispatch({
+        type: EDIT_SHIFT,
+        shift: shift.data
+      });
+    });
+  }
+}
+
 export const deleteShift = (id) => {
   return function(dispatch){
     return axios.delete(`/api/shift/${id}`)

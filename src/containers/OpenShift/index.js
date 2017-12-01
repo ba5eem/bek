@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Pusher from 'pusher-js';
-import {loadShifts} from '../../actions/shifts.js';
+import {loadShifts,assignShift} from '../../actions/shifts.js';
 import OpenShifts from '../../components/openShifts.components.js';
 import {filterAll,filterClosed} from '../../lib/Filters';
 import PopPop from 'react-poppop';
@@ -21,12 +21,17 @@ class OpenShift extends Component {
       showAbsent: false,
       chat: false,
       channel: '',
-      user: ''
+      user: '',
+      photo:false,
+      setEmp:false,
+      shift: ''
     }
     this.singleShift = this.singleShift.bind(this);
     this.exitSingle = this.exitSingle.bind(this);
     this.markAbsent = this.markAbsent.bind(this);
     this.openChat = this.openChat.bind(this);
+    this.assignEmployee = this.assignEmployee.bind(this);
+    this.closeEmployee = this.closeEmployee.bind(this);
   }
 
   componentDidMount(){
@@ -54,7 +59,6 @@ class OpenShift extends Component {
       this.props.absentSms(absentShift);
       this.setState({show: false})
     }
-
   }
 
   openChat(e,elem){
@@ -77,14 +81,41 @@ class OpenShift extends Component {
     this.setState({show});
   }
 
+  assignEmployee(e,shift){
+    console.log(shift.id)
+    this.setState({setEmp:true,shift:shift})
+
+
+  }
+  closeEmployee(e,id){
+    let shift = this.state.shift;
+    this.setState({setEmp:false})
+    let res = shift.users.filter((elem) =>{
+      return elem.id === id;
+    })
+    let local = [];
+    local.push(res[0]);
+    local.push(shift);
+    this.props.assignShift(local);
+  }
+
 
   render(){
 
     const query = this.state.query;
+    const res = this.props.shifts;
+    console.log(res);
     const data = filterClosed(this.props.shifts,'closed',undefined);
     const shifts = filterAll(data,'id', query);
     const {show} = this.state;
     const {chat} = this.state;
+    const {setEmp} = this.state;
+    let arr = [];
+    for (var i = 0; i < res.length; i++){
+        arr.push(res[i].users);
+      }
+    const users = arr.length !== 0 ? arr[0] : res;
+
 
     return (
       <div id="main-shift-container">
@@ -108,13 +139,29 @@ class OpenShift extends Component {
                 closeOnOverlay={true}>
                 <ChatApp channel={this.state.channel} />
             </PopPop>
+            <PopPop position="centerCenter"
+                open={setEmp}
+                closeBtn={true}
+                position="centerLeft"
+                closeOnEsc={true}
+                onClose={(e) => this.closeEmployee(e)}
+                contentStyle={{overflow: "hidden"}}
+                closeOnOverlay={true}>
+                {users.map((user,idx)=>{
+                  return (<div className="assignEmpDivkey" key={idx}>
+                    <img className="assignEmp" onClick={(e) => this.closeEmployee(e,user.id)} src={user.image} alt="ico" />
+                    </div>)
+                })}
+            </PopPop>
 
           {shifts.map((shift,idx) => {
             return (
               <OpenShifts
                 key={idx}
+                photo={this.state.photo}
                 shift={shift}
                 query={this.state.query}
+                assignEmployee={this.assignEmployee}
                 showAbsent={this.state.showAbsent}
                 singleShift={this.singleShift}
                 markAbsent={this.markAbsent}
@@ -127,6 +174,7 @@ class OpenShift extends Component {
   }
 }
 
+
 const mapStateToProps = (state) => {
   return {
     shifts: state.shifts
@@ -135,7 +183,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedOpenShift = connect(
   mapStateToProps,
-  {loadShifts,absentSms}
+  {loadShifts,absentSms,assignShift}
 )(OpenShift)
 
 export default ConnectedOpenShift;

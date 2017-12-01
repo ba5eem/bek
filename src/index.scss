@@ -666,5 +666,20 @@ button.google-login {
     overflow: scroll;
   }
 }
+.assignEmpDiv{
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.assignEmp{
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+}
+.assignEmp:hover{
+  border: 5px solid #0086b3;
+  width: 80px;
+  height: 80px;
+  border-radius: 100px;
+}
 
