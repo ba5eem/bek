@@ -42,11 +42,9 @@ render() {
              name="phone"
              validations="isNumeric"
              validationError="Please enter a valid phone"
-             required
-
-           />
+             required />
            <button style={select} type="submit">Submit</button>
-           <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "HIT THE X WHEN YOU ARE DONE"}</h3>
+           <h3 style={close}>{!this.props.canSubmit ? "PLEASE COMPLETE ALL FIELDS": "CLICK 'X' WHEN YOU ARE DONE"}</h3>
          </Formsy>
 
        </PopPop>
@@ -67,10 +65,12 @@ const addShift={
   width: "150px"
 }
 const select = {
-  width: "400px",
+  width: "305px",
   textAlign:"center",
   backgroundColor: "#66b3ff",
-  fontSize:"30px"
+  fontSize:"20px",
+  color: "white",
+  marginTop: "10px"
 }
 const close ={
   textAlign: "center"

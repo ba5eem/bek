@@ -47,7 +47,7 @@ textarea {
 #main-App-container {
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   padding-bottom: 50px;
 }
 
@@ -81,8 +81,8 @@ textarea {
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
-  width: 36px;
-  height: 30px;
+  width: 30px;
+  height: 24px;
   left: 36px;
   top: 36px;
 }
@@ -143,15 +143,16 @@ textarea {
   border: solid $main 0.5px;
   width: 75%;
 }
-//Welcom user--------------------
+//Welcome user--------------------
 .welcomeUserSign{
+  position: absolute;
+  right: 36px;
+  top: 20px;
   display: flex;
   justify-content: flex-end;
   color: $accent;
   margin-right: 10px;
   font-size: 120%;
-  padding-top: 10px;
-  padding-right: 5px;
 }
 //Logo/App Title-----------------
 #logo {
@@ -172,7 +173,7 @@ textarea {
   padding-top: 50px;
   color: $link;
 }
-//-----------------------------
+//Login------------------------
 #login-container {
   height: auto;
   width: 100%;
@@ -211,7 +212,7 @@ button.google-login {
   order: 2;
   width: 200px;
   display: flex;
-  flex-wrap: row wrap;
+  flex-wrap: row-wrap;
   justify-content: center;
   margin-left: 20px;
   #custom-button {
@@ -231,7 +232,7 @@ button.google-login {
     margin: 5px;
   }
 }
-//---------------------------
+
 .open-shifts {
   display: flex;
   justify-content: center;
@@ -239,28 +240,25 @@ button.google-login {
   border-bottom: 2px solid black;
   padding-top: 20px;
 }
-
+//Column 2---------------------
 #iframe-div {
   order: 3;
-  width: 650px;
   height: 100%;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
+  position: relative;
+  margin-top: 10px;
 }
 
 #calendar-title {
   font-size: 200%;
 }
-//---------------------------
-#chat-app-div {
-  order: 4;
-}
 
 //Main Shift Container----------
 #main-shift-container {
-  order: 5;
+  order: 4;
   width: 300px;
   height: 100%;
 }
@@ -270,6 +268,8 @@ button.google-login {
   justify-content: center;
   border-bottom: 2px solid black;
   font-size: 120%;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 //Shift Card--------------------
@@ -536,7 +536,7 @@ button.google-login {
   background: $main;
   font-family: 'Advent Pro', sans-serif;
 }
-// ------------------------
+// Footer--------------------
 #footer {
   margin-top: 40px;
   display: flex;
@@ -550,12 +550,12 @@ button.google-login {
   background-color: $accent;
   color: $main;
 }
-
-#notfound{
+//404 Page--------------------
+#not-found{
   background-color: #f7674a;
   text-align: center;
   height: 100%;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 //----------------------------
 @media only screen
