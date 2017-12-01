@@ -133,7 +133,7 @@ var client = require('twilio')(
 
 route.post('/response', (req,res) => {
   const twiml = new MessagingResponse();
-  let num = "+16122762292";
+  let num = req.body.From;
   var filterOpts = {
     to: num,
     from: process.env.TWILIO_PHONE_NUMBER ,
@@ -222,8 +222,14 @@ route.post('/response', (req,res) => {
   });
   });
 
-    twiml.message('You replied YES, shift is now yours')
-  }//end of IF YES CONDITION **********
+
+  }setTimeout(function() {
+      client.messages.create({
+        from: process.env.TWILIO_PHONE_NUMBER,
+        to: req.body.From,
+        body: "You replied YES, shift is now yours"
+      })
+    }, 5000)//end of IF YES CONDITION **********
   /*else {
     console.log('received yes reply')
     twiml.message('You replied something else other than YES, bye')
