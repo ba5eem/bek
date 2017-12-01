@@ -13,7 +13,6 @@ const AdminSideBar = () => {
                   <Link to="/users">Staff</Link>
                 <div id="line"/>
                   <Link to="/logout"><Logout/></Link>
-                <div id="line"/>
               </Menu>
            </div>
     );
