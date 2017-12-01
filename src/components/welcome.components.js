@@ -1,18 +1,16 @@
 import React from 'react';
+//import { Link } from 'react-router-dom';
 
 const Welcome = () => {
-  const user = localStorage.username;
-  const admin = localStorage.admin;
-
-if(localStorage.username) {
+    const user = localStorage.username;
+    const group = localStorage.group;
     return (
-      <div className="welcomeUserSign">
-        Hello, {user}!
-      </div>
-    )
-  } else {
-    return null;
-  }
+
+        <div className="welcomeUserSign">
+          Hello, {user ? user : ''}!
+        </div>
+
+    );
 
 }
 
