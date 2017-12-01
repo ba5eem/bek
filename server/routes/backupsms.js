@@ -245,6 +245,22 @@ route.get('/res', (req,res)=>{
   });//end of client.messages.list function
 })//end of route.get
 
+/*other method jesse had*/
+route.get('/resalt', (req,res) => {
+
+  return client.messages.list()
+    .then((messages)=>{
+      console.log('Listing messages using promises', Array.isArray(messages));
+      return messages.map((elem,idx)=>{
+        console.log(elem.sid,idx);
+        return elem.to;
+      })
+    }).then((list)=>{
+      res.json(list);
+    })
+})
+
+
 
 
 route.post('/response', (req,res) => {
