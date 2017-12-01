@@ -11,19 +11,26 @@ const AcceptShiftMobile = ({shift,idx,declined,accepted,acceptShift,declineShift
 
 
   return (
-        <div className="mobile-container">
-        {accepted ? <div className="accepted-Shift">ACCEPTED<br/>THANK YOU!</div> : null }
+      <div className="mobile-container">
+
+        {accepted ?
+          <div className="accepted-Shift">ACCEPTED<br/>THANK YOU!</div> : null }
         {declined ? <div className="declined-Shift">DECLINED</div> : null }
+
           <div className="accept-shiftCard" key={idx}>
-            <div className="open-shiftCardSummary" >
-              {shift.summary ? shift.summary : 'Shift Open'}</div>
-            <div className="shiftCardLocation" >
-              {shift.location ? shift.location : 'Click for Location'}</div>
-            <img className="empCardImage" src="https://news.postimees.ee/public/img/shrek-gray.svg" alt="icon"></img>
-            <div className="shiftCardStart" >
-              {shift.starttime ? 'Starts: '+shift.starttime : 'Click for Start Time'}</div>
-            <div className="shiftCardLength" >
-              {shiftLength ? shiftLength+'hr shift' : 'Click for Shift Length'}</div>
+          <div className="open-shiftCardSummary" >
+            {shift.summary ? shift.summary : 'Shift Open'}
+          </div>
+          <div className="shiftCardLocation" >
+            {shift.location ? shift.location : 'Click for Location'}
+          </div>
+          <img className="empCardImage" src="https://news.postimees.ee/public/img/shrek-gray.svg" alt="icon">
+          </img>
+          <div className="shiftCardStart" >
+            {shift.starttime ? 'Starts: '+shift.starttime : 'Click for Start Time'}</div>
+          <div className="shiftCardLength" >
+            {shiftLength ? shiftLength+'hr shift' : 'Click for Shift Length'}
+          </div>
           </div>
 
 
@@ -37,8 +44,6 @@ const AcceptShiftMobile = ({shift,idx,declined,accepted,acceptShift,declineShift
           </div>
 
         </div>
-
-
     )//end of return
 };
 
