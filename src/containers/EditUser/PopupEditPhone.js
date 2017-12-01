@@ -35,6 +35,7 @@ render() {
                open={show}
                closeBtn={true}
                closeOnEsc={true}
+               contentStyle={{overflow: "hidden"}}
                onClose={() => this.toggleShow(false)}
                closeOnOverlay={true}>
          <Formsy onSubmit={(e)=>this.props.submit(e,id)}>

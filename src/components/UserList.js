@@ -43,6 +43,7 @@ class UserList extends Component {
                 />
                 <PopupEditPhone
                  id={user}
+                 contentStyle={{overflow: "hidden"}}
                  submit={this.submit.bind(this)}
                  canSubmit={this.state.canSubmit}/>
               </div>
