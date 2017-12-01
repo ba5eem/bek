@@ -238,7 +238,8 @@ button.google-login {
   justify-content: center;
   font-size: 120%;
   border-bottom: 2px solid black;
-  padding-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 //Column 2---------------------
 #iframe-div {
@@ -261,6 +262,7 @@ button.google-login {
   order: 4;
   width: 300px;
   height: 100%;
+  margin-left: 20px;
 }
 
 #todays-shifts {
@@ -269,7 +271,7 @@ button.google-login {
   border-bottom: 2px solid black;
   font-size: 120%;
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 //Shift Card--------------------
@@ -280,7 +282,7 @@ button.google-login {
   justify-content: center;
   text-align: center;
   border-radius: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   margin-top: 5px;
   border: 0.5px solid $button;
 }
@@ -306,8 +308,9 @@ button.google-login {
   justify-content: center;
   text-align: center;
   border-radius: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   margin-top: 5px;
+  margin-right: 20px;
   border: 0.5px solid $button;
 }
 .shiftCard:hover {
@@ -662,18 +665,4 @@ button.google-login {
 
   }
 }
-@media screen and (max-width: 768px) {
-  #header {
-    width: 100%;
-  }
-  #main-Home-container {
-    display: block;
-    align-items: center;
-    width: 100%;
-  }
-  #iframe-div {
-    overflow: scroll;
-  }
-}
-
 
