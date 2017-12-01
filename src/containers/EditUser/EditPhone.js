@@ -9,7 +9,6 @@ import { editPhone } from '../../actions/users';
 //import PopPop from 'react-poppop';
 import PopupUser from './PopupUser';
 
-
 class EditPhone extends Component {
   constructor(props) {
     super(props);
@@ -28,13 +27,9 @@ class EditPhone extends Component {
     this.setState({ canSubmit: true });
   }
 
-
-
   render(){
     return (
         <div style={quickShifts}>
-
-
         </div>
     );/*END OF RETURN*/
   }

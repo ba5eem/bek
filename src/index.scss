@@ -536,7 +536,7 @@ button.google-login {
   background: $main;
   font-family: 'Advent Pro', sans-serif;
 }
-// ------------------------
+// Footer--------------------
 #footer {
   margin-top: 40px;
   display: flex;
@@ -550,12 +550,12 @@ button.google-login {
   background-color: $accent;
   color: $main;
 }
-
-#notfound{
+//404 Page--------------------
+#not-found{
   background-color: #f7674a;
   text-align: center;
   height: 100%;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 //----------------------------
 @media only screen

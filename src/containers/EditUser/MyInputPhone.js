@@ -35,19 +35,12 @@ class MyInput extends React.Component {
   }
 }
 const input = {
-  width: "400px",
+  width: "300px",
   borderRadius: "5px",
   border: "2px solid #66b3ff",
-  fontSize:"40px",
+  fontSize:"20px",
   textAlign:"center",
-  marginTop: "10px"
 
 }
-// const select = {
-//   width: "200px",
-//   textAlign:"center",
-//   backgroundColor: "#66b3ff",
-//   fontSize:"40px"
-// }
 
 export default withFormsy(MyInput);

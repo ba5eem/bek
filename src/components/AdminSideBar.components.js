@@ -10,7 +10,7 @@ const AdminSideBar = () => {
                 width="200px">
                   <Link to="/home">Home</Link>
                 <div id="line"/>
-                  <Link to="/users">Employees</Link>
+                  <Link to="/users">Staff</Link>
                 <div id="line"/>
                   <Link to="/logout"><Logout/></Link>
                 <div id="line"/>

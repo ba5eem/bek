@@ -7,7 +7,7 @@ const Welcome = () => {
 if(localStorage.username) {
     return (
       <div className="welcomeUserSign">
-        Welcome back, {user}!
+        Hello, {user}!
       </div>
     )
   } else {
