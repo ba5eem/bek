@@ -557,68 +557,79 @@ button.google-login {
   height: 100%;
   margin-top: 5px;
 }
-//----------------------------
+// ---------------------------
 @media only screen
-  and (min-device-width: 375px)
-  and (max-device-width: 667px)
+  and (min-device-width: 320px)
+  and (min-device-height: 568px)
+  and (max-device-width: 1024px)
   and (-webkit-min-device-pixel-ratio: 2) {
-  .nav-links {
-    background-color: $accent;
-    display:flex;
-    justify-content: center;
-  }
-  .welcomeUserSign{
-    color: transparent;
-  }
-  .mobileWelcomeUserSignOnly{
-    color: white;
-  }
-  .accept-Shift-Container{
-  display: flex-wrap;
-  justify-content: center;
-  text-align: center;
-  }
-  .accept-shiftCard {
-    width: 270px;
-    height: 170px;
-    background-color: $main;
-    justify-content: center;
-    text-align: center;
-    border-radius: 15px;
-    margin-bottom: 5px;
-    margin-top: 10px;
-    border: 0.5px solid $button;
-  }
-
-  .mobileButtons{
+    .nav-links {
+      background-color: $accent;
+      display:flex;
+      justify-content: center;
+    }
+    .welcomeUserSign{
+      color: transparent;
+    }
+    .mobileWelcomeUserSignOnly{
+      color: white;
+    }
+    .accept-Shift-Container{
     display: flex-wrap;
     justify-content: center;
+    text-align: center;
+    }
+    .accept-shiftCard {
+      width: 270px;
+      height: 170px;
+      background-color: $main;
+      justify-content: center;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 5px;
+      margin-top: 40px;
+      border: 0.5px solid $button;
+    }
+  //Mobile Shift View-----------
+  .acceptShift {
+    display: flex;
+    justify-content: center;
+  .mobile-container {
+    display: block;
+  }
+    .mobileButtons {
+      width: 270px;
+      .acceptShiftButton{
+        font-family: 'Advent Pro', sans-serif;
+        font-size: 110%;
+        width: 270px;
+        height: 50px;
+        background-color: $green;
+        margin-top: 10px;
+        color: $main;
+      }
+
+      .declineShift{
+        font-family: 'Advent Pro', sans-serif;
+        font-size: 110%;
+        width: 270px;
+        height: 50px;
+        background-color: $orange;
+        margin-top: 10px;
+      }
+
+      .detailsShift{
+        font-family: 'Advent Pro', sans-serif;
+        font-size: 110%;
+        width: 270px;
+        height: 50px;
+        background-color: $accent;
+        margin-top: 10px;
+      }
+    }
   }
 
-  .mobile-container{
-    margin-left: 50px;
-  }
 
-  .acceptShiftButton{
-    width: 270px;
-    height: 50px;
-    background-color: lightgreen;
-    margin-top: 10px;
-  }
-
-  .declineShift{
-    width: 270px;
-    height: 50px;
-    background-color: salmon;
-    margin-top: 10px;
-  }
-
-  .detailsShift{
-    width: 270px;
-    height: 50px;
-    background-color: cornflowerblue;
-    margin-top: 10px;
-  }
   .declined-Shift{
     position: absolute;
     z-index: 2000;
@@ -650,9 +661,7 @@ button.google-login {
     opacity: 0.9;
 
   }
-
 }
-
 @media screen and (max-width: 768px) {
   #header {
     width: 100%;
