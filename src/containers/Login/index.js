@@ -36,6 +36,7 @@ class Login extends Component {
 
     return (
         <div id="login-container">
+          <div className="login-welcome">-- W E L C O M E --</div>
           <div className="google-icon"></div>
           <div className="login-welcome">Please login with your GOOGLE account</div>
 

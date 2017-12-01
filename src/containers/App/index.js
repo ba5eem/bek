@@ -28,7 +28,3 @@ class App extends Component {
 
 
 export default App;
-
-// width="650px"
-// height="500px"
-// frameborder="0"
