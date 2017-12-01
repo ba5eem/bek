@@ -101,8 +101,8 @@ route.post('/response', (req,res) => {
     console.log('received yes reply')
     twiml.message('You replied something else other than YES, bye')
   }
-  console.log('INCOMING MSG:', req.body.Body)
-  res.json(data)
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
 })
 
 module.exports = route;

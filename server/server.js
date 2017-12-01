@@ -8,7 +8,7 @@ const {user}          = db;
 const cors            = require('cors')
 const PORT            = process.env.PORT || 8080;
 const app             = express();
-
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
 
 //need this for deployment
 app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -26,6 +26,7 @@ app.get('/', ( req, res ) =>{
 app.get('*', ( req, res ) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
+
 
 const server = app.listen(PORT,() => {
   db.sequelize.sync( { force: false } ); //this is to link with your DB defined in the config file - set to true to overwrite, set to false to not overwrite:
