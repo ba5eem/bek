@@ -11,12 +11,7 @@ const NonUserSideBar = () => {
                 <Link to="/">Home</Link>
               <div id="line"/>
                 <Link to="/login">Login</Link>
-              <div id="line"/>
             </Menu>
-
-
-
-
           </div>
     );
 

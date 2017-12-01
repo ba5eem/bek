@@ -21,38 +21,59 @@ class Home extends Component {
 
   render(){
     const path = "cohortuser19%40gmail.com";
-
-    return (
-      <div id="main-Home-container">
-        <div id="column-1">
-        <NewShift />
-        <div className="open-shifts">*** Open Shifts ***</div>
-        <OpenShift />
-        </div>
-
-        <div id="iframe-div">
-        <div id="calendar-title">-- Cohort 19 -- </div>
-        <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
-          width="600px"
-          height="500px"
-          scrolling="yes"
-          position="relative">
-          </Iframe>
-
-          <div id="chat-app-div">
-          <ChatApp/>
+    if(localStorage.admin) {
+      return (
+        <div id="main-Home-container">
+          <div id="column-1">
+          <NewShift />
+          <div className="open-shifts">*** Open Shifts ***</div>
+          <OpenShift />
           </div>
-        </div>
-        <ClosedShift />
-        {/*auth
-          ?<UsersListView/>
-          :<Login/>
-        */}
 
-      </div>
-    );
+          <div id="iframe-div">
+          <div id="calendar-title">-- Cohort 19 -- </div>
+          <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
+            width="600px"
+            height="500px"
+            scrolling="yes"
+            position="relative">
+            </Iframe>
+
+            <div id="chat-app-div">
+            <ChatApp/>
+            </div>
+          </div>
+          <ClosedShift />
+          {/*auth
+            ?<UsersListView/>
+            :<Login/>
+          */}
+
+        </div>
+      )
+    } else if(localStorage.username){
+        return (
+          <div id="main-Home-container">
+            <div id="iframe-div">
+            <div id="calendar-title">-- Cohort 19 -- </div>
+            <Iframe url={`https://calendar.google.com/calendar/embed?src=${path}&ctz=Pacific/Honolulu`}
+              width="600px"
+              height="500px"
+              scrolling="yes"
+              position="relative">
+              </Iframe>
+
+              <div id="chat-app-div">
+              <ChatApp/>
+              </div>
+            </div>
+            <ClosedShift />
+        </div>
+        )
+    }
   }
 }
+
 
 const mapStateToProps = (state) => {
   return {

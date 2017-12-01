@@ -13,7 +13,6 @@ const UserSideBar = () => {
                   <Link to="/profile">Profile</Link>
                 <div id="line"/>
                   <Link to="/logout"><Logout/></Link>
-                <div id="line"/>
               </Menu>
            </div>
     );
