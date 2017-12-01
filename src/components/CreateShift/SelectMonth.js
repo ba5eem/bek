@@ -24,14 +24,14 @@ class SelectMonth extends React.Component {
     const month = [
     {
       month:"SELECT MONTH",
-      value: "2017-11-"
+      value: "2017-12-"
     },{
-      month:"November",
-      value: "2017-11-"
-    },
-    {
       month:"December",
       value: "2017-12-"
+    },
+    {
+      month:"January",
+      value: "2018-01-"
     }]
 
     return (
