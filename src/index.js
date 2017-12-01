@@ -40,7 +40,6 @@ const store = createStore(
   );
 const auth = localStorage.isLoggedIn !== undefined ? localStorage.isLoggedIn : false;
 
-const accepturi = localStorage.accepturi !== undefined ? localStorage.accepturi : '/accept';
 
 
 ReactDOM.render(

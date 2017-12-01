@@ -36,7 +36,7 @@ module.exports = {
       googleid: '112587183780205170008',
       image: 'https://png.icons8.com/nolan/1600/admin',
       phone: '6129982261',
-      name: 'cohort user',
+      name: 'Admin',
       admin: true,
       hours: 25,
       createdAt: '2017-11-23 00:00:57',
