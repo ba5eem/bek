@@ -69,9 +69,9 @@ class AcceptShift extends Component {
                     shift={shift}
                     acceptShift={this.acceptShift}
                     declineShift={this.declineShift}/>
-                  )
+                )
               })}
-              
+
         </div>
 
     );

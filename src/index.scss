@@ -189,7 +189,7 @@ textarea {
     margin: 0 auto;
   }
   .login-welcome {
-    padding-bottom: 40px;
+    padding-bottom: 30px;
   }
 }
 button.google-login {
@@ -461,11 +461,10 @@ button.google-login {
 .ChatApp {
   border: 1px solid #ccc;
   border-radius: 3px;
-  height: 375px;
-  width: 650px;
-  margin-top: 35px;
+  height: 200px;
+  width: 600px;
+  margin-top: 20px;
   margin-bottom: 25px;
-  margin-left: 25px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -490,7 +489,7 @@ button.google-login {
   }
   .MessageForm .button-container {
   flex: 0 0 6em;
-  // margin: 1px 1px 1px 0;
+  margin: 1px 1px 1px 0;
   }
   input.send-button {
    background: $button;

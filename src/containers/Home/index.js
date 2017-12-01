@@ -40,7 +40,7 @@ class Home extends Component {
           </Iframe>
 
           <div id="chat-app-div">
-          {/*<ChatApp/>*/}
+          <ChatApp/>
           </div>
         </div>
         <ClosedShift />
