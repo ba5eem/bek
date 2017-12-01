@@ -245,8 +245,7 @@ button.google-login {
 #iframe-div {
   order: 3;
   height: 100%;
-  display: block;
-  align-items: center;
+  display: flex;
   justify-content: center;
   position: relative;
   margin-top: 10px;
