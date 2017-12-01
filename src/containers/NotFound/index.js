@@ -13,7 +13,7 @@ class NotFound extends Component {
   render(){
 
     return (
-      <div id="notfound">
+      <div id="not-found">
 
         <img src="http://bit.ly/2BwEWsS" alt="image not found...kinda like this page"/>
 

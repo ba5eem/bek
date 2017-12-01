@@ -12,7 +12,7 @@ const AcceptShiftMobile = ({shift,idx,declined,accepted,acceptShift,declineShift
 
   return (
         <div className="mobile-container">
-        {accepted ? <div className="accepted-Shift">ACCEPTED<br/>THANK YOU!!</div> : null }
+        {accepted ? <div className="accepted-Shift">ACCEPTED<br/>THANK YOU!</div> : null }
         {declined ? <div className="declined-Shift">DECLINED</div> : null }
           <div className="accept-shiftCard" key={idx}>
             <div className="open-shiftCardSummary" >
@@ -25,8 +25,8 @@ const AcceptShiftMobile = ({shift,idx,declined,accepted,acceptShift,declineShift
             <div className="shiftCardLength" >
               {shiftLength ? shiftLength+'hr shift' : 'Click for Shift Length'}</div>
           </div>
-         
-          
+
+
           <div className="mobileButtons">
             <button className="acceptShiftButton" name="accept" onClick={(e)=>acceptShift(e,shift.id)}>ACCEPT</button>
             <button className="declineShift" name="decline" onClick={(e)=>declineShift(e,shift.id)}>DECLINE

@@ -18,9 +18,6 @@ class SideBar extends Component {
     };
   }
 
-
-
-
   render() {
     const checkAuth = localStorage.isLoggedIn !== undefined ? localStorage.isLoggedIn : false;
     const checkAdmin = localStorage.admin !== undefined ? localStorage.admin : false;
@@ -31,7 +28,7 @@ class SideBar extends Component {
 
     return(
       <div id="sidebar">
-        
+
         {!auth ? <NonUserSideBar /> : null }
         {auth ? <UserSideBar /> : null }
         {admin ? <AdminSideBar /> : null }
