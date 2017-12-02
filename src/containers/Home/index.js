@@ -103,9 +103,7 @@ class Home extends Component {
           position="relative">
           </Iframe>
 
-          <div id="chat-app-div">
-          <ChatApp/>
-          </div>
+
         </div>
         <ClosedShift />
         {/*auth
