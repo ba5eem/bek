@@ -6,6 +6,6 @@ const client = require('twilio')(
 );
 client.messages.create({
   from: process.env.TWILIO_PHONE_NUMBER,
-  to: '+18087280608',
+  to: '+123-456-7890',
   body: "Hi BEK Team! Twilio was succesfully set up"
 }).then((messsage) => console.log(message.sid));
